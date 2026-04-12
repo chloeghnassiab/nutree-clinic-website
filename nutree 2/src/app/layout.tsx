@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import '../styles/globals.css'
+import '@/styles/globals.css'
 import { SiteNav } from '@/components/layout/SiteNav'
 import { SiteFooter } from '@/components/layout/SiteFooter'
 import { ChatWidget } from '@/components/ui/ChatWidget'
