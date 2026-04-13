@@ -62,9 +62,9 @@ export default function OxytocinPage() {
         title="The most direct route to calm."
         body="The nasal mucosa provides direct access to the central nervous system, allowing oxytocin to reach its target receptors efficiently. Two sprays daily, as prescribed — easy to build into any morning or evening routine."
         cards={[
-          { icon: '🧠', title: 'CNS targeting', desc: 'Direct access to the amygdala and stress-regulating pathways' },
-          { icon: '😌', title: 'Cortisol regulation', desc: 'Supports a calmer baseline stress response throughout the day' },
-          { icon: '💤', title: 'Sleep support', desc: 'Lower evening cortisol supports a more natural transition to rest' },
+          { icon: 'Brain', title: 'CNS targeting', desc: 'Direct access to the amygdala and stress-regulating pathways' },
+          { icon: 'Smiley', title: 'Cortisol regulation', desc: 'Supports a calmer baseline stress response throughout the day' },
+          { icon: 'Moon', title: 'Sleep support', desc: 'Lower evening cortisol supports a more natural transition to rest' },
         ]}
       />
 
@@ -82,9 +82,9 @@ export default function OxytocinPage() {
         title="What oxytocin does in the brain."
         iconGradient="linear-gradient(135deg, var(--oxy-mid), var(--oxy))"
         items={[
-          { icon: '❤️', title: 'Amygdala modulation', desc: 'Oxytocin reduces the reactivity of the amygdala — the brain\'s threat-detection centre — supporting a calmer, more regulated emotional response.' },
-          { icon: '🔄', title: 'Cortisol reduction', desc: 'Oxytocin activates the parasympathetic nervous system, helping to lower cortisol and shift the body toward calm, regulated function.' },
-          { icon: '🌿', title: 'Reduced systemic inflammation', desc: 'Research suggests oxytocin suppresses inflammatory cytokines — relevant for patients whose stress has manifested as chronic fatigue or systemic inflammation.' },
+          { icon: 'Heart', title: 'Amygdala modulation', desc: 'Oxytocin reduces the reactivity of the amygdala — the brain\'s threat-detection centre — supporting a calmer, more regulated emotional response.' },
+          { icon: 'ArrowsClockwise', title: 'Cortisol reduction', desc: 'Oxytocin activates the parasympathetic nervous system, helping to lower cortisol and shift the body toward calm, regulated function.' },
+          { icon: 'Plant', title: 'Reduced systemic inflammation', desc: 'Research suggests oxytocin suppresses inflammatory cytokines — relevant for patients whose stress has manifested as chronic fatigue or systemic inflammation.' },
         ]}
       />
 

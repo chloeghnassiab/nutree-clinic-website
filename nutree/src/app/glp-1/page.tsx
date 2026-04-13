@@ -28,7 +28,7 @@ export default function MicroDosingPage() {
             src="/images/hero-glp1.png"
             alt="GLP-1 microdosing"
             style={{ width: '72%', maxWidth: 140, height: 'auto', position: 'relative', zIndex: 2, objectFit: 'contain' }}
-            onError={(e) => { e.currentTarget.style.display = 'none' }}
+
           />
         </div>
 
@@ -56,7 +56,7 @@ export default function MicroDosingPage() {
               best
               color="var(--glp-dark)"
             />
-            <div style={{ fontSize: "0.8125rem", color: 'var(--ink-3)', marginTop: 3, paddingLeft: 4 }}>
+            <div style={{ fontSize: "1rem", color: 'var(--ink-3)', marginTop: 3, paddingLeft: 4 }}>
               {P.microdosingSema.perWeek.label} · billed upfront
             </div>
           </div>
@@ -76,7 +76,7 @@ export default function MicroDosingPage() {
               best
               color="var(--glp-dark)"
             />
-            <div style={{ fontSize: "0.8125rem", color: 'var(--ink-3)', marginTop: 3, paddingLeft: 4 }}>
+            <div style={{ fontSize: "1rem", color: 'var(--ink-3)', marginTop: 3, paddingLeft: 4 }}>
               {P.microDosingTirz.perWeek.label} · billed upfront
             </div>
           </div>
@@ -100,9 +100,9 @@ export default function MicroDosingPage() {
         title="Same medication. Gentler introduction."
         body="Standard GLP-1 dosing can cause nausea and digestive discomfort in the early weeks. Microdosing uses the same compounded semaglutide or tirzepatide at a lower starting dose — giving your body more time to adjust. Many patients find the side effect profile significantly more manageable, while still achieving meaningful results."
         cards={[
-          { icon: '🌱', title: 'Lower dose', desc: 'A fraction of the standard starting dose — your body adjusts gradually' },
-          { icon: '😌', title: 'Fewer side effects', desc: 'Nausea and digestive discomfort significantly reduced for most patients' },
-          { icon: '📋', title: 'Fixed programme', desc: '5 or 10 weeks — clear start and end, no ongoing commitment' },
+          { icon: 'Plant', title: 'Lower dose', desc: 'A fraction of the standard starting dose — your body adjusts gradually' },
+          { icon: 'Smiley', title: 'Fewer side effects', desc: 'Nausea and digestive discomfort significantly reduced for most patients' },
+          { icon: 'ClipboardText', title: 'Fixed programme', desc: '5 or 10 weeks — clear start and end, no ongoing commitment' },
         ]}
       />
 
@@ -111,10 +111,10 @@ export default function MicroDosingPage() {
         <SectionHeader eyebrow="Is microdosing right for you?" title="Most patients choose microdosing when..." />
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
           {[
-            { icon: '🆕', t: 'You\'ve never tried GLP-1 before', d: 'Microdosing is the most comfortable way to experience GLP-1 therapy for the first time.' },
-            { icon: '😟', t: 'You had side effects on standard dosing', d: 'If you tried GLP-1 previously and stopped due to nausea, microdosing often resolves this completely.' },
-            { icon: '⚖️', t: 'You have a smaller amount of weight to lose', d: 'For patients closer to their goal weight, a lower dose is often clinically appropriate.' },
-            { icon: '🔍', t: 'You want to try before committing to monthly plans', d: 'A 5 or 10-week programme lets you experience the medication with no ongoing obligation.' },
+            { icon: 'Star', t: 'You\'ve never tried GLP-1 before', d: 'Microdosing is the most comfortable way to experience GLP-1 therapy for the first time.' },
+            { icon: 'SmileyMeh', t: 'You had side effects on standard dosing', d: 'If you tried GLP-1 previously and stopped due to nausea, microdosing often resolves this completely.' },
+            { icon: 'Scales', t: 'You have a smaller amount of weight to lose', d: 'For patients closer to their goal weight, a lower dose is often clinically appropriate.' },
+            { icon: 'MagnifyingGlass', t: 'You want to try before committing to monthly plans', d: 'A 5 or 10-week programme lets you experience the medication with no ongoing obligation.' },
           ].map((item, i) => (
             <div key={i} style={{ display: 'flex', gap: '0.75rem', padding: '0.875rem', borderRadius: '12px', background: 'var(--base)', border: '0.5px solid var(--border)' }}>
               <div style={{ fontSize: '1.125rem', flexShrink: 0 }}>{item.icon}</div>
@@ -167,9 +167,9 @@ export default function MicroDosingPage() {
         title="Same mechanism. Lower dose."
         iconGradient="linear-gradient(135deg, var(--glp-mid), var(--glp))"
         items={[
-          { icon: '🧠', title: 'GLP-1 receptor activation', desc: 'Microdosed semaglutide and tirzepatide work through the same receptor pathways as standard doses — signalling satiety, slowing gastric emptying, and supporting metabolic health.' },
-          { icon: '📉', title: 'Gradual titration', desc: 'Lower starting doses allow your body to adapt without the shock that often causes nausea. Your clinician may titrate upward over the programme if appropriate.' },
-          { icon: '⚖️', title: 'Meaningful results at lower doses', desc: 'Clinical data shows meaningful metabolic benefits at sub-standard doses — particularly for patients who are closer to their target weight.' },
+          { icon: 'Brain', title: 'GLP-1 receptor activation', desc: 'Microdosed semaglutide and tirzepatide work through the same receptor pathways as standard doses — signalling satiety, slowing gastric emptying, and supporting metabolic health.' },
+          { icon: 'TrendDown', title: 'Gradual titration', desc: 'Lower starting doses allow your body to adapt without the shock that often causes nausea. Your clinician may titrate upward over the programme if appropriate.' },
+          { icon: 'Scales', title: 'Meaningful results at lower doses', desc: 'Clinical data shows meaningful metabolic benefits at sub-standard doses — particularly for patients who are closer to their target weight.' },
         ]}
       />
 

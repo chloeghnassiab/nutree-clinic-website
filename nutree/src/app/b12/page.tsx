@@ -66,9 +66,9 @@ export default function B12Page() {
         title="Injectable or oral — your clinician recommends what's right."
         body="Injectables deliver B vitamins directly into the bloodstream, bypassing digestion entirely. Oral sublingual tablets dissolve under the tongue for partial mucosal absorption. Your provider selects the most appropriate form based on your health profile."
         cards={[
-          { icon: '💉', title: 'Injectable', desc: '100% direct absorption — bypasses the digestive system entirely' },
-          { icon: '💊', title: 'Oral / Sublingual', desc: 'Needle-free — dissolves under the tongue for mucosal absorption' },
-          { icon: '⚡', title: 'Fast-acting', desc: 'Many patients notice energy changes within days of their first injection' },
+          { icon: 'Syringe', title: 'Injectable', desc: '100% direct absorption — bypasses the digestive system entirely' },
+          { icon: 'Pill', title: 'Oral / Sublingual', desc: 'Needle-free — dissolves under the tongue for mucosal absorption' },
+          { icon: 'Lightning', title: 'Fast-acting', desc: 'Many patients notice energy changes within days of their first injection' },
         ]}
       />
 
@@ -77,9 +77,9 @@ export default function B12Page() {
         title="Why B6 and B12 matter."
         iconGradient="linear-gradient(135deg, var(--b12-mid), var(--b12))"
         items={[
-          { icon: '⚡', title: 'Energy metabolism at the cellular level', desc: 'B12 is essential for converting food into usable cellular energy — working alongside B6 in the metabolic pathways that produce ATP, your body\'s primary energy currency.' },
-          { icon: '🧠', title: 'Neurological function and mood', desc: 'B6 and B12 are required for the synthesis of serotonin, dopamine, and GABA — key neurotransmitters for mood, focus, and cognitive function.' },
-          { icon: '🩸', title: 'Red blood cell formation', desc: 'B12 is critical for producing healthy red blood cells — supporting oxygen delivery throughout the body and directly affecting energy and recovery.' },
+          { icon: 'Lightning', title: 'Energy metabolism at the cellular level', desc: 'B12 is essential for converting food into usable cellular energy — working alongside B6 in the metabolic pathways that produce ATP, your body\'s primary energy currency.' },
+          { icon: 'Brain', title: 'Neurological function and mood', desc: 'B6 and B12 are required for the synthesis of serotonin, dopamine, and GABA — key neurotransmitters for mood, focus, and cognitive function.' },
+          { icon: 'Drop', title: 'Red blood cell formation', desc: 'B12 is critical for producing healthy red blood cells — supporting oxygen delivery throughout the body and directly affecting energy and recovery.' },
         ]}
       />
 

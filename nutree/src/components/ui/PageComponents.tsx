@@ -2,12 +2,29 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import {
-  CheckCircle, Truck, Stethoscope, Lock, Certificate,
-  ArrowRight, Star, Info, Plus, Minus,
-  Leaf, Drop, Lightning, Brain, Heart, Sun,
-  Pill, Syringe, SprayBottle, FirstAid,
-  ShieldCheck, CreditCard, Clock, UserCircle,
+  CheckCircle, ArrowRight, Star, Info, Plus, Minus, ClipboardText, TrendDown, Stethoscope,
+  ShieldCheck, CreditCard, Lock, Certificate,
+  Brain, Timer, Drop, Barbell, Lightning, Dna,
+  Pill, Syringe, Fire, Moon, ArrowsClockwise,
+  TrendUp, Heart, Plant, Smiley, SmileyMeh,
+  Scales, MagnifyingGlass, Leaf, Sun, Sparkle,
 } from '@phosphor-icons/react'
+
+// Map icon string names → Phosphor components
+const ICON_COMPONENTS: Record<string, React.ComponentType<{size?: number; weight?: 'thin'|'light'|'regular'|'bold'|'fill'|'duotone'; color?: string; style?: React.CSSProperties}>> = {
+  Brain, Timer, Drop, Barbell, Lightning, Dna,
+  Pill, Syringe, Fire, Moon, ArrowsClockwise,
+  TrendUp, Heart, Plant, Smiley, SmileyMeh,
+  Scales, MagnifyingGlass, Leaf, Sun, Sparkle,
+  ShieldCheck, CreditCard, Lock, Certificate,
+  CheckCircle, Star, ClipboardText, TrendDown, Stethoscope,
+}
+
+function PhosphorIcon({ name, size = 22, color = 'var(--ink)', weight = 'regular' }: { name: string; size?: number; color?: string; weight?: 'thin'|'light'|'regular'|'bold'|'fill'|'duotone' }) {
+  const Comp = ICON_COMPONENTS[name]
+  if (!Comp) return <span style={{ fontSize: size * 0.8 }}>{name}</span>
+  return <Comp size={size} weight={weight} color={color} />
+}
 
 // Icon size standard: 20px regular weight throughout
 const SZ = 20
@@ -30,7 +47,7 @@ export function SectionHeader({ eyebrow, title, body, color = 'var(--ink-3)' }: 
 }) {
   return (
     <div style={{ marginBottom: '1.25rem' }}>
-      {eyebrow && <div style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color, marginBottom: '0.5rem' }}>{eyebrow}</div>}
+      {eyebrow && <div style={{ fontSize: '1rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color, marginBottom: '0.5rem' }}>{eyebrow}</div>}
       <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.375rem, 3vw, 1.875rem)', color: 'var(--ink)', lineHeight: 1.2, marginBottom: body ? '0.625rem' : 0 }}>{title}</h2>
       {body && <p style={{ fontSize: '1rem', color: 'var(--ink-3)', lineHeight: 1.65, maxWidth: 520 }}>{body}</p>}
     </div>
@@ -53,14 +70,14 @@ export function PlanRow({ name, sub, price, afterPrice, best, color }: {
 }) {
   return (
     <div className="plan-row" style={{ display: 'flex', alignItems: 'center', padding: '0.75rem 0.875rem', borderRadius: 8, border: best ? `1.5px solid ${color}` : '1px solid var(--border)', marginBottom: '0.375rem', background: 'var(--white)', position: 'relative' }}>
-      {best && <div style={{ position: 'absolute', top: -9, right: 8, background: 'var(--green-badge)', color: '#fff', fontSize: '0.6875rem', fontWeight: 700, padding: '2px 8px', borderRadius: 999 }}>Best Value</div>}
+      {best && <div style={{ position: 'absolute', top: -9, right: 8, background: 'var(--green-badge)', color: '#fff', fontSize: '0.9375rem', fontWeight: 700, padding: '2px 8px', borderRadius: 999 }}>Best Value</div>}
       <div style={{ flex: 1 }}>
         <div style={{ fontSize: '0.9375rem', fontWeight: 600, color: 'var(--ink)' }}>{name}</div>
         {sub && <span style={{ fontSize: '0.875rem', color: 'var(--ink-3)', display: 'block', marginTop: 2 }}>{sub}</span>}
       </div>
       <div style={{ textAlign: 'right' }}>
         <div style={{ fontSize: '1rem', fontWeight: 700, color }}>{price}</div>
-        {afterPrice && <div style={{ fontSize: '0.8125rem', color: 'var(--ink-3)' }}>{afterPrice}</div>}
+        {afterPrice && <div style={{ fontSize: '1rem', color: 'var(--ink-3)' }}>{afterPrice}</div>}
       </div>
     </div>
   )
@@ -130,13 +147,13 @@ export function FeatureBand({ eyebrow, title, body, gradient, cards }: {
 }) {
   return (
     <div style={{ padding: '2rem 1.25rem', background: gradient }}>
-      <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--ink-3)', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: '0.625rem' }}>{eyebrow}</div>
+      <div style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--ink-3)', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: '0.625rem' }}>{eyebrow}</div>
       <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.375rem, 3vw, 1.875rem)', color: 'var(--ink)', lineHeight: 1.2, marginBottom: '0.75rem' }}>{title}</h2>
       <p style={{ fontSize: '1rem', color: 'var(--ink-2)', lineHeight: 1.7, marginBottom: '1.25rem', maxWidth: 480 }}>{body}</p>
       <div style={{ display: 'flex', gap: '0.625rem', flexWrap: 'wrap' }}>
         {cards.map((c, i) => (
           <div key={i} style={{ flex: '1 1 140px', background: 'rgba(255,255,255,0.75)', backdropFilter: 'blur(6px)', borderRadius: 12, padding: '1rem', border: '1px solid rgba(255,255,255,0.9)' }}>
-            <div style={{ fontSize: '1.25rem', marginBottom: '0.5rem' }}>{c.icon}</div>
+            <div style={{ marginBottom: '0.5rem', display: 'flex' }}><PhosphorIcon name={c.icon} size={24} color="var(--ink)" /></div>
             <div style={{ fontSize: '0.9375rem', fontWeight: 700, color: 'var(--ink)', marginBottom: '0.3rem' }}>{c.title}</div>
             <div style={{ fontSize: '0.875rem', color: 'var(--ink-3)', lineHeight: 1.5 }}>{c.desc}</div>
           </div>
@@ -178,8 +195,8 @@ export function ScienceGrid({ eyebrow, title, items, iconGradient }: {
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.625rem' }}>
         {items.map((item, i) => (
           <div key={i} className="science-item" style={{ display: 'flex', gap: '1rem', padding: '1rem', borderRadius: 12, background: 'var(--white)', border: '0.5px solid var(--border)' }}>
-            <div style={{ width: 36, height: 36, borderRadius: 9, background: iconGradient, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.125rem' }}>
-              {item.icon}
+            <div style={{ width: 40, height: 40, borderRadius: 10, background: iconGradient, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <PhosphorIcon name={item.icon} size={22} color="var(--white)" weight="regular" />
             </div>
             <div>
               <div style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--ink)', marginBottom: 4 }}>{item.title}</div>
@@ -209,12 +226,12 @@ export function Testimonials({ items, tagColor, tagDarkColor }: {
               &ldquo;{t.quote}&rdquo;
             </p>
             <div style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--ink-3)' }}>{t.author}</div>
-            <div style={{ display: 'inline-block', marginTop: '0.375rem', fontSize: '0.8125rem', fontWeight: 700, padding: '3px 10px', borderRadius: 999, background: tagColor, color: tagDarkColor }}>
+            <div style={{ display: 'inline-block', marginTop: '0.375rem', fontSize: '1rem', fontWeight: 700, padding: '3px 10px', borderRadius: 999, background: tagColor, color: tagDarkColor }}>
               {t.tag}
             </div>
           </div>
         ))}
-        <div style={{ fontSize: '0.8125rem', color: 'var(--ink-3)', textAlign: 'center' }}>
+        <div style={{ fontSize: '1rem', color: 'var(--ink-3)', textAlign: 'center' }}>
           Results reflect individual patient experiences and are not typical or guaranteed outcomes.
         </div>
       </div>
@@ -277,7 +294,7 @@ export function FAQSection({ items, iconBg, iconColor }: {
 // ─── PAGE LEGAL ──────────────────────────────────────────────────────────────
 export function PageLegal({ text }: { text: string }) {
   return (
-    <div style={{ padding: '0.875rem 1.25rem', fontSize: '0.8125rem', color: 'var(--ink-3)', lineHeight: 1.65, background: 'var(--white)', borderTop: '0.5px solid var(--border)' }}>
+    <div style={{ padding: '0.875rem 1.25rem', fontSize: '1rem', color: 'var(--ink-3)', lineHeight: 1.65, background: 'var(--white)', borderTop: '0.5px solid var(--border)' }}>
       <Info size={13} style={{ display: 'inline', marginRight: 4, verticalAlign: 'middle' }} />
       {text}
     </div>
@@ -304,7 +321,7 @@ export function ConsultBand({ heading, sub }: { heading: string; sub?: string })
 // ─── IN STOCK BADGE ──────────────────────────────────────────────────────────
 export function InStockBadge() {
   return (
-    <div style={{ position: 'absolute', top: 12, left: 12, background: 'var(--white)', borderRadius: 999, padding: '4px 10px', fontSize: '0.8125rem', fontWeight: 700, color: 'var(--green-badge)', display: 'flex', alignItems: 'center', gap: 5, zIndex: 2, boxShadow: 'var(--shadow-sm)' }}>
+    <div style={{ position: 'absolute', top: 12, left: 12, background: 'var(--white)', borderRadius: 999, padding: '4px 10px', fontSize: '1rem', fontWeight: 700, color: 'var(--green-badge)', display: 'flex', alignItems: 'center', gap: 5, zIndex: 2, boxShadow: 'var(--shadow-sm)' }}>
       <div style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--green-badge)' }} />
       In Stock
     </div>

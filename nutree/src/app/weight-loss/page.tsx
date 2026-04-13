@@ -107,8 +107,8 @@ export default function WeightLossPage() {
         title="Your price. Your dose. Your plan."
         body="Every Nutree GLP-1 plan is built around you — medication, consultation, and shipping all included. Your price remains consistent throughout your treatment, at every dose level."
         cards={[
-          { icon: '💊', title: 'Medication included', desc: 'Compounded by a licensed 503A pharmacy to your prescription' },
-          { icon: '🩺', title: 'Provider care', desc: 'Consultation, follow-ups, and dose adjustments throughout' },
+          { icon: 'Pill', title: 'Medication included', desc: 'Compounded by a licensed 503A pharmacy to your prescription' },
+          { icon: 'Stethoscope', title: 'Provider care', desc: 'Consultation, follow-ups, and dose adjustments throughout' },
           { icon: '📦', title: 'Free shipping', desc: 'Expedited, discreet delivery on every order' },
         ]}
       />
@@ -139,7 +139,7 @@ export default function WeightLossPage() {
             }}>
               <div style={{ fontFamily: 'var(--font-serif)', fontSize: '1.375rem', fontWeight: 700, color: 'var(--glp-dark)', lineHeight: 1 }}>{s.val}</div>
               <div style={{ fontSize: "0.875rem", color: 'var(--glp-dark)', marginTop: 2 }}>{s.unit}</div>
-              <div style={{ fontSize: "0.8125rem", color: 'var(--ink-2)', marginTop: 4, lineHeight: 1.4 }}>{s.label}</div>
+              <div style={{ fontSize: "1rem", color: 'var(--ink-2)', marginTop: 4, lineHeight: 1.4 }}>{s.label}</div>
             </div>
           ))}
         </div>
@@ -157,13 +157,13 @@ export default function WeightLossPage() {
               { val: '~18%',h: '100%',bg: 'linear-gradient(180deg,var(--glp-mid),var(--nad))' },
             ].map((b, i) => (
               <div key={i} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2, flex: 1 }}>
-                <div style={{ fontSize: "0.8125rem", fontWeight: 700, color: 'var(--ink-2)' }}>{b.val}</div>
+                <div style={{ fontSize: "1rem", fontWeight: 700, color: 'var(--ink-2)' }}>{b.val}</div>
                 <div style={{ borderRadius: '4px 4px 0 0', width: '100%', height: b.h, background: b.bg }} />
-                <div style={{ fontSize: '0.4375rem', color: 'var(--ink-3)' }}>Mo {i + 1}</div>
+                <div style={{ fontSize: '1rem', color: 'var(--ink-3)' }}>Mo {i + 1}</div>
               </div>
             ))}
           </div>
-          <div style={{ fontSize: '0.4375rem', color: 'var(--ink-3)', marginTop: 6, lineHeight: 1.5 }}>
+          <div style={{ fontSize: '1rem', color: 'var(--ink-3)', marginTop: 6, lineHeight: 1.5 }}>
             *Data from clinical trials of FDA-approved reference medications. Compounded preparations are not those FDA-approved products. Individual results vary.
           </div>
         </div>
@@ -210,7 +210,7 @@ export default function WeightLossPage() {
             </tbody>
           </table>
         </div>
-        <p style={{ fontSize: '0.4375rem', color: 'var(--ink-3)', marginTop: 6, lineHeight: 1.5 }}>
+        <p style={{ fontSize: '1rem', color: 'var(--ink-3)', marginTop: 6, lineHeight: 1.5 }}>
           *Clinical trial data for FDA-approved reference medications (Wegovy®, Zepbound®). Compounded preparations are not those products. Your clinician determines suitability based on your individual health profile.
         </p>
       </Section>
@@ -221,10 +221,10 @@ export default function WeightLossPage() {
         title="The science behind the results."
         iconGradient="linear-gradient(135deg, var(--glp-mid), var(--glp))"
         items={[
-          { icon: '🧠', title: 'Appetite regulation at the brain level', desc: 'GLP-1 agonists act on hypothalamic receptors to reduce hunger signals — making it physiologically easier to maintain a healthy intake.' },
-          { icon: '⏱', title: 'Extended feeling of fullness', desc: 'Gastric emptying slows, so food moves more gradually — extending satiety after meals.' },
-          { icon: '🩸', title: 'Metabolic and blood sugar support', desc: 'GLP-1 medications support insulin secretion and suppress glucagon, improving metabolic markers beyond weight alone.' },
-          { icon: '💪', title: 'Weight loss that preserves lean tissue', desc: 'Combined with adequate protein and movement, GLP-1 therapy supports fat loss while helping to maintain lean muscle.' },
+          { icon: 'Brain', title: 'Appetite regulation at the brain level', desc: 'GLP-1 agonists act on hypothalamic receptors to reduce hunger signals — making it physiologically easier to maintain a healthy intake.' },
+          { icon: 'Timer', title: 'Extended feeling of fullness', desc: 'Gastric emptying slows, so food moves more gradually — extending satiety after meals.' },
+          { icon: 'Drop', title: 'Metabolic and blood sugar support', desc: 'GLP-1 medications support insulin secretion and suppress glucagon, improving metabolic markers beyond weight alone.' },
+          { icon: 'Barbell', title: 'Weight loss that preserves lean tissue', desc: 'Combined with adequate protein and movement, GLP-1 therapy supports fat loss while helping to maintain lean muscle.' },
         ]}
       />
 
@@ -259,8 +259,8 @@ export default function WeightLossPage() {
               </div>
               <div style={{ padding: '0.5rem' }}>
                 <div style={{ fontSize: "0.875rem", fontWeight: 700, color: 'var(--ink)', lineHeight: 1.3, marginBottom: 2 }}>{c.name}</div>
-                <div style={{ fontSize: "0.8125rem", color: 'var(--ink-3)' }}>{c.price}</div>
-                <div style={{ fontSize: "0.8125rem", fontWeight: 600, color: c.color, marginTop: 3 }}>See if you qualify →</div>
+                <div style={{ fontSize: "1rem", color: 'var(--ink-3)' }}>{c.price}</div>
+                <div style={{ fontSize: "1rem", fontWeight: 600, color: c.color, marginTop: 3 }}>See if you qualify →</div>
               </div>
             </Link>
           ))}

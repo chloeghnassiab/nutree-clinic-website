@@ -114,7 +114,7 @@ export default function PricingPage() {
                 <div style={{ flex: 1 }}>
                   <div style={{ fontSize: "0.875rem", fontWeight: 500, color: 'var(--ink)' }}>{opt.label}</div>
                   {opt.badge && (
-                    <span style={{ display: 'inline-block', marginTop: 2, fontSize: '0.4375rem', fontWeight: 700, padding: '1px 6px', borderRadius: 'var(--radius-pill)', background: plan.color, color: plan.darkColor }}>{opt.badge}</span>
+                    <span style={{ display: 'inline-block', marginTop: 2, fontSize: '1rem', fontWeight: 700, padding: '1px 6px', borderRadius: 'var(--radius-pill)', background: plan.color, color: plan.darkColor }}>{opt.badge}</span>
                   )}
                 </div>
                 <div style={{ fontSize: "0.9375rem", fontWeight: 700, color: plan.darkColor, flexShrink: 0, marginLeft: '0.5rem' }}>{opt.price}</div>
