@@ -24,11 +24,13 @@ export default function OxytocinPage() {
           <div style={{ position: 'absolute', width: 60, height: 60, borderRadius: '50%', background: 'rgba(90,48,128,0.12)', bottom: -8, right: -8 }} />
           <div style={{ position: 'absolute', width: 40, height: 40, borderRadius: '50%', background: 'rgba(255,255,255,0.2)', bottom: 25, left: 14 }} />
           <InStockBadge />
-          <div style={{ fontSize: '3.5rem', position: 'relative', zIndex: 2 }}>💨</div>
+          <div style={{ width: 80, height: 80, borderRadius: 20, background: 'rgba(255,255,255,0.6)', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', zIndex: 2 }}>
+            <img src='/images/hero-oxytocin.png' alt='Oxytocin' style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: 20 }} />
+          </div>
         </div>
 
         <div className="hero-right">
-          <h1 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.0625rem', color: 'var(--ink)', lineHeight: 1.2, marginBottom: 3 }}>
+          <h1 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.75rem', color: 'var(--ink)', lineHeight: 1.15, marginBottom: 8 }}>
             Oxytocin Nasal Spray
           </h1>
           <p style={{ fontSize: "0.875rem", color: 'var(--ink-3)', marginBottom: '0.625rem' }}>

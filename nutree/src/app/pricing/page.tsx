@@ -100,7 +100,7 @@ export default function PricingPage() {
       </section>
 
       {PLANS.map((plan, pi) => (
-        <section key={pi} style={{ padding: '1.25rem 1rem', background: pi % 2 === 0 ? 'var(--white)' : 'var(--base)', borderTop: '1px solid var(--border)' }}>
+        <section key={pi} style={{ padding: '1.75rem 1.5rem', background: pi % 2 === 0 ? 'var(--white)' : 'var(--base)', borderTop: '1px solid var(--border)' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.75rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
               <div style={{ width: 10, height: 10, borderRadius: '50%', background: plan.color, flexShrink: 0 }} />
@@ -124,7 +124,7 @@ export default function PricingPage() {
         </section>
       ))}
 
-      <section style={{ padding: '1.25rem 1rem', background: 'var(--white)', borderTop: '1px solid var(--border)' }}>
+      <section style={{ padding: '1.75rem 1.5rem', background: 'var(--white)', borderTop: '1px solid var(--border)' }}>
         <div style={{ background: 'var(--base)', borderRadius: 'var(--radius-lg)', padding: '1rem', border: '0.5px solid var(--border)' }}>
           <div style={{ fontSize: "0.875rem", fontWeight: 700, color: 'var(--ink-3)', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: '0.375rem' }}>All prices include</div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>

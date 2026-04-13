@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import {
-  CheckCircle, ArrowRight, Star, Info, Plus, Minus, ClipboardText, TrendDown, Stethoscope,
+  CheckCircle, ArrowRight, Star, Info, Plus, Minus, ClipboardText, TrendDown, Stethoscope, SprayBottle,
   ShieldCheck, CreditCard, Lock, Certificate,
   Brain, Timer, Drop, Barbell, Lightning, Dna,
   Pill, Syringe, Fire, Moon, ArrowsClockwise,
@@ -17,7 +17,7 @@ const ICON_COMPONENTS: Record<string, React.ComponentType<{size?: number; weight
   TrendUp, Heart, Plant, Smiley, SmileyMeh,
   Scales, MagnifyingGlass, Leaf, Sun, Sparkle,
   ShieldCheck, CreditCard, Lock, Certificate,
-  CheckCircle, Star, ClipboardText, TrendDown, Stethoscope,
+  CheckCircle, Star, ClipboardText, TrendDown, Stethoscope, SprayBottle,
 }
 
 function PhosphorIcon({ name, size = 22, color = 'var(--ink)', weight = 'regular' }: { name: string; size?: number; color?: string; weight?: 'thin'|'light'|'regular'|'bold'|'fill'|'duotone' }) {
@@ -35,7 +35,7 @@ export function Section({ children, bg = 'var(--base)', divider = true, style = 
   children: React.ReactNode; bg?: string; divider?: boolean; style?: React.CSSProperties; className?: string
 }) {
   return (
-    <section style={{ padding: '2rem 1.25rem', background: bg, borderTop: divider ? '1px solid var(--border)' : 'none', ...style }} className={className}>
+    <section style={{ padding: '2rem 1.5rem', background: bg, borderTop: divider ? '1px solid var(--border)' : 'none', ...style }} className={className}>
       {children}
     </section>
   )
@@ -146,7 +146,7 @@ export function FeatureBand({ eyebrow, title, body, gradient, cards }: {
   eyebrow: string; title: string; body: string; gradient: string; cards: { icon: string; title: string; desc: string }[]
 }) {
   return (
-    <div style={{ padding: '2rem 1.25rem', background: gradient }}>
+    <div style={{ padding: '2rem 1.5rem', background: gradient }}>
       <div style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--ink-3)', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: '0.625rem' }}>{eyebrow}</div>
       <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.375rem, 3vw, 1.875rem)', color: 'var(--ink)', lineHeight: 1.2, marginBottom: '0.75rem' }}>{title}</h2>
       <p style={{ fontSize: '1rem', color: 'var(--ink-2)', lineHeight: 1.7, marginBottom: '1.25rem', maxWidth: 480 }}>{body}</p>
@@ -294,7 +294,7 @@ export function FAQSection({ items, iconBg, iconColor }: {
 // ─── PAGE LEGAL ──────────────────────────────────────────────────────────────
 export function PageLegal({ text }: { text: string }) {
   return (
-    <div style={{ padding: '0.875rem 1.25rem', fontSize: '1rem', color: 'var(--ink-3)', lineHeight: 1.65, background: 'var(--white)', borderTop: '0.5px solid var(--border)' }}>
+    <div style={{ padding: '1rem 1.5rem', fontSize: '1rem', color: 'var(--ink-3)', lineHeight: 1.65, background: 'var(--white)', borderTop: '0.5px solid var(--border)' }}>
       <Info size={13} style={{ display: 'inline', marginRight: 4, verticalAlign: 'middle' }} />
       {text}
     </div>
@@ -304,7 +304,7 @@ export function PageLegal({ text }: { text: string }) {
 // ─── CONSULT BAND ────────────────────────────────────────────────────────────
 export function ConsultBand({ heading, sub }: { heading: string; sub?: string }) {
   return (
-    <div className="consult-band" style={{ background: 'var(--ink)', padding: '2rem 1.25rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '1rem' }}>
+    <div className="consult-band" style={{ background: 'var(--ink)', padding: '2rem 1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '1rem' }}>
       <div>
         <div style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.125rem, 2.5vw, 1.375rem)', color: '#fff', lineHeight: 1.3, marginBottom: sub ? 4 : 0 }}>
           {heading}

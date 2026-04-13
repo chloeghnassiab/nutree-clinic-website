@@ -35,7 +35,7 @@ export default function NADPage() {
         </div>
 
         <div className="hero-right">
-          <h1 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.0625rem', color: 'var(--ink)', lineHeight: 1.2, marginBottom: 3 }}>
+          <h1 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.75rem', color: 'var(--ink)', lineHeight: 1.15, marginBottom: 8 }}>
             NAD+ Therapy
           </h1>
           <p style={{ fontSize: "0.875rem", color: 'var(--ink-3)', marginBottom: '0.625rem' }}>
@@ -84,7 +84,7 @@ export default function NADPage() {
         body="Your provider selects the delivery form best suited to your goals — injectable, nasal spray, or patches with GHK-Cu peptide. All plans include medication, consultation, and free shipping."
         cards={[
           { icon: 'Syringe', title: 'Injectable', desc: 'Highest bioavailability — direct tissue delivery' },
-          { icon: '💨', title: 'Nasal Spray', desc: 'Rapid CNS absorption — no needles' },
+          { icon: 'SprayBottle', title: 'Nasal Spray', desc: 'Rapid CNS absorption — no needles' },
           { icon: '🩹', title: 'Patches + GHK-Cu', desc: 'Slow-release plus cellular repair peptide' },
         ]}
       />

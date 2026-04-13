@@ -35,7 +35,7 @@ export default function SermorelinPage() {
         </div>
 
         <div className="hero-right">
-          <h1 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.0625rem', color: 'var(--ink)', lineHeight: 1.2, marginBottom: 3 }}>
+          <h1 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.75rem', color: 'var(--ink)', lineHeight: 1.15, marginBottom: 8 }}>
             Sermorelin
           </h1>
           {/* ✅ CORRECTED: outcome-first, no "pituitary" in headline */}

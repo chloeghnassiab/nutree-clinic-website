@@ -44,7 +44,7 @@ export default function WeightLossPage() {
 
         {/* RIGHT — pricing */}
         <div className="hero-right">
-          <h1 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.0625rem', color: 'var(--ink)', lineHeight: 1.2, marginBottom: 3, letterSpacing: '-0.01em' }}>
+          <h1 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.75rem', color: 'var(--ink)', lineHeight: 1.15, marginBottom: 8, letterSpacing: '-0.01em' }}>
             Personalized GLP-1 Treatments
           </h1>
           <p style={{ fontSize: "0.875rem", color: 'var(--ink-3)', marginBottom: '0.625rem' }}>
