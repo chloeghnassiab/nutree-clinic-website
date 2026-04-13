@@ -39,7 +39,7 @@ export default function SermorelinPage() {
             Sermorelin
           </h1>
           {/* ✅ CORRECTED: outcome-first, no "pituitary" in headline */}
-          <p style={{ fontSize: '0.625rem', color: 'var(--ink-3)', marginBottom: '0.625rem' }}>
+          <p style={{ fontSize: "0.875rem", color: 'var(--ink-3)', marginBottom: '0.625rem' }}>
             More energy, stronger recovery, better sleep — from your own body
           </p>
           <PromoBanner />
@@ -48,12 +48,12 @@ export default function SermorelinPage() {
             <ProductBlockHeader>10-week starter plan</ProductBlockHeader>
             <div className="plan-row" style={{ borderColor: 'var(--ser-dark)', borderWidth: 1.5 }}>
               <div style={{ flex: 1 }}>
-                <div style={{ fontSize: '0.625rem', fontWeight: 600, color: 'var(--ink)' }}>10-week programme</div>
-                <span style={{ fontSize: '0.5625rem', color: 'var(--ink-3)', display: 'block', marginTop: 1 }}>Medication · consultation · shipping · no auto-renewal</span>
+                <div style={{ fontSize: "0.875rem", fontWeight: 600, color: 'var(--ink)' }}>10-week programme</div>
+                <span style={{ fontSize: "0.875rem", color: 'var(--ink-3)', display: 'block', marginTop: 1 }}>Medication · consultation · shipping · no auto-renewal</span>
               </div>
               <div style={{ textAlign: 'right' }}>
-                <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--ser-dark)' }}>{P.sermorelin.tenWeek.label}</div>
-                <div style={{ fontSize: '0.5rem', color: 'var(--ink-3)' }}>{P.sermorelin.tenWeek.subLabel}</div>
+                <div style={{ fontSize: "1rem", fontWeight: 700, color: 'var(--ser-dark)' }}>{P.sermorelin.tenWeek.label}</div>
+                <div style={{ fontSize: "0.8125rem", color: 'var(--ink-3)' }}>{P.sermorelin.tenWeek.subLabel}</div>
               </div>
             </div>
           </div>
@@ -147,7 +147,7 @@ export default function SermorelinPage() {
 
       <ConsultBand
         heading="Not sure which plan is right for you?"
-        sub="30 min · licensed clinician · video or phone"
+        sub="30 min · licensed clinician"
       />
     </>
   )

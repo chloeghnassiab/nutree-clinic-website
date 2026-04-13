@@ -29,11 +29,11 @@ export default function BlogPage() {
   return (
     <>
       <section style={{ padding: '2.5rem 1rem 1.5rem', background: 'var(--base)' }}>
-        <div style={{ fontSize: '0.5625rem', fontWeight: 700, color: 'var(--ink-3)', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: '0.75rem' }}>Clinical insights</div>
+        <div style={{ fontSize: "0.875rem", fontWeight: 700, color: 'var(--ink-3)', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: '0.75rem' }}>Clinical insights</div>
         <h1 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.75rem, 5vw, 2.75rem)', color: 'var(--ink)', lineHeight: 1.1, marginBottom: '0.5rem' }}>
           The Nutree Blog
         </h1>
-        <p style={{ fontSize: '0.8125rem', color: 'var(--ink-3)', lineHeight: 1.65 }}>
+        <p style={{ fontSize: "1rem", color: 'var(--ink-3)', lineHeight: 1.65 }}>
           Evidence-based articles on metabolic health, longevity, and the science behind our treatments.
         </p>
       </section>
@@ -50,12 +50,12 @@ export default function BlogPage() {
                 transition: 'box-shadow 0.15s, border-color 0.15s',
               }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
-                  <span style={{ fontSize: '0.5rem', fontWeight: 700, padding: '2px 8px', borderRadius: 'var(--radius-pill)', background: cat.bg, color: cat.color }}>{post.category}</span>
-                  <span style={{ fontSize: '0.5rem', color: 'var(--ink-3)' }}>{post.readTime} read</span>
-                  <span style={{ fontSize: '0.5rem', color: 'var(--ink-3)', marginLeft: 'auto' }}>{new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+                  <span style={{ fontSize: "0.8125rem", fontWeight: 700, padding: '2px 8px', borderRadius: 'var(--radius-pill)', background: cat.bg, color: cat.color }}>{post.category}</span>
+                  <span style={{ fontSize: "0.8125rem", color: 'var(--ink-3)' }}>{post.readTime} read</span>
+                  <span style={{ fontSize: "0.8125rem", color: 'var(--ink-3)', marginLeft: 'auto' }}>{new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
                 </div>
                 <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1rem', color: 'var(--ink)', lineHeight: 1.3, marginBottom: '0.375rem' }}>{post.title}</h2>
-                <p style={{ fontSize: '0.6875rem', color: 'var(--ink-3)', lineHeight: 1.6, marginBottom: 0 }}>{post.excerpt}</p>
+                <p style={{ fontSize: "0.9375rem", color: 'var(--ink-3)', lineHeight: 1.6, marginBottom: 0 }}>{post.excerpt}</p>
               </Link>
             )
           })}

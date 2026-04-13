@@ -160,7 +160,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
       <ConsultBand
         heading="Have questions about your options?"
-        sub="Speak directly with a licensed Nutree clinician · $50 · video or phone"
+        sub="Speak directly with a licensed Nutree clinician · $50"
       />
     </>
   )

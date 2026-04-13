@@ -1,52 +1,38 @@
 'use client'
 import { useState } from 'react'
 import Link from 'next/link'
+import {
+  CheckCircle, Truck, Stethoscope, Lock, Certificate,
+  ArrowRight, Star, Info, Plus, Minus,
+  Leaf, Drop, Lightning, Brain, Heart, Sun,
+  Pill, Syringe, SprayBottle, FirstAid,
+  ShieldCheck, CreditCard, Clock, UserCircle,
+} from '@phosphor-icons/react'
+
+// Icon size standard: 20px regular weight throughout
+const SZ = 20
+const WT = 'regular' as const
 
 // ─── SECTION WRAPPER ─────────────────────────────────────────────────────────
-export function Section({
-  children, bg = 'var(--base)', divider = true,
-  style = {}, className = '',
-}: {
-  children: React.ReactNode
-  bg?: string
-  divider?: boolean
-  style?: React.CSSProperties
-  className?: string
+export function Section({ children, bg = 'var(--base)', divider = true, style = {}, className = '' }: {
+  children: React.ReactNode; bg?: string; divider?: boolean; style?: React.CSSProperties; className?: string
 }) {
   return (
-    <section style={{
-      padding: '1.5rem 1rem',
-      background: bg,
-      borderTop: divider ? '1px solid var(--border)' : 'none',
-      ...style,
-    }} className={className}>
+    <section style={{ padding: '2rem 1.25rem', background: bg, borderTop: divider ? '1px solid var(--border)' : 'none', ...style }} className={className}>
       {children}
     </section>
   )
 }
 
 // ─── SECTION HEADER ──────────────────────────────────────────────────────────
-export function SectionHeader({
-  eyebrow, title, body, color = 'var(--ink-3)',
-}: {
-  eyebrow?: string
-  title: string
-  body?: string
-  color?: string
+export function SectionHeader({ eyebrow, title, body, color = 'var(--ink-3)' }: {
+  eyebrow?: string; title: string; body?: string; color?: string
 }) {
   return (
-    <div style={{ marginBottom: '1rem' }}>
-      {eyebrow && (
-        <div className="section-label" style={{ color }}>{eyebrow}</div>
-      )}
-      <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.125rem', color: 'var(--ink)', lineHeight: 1.3, marginBottom: body ? '0.5rem' : 0 }}>
-        {title}
-      </h2>
-      {body && (
-        <p style={{ fontSize: '0.6875rem', color: 'var(--ink-3)', lineHeight: 1.65, maxWidth: 300 }}>
-          {body}
-        </p>
-      )}
+    <div style={{ marginBottom: '1.25rem' }}>
+      {eyebrow && <div style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color, marginBottom: '0.5rem' }}>{eyebrow}</div>}
+      <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.375rem, 3vw, 1.875rem)', color: 'var(--ink)', lineHeight: 1.2, marginBottom: body ? '0.625rem' : 0 }}>{title}</h2>
+      {body && <p style={{ fontSize: '1rem', color: 'var(--ink-3)', lineHeight: 1.65, maxWidth: 520 }}>{body}</p>}
     </div>
   )
 }
@@ -54,35 +40,27 @@ export function SectionHeader({
 // ─── PROMO BANNER ────────────────────────────────────────────────────────────
 export function PromoBanner({ text = '$50 consultation credited toward your first plan' }: { text?: string }) {
   return (
-    <div className="promo-banner">
-      <span style={{ fontSize: '0.75rem' }}>🏷</span>
-      <span>{text}</span>
+    <div style={{ background: 'var(--promo-bg)', border: '1px solid var(--promo-border)', borderRadius: 8, padding: '0.625rem 0.875rem', display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.875rem' }}>
+      <CreditCard size={16} weight="fill" color="var(--promo-dark)" />
+      <span style={{ fontSize: '0.875rem', fontWeight: 700, color: 'var(--promo-dark)' }}>{text}</span>
     </div>
   )
 }
 
 // ─── PLAN ROW ────────────────────────────────────────────────────────────────
-export function PlanRow({
-  name, sub, price, afterPrice, best, color,
-}: {
-  name: string
-  sub?: string
-  price: string
-  afterPrice?: string
-  best?: boolean
-  color: string
+export function PlanRow({ name, sub, price, afterPrice, best, color }: {
+  name: string; sub?: string; price: string; afterPrice?: string; best?: boolean; color: string
 }) {
   return (
-    <div className={`plan-row${best ? ' best' : ''}`}
-      style={{ borderColor: best ? color : 'var(--border)' }}>
-      {best && <div className="best-badge">Best Value</div>}
+    <div className="plan-row" style={{ display: 'flex', alignItems: 'center', padding: '0.75rem 0.875rem', borderRadius: 8, border: best ? `1.5px solid ${color}` : '1px solid var(--border)', marginBottom: '0.375rem', background: 'var(--white)', position: 'relative' }}>
+      {best && <div style={{ position: 'absolute', top: -9, right: 8, background: 'var(--green-badge)', color: '#fff', fontSize: '0.6875rem', fontWeight: 700, padding: '2px 8px', borderRadius: 999 }}>Best Value</div>}
       <div style={{ flex: 1 }}>
-        <div style={{ fontSize: '0.625rem', fontWeight: 600, color: 'var(--ink)' }}>{name}</div>
-        {sub && <span style={{ fontSize: '0.5625rem', color: 'var(--ink-3)', display: 'block', marginTop: 1 }}>{sub}</span>}
+        <div style={{ fontSize: '0.9375rem', fontWeight: 600, color: 'var(--ink)' }}>{name}</div>
+        {sub && <span style={{ fontSize: '0.875rem', color: 'var(--ink-3)', display: 'block', marginTop: 2 }}>{sub}</span>}
       </div>
       <div style={{ textAlign: 'right' }}>
-        <div style={{ fontSize: '0.75rem', fontWeight: 700, color }}>{price}</div>
-        {afterPrice && <div style={{ fontSize: '0.5rem', color: 'var(--ink-3)' }}>{afterPrice}</div>}
+        <div style={{ fontSize: '1rem', fontWeight: 700, color }}>{price}</div>
+        {afterPrice && <div style={{ fontSize: '0.8125rem', color: 'var(--ink-3)' }}>{afterPrice}</div>}
       </div>
     </div>
   )
@@ -91,13 +69,9 @@ export function PlanRow({
 // ─── PRODUCT BLOCK HEADER ────────────────────────────────────────────────────
 export function ProductBlockHeader({ children }: { children: React.ReactNode }) {
   return (
-    <div style={{
-      fontSize: '0.625rem', fontWeight: 700, color: 'var(--ink)',
-      marginBottom: '0.375rem',
-      display: 'flex', alignItems: 'center', gap: '0.375rem',
-    }}>
+    <div style={{ fontSize: '0.875rem', fontWeight: 700, color: 'var(--ink)', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
       {children}
-      <div style={{ flex: 1, height: '0.5px', background: 'var(--border)' }} />
+      <div style={{ flex: 1, height: 1, background: 'var(--border)' }} />
     </div>
   )
 }
@@ -105,22 +79,13 @@ export function ProductBlockHeader({ children }: { children: React.ReactNode }) 
 // ─── CTA AREA ────────────────────────────────────────────────────────────────
 export function CTAArea({ href = '/consult' }: { href?: string }) {
   return (
-    <div style={{ background: 'var(--white)', padding: '0.75rem 1rem 1rem' }}>
-      <Link href={href} className="btn-primary"
-        style={{ display: 'block', textAlign: 'center', width: '100%', marginBottom: '0.5rem' }}>
-        Get started →
+    <div style={{ background: 'var(--white)', padding: '1rem 1.25rem 1.25rem' }}>
+      <Link href={href} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', width: '100%', padding: '0.875rem', borderRadius: 999, background: 'var(--ink)', color: '#fff', fontSize: '1rem', fontWeight: 700, textDecoration: 'none', marginBottom: '0.625rem' }}>
+        Get started <ArrowRight size={16} weight="bold" />
       </Link>
-      <div style={{
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
-        gap: '0.3rem', fontSize: '0.5625rem', color: 'var(--ink-3)', marginBottom: '0.25rem',
-      }}>
-        Buy now, pay later with
-        <span style={{ background: '#FFB3C7', color: '#111', fontSize: '0.5rem', fontWeight: 700, padding: '2px 5px', borderRadius: 3 }}>Klarna</span>
-        <span style={{ background: '#111', color: '#fff', fontSize: '0.5rem', fontWeight: 700, padding: '2px 5px', borderRadius: 3 }}>Apple Pay</span>
-        <span style={{ background: '#007A5E', color: '#fff', fontSize: '0.5rem', fontWeight: 700, padding: '2px 5px', borderRadius: 3 }}>HSA/FSA</span>
-      </div>
-      <div style={{ textAlign: 'center', fontSize: '0.5625rem', color: 'var(--ink-3)' }}>
-        Discount auto-applied at checkout · Cancel before renewal
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.375rem', fontSize: '0.875rem', color: 'var(--ink-3)', marginBottom: '0.375rem' }}>
+        <ShieldCheck size={14} color="var(--ink-3)" />
+        FSA/HSA eligible · Free shipping · Cancel anytime
       </div>
     </div>
   )
@@ -129,18 +94,10 @@ export function CTAArea({ href = '/consult' }: { href?: string }) {
 // ─── BENEFITS LIST ───────────────────────────────────────────────────────────
 export function BenefitsList({ items, color }: { items: string[]; color: string }) {
   return (
-    <div style={{
-      padding: '0.75rem 1rem', background: 'var(--white)',
-      display: 'flex', flexDirection: 'column', gap: '0.4rem',
-    }}>
+    <div style={{ padding: '1rem 1.25rem', background: 'var(--white)', display: 'flex', flexDirection: 'column', gap: '0.625rem' }}>
       {items.map((item, i) => (
-        <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.4rem', fontSize: '0.6875rem', color: 'var(--ink-2)' }}>
-          <div style={{
-            width: 15, height: 15, borderRadius: '50%',
-            background: color, color: 'var(--white)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            fontSize: '0.4375rem', fontWeight: 700, flexShrink: 0, marginTop: 1,
-          }}>✓</div>
+        <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.625rem', fontSize: '0.9375rem', color: 'var(--ink-2)' }}>
+          <CheckCircle size={18} weight="fill" color={color} style={{ flexShrink: 0, marginTop: 2 }} />
           {item}
         </div>
       ))}
@@ -150,47 +107,38 @@ export function BenefitsList({ items, color }: { items: string[]; color: string 
 
 // ─── TRUST STRIP ─────────────────────────────────────────────────────────────
 export function TrustStrip() {
+  const items = [
+    { icon: <ShieldCheck size={14} />, label: '🇺🇸 Compounded in the USA' },
+    { icon: <CreditCard size={14} />, label: 'FSA & HSA eligible' },
+    { icon: <Lock size={14} />, label: 'HIPAA compliant' },
+    { icon: <Certificate size={14} />, label: 'LegitScript certified' },
+  ]
   return (
-    <div style={{
-      display: 'flex', flexWrap: 'wrap', gap: '0.3rem',
-      padding: '0.5rem 1rem 0.875rem', background: 'var(--white)',
-    }}>
-      {['🇺🇸 Compounded in the USA', '✅ FSA & HSA eligible', '🔒 HIPAA compliant'].map(t => (
-        <div key={t} className="trust-pill">{t}</div>
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.375rem', padding: '0.625rem 1.25rem 1rem', background: 'var(--white)' }}>
+      {items.map(({ label }, i) => (
+        <div key={i} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem', padding: '0.3rem 0.75rem', borderRadius: 999, background: 'var(--base)', border: '0.5px solid var(--border)', fontSize: '0.875rem', color: 'var(--ink-3)', fontWeight: 500 }}>
+          {label}
+        </div>
       ))}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <div className="trust-pill">
-        <img src="https://static.legitscript.com/seals/47538313.png" alt="LegitScript" style={{ height: 11, opacity: 0.65 }} />
-      </div>
     </div>
   )
 }
 
 // ─── FEATURE BAND ────────────────────────────────────────────────────────────
-export function FeatureBand({
-  eyebrow, title, body, gradient, cards,
-}: {
-  eyebrow: string
-  title: string
-  body: string
-  gradient: string
-  cards: { icon: string; title: string; desc: string }[]
+export function FeatureBand({ eyebrow, title, body, gradient, cards }: {
+  eyebrow: string; title: string; body: string; gradient: string; cards: { icon: string; title: string; desc: string }[]
 }) {
   return (
-    <div style={{ padding: '1.375rem 1rem', background: gradient }}>
-      <div className="section-label" style={{ color: 'inherit', opacity: 0.7 }}>{eyebrow}</div>
-      <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.125rem', color: 'var(--ink)', lineHeight: 1.3, marginBottom: '0.5rem' }}>
-        {title}
-      </h2>
-      <p style={{ fontSize: '0.6875rem', color: 'var(--ink-2)', lineHeight: 1.65, marginBottom: '0.875rem', maxWidth: 300 }}>
-        {body}
-      </p>
-      <div style={{ display: 'flex', gap: '0.5rem' }}>
+    <div style={{ padding: '2rem 1.25rem', background: gradient }}>
+      <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--ink-3)', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: '0.625rem' }}>{eyebrow}</div>
+      <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.375rem, 3vw, 1.875rem)', color: 'var(--ink)', lineHeight: 1.2, marginBottom: '0.75rem' }}>{title}</h2>
+      <p style={{ fontSize: '1rem', color: 'var(--ink-2)', lineHeight: 1.7, marginBottom: '1.25rem', maxWidth: 480 }}>{body}</p>
+      <div style={{ display: 'flex', gap: '0.625rem', flexWrap: 'wrap' }}>
         {cards.map((c, i) => (
-          <div key={i} className="feat-card">
-            <div style={{ fontSize: '1rem', marginBottom: '0.375rem' }}>{c.icon}</div>
-            <div style={{ fontSize: '0.625rem', fontWeight: 700, color: 'var(--ink)', marginBottom: '0.2rem' }}>{c.title}</div>
-            <div style={{ fontSize: '0.5625rem', color: 'var(--ink-3)', lineHeight: 1.45 }}>{c.desc}</div>
+          <div key={i} style={{ flex: '1 1 140px', background: 'rgba(255,255,255,0.75)', backdropFilter: 'blur(6px)', borderRadius: 12, padding: '1rem', border: '1px solid rgba(255,255,255,0.9)' }}>
+            <div style={{ fontSize: '1.25rem', marginBottom: '0.5rem' }}>{c.icon}</div>
+            <div style={{ fontSize: '0.9375rem', fontWeight: 700, color: 'var(--ink)', marginBottom: '0.3rem' }}>{c.title}</div>
+            <div style={{ fontSize: '0.875rem', color: 'var(--ink-3)', lineHeight: 1.5 }}>{c.desc}</div>
           </div>
         ))}
       </div>
@@ -199,32 +147,19 @@ export function FeatureBand({
 }
 
 // ─── HOW IT WORKS ────────────────────────────────────────────────────────────
-export function HowItWorks({
-  steps, gradient,
-}: {
-  steps: { title: string; desc: string }[]
-  gradient: string
-}) {
+export function HowItWorks({ steps, gradient }: { steps: { title: string; desc: string }[]; gradient: string }) {
   return (
     <Section bg="var(--white)">
       <SectionHeader eyebrow="How it works" title="From first question to first delivery." />
       <div>
         {steps.map((step, i) => (
-          <div key={i} style={{
-            display: 'flex', gap: '0.75rem', padding: '0.875rem 0',
-            borderBottom: i < steps.length - 1 ? '0.5px solid var(--border)' : 'none',
-          }}>
-            <div style={{
-              width: 28, height: 28, borderRadius: '50%',
-              background: gradient, flexShrink: 0,
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              fontSize: '0.6875rem', fontWeight: 700, color: 'var(--ink)',
-            }}>
+          <div key={i} style={{ display: 'flex', gap: '1rem', padding: '1rem 0', borderBottom: i < steps.length - 1 ? '0.5px solid var(--border)' : 'none' }}>
+            <div style={{ width: 32, height: 32, borderRadius: '50%', background: gradient, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.875rem', fontWeight: 700, color: 'var(--ink)' }}>
               {i + 1}
             </div>
             <div>
-              <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--ink)', marginBottom: 2 }}>{step.title}</div>
-              <div style={{ fontSize: '0.6875rem', color: 'var(--ink-3)', lineHeight: 1.55 }}>{step.desc}</div>
+              <div style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--ink)', marginBottom: 4 }}>{step.title}</div>
+              <div style={{ fontSize: '0.9375rem', color: 'var(--ink-3)', lineHeight: 1.65 }}>{step.desc}</div>
             </div>
           </div>
         ))}
@@ -234,31 +169,21 @@ export function HowItWorks({
 }
 
 // ─── SCIENCE GRID ────────────────────────────────────────────────────────────
-export function ScienceGrid({
-  eyebrow, title, items, iconGradient,
-}: {
-  eyebrow: string
-  title: string
-  items: { icon: string; title: string; desc: string }[]
-  iconGradient: string
+export function ScienceGrid({ eyebrow, title, items, iconGradient }: {
+  eyebrow: string; title: string; items: { icon: string; title: string; desc: string }[]; iconGradient: string
 }) {
   return (
     <Section bg="var(--base)">
       <SectionHeader eyebrow={eyebrow} title={title} />
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.625rem' }}>
         {items.map((item, i) => (
-          <div key={i} className="science-item">
-            <div style={{
-              width: 30, height: 30, borderRadius: 7,
-              background: iconGradient, flexShrink: 0,
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              fontSize: '0.875rem',
-            }}>
+          <div key={i} className="science-item" style={{ display: 'flex', gap: '1rem', padding: '1rem', borderRadius: 12, background: 'var(--white)', border: '0.5px solid var(--border)' }}>
+            <div style={{ width: 36, height: 36, borderRadius: 9, background: iconGradient, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.125rem' }}>
               {item.icon}
             </div>
             <div>
-              <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--ink)', marginBottom: 2 }}>{item.title}</div>
-              <div style={{ fontSize: '0.625rem', color: 'var(--ink-3)', lineHeight: 1.5 }}>{item.desc}</div>
+              <div style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--ink)', marginBottom: 4 }}>{item.title}</div>
+              <div style={{ fontSize: '0.9375rem', color: 'var(--ink-3)', lineHeight: 1.6 }}>{item.desc}</div>
             </div>
           </div>
         ))}
@@ -268,38 +193,28 @@ export function ScienceGrid({
 }
 
 // ─── TESTIMONIALS ────────────────────────────────────────────────────────────
-export function Testimonials({
-  items, tagColor, tagDarkColor,
-}: {
-  items: { quote: string; author: string; tag: string }[]
-  tagColor: string
-  tagDarkColor: string
+export function Testimonials({ items, tagColor, tagDarkColor }: {
+  items: { quote: string; author: string; tag: string }[]; tagColor: string; tagDarkColor: string
 }) {
   return (
     <Section bg="var(--white)">
       <SectionHeader eyebrow="From our patients" title="What Nutree patients say." />
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.625rem' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.875rem' }}>
         {items.map((t, i) => (
-          <div key={i} className="testimonial-card">
-            <div style={{ color: '#F9B800', fontSize: '0.6875rem', marginBottom: '0.375rem' }}>★★★★★</div>
-            <p style={{
-              fontFamily: 'var(--font-serif)', fontSize: '0.8125rem',
-              color: 'var(--ink)', fontStyle: 'italic', lineHeight: 1.65, marginBottom: '0.5rem',
-            }}>
+          <div key={i} style={{ background: 'var(--base)', borderRadius: 14, padding: '1.25rem', border: '0.5px solid var(--border)' }}>
+            <div style={{ display: 'flex', gap: '2px', marginBottom: '0.625rem' }}>
+              {[...Array(5)].map((_, si) => <Star key={si} size={14} weight="fill" color="#F9B800" />)}
+            </div>
+            <p style={{ fontFamily: 'var(--font-serif)', fontSize: '1rem', color: 'var(--ink)', fontStyle: 'italic', lineHeight: 1.7, marginBottom: '0.625rem' }}>
               &ldquo;{t.quote}&rdquo;
             </p>
-            <div style={{ fontSize: '0.625rem', fontWeight: 600, color: 'var(--ink-3)' }}>{t.author}</div>
-            <div style={{
-              display: 'inline-block', marginTop: '0.375rem',
-              fontSize: '0.5rem', fontWeight: 700,
-              padding: '2px 8px', borderRadius: 'var(--radius-pill)',
-              background: tagColor, color: tagDarkColor,
-            }}>
+            <div style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--ink-3)' }}>{t.author}</div>
+            <div style={{ display: 'inline-block', marginTop: '0.375rem', fontSize: '0.8125rem', fontWeight: 700, padding: '3px 10px', borderRadius: 999, background: tagColor, color: tagDarkColor }}>
               {t.tag}
             </div>
           </div>
         ))}
-        <div style={{ fontSize: '0.5625rem', color: 'var(--ink-3)', textAlign: 'center' }}>
+        <div style={{ fontSize: '0.8125rem', color: 'var(--ink-3)', textAlign: 'center' }}>
           Results reflect individual patient experiences and are not typical or guaranteed outcomes.
         </div>
       </div>
@@ -308,24 +223,20 @@ export function Testimonials({
 }
 
 // ─── ALSO FROM NUTREE ────────────────────────────────────────────────────────
-export function AlsoFromNutree({
-  eyebrow, title, items,
-}: {
-  eyebrow: string
-  title: string
-  items: { name: string; sub: string; href: string; arrowColor: string }[]
+export function AlsoFromNutree({ eyebrow, title, items }: {
+  eyebrow: string; title: string; items: { name: string; sub: string; href: string; arrowColor: string }[]
 }) {
   return (
     <Section bg="var(--base)">
       <SectionHeader eyebrow={eyebrow} title={title} />
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.375rem' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
         {items.map((item, i) => (
-          <Link key={i} href={item.href} className="also-item">
+          <Link key={i} href={item.href} className="also-item" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0.875rem 1rem', borderRadius: 12, background: 'var(--white)', border: '0.5px solid var(--border)', textDecoration: 'none', transition: 'border-color 0.15s' }}>
             <div>
-              <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--ink)' }}>{item.name}</div>
-              <div style={{ fontSize: '0.5625rem', color: 'var(--ink-3)', marginTop: 1 }}>{item.sub}</div>
+              <div style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--ink)' }}>{item.name}</div>
+              <div style={{ fontSize: '0.875rem', color: 'var(--ink-3)', marginTop: 2 }}>{item.sub}</div>
             </div>
-            <div style={{ fontSize: '0.875rem', fontWeight: 700, color: item.arrowColor }}>→</div>
+            <ArrowRight size={18} weight="bold" color={item.arrowColor} />
           </Link>
         ))}
       </div>
@@ -334,32 +245,26 @@ export function AlsoFromNutree({
 }
 
 // ─── FAQ ─────────────────────────────────────────────────────────────────────
-export function FAQSection({
-  items, iconBg, iconColor,
-}: {
-  items: { q: string; a: string }[]
-  iconBg: string
-  iconColor: string
+export function FAQSection({ items, iconBg, iconColor }: {
+  items: { q: string; a: string }[]; iconBg: string; iconColor: string
 }) {
   const [open, setOpen] = useState<number | null>(null)
-
   return (
     <div style={{ borderTop: '1px solid var(--border)' }}>
-      <div style={{ padding: '1rem 1rem 0.25rem', fontFamily: 'var(--font-serif)', fontSize: '1.125rem', color: 'var(--ink)' }}>
+      <div style={{ padding: '1.5rem 1.25rem 0.375rem', fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.375rem, 3vw, 1.875rem)', color: 'var(--ink)' }}>
         Frequently asked questions
       </div>
       {items.map((item, i) => (
-        <div key={i} className="faq-item">
-          <button className="faq-button" onClick={() => setOpen(open === i ? null : i)}>
-            <span style={{ fontSize: '0.6875rem', fontWeight: 600, color: 'var(--ink)', lineHeight: 1.3 }}>
-              {item.q}
-            </span>
-            <span className="faq-icon" style={{ background: iconBg, color: iconColor }}>
-              {open === i ? '−' : '+'}
+        <div key={i} style={{ borderBottom: '0.5px solid var(--border)' }}>
+          <button onClick={() => setOpen(open === i ? null : i)}
+            style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '1rem 1.25rem', background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'var(--font-sans)', textAlign: 'left', gap: '1rem' }}>
+            <span style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--ink)', lineHeight: 1.4 }}>{item.q}</span>
+            <span style={{ width: 24, height: 24, borderRadius: '50%', background: iconBg, color: iconColor, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+              {open === i ? <Minus size={14} weight="bold" color={iconColor} /> : <Plus size={14} weight="bold" color={iconColor} />}
             </span>
           </button>
           {open === i && (
-            <div style={{ padding: '0 1rem 0.75rem', fontSize: '0.6875rem', color: 'var(--ink-2)', lineHeight: 1.65 }}>
+            <div style={{ padding: '0 1.25rem 1rem', fontSize: '0.9375rem', color: 'var(--ink-2)', lineHeight: 1.7 }}>
               {item.a}
             </div>
           )}
@@ -372,31 +277,24 @@ export function FAQSection({
 // ─── PAGE LEGAL ──────────────────────────────────────────────────────────────
 export function PageLegal({ text }: { text: string }) {
   return (
-    <div className="page-legal">{text}</div>
+    <div style={{ padding: '0.875rem 1.25rem', fontSize: '0.8125rem', color: 'var(--ink-3)', lineHeight: 1.65, background: 'var(--white)', borderTop: '0.5px solid var(--border)' }}>
+      <Info size={13} style={{ display: 'inline', marginRight: 4, verticalAlign: 'middle' }} />
+      {text}
+    </div>
   )
 }
 
 // ─── CONSULT BAND ────────────────────────────────────────────────────────────
-export function ConsultBand({
-  heading, sub,
-}: {
-  heading: string
-  sub?: string
-}) {
+export function ConsultBand({ heading, sub }: { heading: string; sub?: string }) {
   return (
-    <div className="consult-band">
+    <div className="consult-band" style={{ background: 'var(--ink)', padding: '2rem 1.25rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '1rem' }}>
       <div>
-        <div style={{
-          fontFamily: 'var(--font-serif)', fontSize: '0.9375rem',
-          color: '#fff', lineHeight: 1.3, marginBottom: 2,
-        }}>
+        <div style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.125rem, 2.5vw, 1.375rem)', color: '#fff', lineHeight: 1.3, marginBottom: sub ? 4 : 0 }}>
           {heading}
         </div>
-        {sub && (
-          <div style={{ fontSize: '0.5625rem', color: 'rgba(255,255,255,0.45)' }}>{sub}</div>
-        )}
+        {sub && <div style={{ fontSize: '0.875rem', color: 'rgba(255,255,255,0.5)' }}>{sub}</div>}
       </div>
-      <Link href="/consult" className="btn-consult">
+      <Link href="/consult" style={{ padding: '12px 22px', borderRadius: 999, background: 'var(--con)', color: 'var(--ink)', fontSize: '0.9375rem', fontWeight: 700, textDecoration: 'none', whiteSpace: 'nowrap', flexShrink: 0 }}>
         Book a consult · $50 →
       </Link>
     </div>
@@ -406,8 +304,8 @@ export function ConsultBand({
 // ─── IN STOCK BADGE ──────────────────────────────────────────────────────────
 export function InStockBadge() {
   return (
-    <div className="in-stock-badge">
-      <div style={{ width: 5, height: 5, borderRadius: '50%', background: 'var(--green-badge)' }} />
+    <div style={{ position: 'absolute', top: 12, left: 12, background: 'var(--white)', borderRadius: 999, padding: '4px 10px', fontSize: '0.8125rem', fontWeight: 700, color: 'var(--green-badge)', display: 'flex', alignItems: 'center', gap: 5, zIndex: 2, boxShadow: 'var(--shadow-sm)' }}>
+      <div style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--green-badge)' }} />
       In Stock
     </div>
   )

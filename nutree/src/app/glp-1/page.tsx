@@ -20,7 +20,7 @@ export default function MicroDosingPage() {
     <>
       {/* HERO */}
       <div className="hero-split">
-        <div className="hero-photo" style={{ background: 'linear-gradient(145deg, #8ED4EA 0%, #B8E4F0 55%, #DDF4FF 100%)', position: 'relative', overflow: 'hidden' }}>
+        <div className="hero-photo" style={{ background: '#B8E4F0', backgroundImage: 'linear-gradient(145deg, #8ED4EA 0%, #B8E4F0 55%, #DDF4FF 100%)', position: 'relative', overflow: 'hidden' }}>
           <div style={{ position: 'absolute', width: 120, height: 120, borderRadius: '50%', background: 'rgba(255,255,255,0.28)', top: -25, left: -25 }} />
           <div style={{ position: 'absolute', width: 70, height: 70, borderRadius: '50%', background: 'rgba(26,107,133,0.14)', bottom: -10, right: -10 }} />
           <InStockBadge />
@@ -28,7 +28,7 @@ export default function MicroDosingPage() {
             src="/images/hero-glp1.png"
             alt="GLP-1 microdosing"
             style={{ width: '72%', maxWidth: 140, height: 'auto', position: 'relative', zIndex: 2, objectFit: 'contain' }}
-            onError={(e) => { e.currentTarget.style.display = 'none' }}
+
           />
         </div>
 
@@ -36,7 +36,7 @@ export default function MicroDosingPage() {
           <h1 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.0625rem', color: 'var(--ink)', lineHeight: 1.2, marginBottom: 3 }}>
             GLP-1 Microdosing
           </h1>
-          <p style={{ fontSize: '0.625rem', color: 'var(--ink-3)', marginBottom: '0.625rem' }}>
+          <p style={{ fontSize: "0.875rem", color: 'var(--ink-3)', marginBottom: '0.625rem' }}>
             A gentler start — lower doses, fewer side effects, sustainable results
           </p>
           <PromoBanner />
@@ -56,7 +56,7 @@ export default function MicroDosingPage() {
               best
               color="var(--glp-dark)"
             />
-            <div style={{ fontSize: '0.5rem', color: 'var(--ink-3)', marginTop: 3, paddingLeft: 4 }}>
+            <div style={{ fontSize: "0.8125rem", color: 'var(--ink-3)', marginTop: 3, paddingLeft: 4 }}>
               {P.microdosingSema.perWeek.label} · billed upfront
             </div>
           </div>
@@ -76,7 +76,7 @@ export default function MicroDosingPage() {
               best
               color="var(--glp-dark)"
             />
-            <div style={{ fontSize: '0.5rem', color: 'var(--ink-3)', marginTop: 3, paddingLeft: 4 }}>
+            <div style={{ fontSize: "0.8125rem", color: 'var(--ink-3)', marginTop: 3, paddingLeft: 4 }}>
               {P.microDosingTirz.perWeek.label} · billed upfront
             </div>
           </div>
@@ -89,7 +89,7 @@ export default function MicroDosingPage() {
         'Lower starting doses — fewer side effects from day one',
         'Ideal for GLP-1 first-timers or those sensitive to standard dosing',
         'Fixed programme — know exactly what you\'re committing to',
-        'Provider consultation included — video or phone',
+        'Provider consultation included — ',
         'Free expedited shipping · 503A licensed pharmacy',
       ]} />
       <TrustStrip />
@@ -119,8 +119,8 @@ export default function MicroDosingPage() {
             <div key={i} style={{ display: 'flex', gap: '0.75rem', padding: '0.875rem', borderRadius: '12px', background: 'var(--base)', border: '0.5px solid var(--border)' }}>
               <div style={{ fontSize: '1.125rem', flexShrink: 0 }}>{item.icon}</div>
               <div>
-                <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--ink)', marginBottom: 2 }}>{item.t}</div>
-                <div style={{ fontSize: '0.625rem', color: 'var(--ink-3)', lineHeight: 1.55 }}>{item.d}</div>
+                <div style={{ fontSize: "1rem", fontWeight: 700, color: 'var(--ink)', marginBottom: 2 }}>{item.t}</div>
+                <div style={{ fontSize: "0.875rem", color: 'var(--ink-3)', lineHeight: 1.55 }}>{item.d}</div>
               </div>
             </div>
           ))}
@@ -131,15 +131,15 @@ export default function MicroDosingPage() {
       <Section bg="var(--base)">
         <SectionHeader eyebrow="Understanding your options" title="Microdosing vs. standard dosing" />
         <div style={{ overflowX: 'auto' }}>
-          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.6875rem' }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: "0.9375rem" }}>
             <thead>
               <tr>
-                <th style={{ padding: '8px 6px', textAlign: 'left', fontSize: '0.5625rem', fontWeight: 700, color: 'var(--ink)', borderBottom: '2px solid var(--border)', width: '38%' }} />
+                <th style={{ padding: '8px 6px', textAlign: 'left', fontSize: "0.875rem", fontWeight: 700, color: 'var(--ink)', borderBottom: '2px solid var(--border)', width: '38%' }} />
                 <th style={{ padding: '8px 6px', textAlign: 'center', borderBottom: '2px solid var(--border)' }}>
-                  <span style={{ background: 'var(--glp)', color: 'var(--glp-dark)', padding: '3px 8px', borderRadius: 5, fontSize: '0.5625rem', fontWeight: 700, display: 'inline-block' }}>Microdosing ✓</span>
+                  <span style={{ background: 'var(--glp)', color: 'var(--glp-dark)', padding: '3px 8px', borderRadius: 5, fontSize: "0.875rem", fontWeight: 700, display: 'inline-block' }}>Microdosing ✓</span>
                 </th>
                 <th style={{ padding: '8px 6px', textAlign: 'center', borderBottom: '2px solid var(--border)' }}>
-                  <span style={{ background: 'var(--base)', color: 'var(--ink-3)', padding: '3px 8px', borderRadius: 5, fontSize: '0.5625rem', fontWeight: 700, display: 'inline-block', border: '1px solid var(--border)' }}>Standard plan</span>
+                  <span style={{ background: 'var(--base)', color: 'var(--ink-3)', padding: '3px 8px', borderRadius: 5, fontSize: "0.875rem", fontWeight: 700, display: 'inline-block', border: '1px solid var(--border)' }}>Standard plan</span>
                 </th>
               </tr>
             </thead>
@@ -152,9 +152,9 @@ export default function MicroDosingPage() {
                 ['Results',          'Gradual, sustainable',               'Faster progression'],
               ].map(([label, a, b], i) => (
                 <tr key={i} style={{ background: i % 2 === 1 ? 'rgba(184,228,240,0.12)' : 'var(--white)' }}>
-                  <td style={{ padding: '8px 6px', fontWeight: 700, color: 'var(--ink)', borderBottom: '0.5px solid var(--border)', fontSize: '0.625rem' }}>{label}</td>
-                  <td style={{ padding: '8px 6px', textAlign: 'center', color: 'var(--ink-2)', borderBottom: '0.5px solid var(--border)', fontSize: '0.625rem' }}>{a}</td>
-                  <td style={{ padding: '8px 6px', textAlign: 'center', color: 'var(--ink-2)', borderBottom: '0.5px solid var(--border)', fontSize: '0.625rem' }}>{b}</td>
+                  <td style={{ padding: '8px 6px', fontWeight: 700, color: 'var(--ink)', borderBottom: '0.5px solid var(--border)', fontSize: "0.875rem" }}>{label}</td>
+                  <td style={{ padding: '8px 6px', textAlign: 'center', color: 'var(--ink-2)', borderBottom: '0.5px solid var(--border)', fontSize: "0.875rem" }}>{a}</td>
+                  <td style={{ padding: '8px 6px', textAlign: 'center', color: 'var(--ink-2)', borderBottom: '0.5px solid var(--border)', fontSize: "0.875rem" }}>{b}</td>
                 </tr>
               ))}
             </tbody>
@@ -204,7 +204,7 @@ export default function MicroDosingPage() {
 
       <ConsultBand
         heading="Not sure if microdosing is right for you?"
-        sub="A licensed clinician will advise · $50 · video or phone"
+        sub="A licensed clinician will advise · $50"
       />
     </>
   )
