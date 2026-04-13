@@ -38,7 +38,7 @@ export default function NADPage() {
           <h1 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.0625rem', color: 'var(--ink)', lineHeight: 1.2, marginBottom: 3 }}>
             NAD+ Therapy
           </h1>
-          <p style={{ fontSize: '0.625rem', color: 'var(--ink-3)', marginBottom: '0.625rem' }}>
+          <p style={{ fontSize: "0.875rem", color: 'var(--ink-3)', marginBottom: '0.625rem' }}>
             Cellular energy, DNA repair, and healthy aging — from within
           </p>
           <PromoBanner />
@@ -71,7 +71,7 @@ export default function NADPage() {
       <BenefitsList color="var(--nad)" items={[
         'Three delivery forms — your clinician selects the most appropriate',
         'Your price remains consistent at every dose level',
-        'Provider consultation included — video or phone',
+        'Provider consultation included — ',
         'Free expedited shipping on every order',
         '503A licensed pharmacy on every prescription',
       ]} />
@@ -104,8 +104,8 @@ export default function NADPage() {
       <Section bg="var(--base)">
         <SectionHeader eyebrow="The science" title="NAD+ declines significantly with age." />
         <div style={{ background: 'var(--white)', borderRadius: 'var(--radius-lg)', padding: '0.875rem', border: '0.5px solid var(--border)', marginBottom: '0.875rem' }}>
-          <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--ink)', marginBottom: 2 }}>Relative cellular NAD+ levels by decade</div>
-          <div style={{ fontSize: '0.5625rem', color: 'var(--ink-3)', marginBottom: '0.75rem' }}>Based on published research (Rajman et al., Cell Metabolism 2018)</div>
+          <div style={{ fontSize: "1rem", fontWeight: 700, color: 'var(--ink)', marginBottom: 2 }}>Relative cellular NAD+ levels by decade</div>
+          <div style={{ fontSize: "0.875rem", color: 'var(--ink-3)', marginBottom: '0.75rem' }}>Based on published research (Rajman et al., Cell Metabolism 2018)</div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
             {[
               { age: 'Age 20', pct: '100%', w: '100%' },
@@ -115,11 +115,11 @@ export default function NADPage() {
               { age: 'Age 60+', pct: '~38%', w: '38%' },
             ].map((r, i) => (
               <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <div style={{ fontSize: '0.5625rem', fontWeight: 600, color: 'var(--ink)', width: 44, flexShrink: 0 }}>{r.age}</div>
+                <div style={{ fontSize: "0.875rem", fontWeight: 600, color: 'var(--ink)', width: 44, flexShrink: 0 }}>{r.age}</div>
                 <div style={{ flex: 1, height: 9, borderRadius: 5, background: 'var(--border)' }}>
                   <div style={{ width: r.w, height: '100%', borderRadius: 5, background: 'linear-gradient(90deg, var(--nad-mid), var(--nad-dark))' }} />
                 </div>
-                <div style={{ fontSize: '0.5625rem', fontWeight: 700, color: 'var(--nad-dark)', width: 34, textAlign: 'right', flexShrink: 0 }}>{r.pct}</div>
+                <div style={{ fontSize: "0.875rem", fontWeight: 700, color: 'var(--nad-dark)', width: 34, textAlign: 'right', flexShrink: 0 }}>{r.pct}</div>
               </div>
             ))}
           </div>
@@ -169,7 +169,7 @@ export default function NADPage() {
 
       <ConsultBand
         heading="Want a complete longevity protocol?"
-        sub="30 min · licensed clinician · video or phone"
+        sub="30 min · licensed clinician"
       />
     </>
   )

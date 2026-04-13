@@ -31,7 +31,7 @@ export default function OxytocinPage() {
           <h1 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.0625rem', color: 'var(--ink)', lineHeight: 1.2, marginBottom: 3 }}>
             Oxytocin Nasal Spray
           </h1>
-          <p style={{ fontSize: '0.625rem', color: 'var(--ink-3)', marginBottom: '0.625rem' }}>
+          <p style={{ fontSize: "0.875rem", color: 'var(--ink-3)', marginBottom: '0.625rem' }}>
             Calm, emotional balance, and stress relief — from within
           </p>
           <PromoBanner />
@@ -116,7 +116,7 @@ export default function OxytocinPage() {
 
       <PageLegal text="Compounded oxytocin nasal spray is not FDA-approved and has not been evaluated by the FDA for safety, efficacy, or quality. Not indicated for psychiatric conditions. Not appropriate during pregnancy. Prescriptions issued at provider discretion only. Individual results vary. Nutree Clinic LLC · Florida · LegitScript certified." />
 
-      <ConsultBand heading="Ready to find your calm?" sub="30 min · licensed clinician · video or phone" />
+      <ConsultBand heading="Ready to find your calm?" sub="30 min · licensed clinician" />
     </>
   )
 }

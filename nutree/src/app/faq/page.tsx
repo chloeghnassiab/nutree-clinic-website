@@ -20,7 +20,7 @@ const FAQ_CATEGORIES = [
     category: 'GLP-1 Weight Loss',
     items: [
       { q: 'What is the difference between Compounded Semaglutide and Tirzepatide?', a: 'Semaglutide is a GLP-1 receptor agonist. Tirzepatide activates both GLP-1 and GIP receptors, producing a broader metabolic effect — clinical trials show greater average weight loss (~21% vs ~15%). Your clinician will advise which is most appropriate for your health profile.' },
-      { q: 'What is included in a GLP-1 plan?', a: 'Medication, provider consultation (video or phone), dosing supplies, and free shipping. Your price is the same at every dose level — no additional fees as your treatment progresses.' },
+      { q: 'What is included in a GLP-1 plan?', a: 'Medication, provider consultation (), dosing supplies, and free shipping. Your price is the same at every dose level — no additional fees as your treatment progresses.' },
       { q: 'What are the most common side effects?', a: 'Nausea and mild digestive discomfort are most common, especially in the early weeks. These typically ease as dosing is titrated gradually. Your provider is available to adjust your plan throughout.' },
       { q: 'Can I get Wegovy® or Mounjaro® through Nutree?', a: 'Yes. Nutree facilitates access to Wegovy® and Mounjaro® for eligible patients. Your clinician will advise which option is most appropriate for you based on your health profile.' },
     ],
@@ -47,18 +47,18 @@ export default function FAQPage() {
   return (
     <>
       <section style={{ padding: '2.5rem 1rem 1.5rem', background: 'var(--base)' }}>
-        <div style={{ fontSize: '0.5625rem', fontWeight: 700, color: 'var(--ink-3)', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: '0.75rem' }}>Support</div>
+        <div style={{ fontSize: "0.875rem", fontWeight: 700, color: 'var(--ink-3)', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: '0.75rem' }}>Support</div>
         <h1 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.75rem, 5vw, 2.75rem)', color: 'var(--ink)', lineHeight: 1.1, marginBottom: '0.5rem' }}>
           Frequently asked<br />questions
         </h1>
-        <p style={{ fontSize: '0.8125rem', color: 'var(--ink-3)', lineHeight: 1.65 }}>
+        <p style={{ fontSize: "1rem", color: 'var(--ink-3)', lineHeight: 1.65 }}>
           Can&apos;t find what you&apos;re looking for? <a href="/consult" style={{ color: 'var(--teal)', fontWeight: 600 }}>Book a consultation</a> — a clinician will answer directly.
         </p>
       </section>
 
       {FAQ_CATEGORIES.map((cat, ci) => (
         <section key={ci} style={{ borderTop: '1px solid var(--border)', background: ci % 2 === 0 ? 'var(--white)' : 'var(--base)' }}>
-          <div style={{ padding: '1rem 1rem 0', fontSize: '0.625rem', fontWeight: 700, color: 'var(--ink-3)', textTransform: 'uppercase', letterSpacing: '0.14em' }}>
+          <div style={{ padding: '1rem 1rem 0', fontSize: "0.875rem", fontWeight: 700, color: 'var(--ink-3)', textTransform: 'uppercase', letterSpacing: '0.14em' }}>
             {cat.category}
           </div>
           <FAQSection
@@ -71,7 +71,7 @@ export default function FAQPage() {
 
       <ConsultBand
         heading="Still have questions?"
-        sub="A licensed clinician will answer directly · $50 · video or phone"
+        sub="A licensed clinician will answer directly · $50"
       />
     </>
   )

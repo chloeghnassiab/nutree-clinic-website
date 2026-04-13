@@ -47,7 +47,7 @@ export default function WeightLossPage() {
           <h1 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.0625rem', color: 'var(--ink)', lineHeight: 1.2, marginBottom: 3, letterSpacing: '-0.01em' }}>
             Personalized GLP-1 Treatments
           </h1>
-          <p style={{ fontSize: '0.625rem', color: 'var(--ink-3)', marginBottom: '0.625rem' }}>
+          <p style={{ fontSize: "0.875rem", color: 'var(--ink-3)', marginBottom: '0.625rem' }}>
             A personalized weight loss plan built around you
           </p>
 
@@ -94,7 +94,7 @@ export default function WeightLossPage() {
       <BenefitsList color="var(--glp)" items={[
         'Your price stays the same at every dose level — no surprises',
         'Free expedited shipping on every order',
-        'Provider consultation included — video or phone',
+        'Provider consultation included — ',
         'Personalised dosing adjusted to your response and goals',
         '503A licensed pharmacy on every prescription',
       ]} />
@@ -118,7 +118,7 @@ export default function WeightLossPage() {
         gradient="linear-gradient(135deg, var(--glp-mid), var(--glp))"
         steps={[
           { title: 'Complete a brief health questionnaire', desc: 'Takes 3 minutes. We ask about your health history, current medications, and goals — so your clinician arrives prepared.' },
-          { title: 'Consult with a licensed Nutree clinician', desc: 'Your provider reviews your intake and meets with you — video or phone — to determine the most appropriate plan for your health profile.' },
+          { title: 'Consult with a licensed Nutree clinician', desc: 'Your provider reviews your intake and meets with you —  — to determine the most appropriate plan for your health profile.' },
           { title: 'Receive your medication at home', desc: 'If prescribed, your medication is prepared by our licensed 503A pharmacy partner and shipped free, directly to your door.' },
           { title: 'Ongoing care and check-ins', desc: 'Your provider monitors your progress, adjusts your dose as needed, and stays available between visits for the full duration of your plan.' },
         ]}
@@ -138,15 +138,15 @@ export default function WeightLossPage() {
               borderRadius: 'var(--radius-md)', padding: '0.875rem', textAlign: 'center',
             }}>
               <div style={{ fontFamily: 'var(--font-serif)', fontSize: '1.375rem', fontWeight: 700, color: 'var(--glp-dark)', lineHeight: 1 }}>{s.val}</div>
-              <div style={{ fontSize: '0.625rem', color: 'var(--glp-dark)', marginTop: 2 }}>{s.unit}</div>
-              <div style={{ fontSize: '0.5rem', color: 'var(--ink-2)', marginTop: 4, lineHeight: 1.4 }}>{s.label}</div>
+              <div style={{ fontSize: "0.875rem", color: 'var(--glp-dark)', marginTop: 2 }}>{s.unit}</div>
+              <div style={{ fontSize: "0.8125rem", color: 'var(--ink-2)', marginTop: 4, lineHeight: 1.4 }}>{s.label}</div>
             </div>
           ))}
         </div>
         {/* Rainbow gradient bar chart */}
         <div style={{ background: 'var(--white)', borderRadius: 'var(--radius-lg)', padding: '0.875rem', border: '0.5px solid var(--border)' }}>
-          <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--ink)', marginBottom: 2 }}>Average weight loss progression</div>
-          <div style={{ fontSize: '0.625rem', color: 'var(--ink-3)', marginBottom: '0.875rem' }}>GLP-1 therapy combined with diet and exercise · months 1–6</div>
+          <div style={{ fontSize: "1rem", fontWeight: 700, color: 'var(--ink)', marginBottom: 2 }}>Average weight loss progression</div>
+          <div style={{ fontSize: "0.875rem", color: 'var(--ink-3)', marginBottom: '0.875rem' }}>GLP-1 therapy combined with diet and exercise · months 1–6</div>
           <div style={{ display: 'flex', alignItems: 'flex-end', gap: '0.3rem', height: 72 }}>
             {[
               { val: '~3%', h: '20%', bg: 'linear-gradient(180deg,var(--b12),#F0D040)' },
@@ -157,7 +157,7 @@ export default function WeightLossPage() {
               { val: '~18%',h: '100%',bg: 'linear-gradient(180deg,var(--glp-mid),var(--nad))' },
             ].map((b, i) => (
               <div key={i} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2, flex: 1 }}>
-                <div style={{ fontSize: '0.5rem', fontWeight: 700, color: 'var(--ink-2)' }}>{b.val}</div>
+                <div style={{ fontSize: "0.8125rem", fontWeight: 700, color: 'var(--ink-2)' }}>{b.val}</div>
                 <div style={{ borderRadius: '4px 4px 0 0', width: '100%', height: b.h, background: b.bg }} />
                 <div style={{ fontSize: '0.4375rem', color: 'var(--ink-3)' }}>Mo {i + 1}</div>
               </div>
@@ -177,17 +177,17 @@ export default function WeightLossPage() {
           body="Your clinician will recommend the most appropriate option based on your health profile and clinical history."
         />
         <div style={{ overflowX: 'auto' }}>
-          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.6875rem' }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: "0.9375rem" }}>
             <thead>
               <tr>
-                <th style={{ padding: '8px 6px', textAlign: 'left', fontSize: '0.5625rem', fontWeight: 700, color: 'var(--ink)', borderBottom: '2px solid var(--border)', width: '36%' }} />
+                <th style={{ padding: '8px 6px', textAlign: 'left', fontSize: "0.875rem", fontWeight: 700, color: 'var(--ink)', borderBottom: '2px solid var(--border)', width: '36%' }} />
                 <th style={{ padding: '8px 6px', textAlign: 'center', borderBottom: '2px solid var(--border)' }}>
-                  <span style={{ background: 'var(--glp)', color: 'var(--glp-dark)', padding: '3px 7px', borderRadius: 5, fontSize: '0.5625rem', fontWeight: 700, display: 'inline-block' }}>
+                  <span style={{ background: 'var(--glp)', color: 'var(--glp-dark)', padding: '3px 7px', borderRadius: 5, fontSize: "0.875rem", fontWeight: 700, display: 'inline-block' }}>
                     Compounded<br />Semaglutide
                   </span>
                 </th>
                 <th style={{ padding: '8px 6px', textAlign: 'center', borderBottom: '2px solid var(--border)' }}>
-                  <span style={{ background: 'var(--ser)', color: 'var(--ser-dark)', padding: '3px 7px', borderRadius: 5, fontSize: '0.5625rem', fontWeight: 700, display: 'inline-block' }}>
+                  <span style={{ background: 'var(--ser)', color: 'var(--ser-dark)', padding: '3px 7px', borderRadius: 5, fontSize: "0.875rem", fontWeight: 700, display: 'inline-block' }}>
                     Compounded<br />Tirzepatide
                   </span>
                 </th>
@@ -241,7 +241,7 @@ export default function WeightLossPage() {
       <Section bg="var(--white)">
         <div style={{ marginBottom: '0.75rem' }}>
           <div style={{ fontSize: '0.9375rem', fontWeight: 700, color: 'var(--ink)', marginBottom: 2 }}>Medication made accessible</div>
-          <div style={{ fontSize: '0.6875rem', color: 'var(--ink-3)' }}>All options, without the need for insurance</div>
+          <div style={{ fontSize: "0.9375rem", color: 'var(--ink-3)' }}>All options, without the need for insurance</div>
         </div>
         <div className="carousel-track">
           {[
@@ -258,9 +258,9 @@ export default function WeightLossPage() {
                 💉
               </div>
               <div style={{ padding: '0.5rem' }}>
-                <div style={{ fontSize: '0.5625rem', fontWeight: 700, color: 'var(--ink)', lineHeight: 1.3, marginBottom: 2 }}>{c.name}</div>
-                <div style={{ fontSize: '0.5rem', color: 'var(--ink-3)' }}>{c.price}</div>
-                <div style={{ fontSize: '0.5rem', fontWeight: 600, color: c.color, marginTop: 3 }}>See if you qualify →</div>
+                <div style={{ fontSize: "0.875rem", fontWeight: 700, color: 'var(--ink)', lineHeight: 1.3, marginBottom: 2 }}>{c.name}</div>
+                <div style={{ fontSize: "0.8125rem", color: 'var(--ink-3)' }}>{c.price}</div>
+                <div style={{ fontSize: "0.8125rem", fontWeight: 600, color: c.color, marginTop: 3 }}>See if you qualify →</div>
               </div>
             </Link>
           ))}
@@ -282,7 +282,7 @@ export default function WeightLossPage() {
       <FAQSection
         iconBg="var(--glp)" iconColor="var(--glp-dark)"
         items={[
-          { q: 'What is included in my plan?', a: 'All Nutree GLP-1 plans include your medication, provider consultation (video or phone), dosing supplies, and free shipping. Your price is the same at every dose level — no additional fees as your treatment progresses.' },
+          { q: 'What is included in my plan?', a: 'All Nutree GLP-1 plans include your medication, provider consultation (), dosing supplies, and free shipping. Your price is the same at every dose level — no additional fees as your treatment progresses.' },
           { q: 'What is the difference between Compounded Semaglutide and Compounded Tirzepatide?', a: 'Semaglutide is a GLP-1 receptor agonist. Tirzepatide activates both GLP-1 and GIP receptors, producing a broader metabolic effect — clinical trials show greater average weight loss (~21% vs ~15%). Your Nutree clinician will advise which is most appropriate for your health profile.' },
           { q: 'Will I receive a prescription at my consultation?', a: 'All prescriptions are issued at the sole clinical discretion of your licensed provider, based on your health profile and clinical evaluation. Your clinician\'s role is to determine what is medically appropriate for you.' },
           { q: 'What side effects should I be aware of?', a: 'Common side effects include nausea and mild digestive discomfort, especially in the early weeks of treatment. These typically ease as dosing is titrated gradually. Your provider is available to adjust your plan throughout.' },
@@ -295,7 +295,7 @@ export default function WeightLossPage() {
 
       <ConsultBand
         heading="Not sure which option is right for you?"
-        sub="A licensed clinician will advise · $50 · video or phone"
+        sub="A licensed clinician will advise · $50"
       />
     </>
   )
