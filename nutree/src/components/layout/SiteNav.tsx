@@ -182,7 +182,7 @@ export function SiteNav() {
 
               {/* Left — category label + treatments */}
               <div style={{ flex: 1 }}>
-                <div style={{ fontSize: '0.6875rem', fontWeight: 700, color: 'var(--ink-3)', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: '1rem' }}>
+                <div style={{ fontSize: '0.9375rem', fontWeight: 700, color: 'var(--ink-3)', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: '1rem' }}>
                   {active.label}
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.125rem' }}>
@@ -190,9 +190,9 @@ export function SiteNav() {
                     <Link key={t.href + t.label} href={t.href} className="tx" onClick={() => setActiveMenu(null)}>
                       <span style={{ display: 'flex', alignItems: 'baseline', gap: '0.5rem' }}>
                         <span>{t.label}</span>
-                        <span style={{ fontSize: '0.5rem', fontWeight: 700, padding: '1px 5px', borderRadius: 3, background: 'rgba(0,0,0,0.06)', color: 'var(--ink-3)', letterSpacing: '0.04em' }}>Rˣ</span>
+                        <span style={{ fontSize: '1rem', fontWeight: 700, padding: '1px 5px', borderRadius: 3, background: 'rgba(0,0,0,0.06)', color: 'var(--ink-3)', letterSpacing: '0.04em' }}>Rˣ</span>
                       </span>
-                      <span style={{ fontSize: '0.8125rem', color: 'var(--ink-3)', fontWeight: 400, display: 'block', marginTop: 1 }}>{t.sub}</span>
+                      <span style={{ fontSize: '1rem', color: 'var(--ink-3)', fontWeight: 400, display: 'block', marginTop: 1 }}>{t.sub}</span>
                     </Link>
                   ))}
                 </div>
@@ -214,7 +214,7 @@ export function SiteNav() {
 
               {/* Right — featured card (Eden style) */}
               <div style={{ width: 260, flexShrink: 0 }}>
-                <div style={{ fontSize: '0.6875rem', fontWeight: 700, color: 'var(--ink-3)', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: '1rem' }}>
+                <div style={{ fontSize: '0.9375rem', fontWeight: 700, color: 'var(--ink-3)', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: '1rem' }}>
                   Get started
                 </div>
                 <Link href={active.featured.href} onClick={() => setActiveMenu(null)}
@@ -259,7 +259,7 @@ export function SiteNav() {
                     {cat.treatments.map(t => (
                       <Link key={t.label} href={t.href} className="mob-tx" onClick={() => setMobileOpen(false)}>
                         {t.label}
-                        <span style={{ display: 'block', fontSize: '0.8125rem', color: 'var(--ink-3)', marginTop: 1 }}>{t.sub}</span>
+                        <span style={{ display: 'block', fontSize: '1rem', color: 'var(--ink-3)', marginTop: 1 }}>{t.sub}</span>
                       </Link>
                     ))}
                   </div>

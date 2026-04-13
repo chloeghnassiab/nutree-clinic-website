@@ -129,8 +129,8 @@ export function ChatWidget() {
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
           <div style={{ width: 32, height: 32, borderRadius: '50%', background: 'rgba(255,255,255,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem' }}>🌿</div>
           <div>
-            <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#fff' }}>Nutree Care Assistant</div>
-            <div style={{ fontSize: '0.5625rem', color: 'rgba(255,255,255,0.7)' }}>Powered by AI · Not a clinician</div>
+            <div style={{ fontSize: '1rem', fontWeight: 700, color: '#fff' }}>Nutree Care Assistant</div>
+            <div style={{ fontSize: '0.875rem', color: 'rgba(255,255,255,0.7)' }}>Powered by AI · Not a clinician</div>
           </div>
         </div>
         <button onClick={() => setOpen(false)} style={{ background: 'none', border: 'none', color: '#fff', fontSize: '1.125rem', cursor: 'pointer', opacity: 0.7 }}>×</button>
@@ -146,7 +146,7 @@ export function ChatWidget() {
               borderRadius: msg.role === 'user' ? '12px 12px 2px 12px' : '12px 12px 12px 2px',
               background: msg.role === 'user' ? 'linear-gradient(135deg, var(--teal), var(--teal-dark))' : 'var(--base)',
               color: msg.role === 'user' ? '#fff' : 'var(--ink)',
-              fontSize: '0.6875rem', lineHeight: 1.6,
+              fontSize: '0.9375rem', lineHeight: 1.6,
               border: msg.role === 'assistant' ? '0.5px solid var(--border)' : 'none',
             }}>
               {msg.content}
@@ -161,34 +161,34 @@ export function ChatWidget() {
             padding: '0.75rem', border: '0.5px solid var(--border)',
             marginTop: 4,
           }}>
-            <div style={{ fontSize: '0.625rem', fontWeight: 700, color: 'var(--ink)', marginBottom: '0.375rem' }}>
+            <div style={{ fontSize: '0.875rem', fontWeight: 700, color: 'var(--ink)', marginBottom: '0.375rem' }}>
               Want a Nutree clinician to follow up?
             </div>
             <input
               placeholder="Your name"
               value={leadForm.name}
               onChange={e => setLeadForm(f => ({ ...f, name: e.target.value }))}
-              style={{ width: '100%', padding: '6px 8px', borderRadius: 6, border: '1px solid var(--border)', fontSize: '0.625rem', marginBottom: 4, background: 'var(--white)', fontFamily: 'var(--font-sans)' }}
+              style={{ width: '100%', padding: '6px 8px', borderRadius: 6, border: '1px solid var(--border)', fontSize: '0.875rem', marginBottom: 4, background: 'var(--white)', fontFamily: 'var(--font-sans)' }}
             />
             <input
               placeholder="Email address *"
               type="email"
               value={leadForm.email}
               onChange={e => setLeadForm(f => ({ ...f, email: e.target.value }))}
-              style={{ width: '100%', padding: '6px 8px', borderRadius: 6, border: '1px solid var(--border)', fontSize: '0.625rem', marginBottom: 4, background: 'var(--white)', fontFamily: 'var(--font-sans)' }}
+              style={{ width: '100%', padding: '6px 8px', borderRadius: 6, border: '1px solid var(--border)', fontSize: '0.875rem', marginBottom: 4, background: 'var(--white)', fontFamily: 'var(--font-sans)' }}
             />
             <input
               placeholder="Phone (optional)"
               type="tel"
               value={leadForm.phone}
               onChange={e => setLeadForm(f => ({ ...f, phone: e.target.value }))}
-              style={{ width: '100%', padding: '6px 8px', borderRadius: 6, border: '1px solid var(--border)', fontSize: '0.625rem', marginBottom: 6, background: 'var(--white)', fontFamily: 'var(--font-sans)' }}
+              style={{ width: '100%', padding: '6px 8px', borderRadius: 6, border: '1px solid var(--border)', fontSize: '0.875rem', marginBottom: 6, background: 'var(--white)', fontFamily: 'var(--font-sans)' }}
             />
             <div style={{ display: 'flex', gap: 4 }}>
-              <button onClick={submitLead} style={{ flex: 1, padding: '6px', borderRadius: 6, background: 'var(--ink)', color: '#fff', border: 'none', cursor: 'pointer', fontSize: '0.5625rem', fontWeight: 700 }}>
+              <button onClick={submitLead} style={{ flex: 1, padding: '6px', borderRadius: 6, background: 'var(--ink)', color: '#fff', border: 'none', cursor: 'pointer', fontSize: '0.875rem', fontWeight: 700 }}>
                 Submit
               </button>
-              <button onClick={() => setShowLead(false)} style={{ padding: '6px 10px', borderRadius: 6, background: 'none', border: '1px solid var(--border)', cursor: 'pointer', fontSize: '0.5625rem', color: 'var(--ink-3)' }}>
+              <button onClick={() => setShowLead(false)} style={{ padding: '6px 10px', borderRadius: 6, background: 'none', border: '1px solid var(--border)', cursor: 'pointer', fontSize: '0.875rem', color: 'var(--ink-3)' }}>
                 Skip
               </button>
             </div>
@@ -197,7 +197,7 @@ export function ChatWidget() {
 
         {loading && (
           <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
-            <div style={{ padding: '0.5rem 0.875rem', borderRadius: '12px 12px 12px 2px', background: 'var(--base)', border: '0.5px solid var(--border)', fontSize: '0.6875rem', color: 'var(--ink-3)' }}>
+            <div style={{ padding: '0.5rem 0.875rem', borderRadius: '12px 12px 12px 2px', background: 'var(--base)', border: '0.5px solid var(--border)', fontSize: '0.9375rem', color: 'var(--ink-3)' }}>
               Typing…
             </div>
           </div>
@@ -216,7 +216,7 @@ export function ChatWidget() {
             flex: 1, padding: '0.5rem 0.75rem',
             borderRadius: 'var(--radius-pill)',
             border: '1px solid var(--border)',
-            fontSize: '0.6875rem', fontFamily: 'var(--font-sans)',
+            fontSize: '0.9375rem', fontFamily: 'var(--font-sans)',
             background: 'var(--base)', outline: 'none',
           }}
         />

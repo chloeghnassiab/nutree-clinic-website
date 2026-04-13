@@ -121,7 +121,7 @@ export default function HomePage() {
             &ldquo;After 9 weeks on a microdosed GLP-1, I lost 9 pounds. I already feel lighter, confident, in control. With a team that supports me!&rdquo;
           </p>
           <div style={{ fontSize: "0.875rem", fontWeight: 600, color: 'var(--ink-3)' }}>Courtney, 32 · Nutree Clinic patient</div>
-          <div style={{ display: 'inline-block', marginTop: 5, fontSize: "0.8125rem", fontWeight: 700, padding: '2px 8px', borderRadius: 'var(--radius-pill)', background: 'var(--glp)', color: 'var(--glp-dark)' }}>GLP-1 Microdosing</div>
+          <div style={{ display: 'inline-block', marginTop: 5, fontSize: "1rem", fontWeight: 700, padding: '2px 8px', borderRadius: 'var(--radius-pill)', background: 'var(--glp)', color: 'var(--glp-dark)' }}>GLP-1 Microdosing</div>
         </div>
       </section>
 
@@ -143,8 +143,8 @@ function TreatmentCard({ item, flex }: { item: typeof TREATMENTS[0]; flex: numbe
       <div style={{ fontFamily: 'var(--font-serif)', fontSize: item.size === 'large' ? '1rem' : '0.875rem', color: 'var(--ink)', lineHeight: 1.25, marginBottom: 3, position: 'relative' }}>
         {item.name}
       </div>
-      <div style={{ fontSize: "0.8125rem", color: 'var(--ink-2)', marginBottom: '0.625rem', position: 'relative' }}>{item.sub}</div>
-      <div style={{ display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: "0.8125rem", fontWeight: 700, color: 'var(--ink)', background: 'rgba(0,0,0,0.08)', padding: '4px 9px', borderRadius: 'var(--radius-pill)', position: 'relative' }}>
+      <div style={{ fontSize: "1rem", color: 'var(--ink-2)', marginBottom: '0.625rem', position: 'relative' }}>{item.sub}</div>
+      <div style={{ display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: "1rem", fontWeight: 700, color: 'var(--ink)', background: 'rgba(0,0,0,0.08)', padding: '4px 9px', borderRadius: 'var(--radius-pill)', position: 'relative' }}>
         LEARN MORE →
       </div>
       <div style={{ fontSize: "0.875rem", fontWeight: 700, color: item.priceColor, marginTop: 6, position: 'relative' }}>{item.price}</div>

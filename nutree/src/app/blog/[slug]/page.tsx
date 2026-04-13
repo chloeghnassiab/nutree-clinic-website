@@ -124,7 +124,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     <>
       {/* Back */}
       <div style={{ padding: '0.875rem 1rem 0', background: 'var(--base)' }}>
-        <Link href="/blog" style={{ fontSize: '0.75rem', color: 'var(--ink-3)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+        <Link href="/blog" style={{ fontSize: '1rem', color: 'var(--ink-3)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 4 }}>
           ← Back to blog
         </Link>
       </div>
@@ -132,10 +132,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       {/* Header */}
       <section style={{ padding: '1.25rem 1rem 2rem', background: 'var(--base)' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.875rem' }}>
-          <span style={{ fontSize: '0.5625rem', fontWeight: 700, padding: '3px 9px', borderRadius: '999px', background: cat.bg, color: cat.color }}>{post.category}</span>
-          <span style={{ fontSize: '0.5625rem', color: 'var(--ink-3)' }}>{post.readTime} read</span>
-          <span style={{ fontSize: '0.5625rem', color: 'var(--ink-3)' }}>·</span>
-          <span style={{ fontSize: '0.5625rem', color: 'var(--ink-3)' }}>{new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
+          <span style={{ fontSize: '0.875rem', fontWeight: 700, padding: '3px 9px', borderRadius: '999px', background: cat.bg, color: cat.color }}>{post.category}</span>
+          <span style={{ fontSize: '0.875rem', color: 'var(--ink-3)' }}>{post.readTime} read</span>
+          <span style={{ fontSize: '0.875rem', color: 'var(--ink-3)' }}>·</span>
+          <span style={{ fontSize: '0.875rem', color: 'var(--ink-3)' }}>{new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
         </div>
         <h1 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.5rem, 4vw, 2.25rem)', color: 'var(--ink)', lineHeight: 1.15, marginBottom: '0.75rem' }}>
           {post.title}
@@ -143,7 +143,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         <p style={{ fontSize: '0.9375rem', color: 'var(--ink-3)', lineHeight: 1.6, maxWidth: 560 }}>
           {post.excerpt}
         </p>
-        <div style={{ marginTop: '0.875rem', fontSize: '0.625rem', color: 'var(--ink-3)' }}>
+        <div style={{ marginTop: '0.875rem', fontSize: '0.875rem', color: 'var(--ink-3)' }}>
           By {post.author}
         </div>
       </section>
@@ -154,7 +154,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       </section>
 
       {/* Legal */}
-      <div style={{ padding: '0.75rem 1rem', fontSize: '0.5625rem', color: 'var(--ink-3)', lineHeight: 1.6, background: 'var(--base)', borderTop: '0.5px solid var(--border)' }}>
+      <div style={{ padding: '0.75rem 1rem', fontSize: '0.875rem', color: 'var(--ink-3)', lineHeight: 1.6, background: 'var(--base)', borderTop: '0.5px solid var(--border)' }}>
         This article is for informational purposes only and does not constitute medical advice. Always consult with a licensed healthcare provider before starting any treatment.
       </div>
 

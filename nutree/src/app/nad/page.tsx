@@ -83,7 +83,7 @@ export default function NADPage() {
         title="Three forms. One physician-guided plan."
         body="Your provider selects the delivery form best suited to your goals — injectable, nasal spray, or patches with GHK-Cu peptide. All plans include medication, consultation, and free shipping."
         cards={[
-          { icon: '💉', title: 'Injectable', desc: 'Highest bioavailability — direct tissue delivery' },
+          { icon: 'Syringe', title: 'Injectable', desc: 'Highest bioavailability — direct tissue delivery' },
           { icon: '💨', title: 'Nasal Spray', desc: 'Rapid CNS absorption — no needles' },
           { icon: '🩹', title: 'Patches + GHK-Cu', desc: 'Slow-release plus cellular repair peptide' },
         ]}
@@ -131,9 +131,9 @@ export default function NADPage() {
         title="What NAD+ does in the body."
         iconGradient="linear-gradient(135deg, var(--nad-mid), var(--nad))"
         items={[
-          { icon: '⚡', title: 'Cellular energy production', desc: 'NAD+ drives the mitochondrial processes that produce ATP — your body\'s primary energy currency. Declining levels contribute directly to fatigue.' },
-          { icon: '🧬', title: 'DNA repair and longevity', desc: 'NAD+ activates sirtuin proteins and PARP enzymes involved in DNA repair — key mechanisms in healthy cellular aging.' },
-          { icon: '🧠', title: 'Brain clarity and focus', desc: 'The brain has the highest energy demands of any organ. NAD+ supports neuronal function and the enzymatic activity associated with cognitive efficiency.' },
+          { icon: 'Lightning', title: 'Cellular energy production', desc: 'NAD+ drives the mitochondrial processes that produce ATP — your body\'s primary energy currency. Declining levels contribute directly to fatigue.' },
+          { icon: 'Dna', title: 'DNA repair and longevity', desc: 'NAD+ activates sirtuin proteins and PARP enzymes involved in DNA repair — key mechanisms in healthy cellular aging.' },
+          { icon: 'Brain', title: 'Brain clarity and focus', desc: 'The brain has the highest energy demands of any organ. NAD+ supports neuronal function and the enzymatic activity associated with cognitive efficiency.' },
         ]}
       />
 
