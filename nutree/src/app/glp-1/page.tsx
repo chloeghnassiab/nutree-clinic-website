@@ -20,7 +20,7 @@ export default function MicroDosingPage() {
     <>
       {/* HERO */}
       <div className="hero-split">
-        <div className="hero-photo" style={{ background: "#B8E4F0", backgroundImage: "linear-gradient(145deg, #8ED4EA 0%, #B8E4F0 55%, #DDF4FF 100%)', position: 'relative', overflow: 'hidden' }}>
+        <div className="hero-photo" style={{ background: '#B8E4F0', backgroundImage: 'linear-gradient(145deg, #8ED4EA 0%, #B8E4F0 55%, #DDF4FF 100%)', position: 'relative', overflow: 'hidden' }}>
           <div style={{ position: 'absolute', width: 120, height: 120, borderRadius: '50%', background: 'rgba(255,255,255,0.28)', top: -25, left: -25 }} />
           <div style={{ position: 'absolute', width: 70, height: 70, borderRadius: '50%', background: 'rgba(26,107,133,0.14)', bottom: -10, right: -10 }} />
           <InStockBadge />
