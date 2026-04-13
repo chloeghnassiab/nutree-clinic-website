@@ -5,7 +5,7 @@ import {
   PromoBanner, PlanRow, ProductBlockHeader, CTAArea,
   BenefitsList, TrustStrip, FeatureBand, ScienceGrid,
   Testimonials, AlsoFromNutree, FAQSection, PageLegal,
-  ConsultBand, Section, SectionHeader, InStockBadge,
+  ConsultBand, Section, SectionHeader, InStockBadge, PhosphorIcon,
 } from '@/components/ui/PageComponents'
 
 export const metadata: Metadata = {
@@ -117,7 +117,7 @@ export default function MicroDosingPage() {
             { icon: 'MagnifyingGlass', t: 'You want to try before committing to monthly plans', d: 'A 5 or 10-week programme lets you experience the medication with no ongoing obligation.' },
           ].map((item, i) => (
             <div key={i} style={{ display: 'flex', gap: '0.75rem', padding: '0.875rem', borderRadius: '12px', background: 'var(--base)', border: '0.5px solid var(--border)' }}>
-              <div style={{ fontSize: '1.125rem', flexShrink: 0 }}>{item.icon}</div>
+              <div style={{ flexShrink: 0 }}><PhosphorIcon name={item.icon} size={20} /></div>
               <div>
                 <div style={{ fontSize: "1rem", fontWeight: 700, color: 'var(--ink)', marginBottom: 2 }}>{item.t}</div>
                 <div style={{ fontSize: "0.875rem", color: 'var(--ink-3)', lineHeight: 1.55 }}>{item.d}</div>

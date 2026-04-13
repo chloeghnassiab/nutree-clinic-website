@@ -20,7 +20,7 @@ const ICON_COMPONENTS: Record<string, React.ComponentType<{size?: number; weight
   CheckCircle, Star, ClipboardText, TrendDown, Stethoscope,
 }
 
-function PhosphorIcon({ name, size = 22, color = 'var(--ink)', weight = 'regular' }: { name: string; size?: number; color?: string; weight?: 'thin'|'light'|'regular'|'bold'|'fill'|'duotone' }) {
+export function PhosphorIcon({ name, size = 22, color = 'var(--ink)', weight = 'regular' }: { name: string; size?: number; color?: string; weight?: 'thin'|'light'|'regular'|'bold'|'fill'|'duotone' }) {
   const Comp = ICON_COMPONENTS[name]
   if (!Comp) return <span style={{ fontSize: size * 0.8 }}>{name}</span>
   return <Comp size={size} weight={weight} color={color} />
