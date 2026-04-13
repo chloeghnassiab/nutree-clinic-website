@@ -419,3 +419,68 @@ p { color: var(--ink-2); line-height: 1.7; }
 /* ── SCROLLBAR HIDE ──────────────────────────── */
 .no-scrollbar { scrollbar-width: none; }
 .no-scrollbar::-webkit-scrollbar { display: none; }
+
+/* ── MOBILE RESPONSIVE ──────────────────────────────────────────── */
+@media (max-width: 640px) {
+  /* Hero split stacks vertically on mobile */
+  .hero-split {
+    flex-direction: column;
+    min-height: auto;
+  }
+  .hero-photo {
+    min-height: 220px;
+    flex: none;
+  }
+  .hero-right {
+    flex: none;
+    padding: 1rem;
+    max-height: none;
+    overflow: visible;
+  }
+
+  /* Carousel cards smaller on mobile */
+  .carousel-card { width: 96px; }
+
+  /* Feature cards stack on very small screens */
+  .feat-card { min-width: 100px; }
+
+  /* Section padding reduced */
+  section { padding-left: 0.875rem !important; padding-right: 0.875rem !important; }
+
+  /* Consult band stacks */
+  .consult-band {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.875rem;
+  }
+  .consult-band .btn-consult { width: 100%; justify-content: center; }
+
+  /* Tables scroll horizontally */
+  table { font-size: 0.5625rem !important; }
+
+  /* Typography scale down */
+  h1 { font-size: clamp(1.5rem, 7vw, 2.25rem) !important; }
+  h2 { font-size: clamp(1.125rem, 4vw, 1.5rem) !important; }
+}
+
+@media (max-width: 400px) {
+  .hero-photo { min-height: 180px; }
+  .feat-card { flex: none; width: 100%; }
+}
+
+/* ── BUTTON HOVER STATES ─────────────────────────────────────────── */
+.btn-primary:active { transform: scale(0.98); }
+.btn-consult:active { transform: scale(0.98); }
+.btn-ghost:active   { transform: scale(0.98); }
+
+/* ── PLAN ROW HOVER ──────────────────────────────────────────────── */
+.plan-row { transition: border-color 0.15s, background 0.15s; }
+.plan-row:hover { background: rgba(0,0,0,0.015); }
+
+/* ── ALSO ITEM HOVER ─────────────────────────────────────────────── */
+.also-item { transition: border-color 0.15s, box-shadow 0.15s; }
+.also-item:hover { border-color: var(--ink-3) !important; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+
+/* ── SCIENCE ITEM HOVER ──────────────────────────────────────────── */
+.science-item { transition: box-shadow 0.15s; }
+.science-item:hover { box-shadow: var(--shadow-md); }
