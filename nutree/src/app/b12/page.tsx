@@ -30,7 +30,7 @@ export default function B12Page() {
           <h1 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.0625rem', color: 'var(--ink)', lineHeight: 1.2, marginBottom: 3 }}>
             B6 / B12 Injections
           </h1>
-          <p style={{ fontSize: '0.625rem', color: 'var(--ink-3)', marginBottom: '0.625rem' }}>
+          <p style={{ fontSize: "0.875rem", color: 'var(--ink-3)', marginBottom: '0.625rem' }}>
             Real energy, from the inside — injectable and oral
           </p>
           <PromoBanner />
@@ -87,15 +87,15 @@ export default function B12Page() {
       <Section bg="var(--base)">
         <SectionHeader eyebrow="Choosing your form" title="Injectable vs. oral — at a glance." />
         <div style={{ overflowX: 'auto' }}>
-          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.6875rem' }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: "0.9375rem" }}>
             <thead>
               <tr>
-                <th style={{ padding: '8px 6px', textAlign: 'left', fontSize: '0.5625rem', fontWeight: 700, color: 'var(--ink)', borderBottom: '2px solid var(--border)', width: '38%' }} />
+                <th style={{ padding: '8px 6px', textAlign: 'left', fontSize: "0.875rem", fontWeight: 700, color: 'var(--ink)', borderBottom: '2px solid var(--border)', width: '38%' }} />
                 <th style={{ padding: '8px 6px', textAlign: 'center', borderBottom: '2px solid var(--border)' }}>
-                  <span style={{ background: 'var(--b12)', color: 'var(--b12-dark)', padding: '3px 7px', borderRadius: 5, fontSize: '0.5625rem', fontWeight: 700, display: 'inline-block' }}>Injectable</span>
+                  <span style={{ background: 'var(--b12)', color: 'var(--b12-dark)', padding: '3px 7px', borderRadius: 5, fontSize: "0.875rem", fontWeight: 700, display: 'inline-block' }}>Injectable</span>
                 </th>
                 <th style={{ padding: '8px 6px', textAlign: 'center', borderBottom: '2px solid var(--border)' }}>
-                  <span style={{ background: '#FFF4B0', color: 'var(--b12-dark)', padding: '3px 7px', borderRadius: 5, fontSize: '0.5625rem', fontWeight: 700, display: 'inline-block' }}>Oral / Sublingual</span>
+                  <span style={{ background: '#FFF4B0', color: 'var(--b12-dark)', padding: '3px 7px', borderRadius: 5, fontSize: "0.875rem", fontWeight: 700, display: 'inline-block' }}>Oral / Sublingual</span>
                 </th>
               </tr>
             </thead>
@@ -146,7 +146,7 @@ export default function B12Page() {
 
       <PageLegal text="Compounded B6/B12 preparations are prepared by state-licensed 503A compounding pharmacies. Prescriptions issued at provider discretion only. Individual results vary. Nutree Clinic LLC · Florida · LegitScript certified." />
 
-      <ConsultBand heading="Ready to get your energy back?" sub="30 min · licensed clinician · video or phone" />
+      <ConsultBand heading="Ready to get your energy back?" sub="30 min · licensed clinician" />
     </>
   )
 }
