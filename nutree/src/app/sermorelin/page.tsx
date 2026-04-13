@@ -53,7 +53,7 @@ export default function SermorelinPage() {
               </div>
               <div style={{ textAlign: 'right' }}>
                 <div style={{ fontSize: "1rem", fontWeight: 700, color: 'var(--ser-dark)' }}>{P.sermorelin.tenWeek.label}</div>
-                <div style={{ fontSize: "0.8125rem", color: 'var(--ink-3)' }}>{P.sermorelin.tenWeek.subLabel}</div>
+                <div style={{ fontSize: "1rem", color: 'var(--ink-3)' }}>{P.sermorelin.tenWeek.subLabel}</div>
               </div>
             </div>
           </div>
@@ -88,9 +88,9 @@ export default function SermorelinPage() {
         title="Growth hormone, restored naturally."
         body="As growth hormone levels naturally decline with age, energy, muscle tone, and sleep quality often decline with them. Sermorelin works with your body's natural signalling to encourage the release of growth hormone — helping restore what time has gradually reduced. It acts on the gland in your brain that controls growth hormone production, prompting your body to make more of its own — rather than adding synthetic hormones directly."
         cards={[
-          { icon: '🌙', title: 'Nightly injection', desc: 'Small subcutaneous dose, 5 nights/week before sleep' },
-          { icon: '🔄', title: 'Natural rhythm', desc: 'Growth hormone released in pulses aligned with your sleep cycle' },
-          { icon: '📈', title: 'Builds over time', desc: 'Full results develop over 3–6 months of consistent use' },
+          { icon: 'Moon', title: 'Nightly injection', desc: 'Small subcutaneous dose, 5 nights/week before sleep' },
+          { icon: 'ArrowsClockwise', title: 'Natural rhythm', desc: 'Growth hormone released in pulses aligned with your sleep cycle' },
+          { icon: 'TrendUp', title: 'Builds over time', desc: 'Full results develop over 3–6 months of consistent use' },
         ]}
       />
 
@@ -109,9 +109,9 @@ export default function SermorelinPage() {
         title="What Sermorelin does in the body."
         iconGradient="linear-gradient(135deg, var(--ser-mid), var(--ser))"
         items={[
-          { icon: '💪', title: 'Lean muscle support', desc: 'Higher growth hormone levels support the production of IGF-1, which helps with muscle protein synthesis — supporting lean mass alongside resistance training.' },
-          { icon: '🔥', title: 'Body composition improvement', desc: 'Growth hormone plays a direct role in fat metabolism. Many patients notice a gradual shift in body composition — particularly around the midsection.' },
-          { icon: '⚡', title: 'Sustained energy and vitality', desc: 'Restored growth hormone levels support mitochondrial function and metabolic health — translating to more stable energy throughout the day.' },
+          { icon: 'Barbell', title: 'Lean muscle support', desc: 'Higher growth hormone levels support the production of IGF-1, which helps with muscle protein synthesis — supporting lean mass alongside resistance training.' },
+          { icon: 'Fire', title: 'Body composition improvement', desc: 'Growth hormone plays a direct role in fat metabolism. Many patients notice a gradual shift in body composition — particularly around the midsection.' },
+          { icon: 'Lightning', title: 'Sustained energy and vitality', desc: 'Restored growth hormone levels support mitochondrial function and metabolic health — translating to more stable energy throughout the day.' },
         ]}
       />
 

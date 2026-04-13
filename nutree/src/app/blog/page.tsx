@@ -50,9 +50,9 @@ export default function BlogPage() {
                 transition: 'box-shadow 0.15s, border-color 0.15s',
               }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
-                  <span style={{ fontSize: "0.8125rem", fontWeight: 700, padding: '2px 8px', borderRadius: 'var(--radius-pill)', background: cat.bg, color: cat.color }}>{post.category}</span>
-                  <span style={{ fontSize: "0.8125rem", color: 'var(--ink-3)' }}>{post.readTime} read</span>
-                  <span style={{ fontSize: "0.8125rem", color: 'var(--ink-3)', marginLeft: 'auto' }}>{new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+                  <span style={{ fontSize: "1rem", fontWeight: 700, padding: '2px 8px', borderRadius: 'var(--radius-pill)', background: cat.bg, color: cat.color }}>{post.category}</span>
+                  <span style={{ fontSize: "1rem", color: 'var(--ink-3)' }}>{post.readTime} read</span>
+                  <span style={{ fontSize: "1rem", color: 'var(--ink-3)', marginLeft: 'auto' }}>{new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
                 </div>
                 <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1rem', color: 'var(--ink)', lineHeight: 1.3, marginBottom: '0.375rem' }}>{post.title}</h2>
                 <p style={{ fontSize: "0.9375rem", color: 'var(--ink-3)', lineHeight: 1.6, marginBottom: 0 }}>{post.excerpt}</p>
