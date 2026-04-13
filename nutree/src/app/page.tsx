@@ -74,12 +74,11 @@ export default function HomePage() {
         </div>
         {/* Consult card — full width */}
         <Link href="/consult" style={{
-          display: 'block', textDecoration: 'none',
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between', textDecoration: 'none',
           background: 'linear-gradient(135deg, #F0B8A8 0%, #FAD8CC 100%)',
           borderRadius: 16, padding: '1.5rem',
-          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
           gap: '1rem',
-        } as React.CSSProperties}>
+        }}>
           <div>
             <div style={{ fontFamily: 'var(--font-serif)', fontSize: '1.25rem', color: 'var(--ink)', marginBottom: 4 }}>Book a Consultation</div>
             <div style={{ fontSize: '1rem', color: 'var(--con-dark)', marginBottom: 8 }}>30 min · licensed provider · by phone</div>
