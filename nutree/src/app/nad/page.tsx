@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { PRICES } from '@/lib/prices.config'
+import { FAQ_ITEMS } from '@/lib/faq.config'
 import {
-  PromoBanner, PlanRow, ProductBlockHeader, CTAArea,
+  PromoList, PlanRow, ProductBlockHeader, CTAArea,
   BenefitsList, TrustStrip, FeatureBand, HowItWorks,
   ScienceGrid, Testimonials, AlsoFromNutree, FAQSection,
   PageLegal, ConsultBand, Section, SectionHeader, InStockBadge,
@@ -14,8 +15,14 @@ export const metadata: Metadata = {
 }
 
 const P = PRICES
+const PAGE = '/nad'
 
 export default function NADPage() {
+  const faqs = FAQ_ITEMS
+    .filter(f => f.active && f.pages.includes(PAGE))
+    .sort((a, b) => a.order - b.order)
+    .map(f => ({ q: f.question, a: f.answer }))
+
   return (
     <>
       {/* ── HERO SPLIT ─────────────────────────────────────────────── */}
@@ -38,27 +45,27 @@ export default function NADPage() {
           <p style={{ fontSize: "0.875rem", color: 'var(--ink-3)', marginBottom: '0.625rem' }}>
             Cellular energy, DNA repair, and healthy aging — from within
           </p>
-          <PromoBanner />
+          <PromoList />
 
           {/* Injectable */}
           <div style={{ marginBottom: '0.625rem' }}>
             <ProductBlockHeader>Injectable · Highest bioavailability</ProductBlockHeader>
-            <PlanRow name="6-month plan" sub="Medication · consultation · shipping" price={P.nadInjectable.sixMonth.label} afterPrice={P.nadInjectable.sixMonth.afterLabel} best color="var(--nad-dark)" />
-            <PlanRow name="Monthly plan" sub="Cancel anytime" price={P.nadInjectable.monthly.label} color="var(--nad-dark)" />
+            <PlanRow name="6-month plan" sub={`${P.nadInjectable.sixMonth.totalLabel} · medication · consultation · shipping`} price={P.nadInjectable.sixMonth.monthlyLabel} afterPrice={P.nadInjectable.sixMonth.savingsLabel} best color="var(--nad-dark)" />
+            <PlanRow name="Monthly plan" sub="Cancel anytime" price={P.nadInjectable.monthly.monthlyLabel} afterPrice={P.nadInjectable.monthly.perWeekLabel} color="var(--nad-dark)" />
           </div>
 
           {/* Nasal Spray */}
           <div style={{ marginBottom: '0.625rem' }}>
             <ProductBlockHeader>Nasal Spray · Needle-free</ProductBlockHeader>
-            <PlanRow name="6-month plan" sub="Medication · consultation · shipping" price={P.nadNasalSpray.sixMonth.label} afterPrice={P.nadNasalSpray.sixMonth.afterLabel} best color="var(--nad-dark)" />
-            <PlanRow name="Monthly plan" price={P.nadNasalSpray.monthly.label} color="var(--nad-dark)" />
+            <PlanRow name="6-month plan" sub={`${P.nadNasalSpray.sixMonth.totalLabel} · medication · consultation · shipping`} price={P.nadNasalSpray.sixMonth.monthlyLabel} afterPrice={P.nadNasalSpray.sixMonth.savingsLabel} best color="var(--nad-dark)" />
+            <PlanRow name="Monthly plan" price={P.nadNasalSpray.monthly.monthlyLabel} afterPrice={P.nadNasalSpray.monthly.perWeekLabel} color="var(--nad-dark)" />
           </div>
 
           {/* Patches */}
           <div>
             <ProductBlockHeader>Patches + GHK-Cu</ProductBlockHeader>
-            <PlanRow name="6-month plan" price={P.nadPatches.sixMonth.label} afterPrice={P.nadPatches.sixMonth.afterLabel} best color="var(--nad-dark)" />
-            <PlanRow name="Monthly plan" price={P.nadPatches.monthly.label} color="var(--nad-dark)" />
+            <PlanRow name="6-month plan" sub={P.nadPatches.sixMonth.totalLabel} price={P.nadPatches.sixMonth.monthlyLabel} afterPrice={P.nadPatches.sixMonth.savingsLabel} best color="var(--nad-dark)" />
+            <PlanRow name="Monthly plan" price={P.nadPatches.monthly.monthlyLabel} afterPrice={P.nadPatches.monthly.perWeekLabel} color="var(--nad-dark)" />
           </div>
         </div>
       </div>
@@ -68,9 +75,10 @@ export default function NADPage() {
       <BenefitsList color="var(--nad)" items={[
         'Three delivery forms — your clinician selects the most appropriate',
         'Your price remains consistent at every dose level',
-        'Provider consultation included — ',
+        'Provider consultation and dose adjustments included',
         'Free expedited shipping on every order',
         '503A licensed pharmacy on every prescription',
+        '7/7 direct messaging with your assigned clinician — no waiting rooms',
       ]} />
       <TrustStrip />
 
@@ -93,7 +101,7 @@ export default function NADPage() {
           { title: 'Complete a brief health questionnaire', desc: 'Tell us about your energy levels, health history, and goals — so your clinician arrives prepared.' },
           { title: 'Consult with a licensed clinician', desc: 'Your provider recommends the most appropriate delivery form and dosing schedule, and prescribes if clinically appropriate.' },
           { title: 'Receive your medication at home', desc: 'Prepared by our licensed 503A pharmacy partner and shipped free, directly to your door.' },
-          { title: 'Ongoing monitoring and adjustments', desc: 'Your provider tracks your progress and stays available throughout. Check-ins and dose adjustments are included.' },
+          { title: 'Ongoing care — 7/7 direct messaging', desc: 'Your clinician is available 7 days a week via direct message throughout your plan. Check-ins and dose adjustments are included — no waiting rooms.' },
         ]}
       />
 
@@ -152,21 +160,19 @@ export default function NADPage() {
         ]}
       />
 
-      <FAQSection
-        iconBg="var(--nad)" iconColor="var(--nad-dark)"
-        items={[
-          { q: 'Which delivery form is most effective?', a: 'Injectables provide the highest bioavailability. Nasal spray offers rapid CNS absorption without needles. Patches with GHK-Cu provide continuous slow-release delivery alongside regenerative peptide benefits. Your clinician recommends the most appropriate form based on your goals and health profile.' },
-          { q: 'What is GHK-Cu?', a: 'GHK-Cu (copper tripeptide-1) is a naturally occurring peptide that declines with age, studied for its role in collagen synthesis, tissue repair, and anti-inflammatory activity. Combined with transdermal NAD+, it offers complementary cellular support.' },
-          { q: 'How long before I notice results?', a: 'Most patients notice initial changes in energy and mental clarity within 2–4 weeks. Deeper cellular and longevity benefits build over 8–12 weeks of consistent use.' },
-          { q: 'Is insurance required?', a: 'No. All Nutree NAD+ plans are self-pay and FSA/HSA eligible.' },
-        ]}
-      />
+      {faqs.length > 0 && (
+        <FAQSection
+          iconBg="var(--nad)"
+          iconColor="var(--nad-dark)"
+          items={faqs}
+        />
+      )}
 
       <PageLegal text="Compounded NAD+ preparations are prepared by state-licensed 503A compounding pharmacies and are not FDA-approved. GHK-Cu is not FDA-approved. Prescriptions issued at provider discretion only. Individual results vary. Nutree Clinic LLC · Florida · LegitScript certified." />
 
       <ConsultBand
-        heading="Want a complete longevity protocol?"
-        sub="30 min · licensed clinician"
+        heading="Ready to take the next step?"
+        sub="Your clinician reviews your intake and issues your prescription. If they have any questions, they will reach out directly."
       />
     </>
   )

@@ -1,7 +1,7 @@
 'use client'
 import Link from 'next/link'
 import {
-  Stethoscope, ClipboardText, CreditCard, Phone,
+  Stethoscope, ClipboardText, CreditCard, ChatCircle,
   Question, Pill, Leaf, Scales,
 } from '@phosphor-icons/react'
 
@@ -9,7 +9,7 @@ const INCLUDED = [
   { Icon: Stethoscope, title: 'Personalised treatment recommendation', desc: 'Your clinician reviews your health history and goals, then recommends the treatment most appropriate for your body — or none, if it\'s not right for you.' },
   { Icon: ClipboardText, title: 'Full health history review', desc: 'A real clinical conversation. Your provider asks the right questions and listens before making any recommendation.' },
   { Icon: CreditCard, title: '$50 credited to your first plan', desc: 'If you start a Nutree treatment plan after your consultation, the $50 is credited toward your first month.' },
-  { Icon: Phone, title: 'By phone — from anywhere', desc: 'Consult from wherever you are. No travel, no waiting rooms. Florida-licensed providers only. Video available if clinically necessary or requested.' },
+  { Icon: ChatCircle, title: '7/7 direct clinician messaging', desc: 'Your assigned clinician is available 7 days a week via direct message throughout your plan — no phone required, no waiting rooms.' },
 ]
 
 const WHO = [
@@ -28,11 +28,10 @@ export function ConsultContent() {
           Wellness consultation · Licensed provider
         </div>
         <h1 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(2rem, 5vw, 3rem)', color: 'var(--ink)', lineHeight: 1.1, marginBottom: '0.75rem' }}>
-          Not sure where<br />to start?<br />
-          <em style={{ color: 'var(--con-dark)' }}>Start with a conversation.</em>
+          Start your health journey.
         </h1>
         <p style={{ fontSize: '1rem', color: 'var(--ink-2)', lineHeight: 1.7, marginBottom: '1.5rem', maxWidth: 400 }}>
-          A licensed Nutree clinician will listen to what you&apos;re experiencing, review your goals and health history, and give you an honest recommendation.
+          Submit your intake form and your clinician reviews everything. Your prescription is issued directly — no call required unless you request one or it is clinically necessary. Your clinician is available 7 days a week via direct message.
         </p>
         <div style={{ display: 'flex', alignItems: 'baseline', gap: '1rem', marginBottom: '1.25rem' }}>
           <span style={{ fontFamily: 'var(--font-serif)', fontSize: '3rem', fontWeight: 700, color: 'var(--con-dark)', lineHeight: 1 }}>$50</span>

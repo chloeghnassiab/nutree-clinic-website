@@ -1,8 +1,9 @@
 // ─── OXYTOCIN PAGE ────────────────────────────────────────────────────────────
 import type { Metadata } from 'next'
 import { PRICES } from '@/lib/prices.config'
+import { FAQ_ITEMS } from '@/lib/faq.config'
 import {
-  PromoBanner, PlanRow, ProductBlockHeader, CTAArea,
+  PromoList, PlanRow, ProductBlockHeader, CTAArea,
   BenefitsList, TrustStrip, FeatureBand, HowItWorks,
   ScienceGrid, Testimonials, AlsoFromNutree, FAQSection,
   PageLegal, ConsultBand, InStockBadge,
@@ -14,8 +15,14 @@ export const metadata: Metadata = {
 }
 
 const P = PRICES
+const PAGE = '/oxytocin'
 
 export default function OxytocinPage() {
+  const faqs = FAQ_ITEMS
+    .filter(f => f.active && f.pages.includes(PAGE))
+    .sort((a, b) => a.order - b.order)
+    .map(f => ({ q: f.question, a: f.answer }))
+
   return (
     <>
       <div className="hero-split">
@@ -35,13 +42,13 @@ export default function OxytocinPage() {
           <p style={{ fontSize: "0.875rem", color: 'var(--ink-3)', marginBottom: '0.625rem' }}>
             Calm, emotional balance, and stress relief — from within
           </p>
-          <PromoBanner />
+          <PromoList />
 
           <div>
             <ProductBlockHeader>Nasal Spray · Physician-prescribed</ProductBlockHeader>
-            <PlanRow name="6-month plan" sub="Medication · consultation · shipping · save 15%" price={P.oxytocin.sixMonth.label} afterPrice={P.oxytocin.sixMonth.afterLabel} best color="var(--oxy-dark)" />
-            <PlanRow name="3-month plan" price={P.oxytocin.threeMonth.label} color="var(--oxy-dark)" />
-            <PlanRow name="Monthly plan" sub="Cancel anytime" price={P.oxytocin.monthly.label} color="var(--oxy-dark)" />
+            <PlanRow name="6-month plan" sub={`${P.oxytocin.sixMonth.totalLabel} · medication · consultation · shipping`} price={P.oxytocin.sixMonth.monthlyLabel} afterPrice={P.oxytocin.sixMonth.savingsLabel} best color="var(--oxy-dark)" />
+            <PlanRow name="3-month plan" price={P.oxytocin.threeMonth.monthlyLabel} afterPrice={P.oxytocin.threeMonth.savingsLabel} color="var(--oxy-dark)" />
+            <PlanRow name="Monthly plan" sub="Cancel anytime" price={P.oxytocin.monthly.monthlyLabel} afterPrice={P.oxytocin.monthly.perWeekLabel} color="var(--oxy-dark)" />
           </div>
         </div>
       </div>
@@ -54,6 +61,7 @@ export default function OxytocinPage() {
         'Provider consultation and dose guidance included',
         'Free expedited shipping on every order',
         '503A licensed pharmacy on every prescription',
+        '7/7 direct messaging with your assigned clinician — no waiting rooms',
       ]} />
       <TrustStrip />
 
@@ -106,18 +114,20 @@ export default function OxytocinPage() {
         ]}
       />
 
-      <FAQSection
-        iconBg="var(--oxy)" iconColor="var(--oxy-dark)"
-        items={[
-          { q: 'Is this the same oxytocin used in obstetrics?', a: 'The same molecule, at a very different dose and delivery method. Obstetric use involves intravenous administration at high doses for uterine effects. Nasal spray therapy uses much smaller doses targeting CNS receptors for mood and stress regulation. The applications are entirely different.' },
-          { q: 'Is this a treatment for anxiety or depression?', a: 'Oxytocin therapy at Nutree is a wellness treatment for stress relief and emotional well-being. It is not a psychiatric treatment and is not a substitute for therapy or psychiatric medication. If you are experiencing a clinical condition, your provider will advise accordingly.' },
-          { q: 'Is insurance required?', a: 'No. All Nutree Oxytocin plans are self-pay and FSA/HSA eligible.' },
-        ]}
-      />
+      {faqs.length > 0 && (
+        <FAQSection
+          iconBg="var(--oxy)"
+          iconColor="var(--oxy-dark)"
+          items={faqs}
+        />
+      )}
 
       <PageLegal text="Compounded oxytocin nasal spray is not FDA-approved and has not been evaluated by the FDA for safety, efficacy, or quality. Not indicated for psychiatric conditions. Not appropriate during pregnancy. Prescriptions issued at provider discretion only. Individual results vary. Nutree Clinic LLC · Florida · LegitScript certified." />
 
-      <ConsultBand heading="Ready to find your calm?" sub="30 min · licensed clinician" />
+      <ConsultBand
+        heading="Ready to take the next step?"
+        sub="Your clinician reviews your intake and issues your prescription. If they have any questions, they will reach out directly."
+      />
     </>
   )
 }

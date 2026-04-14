@@ -25,8 +25,10 @@ export function SiteFooter() {
           <Link href="/weight-loss" className="footer-link">GLP-1 Weight Loss</Link>
           <Link href="/nad" className="footer-link">NAD+ Therapy</Link>
           <Link href="/sermorelin" className="footer-link">Sermorelin</Link>
+          <Link href="/glutathione" className="footer-link">Glutathione</Link>
           <Link href="/oxytocin" className="footer-link">Oxytocin</Link>
           <Link href="/b12" className="footer-link">B6 / B12</Link>
+          <Link href="/stacks" className="footer-link">Treatment Stacks</Link>
         </div>
         <div>
           <div style={{ fontSize: '0.9375rem', fontWeight: 700, color: 'var(--ink)', marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Company</div>
@@ -42,10 +44,23 @@ export function SiteFooter() {
           <Link href="/terms-of-use" className="footer-link">Terms of Use</Link>
         </div>
       </div>
-      <div style={{ borderTop: '0.5px solid var(--border)', paddingTop: '1rem', fontSize: '0.875rem', color: 'var(--ink-3)', lineHeight: 1.65 }}>
-        <p style={{ marginBottom: '0.375rem' }}>Compounded medications are not FDA-approved and have not been reviewed by the FDA for safety, efficacy, or quality. All prescriptions are issued at the sole clinical discretion of licensed providers. This website does not provide medical advice. Individual results vary. Nutree Clinic LLC is not a pharmacy.</p>
-        <p>Wegovy® is a registered trademark of Novo Nordisk A/S. Mounjaro® and Zepbound® are registered trademarks of Eli Lilly and Company. Use of these names does not imply any affiliation with or endorsement by these companies.</p>
-        <p style={{ marginTop: '1rem', marginBottom: '0.75rem' }}>© {new Date().getFullYear()} Nutree Clinic LLC. All rights reserved.</p>
+      {/* 7/7 trust pill */}
+      <div style={{ marginBottom: '1rem', display: 'flex', flexWrap: 'wrap', gap: '0.375rem' }}>
+        {['✓ Free shipping', '✓ FSA / HSA eligible', '✓ 7/7 clinician messaging', '✓ LegitScript certified'].map(t => (
+          <div key={t} style={{ display: 'inline-flex', alignItems: 'center', gap: 4, padding: '4px 10px', borderRadius: 999, background: 'var(--base)', border: '0.5px solid var(--border)', fontSize: '0.75rem', color: 'var(--ink-3)', fontWeight: 500 }}>
+            {t}
+          </div>
+        ))}
+      </div>
+
+      <div style={{ borderTop: '0.5px solid var(--border)', paddingTop: '1rem', fontSize: '0.75rem', color: 'var(--ink-3)', lineHeight: 1.65 }}>
+        <p style={{ marginBottom: '0.625rem' }}>
+          Nutree Clinic LLC is a Florida-licensed telehealth medical practice. All treatments require a valid prescription issued by a licensed healthcare provider based on a clinical review of your health history. Compounded medications are not FDA-approved and have not been reviewed by the FDA for safety, efficacy, or quality. Prescriptions are issued at the sole discretion of your treating provider. Nutree Clinic LLC is not a pharmacy. Individual results may vary. FSA/HSA eligibility depends on your plan administrator. This website does not constitute medical advice.
+        </p>
+        <p style={{ marginBottom: '0.625rem' }}>
+          Wegovy® is a registered trademark of Novo Nordisk A/S. Mounjaro® and Zepbound® are registered trademarks of Eli Lilly and Company. Use of these names does not imply any affiliation with or endorsement by these companies.
+        </p>
+        <p style={{ marginBottom: '0.75rem' }}>LegitScript certified · © {new Date().getFullYear()} Nutree Clinic LLC · All rights reserved.</p>
         <a href="https://www.legitscript.com/websites/?checker_keywords=nutreeclinic.com" target="_blank" rel="noopener noreferrer" title="Verify LegitScript Approval for www.nutreeclinic.com">
           <img src="https://static.legitscript.com/seals/47538313.png" alt="LegitScript Approved" width={73} height={79} style={{ display: 'block' }} />
         </a>

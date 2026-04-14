@@ -2,8 +2,9 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { WhoItsFor } from './WhoItsFor'
 import { PRICES } from '@/lib/prices.config'
+import { FAQ_ITEMS } from '@/lib/faq.config'
 import {
-  PromoBanner, PlanRow, ProductBlockHeader, CTAArea,
+  PromoList, PlanRow, ProductBlockHeader, CTAArea,
   BenefitsList, TrustStrip, FeatureBand, ScienceGrid,
   Testimonials, AlsoFromNutree, FAQSection, PageLegal,
   ConsultBand, Section, SectionHeader, InStockBadge,
@@ -15,8 +16,14 @@ export const metadata: Metadata = {
 }
 
 const P = PRICES
+const PAGE = '/glp-1'
 
 export default function MicroDosingPage() {
+  const faqs = FAQ_ITEMS
+    .filter(f => f.active && f.pages.includes(PAGE))
+    .sort((a, b) => a.order - b.order)
+    .map(f => ({ q: f.question, a: f.answer }))
+
   return (
     <>
       {/* HERO */}
@@ -37,7 +44,7 @@ export default function MicroDosingPage() {
           <p style={{ fontSize: "0.875rem", color: 'var(--ink-3)', marginBottom: '0.625rem' }}>
             A gentler start — lower doses, fewer side effects, sustainable results
           </p>
-          <PromoBanner />
+          <PromoList />
 
           <div style={{ marginBottom: '0.625rem' }}>
             <ProductBlockHeader>Microdose Semaglutide</ProductBlockHeader>
@@ -87,8 +94,9 @@ export default function MicroDosingPage() {
         'Lower starting doses — fewer side effects from day one',
         'Ideal for GLP-1 first-timers or those sensitive to standard dosing',
         'Fixed programme — know exactly what you\'re committing to',
-        'Provider consultation included — ',
+        'Provider consultation and guidance included',
         'Free expedited shipping · 503A licensed pharmacy',
+        '7/7 direct messaging with your assigned clinician — no waiting rooms',
       ]} />
       <TrustStrip />
 
@@ -173,21 +181,19 @@ export default function MicroDosingPage() {
         ]}
       />
 
-      <FAQSection
-        iconBg="var(--glp)" iconColor="var(--glp-dark)"
-        items={[
-          { q: 'Is microdosing less effective than standard dosing?', a: 'Microdosing produces more gradual results. For patients with less weight to lose or who are sensitive to side effects, it is often the more appropriate clinical choice. Your Nutree provider will advise which approach is right for your health profile.' },
-          { q: 'Can I switch to a standard plan after microdosing?', a: 'Yes. Many patients complete a microdosing programme and then transition to a monthly plan. Your clinician will guide this transition based on your response and goals.' },
-          { q: 'Is there an auto-renewal?', a: 'No. Microdosing programmes are fixed-term — 5 or 10 weeks, billed upfront. There is no automatic renewal. You can choose to continue or not at the end of the programme.' },
-          { q: 'Will I receive a prescription at my consultation?', a: 'All prescriptions are issued at the sole clinical discretion of your licensed Nutree provider. Your clinician will determine the most appropriate plan based on your health profile.' },
-        ]}
-      />
+      {faqs.length > 0 && (
+        <FAQSection
+          iconBg="var(--glp)"
+          iconColor="var(--glp-dark)"
+          items={faqs}
+        />
+      )}
 
       <PageLegal text="Compounded semaglutide and tirzepatide are prepared by state-licensed 503A compounding pharmacies and are not FDA-approved. Off-label use must be prescribed and supervised by a licensed provider. Individual results vary. Nutree Clinic LLC · Florida · LegitScript certified." />
 
       <ConsultBand
-        heading="Not sure if microdosing is right for you?"
-        sub="A licensed clinician will advise · $50"
+        heading="Ready to take the next step?"
+        sub="Your clinician reviews your intake and issues your prescription. If they have any questions, they will reach out directly."
       />
     </>
   )

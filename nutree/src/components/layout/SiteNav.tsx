@@ -26,13 +26,13 @@ const NAV_CATEGORIES = [
       { label: 'NAD+ Injectable', sub: 'Highest bioavailability', href: '/nad' },
       { label: 'NAD+ Nasal Spray', sub: 'Needle-free · rapid absorption', href: '/nad' },
       { label: 'NAD+ Patches + GHK-Cu', sub: 'Slow-release + peptide', href: '/nad' },
-      { label: 'Sermorelin', sub: 'Growth hormone support', href: '/sermorelin' },
+      { label: 'Glutathione', sub: 'Detox · antioxidant · cellular health', href: '/glutathione' },
     ],
     featured: {
       img: '/images/nad-plus-injectable-therapy-nutreeclinic-nav.png',
       img2: '/images/nad-plus-nasal-spray-therapy-nutreeclinic-nav.png',
       bg: 'linear-gradient(145deg,#78C8A8,#A8D8C8)',
-      title: 'NAD+\nTherapy',
+      title: 'Longevity\nProtocols',
       price: 'From $TBD/mo',
       href: '/nad',
     },
@@ -41,12 +41,13 @@ const NAV_CATEGORIES = [
     label: 'Strength',
     treatments: [
       { label: 'Sermorelin', sub: 'Recovery · energy · lean muscle', href: '/sermorelin' },
+      { label: 'NAD+ Therapy', sub: 'ATP production · cellular energy', href: '/nad' },
     ],
     featured: {
       img: '/images/sermorelin-growth-hormone-therapy-nutreeclinic-nav.png',
       bg: 'linear-gradient(145deg,#E0A070,#F2C4A0)',
       title: 'Sermorelin\nTherapy',
-      price: 'From $125 first',
+      price: 'From $175/mo',
       href: '/sermorelin',
     },
   },
@@ -202,6 +203,11 @@ export function SiteNav() {
                     FAQ
                   </Link>
                 </div>
+                {/* 7/7 trust line */}
+                <div style={{ marginTop: '0.75rem', fontSize: '0.75rem', color: 'var(--ink-3)', display: 'flex', alignItems: 'center', gap: '0.375rem' }}>
+                  <svg width="13" height="13" viewBox="0 0 256 256" fill="none"><circle cx="128" cy="128" r="96" stroke="currentColor" strokeWidth="16"/><path d="M80 128c0-26.5 21.5-48 48-48s48 21.5 48 48" stroke="currentColor" strokeWidth="16" strokeLinecap="round"/><circle cx="92" cy="148" r="8" fill="currentColor"/><circle cx="164" cy="148" r="8" fill="currentColor"/></svg>
+                  7/7 clinician messaging included with every plan
+                </div>
               </div>
 
               {/* Divider */}
@@ -271,6 +277,7 @@ export function SiteNav() {
             <Link href="/blog" className="mob-cat" style={{ textDecoration: 'none', justifyContent: 'flex-start' }} onClick={() => setMobileOpen(false)}>Blog</Link>
             <Link href="/about" className="mob-cat" style={{ textDecoration: 'none', justifyContent: 'flex-start' }} onClick={() => setMobileOpen(false)}>About</Link>
             <Link href="/faq" className="mob-cat" style={{ textDecoration: 'none', justifyContent: 'flex-start' }} onClick={() => setMobileOpen(false)}>FAQ</Link>
+            <Link href="/stacks" className="mob-cat" style={{ textDecoration: 'none', justifyContent: 'flex-start' }} onClick={() => setMobileOpen(false)}>Treatment Stacks</Link>
             <div style={{ marginTop: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.625rem' }}>
               <Link href="/consult" onClick={() => setMobileOpen(false)}
                 style={{ display: 'block', textAlign: 'center', padding: '16px', borderRadius: '999px', background: 'var(--con)', color: 'var(--ink)', fontWeight: 700, fontSize: '1rem', textDecoration: 'none' }}>

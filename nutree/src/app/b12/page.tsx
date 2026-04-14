@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import { PRICES } from '@/lib/prices.config'
+import { FAQ_ITEMS } from '@/lib/faq.config'
 import {
-  PromoBanner, PlanRow, ProductBlockHeader, CTAArea,
+  PromoList, PlanRow, ProductBlockHeader, CTAArea,
   BenefitsList, TrustStrip, FeatureBand,
   ScienceGrid, Testimonials, AlsoFromNutree, FAQSection,
   PageLegal, ConsultBand, Section, SectionHeader, InStockBadge,
@@ -13,8 +14,14 @@ export const metadata: Metadata = {
 }
 
 const P = PRICES
+const PAGE = '/b12'
 
 export default function B12Page() {
+  const faqs = FAQ_ITEMS
+    .filter(f => f.active && f.pages.includes(PAGE))
+    .sort((a, b) => a.order - b.order)
+    .map(f => ({ q: f.question, a: f.answer }))
+
   return (
     <>
       <div className="hero-split">
@@ -35,18 +42,18 @@ export default function B12Page() {
           <p style={{ fontSize: "0.875rem", color: 'var(--ink-3)', marginBottom: '0.625rem' }}>
             Real energy, from the inside — injectable and oral
           </p>
-          <PromoBanner />
+          <PromoList />
 
           <div style={{ marginBottom: '0.625rem' }}>
             <ProductBlockHeader>Injectable · Highest absorption</ProductBlockHeader>
-            <PlanRow name="6-month plan" sub="Medication · consultation · shipping" price={P.b12Injectable.sixMonth.label} afterPrice={P.b12Injectable.sixMonth.afterLabel} best color="var(--b12-dark)" />
-            <PlanRow name="Monthly plan" sub="Cancel anytime" price={P.b12Injectable.monthly.label} color="var(--b12-dark)" />
+            <PlanRow name="6-month plan" sub={`${P.b12Injectable.sixMonth.totalLabel} · medication · consultation · shipping`} price={P.b12Injectable.sixMonth.monthlyLabel} afterPrice={P.b12Injectable.sixMonth.savingsLabel} best color="var(--b12-dark)" />
+            <PlanRow name="Monthly plan" sub="Cancel anytime" price={P.b12Injectable.monthly.monthlyLabel} afterPrice={P.b12Injectable.monthly.perWeekLabel} color="var(--b12-dark)" />
           </div>
 
           <div>
             <ProductBlockHeader>Oral / Sublingual · Needle-free</ProductBlockHeader>
-            <PlanRow name="6-month plan" price={P.b12Oral.sixMonth.label} afterPrice={P.b12Oral.sixMonth.afterLabel} best color="var(--b12-dark)" />
-            <PlanRow name="Monthly plan" price={P.b12Oral.monthly.label} color="var(--b12-dark)" />
+            <PlanRow name="6-month plan" sub={P.b12Oral.sixMonth.totalLabel} price={P.b12Oral.sixMonth.monthlyLabel} afterPrice={P.b12Oral.sixMonth.savingsLabel} best color="var(--b12-dark)" />
+            <PlanRow name="Monthly plan" price={P.b12Oral.monthly.monthlyLabel} afterPrice={P.b12Oral.monthly.perWeekLabel} color="var(--b12-dark)" />
           </div>
         </div>
       </div>
@@ -59,6 +66,7 @@ export default function B12Page() {
         'Provider consultation and guidance included',
         'Free expedited shipping on every order',
         '503A licensed pharmacy on every prescription',
+        '7/7 direct messaging with your assigned clinician — no waiting rooms',
       ]} />
       <TrustStrip />
 
@@ -136,19 +144,20 @@ export default function B12Page() {
         ]}
       />
 
-      <FAQSection
-        iconBg="var(--b12)" iconColor="var(--b12-dark)"
-        items={[
-          { q: 'What is the difference between B6 and B12?', a: 'B12 (cobalamin) is involved in red blood cell formation, energy metabolism, and neurological function. B6 (pyridoxine) plays a key role in neurotransmitter synthesis and immune function. They work synergistically — particularly in mood regulation and metabolic health — which is why they are often prescribed together.' },
-          { q: 'How quickly will I notice results?', a: 'Injectable B12 often produces noticeable energy improvements within days. Oral supplementation typically takes 2–4 weeks. Full restoration of depleted levels generally takes 4–8 weeks of consistent use.' },
-          { q: 'Is the injectable form appropriate for me?', a: 'Your Nutree clinician will recommend the most appropriate form based on your health history, goals, and any factors that may affect absorption.' },
-          { q: 'Is insurance required?', a: 'No. All Nutree B6/B12 plans are self-pay and FSA/HSA eligible.' },
-        ]}
-      />
+      {faqs.length > 0 && (
+        <FAQSection
+          iconBg="var(--b12)"
+          iconColor="var(--b12-dark)"
+          items={faqs}
+        />
+      )}
 
       <PageLegal text="Compounded B6/B12 preparations are prepared by state-licensed 503A compounding pharmacies. Prescriptions issued at provider discretion only. Individual results vary. Nutree Clinic LLC · Florida · LegitScript certified." />
 
-      <ConsultBand heading="Ready to get your energy back?" sub="30 min · licensed clinician" />
+      <ConsultBand
+        heading="Ready to take the next step?"
+        sub="Your clinician reviews your intake and issues your prescription. If they have any questions, they will reach out directly."
+      />
     </>
   )
 }

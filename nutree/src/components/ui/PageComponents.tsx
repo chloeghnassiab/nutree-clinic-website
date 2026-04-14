@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import { PROMOTIONS } from '@/lib/promotions.config'
 
 // ─── SHARED ANIMATION VARIANTS ───────────────────────────────────────────────
 const fadeUp = {
@@ -20,7 +21,7 @@ import {
   Pill, Syringe, Fire, Moon, ArrowsClockwise,
   TrendUp, Heart, Plant, Smiley, SmileyMeh,
   Scales, MagnifyingGlass, Leaf, Sun, Sparkle,
-  Bandaids, Package,
+  Bandaids, Package, ChatCircle,
 } from '@phosphor-icons/react'
 
 // Map icon string names → Phosphor components
@@ -31,7 +32,7 @@ const ICON_COMPONENTS: Record<string, React.ComponentType<{size?: number; weight
   Scales, MagnifyingGlass, Leaf, Sun, Sparkle,
   ShieldCheck, CreditCard, Lock, Certificate,
   CheckCircle, Star, ClipboardText, TrendDown, Stethoscope, SprayBottle,
-  Bandaids, Package,
+  Bandaids, Package, ChatCircle,
 }
 
 function PhosphorIcon({ name, size = 22, color = 'var(--ink)', weight = 'regular' }: { name: string; size?: number; color?: string; weight?: 'thin'|'light'|'regular'|'bold'|'fill'|'duotone' }) {
@@ -71,12 +72,23 @@ export function SectionHeader({ eyebrow, title, body, color = 'var(--ink-3)' }: 
 }
 
 // ─── PROMO BANNER ────────────────────────────────────────────────────────────
-export function PromoBanner({ text = '$50 consultation credited toward your first plan' }: { text?: string }) {
+export function PromoBanner({ text }: { text: string }) {
   return (
     <div style={{ background: 'var(--promo-bg)', border: '1px solid var(--promo-border)', borderRadius: 8, padding: '0.625rem 0.875rem', display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.875rem' }}>
       <CreditCard size={16} weight="fill" color="var(--promo-dark)" />
       <span style={{ fontSize: '0.875rem', fontWeight: 700, color: 'var(--promo-dark)' }}>{text}</span>
     </div>
+  )
+}
+
+// ─── PROMO LIST — renders all active promotions ───────────────────────────────
+export function PromoList() {
+  const active = PROMOTIONS.filter(p => p.active)
+  if (active.length === 0) return null
+  return (
+    <>
+      {active.map(p => <PromoBanner key={p.id} text={p.text} />)}
+    </>
   )
 }
 
@@ -204,8 +216,8 @@ export function HowItWorks({ steps, gradient }: { steps: { title: string; desc: 
 }
 
 // ─── SCIENCE GRID ────────────────────────────────────────────────────────────
-export function ScienceGrid({ eyebrow, title, items, iconGradient }: {
-  eyebrow: string; title: string; items: { icon: string; title: string; desc: string }[]; iconGradient: string
+export function ScienceGrid({ eyebrow, title, body, items, iconGradient }: {
+  eyebrow: string; title: string; body?: string; items: { icon: string; title: string; desc: string }[]; iconGradient: string
 }) {
   return (
     <Section bg="var(--base)">
@@ -373,9 +385,10 @@ export function ConsultBand({ heading, sub }: { heading: string; sub?: string })
           {heading}
         </div>
         {sub && <div style={{ fontSize: '0.875rem', color: 'rgba(255,255,255,0.5)' }}>{sub}</div>}
+        <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.35)', marginTop: 6 }}>7/7 clinician messaging included with every plan</div>
       </div>
       <Link href="/consult" style={{ padding: '12px 22px', borderRadius: 999, background: 'var(--con)', color: 'var(--ink)', fontSize: '0.9375rem', fontWeight: 700, textDecoration: 'none', whiteSpace: 'nowrap', flexShrink: 0 }}>
-        Book a consult · $50 →
+        Start your intake →
       </Link>
     </motion.div>
   )

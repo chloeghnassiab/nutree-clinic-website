@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { PRICES } from '@/lib/prices.config'
+import { FAQ_ITEMS } from '@/lib/faq.config'
 import {
-  PromoBanner, PlanRow, ProductBlockHeader, CTAArea,
+  PromoList, PlanRow, ProductBlockHeader, CTAArea,
   BenefitsList, TrustStrip, FeatureBand, HowItWorks,
   ScienceGrid, Testimonials, AlsoFromNutree, FAQSection,
   PageLegal, ConsultBand, InStockBadge,
@@ -10,12 +11,18 @@ import {
 
 export const metadata: Metadata = {
   title: 'Sermorelin — Growth Hormone Support, Energy & Recovery',
-  description: 'Physician-prescribed Sermorelin — supports your body\'s own growth hormone release for energy, recovery, lean muscle, and better sleep. Florida telehealth.',
+  description: 'Physician-prescribed Sermorelin injections — supports your body\'s own growth hormone release for energy, recovery, lean muscle, and better sleep. Florida telehealth.',
 }
 
 const P = PRICES
+const PAGE = '/sermorelin'
 
 export default function SermorelinPage() {
+  const faqs = FAQ_ITEMS
+    .filter(f => f.active && f.pages.includes(PAGE))
+    .sort((a, b) => a.order - b.order)
+    .map(f => ({ q: f.question, a: f.answer }))
+
   return (
     <>
       {/* ── HERO SPLIT ─────────────────────────────────────────────── */}
@@ -35,11 +42,10 @@ export default function SermorelinPage() {
           <h1 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.75rem', color: 'var(--ink)', lineHeight: 1.15, marginBottom: 8 }}>
             Sermorelin
           </h1>
-          {/* ✅ CORRECTED: outcome-first, no "pituitary" in headline */}
           <p style={{ fontSize: "0.875rem", color: 'var(--ink-3)', marginBottom: '0.625rem' }}>
             More energy, stronger recovery, better sleep — from your own body
           </p>
-          <PromoBanner />
+          <PromoList />
 
           <div style={{ marginBottom: '0.625rem' }}>
             <ProductBlockHeader>10-week starter plan</ProductBlockHeader>
@@ -57,12 +63,24 @@ export default function SermorelinPage() {
 
           <div style={{ marginBottom: '0.625rem' }}>
             <ProductBlockHeader>Monthly plan</ProductBlockHeader>
-            <PlanRow name="Monthly subscription" sub={`${P.sermorelin.monthly.firstLabel} · ${P.sermorelin.monthly.label} after`} price={P.sermorelin.monthly.firstLabel!} afterPrice={`${P.sermorelin.monthly.label} after`} best color="var(--ser-dark)" />
+            <PlanRow
+              name="Monthly subscription"
+              sub="Cancel anytime"
+              price={P.sermorelin.monthly.monthlyLabel}
+              color="var(--ser-dark)"
+            />
           </div>
 
           <div>
             <ProductBlockHeader>3-month plan · Best value</ProductBlockHeader>
-            <PlanRow name={`3-month · ${P.sermorelin.threeMonth.label}`} sub={P.sermorelin.threeMonth.firstLabel} price="$125 first" afterPrice="then $175/mo" best color="var(--ser-dark)" />
+            <PlanRow
+              name={`3-month · ${P.sermorelin.threeMonth.totalLabel}`}
+              sub={`${P.sermorelin.threeMonth.monthlyLabel} · medication · consultation · shipping`}
+              price={P.sermorelin.threeMonth.monthlyLabel}
+              afterPrice={P.sermorelin.threeMonth.savingsLabel || undefined}
+              best
+              color="var(--ser-dark)"
+            />
           </div>
         </div>
       </div>
@@ -70,15 +88,15 @@ export default function SermorelinPage() {
       <CTAArea />
 
       <BenefitsList color="var(--ser)" items={[
-        'Supports your body\'s own growth hormone release — no synthetic hormones added',
+        'Injectable delivery — supports your body\'s own growth hormone release, no synthetic hormones added',
         'Natural pulsatile release aligned with your sleep cycle',
         'Provider consultation and dose adjustments included',
         'Free expedited shipping on every order',
         '503A licensed pharmacy on every prescription',
+        '7/7 direct messaging with your assigned clinician — no waiting rooms',
       ]} />
       <TrustStrip />
 
-      {/* ── FEATURE BAND — ✅ Eden-informed copy, outcome first ─── */}
       <FeatureBand
         gradient="linear-gradient(145deg, var(--ser-mid) 0%, var(--ser) 55%, #FAE8D4 100%)"
         eyebrow="How it works"
@@ -97,7 +115,7 @@ export default function SermorelinPage() {
           { title: 'Weeks 1–2 · Deeper sleep', desc: 'Most patients notice more restful, deeper sleep within the first two weeks — the first sign that growth hormone production is responding.' },
           { title: 'Weeks 3–6 · Energy and recovery', desc: 'Increased energy, faster recovery after exercise, and a general sense of vitality as growth hormone levels continue to build.' },
           { title: 'Months 2–3 · Body composition', desc: 'Visible changes in muscle tone and body fat distribution alongside consistent exercise and nutrition.' },
-          { title: 'Months 3–6 · Full results', desc: 'The most significant improvements in lean muscle, vitality, and overall well-being after a complete protocol.' },
+          { title: 'Months 3–6 · Full results', desc: 'The most significant improvements in lean muscle, vitality, and overall well-being after a complete protocol. Your clinician is available 7 days a week via direct message throughout.' },
         ]}
       />
 
@@ -129,22 +147,19 @@ export default function SermorelinPage() {
         ]}
       />
 
-      <FAQSection
-        iconBg="var(--ser)" iconColor="var(--ser-dark)"
-        items={[
-          { q: 'How does Sermorelin differ from synthetic growth hormone?', a: 'Synthetic HGH replaces your growth hormone directly, bypassing your body\'s natural regulation. Sermorelin instead signals the gland in your brain that controls growth hormone production to release more of your own — keeping your body\'s natural feedback loops intact. This is why many providers prefer it as a more physiologic approach to growth hormone support.' },
-          { q: 'How is Sermorelin administered?', a: 'A small subcutaneous injection self-administered at home — typically into the abdomen, on an empty stomach before bedtime, five nights per week. Your provider guides you through the technique at your first consultation.' },
-          { q: 'Is Sermorelin FDA-approved?', a: 'Sermorelin was previously FDA-approved but the manufacturer discontinued it in 2006 for commercial reasons, not safety concerns. It remains available as a compounded medication from licensed 503A pharmacies. All prescriptions are issued at the sole clinical discretion of your licensed Nutree provider.' },
-          { q: 'How long should I take it?', a: 'Most providers recommend 3–6 months for full results. The 10-week starter plan is a structured way to experience the initial effects. Your clinician will guide your plan based on your response and goals.' },
-          { q: 'Is insurance required?', a: 'No. All Nutree Sermorelin plans are self-pay and FSA/HSA eligible.' },
-        ]}
-      />
+      {faqs.length > 0 && (
+        <FAQSection
+          iconBg="var(--ser)"
+          iconColor="var(--ser-dark)"
+          items={faqs}
+        />
+      )}
 
       <PageLegal text="Compounded Sermorelin is not FDA-approved. Previously FDA-approved, discontinued by manufacturer in 2006 for commercial reasons. Off-label use must be prescribed and supervised by a licensed provider. Individual results vary. Nutree Clinic LLC · Florida · LegitScript certified." />
 
       <ConsultBand
-        heading="Not sure which plan is right for you?"
-        sub="30 min · licensed clinician"
+        heading="Ready to take the next step?"
+        sub="Your clinician reviews your intake and issues your prescription. If they have any questions, they will reach out directly."
       />
     </>
   )

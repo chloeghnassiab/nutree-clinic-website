@@ -16,10 +16,10 @@ const PLANS = [
     color: 'var(--glp)', darkColor: 'var(--glp-dark)',
     href: '/weight-loss',
     options: [
-      { label: 'Compounded Semaglutide · Monthly',    price: P.semaglutide.monthly.label },
-      { label: 'Compounded Semaglutide · 3-month',    price: P.semaglutide.threeMonth.label, badge: 'Save 8%' },
-      { label: 'Compounded Tirzepatide · Monthly',    price: P.tirzepatide.monthly.label },
-      { label: 'Compounded Tirzepatide · 3-month',    price: P.tirzepatide.threeMonth.label, badge: 'Save 8%' },
+      { label: 'Compounded Semaglutide · Monthly',    price: P.semaglutide.monthly.monthlyLabel },
+      { label: 'Compounded Semaglutide · 3-month',    price: P.semaglutide.threeMonth.monthlyLabel, badge: P.semaglutide.threeMonth.savingsLabel },
+      { label: 'Compounded Tirzepatide · Monthly',    price: P.tirzepatide.monthly.monthlyLabel },
+      { label: 'Compounded Tirzepatide · 3-month',    price: P.tirzepatide.threeMonth.monthlyLabel, badge: P.tirzepatide.threeMonth.savingsLabel },
       { label: 'GLP-1 Microdosing Sema · 5-week',    price: P.microdosingSema.fiveWeek.label },
       { label: 'GLP-1 Microdosing Sema · 10-week',   price: P.microdosingSema.tenWeek.label },
       { label: 'GLP-1 Microdosing Tirz · 5-week',    price: P.microDosingTirz.fiveWeek.label },
@@ -32,12 +32,12 @@ const PLANS = [
     color: 'var(--nad)', darkColor: 'var(--nad-dark)',
     href: '/nad',
     options: [
-      { label: 'Injectable · Monthly',   price: P.nadInjectable.monthly.label },
-      { label: 'Injectable · 6-month',   price: P.nadInjectable.sixMonth.label, badge: 'Save 15%' },
-      { label: 'Nasal Spray · Monthly',  price: P.nadNasalSpray.monthly.label },
-      { label: 'Nasal Spray · 6-month',  price: P.nadNasalSpray.sixMonth.label, badge: 'Save 15%' },
-      { label: 'Patches + GHK-Cu · Monthly', price: P.nadPatches.monthly.label },
-      { label: 'Patches + GHK-Cu · 6-month', price: P.nadPatches.sixMonth.label, badge: 'Save 15%' },
+      { label: 'Injectable · Monthly',   price: P.nadInjectable.monthly.monthlyLabel },
+      { label: 'Injectable · 6-month',   price: P.nadInjectable.sixMonth.monthlyLabel, badge: P.nadInjectable.sixMonth.savingsLabel },
+      { label: 'Nasal Spray · Monthly',  price: P.nadNasalSpray.monthly.monthlyLabel },
+      { label: 'Nasal Spray · 6-month',  price: P.nadNasalSpray.sixMonth.monthlyLabel, badge: P.nadNasalSpray.sixMonth.savingsLabel },
+      { label: 'Patches + GHK-Cu · Monthly', price: P.nadPatches.monthly.monthlyLabel },
+      { label: 'Patches + GHK-Cu · 6-month', price: P.nadPatches.sixMonth.monthlyLabel, badge: P.nadPatches.sixMonth.savingsLabel },
     ],
   },
   {
@@ -46,8 +46,18 @@ const PLANS = [
     href: '/sermorelin',
     options: [
       { label: '10-week starter plan',  price: P.sermorelin.tenWeek.label },
-      { label: 'Monthly subscription',  price: `${P.sermorelin.monthly.firstLabel} · ${P.sermorelin.monthly.label} after` },
-      { label: '3-month plan',          price: P.sermorelin.threeMonth.label, badge: 'Best value' },
+      { label: 'Monthly subscription',  price: P.sermorelin.monthly.monthlyLabel },
+      { label: '3-month plan',          price: P.sermorelin.threeMonth.monthlyLabel, badge: P.sermorelin.threeMonth.savingsLabel || 'Best value' },
+    ],
+  },
+  {
+    name: 'Glutathione',
+    color: 'var(--nad)', darkColor: 'var(--nad-dark)',
+    href: '/glutathione',
+    options: [
+      { label: 'Monthly',    price: P.glutathione.monthly.monthlyLabel },
+      { label: '3-month',    price: P.glutathione.threeMonth.monthlyLabel, badge: P.glutathione.threeMonth.savingsLabel || undefined },
+      { label: '6-month',    price: P.glutathione.sixMonth.monthlyLabel,   badge: P.glutathione.sixMonth.savingsLabel || undefined },
     ],
   },
   {
@@ -55,9 +65,9 @@ const PLANS = [
     color: 'var(--oxy)', darkColor: 'var(--oxy-dark)',
     href: '/oxytocin',
     options: [
-      { label: 'Monthly',   price: P.oxytocin.monthly.label },
-      { label: '3-month',   price: P.oxytocin.threeMonth.label },
-      { label: '6-month',   price: P.oxytocin.sixMonth.label, badge: 'Save 15%' },
+      { label: 'Monthly',   price: P.oxytocin.monthly.monthlyLabel },
+      { label: '3-month',   price: P.oxytocin.threeMonth.monthlyLabel, badge: P.oxytocin.threeMonth.savingsLabel },
+      { label: '6-month',   price: P.oxytocin.sixMonth.monthlyLabel, badge: P.oxytocin.sixMonth.savingsLabel },
     ],
   },
   {
@@ -65,10 +75,10 @@ const PLANS = [
     color: 'var(--b12)', darkColor: 'var(--b12-dark)',
     href: '/b12',
     options: [
-      { label: 'Injectable · Monthly',   price: P.b12Injectable.monthly.label },
-      { label: 'Injectable · 6-month',   price: P.b12Injectable.sixMonth.label, badge: 'Save 15%' },
-      { label: 'Oral / Sublingual · Monthly', price: P.b12Oral.monthly.label },
-      { label: 'Oral / Sublingual · 6-month', price: P.b12Oral.sixMonth.label, badge: 'Save 15%' },
+      { label: 'Injectable · Monthly',   price: P.b12Injectable.monthly.monthlyLabel },
+      { label: 'Injectable · 6-month',   price: P.b12Injectable.sixMonth.monthlyLabel, badge: P.b12Injectable.sixMonth.savingsLabel },
+      { label: 'Oral / Sublingual · Monthly', price: P.b12Oral.monthly.monthlyLabel },
+      { label: 'Oral / Sublingual · 6-month', price: P.b12Oral.sixMonth.monthlyLabel, badge: P.b12Oral.sixMonth.savingsLabel },
     ],
   },
   {
@@ -128,7 +138,7 @@ export default function PricingPage() {
         <div style={{ background: 'var(--base)', borderRadius: 'var(--radius-lg)', padding: '1rem', border: '0.5px solid var(--border)' }}>
           <div style={{ fontSize: "0.875rem", fontWeight: 700, color: 'var(--ink-3)', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: '0.375rem' }}>All prices include</div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
-            {['Your prescribed medication', 'Provider consultation ()', 'Dose adjustments as needed', 'Free expedited shipping', '503A licensed pharmacy'].map(item => (
+            {['Your prescribed medication', 'Provider consultation', 'Dose adjustments as needed', 'Free expedited shipping', '503A licensed pharmacy', '7/7 clinician messaging'].map(item => (
               <div key={item} style={{ fontSize: "0.875rem", color: 'var(--ink-2)', display: 'flex', alignItems: 'center', gap: '0.375rem' }}>
                 <span style={{ color: 'var(--green-badge)', fontWeight: 700 }}>✓</span> {item}
               </div>

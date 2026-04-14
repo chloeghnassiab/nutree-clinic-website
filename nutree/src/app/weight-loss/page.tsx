@@ -2,8 +2,9 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { PRICES } from '@/lib/prices.config'
+import { FAQ_ITEMS } from '@/lib/faq.config'
 import {
-  PromoBanner, PlanRow, ProductBlockHeader, CTAArea,
+  PromoList, PlanRow, ProductBlockHeader, CTAArea,
   BenefitsList, TrustStrip, FeatureBand, HowItWorks,
   ScienceGrid, Testimonials, AlsoFromNutree, FAQSection,
   PageLegal, ConsultBand, Section, SectionHeader, InStockBadge,
@@ -20,8 +21,14 @@ export const metadata: Metadata = {
 }
 
 const P = PRICES
+const PAGE = '/weight-loss'
 
 export default function WeightLossPage() {
+  const faqs = FAQ_ITEMS
+    .filter(f => f.active && f.pages.includes(PAGE))
+    .sort((a, b) => a.order - b.order)
+    .map(f => ({ q: f.question, a: f.answer }))
+
   return (
     <>
       {/* ── HERO SPLIT ─────────────────────────────────────────────── */}
@@ -47,20 +54,21 @@ export default function WeightLossPage() {
             A personalized weight loss plan built around you
           </p>
 
-          <PromoBanner />
+          <PromoList />
 
           {/* SEMAGLUTIDE */}
           <div style={{ marginBottom: '0.75rem' }}>
             <ProductBlockHeader>Compounded Semaglutide</ProductBlockHeader>
             <PlanRow
-              name="3-month plan" sub="Medication · consultation · shipping"
-              price={P.semaglutide.threeMonth.label}
-              afterPrice={P.semaglutide.threeMonth.afterLabel}
+              name="3-month plan" sub={`${P.semaglutide.threeMonth.totalLabel} · medication · consultation · shipping`}
+              price={P.semaglutide.threeMonth.monthlyLabel}
+              afterPrice={P.semaglutide.threeMonth.savingsLabel}
               best color="var(--glp-dark)"
             />
             <PlanRow
               name="Monthly plan" sub="Cancel anytime"
-              price={P.semaglutide.monthly.label}
+              price={P.semaglutide.monthly.monthlyLabel}
+              afterPrice={P.semaglutide.monthly.perWeekLabel}
               color="var(--glp-dark)"
             />
           </div>
@@ -69,14 +77,15 @@ export default function WeightLossPage() {
           <div style={{ marginBottom: '0.75rem' }}>
             <ProductBlockHeader>Compounded Tirzepatide</ProductBlockHeader>
             <PlanRow
-              name="3-month plan" sub="Medication · consultation · shipping"
-              price={P.tirzepatide.threeMonth.label}
-              afterPrice={P.tirzepatide.threeMonth.afterLabel}
+              name="3-month plan" sub={`${P.tirzepatide.threeMonth.totalLabel} · medication · consultation · shipping`}
+              price={P.tirzepatide.threeMonth.monthlyLabel}
+              afterPrice={P.tirzepatide.threeMonth.savingsLabel}
               best color="var(--glp-dark)"
             />
             <PlanRow
-              name="Monthly plan"
-              price={P.tirzepatide.monthly.label}
+              name="Monthly plan" sub="Cancel anytime"
+              price={P.tirzepatide.monthly.monthlyLabel}
+              afterPrice={P.tirzepatide.monthly.perWeekLabel}
               color="var(--glp-dark)"
             />
           </div>
@@ -90,9 +99,10 @@ export default function WeightLossPage() {
       <BenefitsList color="var(--glp)" items={[
         'Your price stays the same at every dose level — no surprises',
         'Free expedited shipping on every order',
-        'Provider consultation included — ',
+        'Provider consultation and dose adjustments included',
         'Personalised dosing adjusted to your response and goals',
         '503A licensed pharmacy on every prescription',
+        '7/7 direct messaging with your assigned clinician — no waiting rooms',
       ]} />
       <TrustStrip />
 
@@ -114,9 +124,9 @@ export default function WeightLossPage() {
         gradient="linear-gradient(135deg, var(--glp-mid), var(--glp))"
         steps={[
           { title: 'Complete a brief health questionnaire', desc: 'Takes 3 minutes. We ask about your health history, current medications, and goals — so your clinician arrives prepared.' },
-          { title: 'Consult with a licensed Nutree clinician', desc: 'Your provider reviews your intake and meets with you —  — to determine the most appropriate plan for your health profile.' },
+          { title: 'Your clinician reviews your intake', desc: 'A licensed Nutree clinician reviews your health history and determines the most appropriate plan for your profile — no call required unless clinically necessary.' },
           { title: 'Receive your medication at home', desc: 'If prescribed, your medication is prepared by our licensed 503A pharmacy partner and shipped free, directly to your door.' },
-          { title: 'Ongoing care and check-ins', desc: 'Your provider monitors your progress, adjusts your dose as needed, and stays available between visits for the full duration of your plan.' },
+          { title: 'Ongoing care — 7/7 direct messaging', desc: 'Your clinician is available 7 days a week via direct message throughout your plan — monitoring your progress, adjusting your dose as needed, no waiting rooms.' },
         ]}
       />
 
@@ -194,7 +204,7 @@ export default function WeightLossPage() {
                 ['Mechanism',      'GLP-1 receptor agonist',        'GLP-1 + GIP dual agonist'],
                 ['Avg weight loss*','~15% body weight',             '~21% body weight ✓'],
                 ['Administration', 'Once-weekly injection',         'Once-weekly injection'],
-                ['Starting price', `${P.semaglutide.threeMonth.label} ✓`, P.tirzepatide.threeMonth.label],
+                ['Starting price', `${P.semaglutide.threeMonth.monthlyLabel} ✓`, P.tirzepatide.threeMonth.monthlyLabel],
                 ['Well suited for','First GLP-1 · extensively studied','Stronger metabolic response needed'],
               ].map(([label, a, b], i) => (
                 <tr key={i} style={{ background: i % 2 === 1 ? 'rgba(184,228,240,0.12)' : 'transparent' }}>
@@ -241,8 +251,8 @@ export default function WeightLossPage() {
         </div>
         <div className="carousel-track">
           {[
-            { name: 'Compounded Semaglutide', price: P.semaglutide.threeMonth.label, bg: 'linear-gradient(150deg,var(--glp-mid),var(--glp))', color: 'var(--glp-dark)', href: '/weight-loss', active: true },
-            { name: 'Compounded Tirzepatide', price: P.tirzepatide.threeMonth.label, bg: 'linear-gradient(150deg,var(--ser-mid),var(--ser))', color: 'var(--ser-dark)', href: '/weight-loss' },
+            { name: 'Compounded Semaglutide', price: P.semaglutide.threeMonth.monthlyLabel, bg: 'linear-gradient(150deg,var(--glp-mid),var(--glp))', color: 'var(--glp-dark)', href: '/weight-loss', active: true },
+            { name: 'Compounded Tirzepatide', price: P.tirzepatide.threeMonth.monthlyLabel, bg: 'linear-gradient(150deg,var(--ser-mid),var(--ser))', color: 'var(--ser-dark)', href: '/weight-loss' },
             { name: 'GLP-1 Microdosing',       price: P.microdosingSema.perWeek.label, bg: 'linear-gradient(150deg,var(--nad-mid),var(--nad))', color: 'var(--nad-dark)', href: '/glp-1' },
             { name: 'Wegovy®',                  price: P.wegovy.monthly.label,          bg: 'linear-gradient(150deg,#D0E4F4,#B8CCE8)', color: '#3A5A8A', href: '/weight-loss' },
             { name: 'Mounjaro®',                price: P.mounjaro.monthly.label,         bg: 'linear-gradient(150deg,#E4E4E0,#D0D0C8)', color: 'var(--ink-3)', href: '/weight-loss' },
@@ -279,23 +289,19 @@ export default function WeightLossPage() {
       />
 
       {/* ── FAQ ───────────────────────────────────────────────────── */}
-      <FAQSection
-        iconBg="var(--glp)" iconColor="var(--glp-dark)"
-        items={[
-          { q: 'What is included in my plan?', a: 'All Nutree GLP-1 plans include your medication, provider consultation (), dosing supplies, and free shipping. Your price is the same at every dose level — no additional fees as your treatment progresses.' },
-          { q: 'What is the difference between Compounded Semaglutide and Compounded Tirzepatide?', a: 'Semaglutide is a GLP-1 receptor agonist. Tirzepatide activates both GLP-1 and GIP receptors, producing a broader metabolic effect — clinical trials show greater average weight loss (~21% vs ~15%). Your Nutree clinician will advise which is most appropriate for your health profile.' },
-          { q: 'Will I receive a prescription at my consultation?', a: 'All prescriptions are issued at the sole clinical discretion of your licensed provider, based on your health profile and clinical evaluation. Your clinician\'s role is to determine what is medically appropriate for you.' },
-          { q: 'What side effects should I be aware of?', a: 'Common side effects include nausea and mild digestive discomfort, especially in the early weeks of treatment. These typically ease as dosing is titrated gradually. Your provider is available to adjust your plan throughout.' },
-          { q: 'How do I cancel or adjust my plan?', a: 'You can cancel or adjust your plan anytime before your next renewal date through your patient portal. There are no cancellation fees.' },
-          { q: 'Is insurance required?', a: 'No insurance is required. All Nutree GLP-1 plans are self-pay and FSA/HSA eligible. For Wegovy® and Mounjaro®, we can help you explore manufacturer savings programmes where applicable.' },
-        ]}
-      />
+      {faqs.length > 0 && (
+        <FAQSection
+          iconBg="var(--glp)"
+          iconColor="var(--glp-dark)"
+          items={faqs}
+        />
+      )}
 
       <PageLegal text="Compounded semaglutide and tirzepatide are prepared by state-licensed 503A compounding pharmacies and are not FDA-approved. They have not been evaluated by the FDA for safety, efficacy, or quality. *Clinical outcome data refers to FDA-approved reference medications (Wegovy®, Zepbound®). Compounded preparations are not those products. Wegovy® is a registered trademark of Novo Nordisk A/S. Mounjaro®/Zepbound® are registered trademarks of Eli Lilly and Company. Individual results vary. Prescriptions issued at provider discretion only. Nutree Clinic LLC · Florida · LegitScript certified." />
 
       <ConsultBand
-        heading="Not sure which option is right for you?"
-        sub="A licensed clinician will advise · $50"
+        heading="Ready to take the next step?"
+        sub="Your clinician reviews your intake and issues your prescription. If they have any questions, they will reach out directly."
       />
     </>
   )
