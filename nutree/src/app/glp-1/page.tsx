@@ -21,15 +21,12 @@ export default function MicroDosingPage() {
     <>
       {/* HERO */}
       <div className="hero-split">
-        <div className="hero-photo" style={{ background: '#B8E4F0', backgroundImage: 'linear-gradient(145deg, #8ED4EA 0%, #B8E4F0 55%, #DDF4FF 100%)', position: 'relative', overflow: 'hidden' }}>
-          <div style={{ position: 'absolute', width: 120, height: 120, borderRadius: '50%', background: 'rgba(255,255,255,0.28)', top: -25, left: -25 }} />
-          <div style={{ position: 'absolute', width: 70, height: 70, borderRadius: '50%', background: 'rgba(26,107,133,0.14)', bottom: -10, right: -10 }} />
+        <div className="hero-photo gradient-glp">
           <InStockBadge />
           <img
-            src="/images/hero-glp1.png"
+            src="/images/glp1-semaglutide-weight-loss-nutreeclinic.png"
             alt="GLP-1 microdosing"
-            style={{ width: '72%', maxWidth: 140, height: 'auto', position: 'relative', zIndex: 2, objectFit: 'contain' }}
-
+            style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
           />
         </div>
 
@@ -162,7 +159,7 @@ export default function MicroDosingPage() {
       <Testimonials
         tagColor="var(--glp)" tagDarkColor="var(--glp-dark)"
         items={[
-          { quote: 'After 9 weeks on a microdosed GLP-1, I lost 9 pounds. I already feel lighter, confident, in control. With a team that supports me!', author: 'Courtney, 32 · Nutree Clinic patient', tag: 'GLP-1 Microdosing · 10-week' },
+          { quote: 'After 9 weeks on a microdosed GLP-1, I lost 9 pounds. I already feel lighter, confident, in control. With a team that supports me!', author: 'Courtney, 32 · Nutree Clinic patient', tag: 'GLP-1 Microdosing · 10-week', img: '/images/Courtney-nutree-clinic-patient-glp-1.jpeg', featured: true },
         ]}
       />
 
@@ -170,8 +167,8 @@ export default function MicroDosingPage() {
         eyebrow="Ready for more?"
         title="After microdosing, many patients move to a full plan."
         items={[
-          { name: 'Compounded Semaglutide', sub: 'Full monthly plan from $249/mo',       href: '/weight-loss', arrowColor: 'var(--glp-dark)' },
-          { name: 'Compounded Tirzepatide', sub: 'Full monthly plan from $349/mo',       href: '/weight-loss', arrowColor: 'var(--glp-dark)' },
+          { name: 'Compounded Semaglutide', sub: 'Full monthly plan from $249/mo',       href: '/weight-loss', arrowColor: 'var(--glp-dark)', img: '/images/glp1-semaglutide-weight-loss-nutreeclinic-nav.png' },
+          { name: 'Compounded Tirzepatide', sub: 'Full monthly plan from $349/mo',       href: '/weight-loss', arrowColor: 'var(--glp-dark)', img: '/images/glp1-semaglutide-weight-loss-nutreeclinic-nav.png' },
           { name: 'B6 / B12',               sub: 'Energy support — pairs with GLP-1',   href: '/b12',         arrowColor: 'var(--b12-dark)' },
         ]}
       />

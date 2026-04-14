@@ -130,9 +130,9 @@ export default function B12Page() {
         eyebrow="Complete your protocol"
         title="B6/B12 pairs well with these treatments."
         items={[
-          { name: 'NAD+ Therapy',    sub: 'Cellular energy — both address fatigue from different angles', href: '/nad',          arrowColor: 'var(--nad-dark)' },
-          { name: 'Sermorelin',      sub: 'Growth hormone · recovery · body composition',                href: '/sermorelin',   arrowColor: 'var(--ser-dark)' },
-          { name: 'GLP-1 Weight Loss',sub: 'Metabolic support — a natural complement',                  href: '/weight-loss',  arrowColor: 'var(--glp-dark)' },
+          { name: 'NAD+ Therapy',    sub: 'Cellular energy — both address fatigue from different angles', href: '/nad',          arrowColor: 'var(--nad-dark)', img: '/images/nad-plus-injectable-therapy-nutreeclinic-nav.png' },
+          { name: 'Sermorelin',      sub: 'Growth hormone · recovery · body composition',                href: '/sermorelin',   arrowColor: 'var(--ser-dark)', img: '/images/sermorelin-growth-hormone-therapy-nutreeclinic-nav.png' },
+          { name: 'GLP-1 Weight Loss',sub: 'Metabolic support — a natural complement',                  href: '/weight-loss',  arrowColor: 'var(--glp-dark)', img: '/images/glp1-semaglutide-weight-loss-nutreeclinic-nav.png' },
         ]}
       />
 

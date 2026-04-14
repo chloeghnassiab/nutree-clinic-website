@@ -21,15 +21,12 @@ export default function NADPage() {
       {/* ── HERO SPLIT ─────────────────────────────────────────────── */}
       <div className="hero-split">
         <div className="hero-photo gradient-nad">
-          <div style={{ position: 'absolute', width: 110, height: 110, borderRadius: '50%', background: 'rgba(255,255,255,0.28)', top: -22, left: -22 }} />
-          <div style={{ position: 'absolute', width: 65, height: 65, borderRadius: '50%', background: 'rgba(30,102,80,0.14)', bottom: -8, right: -8 }} />
-          <div style={{ position: 'absolute', width: 40, height: 40, borderRadius: '50%', background: 'rgba(255,255,255,0.2)', bottom: 25, left: 14 }} />
           <InStockBadge />
           <Image
-            src="https://umsousercontent.com/lib_lJwKNLihmSPYJEfY/xuvy0l9thl40cn42.png"
+            src="/images/nad-plus-injectable-therapy-nutreeclinic.png"
             alt="NAD+ therapy vials"
-            width={130} height={170}
-            style={{ width: '72%', maxWidth: 130, height: 'auto', position: 'relative', zIndex: 2, objectFit: 'contain' }}
+            fill
+            style={{ objectFit: 'cover' }}
             priority
           />
         </div>
@@ -85,7 +82,7 @@ export default function NADPage() {
         cards={[
           { icon: 'Syringe', title: 'Injectable', desc: 'Highest bioavailability — direct tissue delivery' },
           { icon: 'SprayBottle', title: 'Nasal Spray', desc: 'Rapid CNS absorption — no needles' },
-          { icon: '🩹', title: 'Patches + GHK-Cu', desc: 'Slow-release plus cellular repair peptide' },
+          { icon: 'Bandaids', title: 'Patches + GHK-Cu', desc: 'Slow-release plus cellular repair peptide' },
         ]}
       />
 
@@ -149,9 +146,9 @@ export default function NADPage() {
         eyebrow="Complete your protocol"
         title="NAD+ pairs well with these treatments."
         items={[
-          { name: 'Sermorelin',  sub: 'Growth hormone · body strength & recovery',   href: '/sermorelin', arrowColor: 'var(--ser-dark)' },
+          { name: 'Sermorelin',  sub: 'Growth hormone · body strength & recovery',   href: '/sermorelin', arrowColor: 'var(--ser-dark)', img: '/images/sermorelin-growth-hormone-therapy-nutreeclinic-nav.png' },
           { name: 'B6 / B12',   sub: 'Energy & neurological support',                href: '/b12',        arrowColor: 'var(--b12-dark)' },
-          { name: 'Oxytocin',   sub: 'Stress relief · emotional well-being',         href: '/oxytocin',   arrowColor: 'var(--oxy-dark)' },
+          { name: 'Oxytocin',   sub: 'Stress relief · emotional well-being',         href: '/oxytocin',   arrowColor: 'var(--oxy-dark)', img: '/images/oxytocin-nasal-spray-nutreeclinic-nav.png' },
         ]}
       />
 
@@ -160,7 +157,7 @@ export default function NADPage() {
         items={[
           { q: 'Which delivery form is most effective?', a: 'Injectables provide the highest bioavailability. Nasal spray offers rapid CNS absorption without needles. Patches with GHK-Cu provide continuous slow-release delivery alongside regenerative peptide benefits. Your clinician recommends the most appropriate form based on your goals and health profile.' },
           { q: 'What is GHK-Cu?', a: 'GHK-Cu (copper tripeptide-1) is a naturally occurring peptide that declines with age, studied for its role in collagen synthesis, tissue repair, and anti-inflammatory activity. Combined with transdermal NAD+, it offers complementary cellular support.' },
-          { q: 'How long before I notice results?', a: 'Most patients notice initial changes in energy and mental clarity within 2–4 weeks. Deeper cellular and anti-aging benefits build over 8–12 weeks of consistent use.' },
+          { q: 'How long before I notice results?', a: 'Most patients notice initial changes in energy and mental clarity within 2–4 weeks. Deeper cellular and longevity benefits build over 8–12 weeks of consistent use.' },
           { q: 'Is insurance required?', a: 'No. All Nutree NAD+ plans are self-pay and FSA/HSA eligible.' },
         ]}
       />

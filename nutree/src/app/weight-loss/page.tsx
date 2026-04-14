@@ -28,16 +28,12 @@ export default function WeightLossPage() {
       <div className="hero-split">
         {/* LEFT — product photo on pastel gradient */}
         <div className="hero-photo gradient-glp">
-          {/* decorative blobs */}
-          <div style={{ position: 'absolute', width: 120, height: 120, borderRadius: '50%', background: 'rgba(255,255,255,0.28)', top: -25, left: -25 }} />
-          <div style={{ position: 'absolute', width: 70, height: 70, borderRadius: '50%', background: 'rgba(26,107,133,0.14)', bottom: -10, right: -10 }} />
-          <div style={{ position: 'absolute', width: 44, height: 44, borderRadius: '50%', background: 'rgba(255,255,255,0.2)', bottom: 28, left: 16 }} />
           <InStockBadge />
           <Image
-            src="https://umsousercontent.com/lib_lJwKNLihmSPYJEfY/zl96r149zkpcxvwv.png"
+            src="/images/glp1-semaglutide-weight-loss-nutreeclinic.png"
             alt="GLP-1 weight loss medications — compounded semaglutide and tirzepatide"
-            width={140} height={180}
-            style={{ width: '72%', maxWidth: 140, height: 'auto', position: 'relative', zIndex: 2, objectFit: 'contain' }}
+            fill
+            style={{ objectFit: 'cover' }}
             priority
           />
         </div>
@@ -109,7 +105,7 @@ export default function WeightLossPage() {
         cards={[
           { icon: 'Pill', title: 'Medication included', desc: 'Compounded by a licensed 503A pharmacy to your prescription' },
           { icon: 'Stethoscope', title: 'Provider care', desc: 'Consultation, follow-ups, and dose adjustments throughout' },
-          { icon: '📦', title: 'Free shipping', desc: 'Expedited, discreet delivery on every order' },
+          { icon: 'Package', title: 'Free shipping', desc: 'Expedited, discreet delivery on every order' },
         ]}
       />
 
@@ -232,8 +228,8 @@ export default function WeightLossPage() {
       <Testimonials
         tagColor="var(--glp)" tagDarkColor="var(--glp-dark)"
         items={[
-          { quote: 'After 9 weeks on a microdosed GLP-1, I lost 9 pounds. I already feel lighter, confident, in control. With a team that supports me!', author: 'Courtney, 32 · Nutree Clinic patient', tag: 'GLP-1 Microdosing' },
-          { quote: 'The consultation was thorough and the provider took time to understand my full situation. My plan was adjusted when I needed it. That level of care made all the difference.', author: 'Maria R. · Nutree Clinic patient', tag: 'Compounded Semaglutide' },
+          { quote: 'After 9 weeks on a microdosed GLP-1, I lost 9 pounds. I already feel lighter, confident, in control. With a team that supports me!', author: 'Courtney, 32 · Nutree Clinic patient', tag: 'GLP-1 Microdosing', img: '/images/Courtney-nutree-clinic-patient-glp-1.jpeg', featured: true },
+          { quote: 'The provider was easy to connect with and clearly knew what they were doing, which made me feel at ease right away. Doing it online was super convenient, and the value for the money felt right. I\'d definitely recommend them.', author: 'Mari T. · Nutree Clinic patient', tag: 'Compounded Semaglutide', img: '/images/Mari T.png' },
         ]}
       />
 
@@ -254,8 +250,12 @@ export default function WeightLossPage() {
             <Link key={i} href={c.href}
               className={`carousel-card${c.active ? ' active' : ''}`}
               style={{ borderColor: c.active ? 'var(--glp-dark)' : 'var(--border)', textDecoration: 'none' }}>
-              <div style={{ height: 78, background: c.bg, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem' }}>
-                💉
+              <div style={{ height: 96, background: c.bg, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
+                <img
+                  src="/images/glp1-semaglutide-weight-loss-nutreeclinic.png"
+                  alt={c.name}
+                  style={{ height: '90%', width: 'auto', objectFit: 'contain' }}
+                />
               </div>
               <div style={{ padding: '0.5rem' }}>
                 <div style={{ fontSize: "0.875rem", fontWeight: 700, color: 'var(--ink)', lineHeight: 1.3, marginBottom: 2 }}>{c.name}</div>
@@ -272,9 +272,9 @@ export default function WeightLossPage() {
         eyebrow="Complete your protocol"
         title="GLP-1 pairs well with these treatments."
         items={[
-          { name: 'NAD+ Therapy',  sub: 'Cellular energy · anti-aging', href: '/nad', arrowColor: 'var(--nad-dark)' },
+          { name: 'NAD+ Therapy',  sub: 'Cellular energy · longevity', href: '/nad', arrowColor: 'var(--nad-dark)', img: '/images/nad-plus-injectable-therapy-nutreeclinic-nav.png' },
           { name: 'B6 / B12',      sub: 'Energy support — natural complement to GLP-1', href: '/b12', arrowColor: 'var(--b12-dark)' },
-          { name: 'Sermorelin',    sub: 'Preserving muscle during weight loss', href: '/sermorelin', arrowColor: 'var(--ser-dark)' },
+          { name: 'Sermorelin',    sub: 'Preserving muscle during weight loss', href: '/sermorelin', arrowColor: 'var(--ser-dark)', img: '/images/sermorelin-growth-hormone-therapy-nutreeclinic-nav.png' },
         ]}
       />
 

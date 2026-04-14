@@ -17,7 +17,7 @@ const POSTS: Record<string, {
   'what-is-nad': {
     title: 'What is NAD+?',
     date: '2024-11-12',
-    category: 'Anti-Aging',
+    category: 'Longevity',
     readTime: '5 min',
     author: 'Nutree Clinic',
     excerpt: 'NAD+ is a coenzyme present in every living cell. Here\'s what it does, why it declines with age, and what that means for your health.',
@@ -80,7 +80,7 @@ The goal of GLP-1 therapy is not just weight loss — it is improved metabolic h
 
 const CATEGORY_COLORS: Record<string, { bg: string; color: string }> = {
   'Weight Loss': { bg: 'var(--glp)',  color: 'var(--glp-dark)' },
-  'Anti-Aging':  { bg: 'var(--nad)',  color: 'var(--nad-dark)' },
+  'Longevity':  { bg: 'var(--nad)',  color: 'var(--nad-dark)' },
   'Well-being':  { bg: 'var(--oxy)',  color: 'var(--oxy-dark)' },
   'Energy':      { bg: 'var(--b12)',  color: 'var(--b12-dark)' },
 }

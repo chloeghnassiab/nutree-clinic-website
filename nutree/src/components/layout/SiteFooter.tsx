@@ -13,7 +13,10 @@ export function SiteFooter() {
       `}</style>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '2rem', marginBottom: '2rem' }}>
         <div>
-          <div style={{ fontFamily: 'var(--font-serif)', fontSize: '1rem', color: 'var(--ink)', marginBottom: '0.5rem' }}>nutree clinic</div>
+          {/* Logo */}
+          <div style={{ marginBottom: '0.75rem' }}>
+            <img src="/images/NutreeClinic-logo-stacked-charcoal.png" alt="Nutree Clinic" style={{ height: 52, width: 'auto', display: 'block' }} />
+          </div>
           <p style={{ fontSize: '1rem', color: 'var(--ink-3)', lineHeight: 1.6, marginBottom: '0.75rem' }}>Science-based telehealth.<br />Human-centered care.</p>
           <p style={{ fontSize: '0.875rem', color: 'var(--ink-3)', lineHeight: 1.6 }}>Nutree Clinic LLC<br />Florida · Licensed telehealth<br />LegitScript certified</p>
         </div>
@@ -42,7 +45,10 @@ export function SiteFooter() {
       <div style={{ borderTop: '0.5px solid var(--border)', paddingTop: '1rem', fontSize: '0.875rem', color: 'var(--ink-3)', lineHeight: 1.65 }}>
         <p style={{ marginBottom: '0.375rem' }}>Compounded medications are not FDA-approved and have not been reviewed by the FDA for safety, efficacy, or quality. All prescriptions are issued at the sole clinical discretion of licensed providers. This website does not provide medical advice. Individual results vary. Nutree Clinic LLC is not a pharmacy.</p>
         <p>Wegovy® is a registered trademark of Novo Nordisk A/S. Mounjaro® and Zepbound® are registered trademarks of Eli Lilly and Company. Use of these names does not imply any affiliation with or endorsement by these companies.</p>
-        <p style={{ marginTop: '0.5rem' }}>© {new Date().getFullYear()} Nutree Clinic LLC. All rights reserved.</p>
+        <p style={{ marginTop: '1rem', marginBottom: '0.75rem' }}>© {new Date().getFullYear()} Nutree Clinic LLC. All rights reserved.</p>
+        <a href="https://www.legitscript.com/websites/?checker_keywords=nutreeclinic.com" target="_blank" rel="noopener noreferrer" title="Verify LegitScript Approval for www.nutreeclinic.com">
+          <img src="https://static.legitscript.com/seals/47538313.png" alt="LegitScript Approved" width={73} height={79} style={{ display: 'block' }} />
+        </a>
       </div>
     </footer>
   )

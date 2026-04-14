@@ -9,18 +9,18 @@ export const metadata: Metadata = {
 // Static blog index — replace with MDX file reads in production
 // import { getAllPosts } from '@/lib/blog'
 const POSTS = [
-  { slug: 'what-is-nad', title: 'What is NAD+?', excerpt: 'NAD+ is a coenzyme present in every living cell. Here\'s what it does, why it declines with age, and what that means for your health.', date: '2024-11-12', category: 'Anti-Aging', readTime: '5 min' },
+  { slug: 'what-is-nad', title: 'What is NAD+?', excerpt: 'NAD+ is a coenzyme present in every living cell. Here\'s what it does, why it declines with age, and what that means for your health.', date: '2024-11-12', category: 'Longevity', readTime: '5 min' },
   { slug: 'deep-sleep-cortisol-and-fat-loss', title: 'Deep Sleep, Cortisol, and Fat Loss', excerpt: 'The relationship between sleep quality, cortisol regulation, and body composition is more direct than most people realise.', date: '2024-10-28', category: 'Weight Loss', readTime: '6 min' },
   { slug: 'protecting-your-muscle-while-you-lose-weight', title: 'Protecting Your Muscle While You Lose Weight', excerpt: 'GLP-1 medications are powerful tools for weight loss — but without the right approach, you risk losing muscle alongside fat.', date: '2024-10-14', category: 'Weight Loss', readTime: '7 min' },
   { slug: 'why-weight-loss-can-feel-impossible', title: 'Why Weight Loss Can Feel Impossible', excerpt: 'The science of why dieting often fails — and what we now know about the metabolic adaptations that work against sustained weight loss.', date: '2024-09-30', category: 'Weight Loss', readTime: '8 min' },
   { slug: 'peptides-and-mental-health', title: 'Peptides and Mental Health', excerpt: 'Emerging research on the role of peptide therapies — including oxytocin — in mood regulation, stress response, and emotional resilience.', date: '2024-09-16', category: 'Well-being', readTime: '6 min' },
   { slug: 'retatrutide-vs-tirzepatide-what-the-research-really-says-about-the-new-triple-agonist-approach', title: 'Retatrutide vs. Tirzepatide: What the Research Really Says', excerpt: 'A clear-eyed look at the clinical trial data comparing the emerging triple agonist retatrutide with the established dual agonist tirzepatide.', date: '2024-09-02', category: 'Weight Loss', readTime: '9 min' },
-  { slug: 'struggling-with-fertility-the-cellular-factor-most-people-overlook', title: 'Struggling with Fertility? The Cellular Factor Most People Overlook', excerpt: 'NAD+ levels, mitochondrial function, and their often-overlooked relationship with reproductive health and fertility outcomes.', date: '2024-08-19', category: 'Anti-Aging', readTime: '7 min' },
+  { slug: 'struggling-with-fertility-the-cellular-factor-most-people-overlook', title: 'Struggling with Fertility? The Cellular Factor Most People Overlook', excerpt: 'NAD+ levels, mitochondrial function, and their often-overlooked relationship with reproductive health and fertility outcomes.', date: '2024-08-19', category: 'Longevity', readTime: '7 min' },
 ]
 
 const CATEGORY_COLORS: Record<string, { bg: string; color: string }> = {
   'Weight Loss': { bg: 'var(--glp)',  color: 'var(--glp-dark)' },
-  'Anti-Aging':  { bg: 'var(--nad)',  color: 'var(--nad-dark)' },
+  'Longevity':  { bg: 'var(--nad)',  color: 'var(--nad-dark)' },
   'Well-being':  { bg: 'var(--oxy)',  color: 'var(--oxy-dark)' },
   'Energy':      { bg: 'var(--b12)',  color: 'var(--b12-dark)' },
 }

@@ -13,7 +13,7 @@ const NAV_CATEGORIES = [
       { label: 'Mounjaro®', sub: 'Brand-name tirzepatide', href: '/weight-loss' },
     ],
     featured: {
-      img: '/images/nav-glp1.png',
+      img: '/images/glp1-semaglutide-weight-loss-nutreeclinic-nav.png',
       bg: 'linear-gradient(145deg,#8ED4EA,#B8E4F0)',
       title: 'Personalized GLP-1\nTreatments',
       price: 'From $229/mo',
@@ -21,7 +21,7 @@ const NAV_CATEGORIES = [
     },
   },
   {
-    label: 'Anti-Aging',
+    label: 'Longevity',
     treatments: [
       { label: 'NAD+ Injectable', sub: 'Highest bioavailability', href: '/nad' },
       { label: 'NAD+ Nasal Spray', sub: 'Needle-free · rapid absorption', href: '/nad' },
@@ -29,7 +29,8 @@ const NAV_CATEGORIES = [
       { label: 'Sermorelin', sub: 'Growth hormone support', href: '/sermorelin' },
     ],
     featured: {
-      img: '/images/nav-nad.png',
+      img: '/images/nad-plus-injectable-therapy-nutreeclinic-nav.png',
+      img2: '/images/nad-plus-nasal-spray-therapy-nutreeclinic-nav.png',
       bg: 'linear-gradient(145deg,#78C8A8,#A8D8C8)',
       title: 'NAD+\nTherapy',
       price: 'From $TBD/mo',
@@ -42,7 +43,7 @@ const NAV_CATEGORIES = [
       { label: 'Sermorelin', sub: 'Recovery · energy · lean muscle', href: '/sermorelin' },
     ],
     featured: {
-      img: '/images/nav-sermorelin.png',
+      img: '/images/sermorelin-growth-hormone-therapy-nutreeclinic-nav.png',
       bg: 'linear-gradient(145deg,#E0A070,#F2C4A0)',
       title: 'Sermorelin\nTherapy',
       price: 'From $125 first',
@@ -56,7 +57,7 @@ const NAV_CATEGORIES = [
       { label: 'B6 / B12 Injections', sub: 'Energy · mood · neurological', href: '/b12' },
     ],
     featured: {
-      img: '/images/nav-oxytocin.png',
+      img: '/images/oxytocin-nasal-spray-nutreeclinic-nav.png',
       bg: 'linear-gradient(145deg,#B898D8,#D4B8E8)',
       title: 'Oxytocin\nNasal Spray',
       price: 'From $TBD/mo',
@@ -119,14 +120,8 @@ export function SiteNav() {
 
           {/* Logo */}
           <Link href="/" onClick={() => { setActiveMenu(null); setMobileOpen(false) }}
-            style={{ fontFamily: 'var(--font-serif)', fontSize: '1.125rem', color: 'var(--ink)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.5rem', flexShrink: 0, marginRight: '1rem' }}>
-            <span style={{ width: 30, height: 30, borderRadius: '50%', background: 'var(--ink)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-              <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
-                <path d="M7.5 12C7.5 12 3.5 9.2 3.5 6.5C3.5 4.8 5 3.5 6.5 3.5C7.1 3.5 7.5 3.8 7.7 4.2L7.5 5L7.3 4.2C7.5 3.8 7.9 3.5 8.5 3.5C10 3.5 11.5 4.8 11.5 6.5C11.5 9.2 7.5 12 7.5 12Z" fill="rgba(255,255,255,0.95)"/>
-                <line x1="7.5" y1="5" x2="7.5" y2="12" stroke="rgba(255,255,255,0.3)" strokeWidth="0.8"/>
-              </svg>
-            </span>
-            nutree clinic
+            style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', flexShrink: 0, marginRight: '1rem' }}>
+            <img src="/images/NutreeClinic-logo-stacked.png" alt="Nutree Clinic" style={{ height: 38, width: 'auto', display: 'block' }} />
           </Link>
 
           {/* Desktop nav items */}
@@ -223,11 +218,17 @@ export function SiteNav() {
                     background: active.featured.bg, textDecoration: 'none',
                     position: 'relative', minHeight: 180,
                   }}>
+                  {'img2' in active.featured && active.featured.img2 && (
+                    <img
+                      src={active.featured.img2}
+                      alt=""
+                      style={{ position: 'absolute', bottom: 0, right: '32%', height: '82%', width: 'auto', objectFit: 'contain', opacity: 0.85, zIndex: 1 }}
+                    />
+                  )}
                   <img
                     src={active.featured.img}
                     alt={active.featured.title}
-                    style={{ position: 'absolute', bottom: 0, right: 0, height: '80%', width: 'auto', objectFit: 'contain' }}
-
+                    style={{ position: 'absolute', bottom: 0, right: '5%', height: '95%', width: 'auto', objectFit: 'contain', zIndex: 2 }}
                   />
                   <div style={{ position: 'relative', zIndex: 2, padding: '1.125rem' }}>
                     <div style={{ fontFamily: 'var(--font-serif)', fontSize: '1.125rem', color: 'var(--ink)', lineHeight: 1.25, marginBottom: '0.875rem', whiteSpace: 'pre-line' }}>

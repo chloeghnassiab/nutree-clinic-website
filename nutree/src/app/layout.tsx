@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   keywords: [
     'GLP-1 telehealth', 'compounded semaglutide', 'compounded tirzepatide',
     'NAD+ therapy', 'sermorelin', 'oxytocin nasal spray', 'B12 injections',
-    'weight loss telehealth Florida', 'anti-aging telehealth',
+    'weight loss telehealth Florida', 'longevity telehealth',
   ],
   metadataBase: new URL('https://nutreeclinic.com'),
   openGraph: {

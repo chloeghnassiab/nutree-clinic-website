@@ -20,13 +20,12 @@ export default function OxytocinPage() {
     <>
       <div className="hero-split">
         <div className="hero-photo gradient-oxy">
-          <div style={{ position: 'absolute', width: 110, height: 110, borderRadius: '50%', background: 'rgba(255,255,255,0.28)', top: -22, left: -22 }} />
-          <div style={{ position: 'absolute', width: 60, height: 60, borderRadius: '50%', background: 'rgba(90,48,128,0.12)', bottom: -8, right: -8 }} />
-          <div style={{ position: 'absolute', width: 40, height: 40, borderRadius: '50%', background: 'rgba(255,255,255,0.2)', bottom: 25, left: 14 }} />
           <InStockBadge />
-          <div style={{ width: 80, height: 80, borderRadius: 20, background: 'rgba(255,255,255,0.6)', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', zIndex: 2 }}>
-            <img src='/images/hero-oxytocin.png' alt='Oxytocin' style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: 20 }} />
-          </div>
+          <img
+            src='/images/oxytocin-nasal-spray-nutreeclinic.png'
+            alt='Oxytocin'
+            style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+          />
         </div>
 
         <div className="hero-right">
@@ -101,9 +100,9 @@ export default function OxytocinPage() {
         eyebrow="Complete your protocol"
         title="Oxytocin pairs well with these treatments."
         items={[
-          { name: 'NAD+ Therapy', sub: 'Cellular energy — complements stress-related fatigue', href: '/nad',    arrowColor: 'var(--nad-dark)' },
+          { name: 'NAD+ Therapy', sub: 'Cellular energy — complements stress-related fatigue', href: '/nad',    arrowColor: 'var(--nad-dark)', img: '/images/nad-plus-injectable-therapy-nutreeclinic-nav.png' },
           { name: 'B6 / B12',    sub: 'Neurological support · mood & energy',                 href: '/b12',    arrowColor: 'var(--b12-dark)' },
-          { name: 'Sermorelin',  sub: 'Recovery, strength & sleep quality',                   href: '/sermorelin', arrowColor: 'var(--ser-dark)' },
+          { name: 'Sermorelin',  sub: 'Recovery, strength & sleep quality',                   href: '/sermorelin', arrowColor: 'var(--ser-dark)', img: '/images/sermorelin-growth-hormone-therapy-nutreeclinic-nav.png' },
         ]}
       />
 

@@ -101,7 +101,7 @@ export function ConsultContent() {
       {/* BOTTOM CTA */}
       <section style={{ background: 'var(--ink)', padding: '2.5rem 1.25rem', textAlign: 'center' }}>
         <div style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.375rem, 3vw, 1.875rem)', color: '#fff', marginBottom: '0.625rem', lineHeight: 1.3 }}>Ready to get started?</div>
-        <div style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.5)', marginBottom: '1.5rem' }}>No pressure to commit to anything on the call</div>
+        <div style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.5)', marginBottom: '1.5rem' }}>Your clinician prescribes only what is clinically appropriate for you</div>
         <Link href="https://calendly.com/nutreeclinic" target="_blank"
           style={{ display: 'inline-block', padding: '14px 32px', borderRadius: 999, background: 'var(--con)', color: 'var(--ink)', fontWeight: 700, fontSize: '1rem', textDecoration: 'none' }}>
           Book now · $50 →

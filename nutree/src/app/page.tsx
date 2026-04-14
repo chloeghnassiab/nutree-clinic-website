@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 const TREATMENTS = [
   { name: 'GLP-1 Weight Loss',  sub: 'Semaglutide · Tirzepatide · Microdosing', price: 'from $249/mo', href: '/weight-loss', bg: 'linear-gradient(135deg, #8ED4EA 0%, #B8E4F0 100%)', priceColor: '#1A6B85', size: 'large' },
-  { name: 'NAD+ Therapy',       sub: 'Energy · anti-aging · longevity',          price: 'from $TBD/mo', href: '/nad',         bg: 'linear-gradient(135deg, #78C8A8 0%, #A8D8C8 100%)', priceColor: '#1E6650', size: 'large' },
+  { name: 'NAD+ Therapy',       sub: 'Energy · longevity · cellular health',          price: 'from $TBD/mo', href: '/nad',         bg: 'linear-gradient(135deg, #78C8A8 0%, #A8D8C8 100%)', priceColor: '#1E6650', size: 'large' },
   { name: 'Sermorelin',         sub: 'Growth hormone · strength · recovery',     price: 'from $125 first', href: '/sermorelin', bg: 'linear-gradient(135deg, #E0A070 0%, #F2C4A0 100%)', priceColor: '#8B4A20', size: 'medium' },
   { name: 'Oxytocin',           sub: 'Stress relief · emotional well-being',     price: 'from $TBD/mo', href: '/oxytocin',    bg: 'linear-gradient(135deg, #B898D8 0%, #D4B8E8 100%)', priceColor: '#5A3080', size: 'medium' },
   { name: 'B6 / B12',           sub: 'Energy · mood · neurological support',     price: 'from $TBD/mo', href: '/b12',         bg: 'linear-gradient(135deg, #ECC840 0%, #F9E07A 100%)', priceColor: '#7A6200', size: 'medium' },

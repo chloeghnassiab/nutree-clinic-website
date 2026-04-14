@@ -21,15 +21,12 @@ export default function SermorelinPage() {
       {/* ── HERO SPLIT ─────────────────────────────────────────────── */}
       <div className="hero-split">
         <div className="hero-photo gradient-ser">
-          <div style={{ position: 'absolute', width: 110, height: 110, borderRadius: '50%', background: 'rgba(255,255,255,0.28)', top: -22, right: -22 }} />
-          <div style={{ position: 'absolute', width: 60, height: 60, borderRadius: '50%', background: 'rgba(139,74,32,0.12)', bottom: -8, left: -8 }} />
-          <div style={{ position: 'absolute', width: 40, height: 40, borderRadius: '50%', background: 'rgba(255,255,255,0.2)', top: 28, right: 14 }} />
           <InStockBadge />
           <Image
-            src="https://umsousercontent.com/lib_lJwKNLihmSPYJEfY/mvret1ty4jzgsyir.png"
+            src="/images/sermorelin-growth-hormone-therapy-nutreeclinic.png"
             alt="Sermorelin therapy"
-            width={130} height={170}
-            style={{ width: '72%', maxWidth: 130, height: 'auto', position: 'relative', zIndex: 2, objectFit: 'contain' }}
+            fill
+            style={{ objectFit: 'cover' }}
             priority
           />
         </div>
@@ -126,9 +123,9 @@ export default function SermorelinPage() {
         eyebrow="Complete your protocol"
         title="Sermorelin pairs well with these treatments."
         items={[
-          { name: 'NAD+ Therapy',    sub: 'Cellular energy · anti-aging · complements Sermorelin', href: '/nad',          arrowColor: 'var(--nad-dark)' },
+          { name: 'NAD+ Therapy',    sub: 'Cellular energy · longevity · complements Sermorelin', href: '/nad',          arrowColor: 'var(--nad-dark)', img: '/images/nad-plus-injectable-therapy-nutreeclinic-nav.png' },
           { name: 'B6 / B12',        sub: 'Performance, energy & neurological support',             href: '/b12',          arrowColor: 'var(--b12-dark)' },
-          { name: 'GLP-1 Weight Loss',sub: 'Metabolic support — complements body composition goals',href: '/weight-loss', arrowColor: 'var(--glp-dark)' },
+          { name: 'GLP-1 Weight Loss',sub: 'Metabolic support — complements body composition goals',href: '/weight-loss', arrowColor: 'var(--glp-dark)', img: '/images/glp1-semaglutide-weight-loss-nutreeclinic-nav.png' },
         ]}
       />
 
