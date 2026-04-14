@@ -222,13 +222,13 @@ export function SiteNav() {
                     <img
                       src={active.featured.img2}
                       alt=""
-                      style={{ position: 'absolute', bottom: 0, right: '32%', height: '82%', width: 'auto', objectFit: 'contain', opacity: 0.85, zIndex: 1 }}
+                      style={{ position: 'absolute', bottom: '6%', right: '-3%', height: '88%', width: 'auto', objectFit: 'contain', opacity: 0.9, zIndex: 1 }}
                     />
                   )}
                   <img
                     src={active.featured.img}
                     alt={active.featured.title}
-                    style={{ position: 'absolute', bottom: 0, right: '5%', height: '95%', width: 'auto', objectFit: 'contain', zIndex: 2 }}
+                    style={{ position: 'absolute', bottom: 0, right: '5%', height: '78%', width: 'auto', objectFit: 'contain', zIndex: 2 }}
                   />
                   <div style={{ position: 'relative', zIndex: 2, padding: '1.125rem' }}>
                     <div style={{ fontFamily: 'var(--font-serif)', fontSize: '1.125rem', color: 'var(--ink)', lineHeight: 1.25, marginBottom: '0.875rem', whiteSpace: 'pre-line' }}>
