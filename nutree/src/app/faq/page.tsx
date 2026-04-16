@@ -59,9 +59,7 @@ export default function FAQPage() {
         </section>
       ))}
 
-      <ConsultBand
-        heading="Still have questions?"
-        sub="Your clinician reviews your intake and issues your prescription. If they have any questions, they will reach out directly."
+      <ConsultBand />
       />
     </>
   )

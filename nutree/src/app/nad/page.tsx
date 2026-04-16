@@ -170,9 +170,7 @@ export default function NADPage() {
 
       <PageLegal text="Compounded NAD+ preparations are prepared by state-licensed 503A compounding pharmacies and are not FDA-approved. GHK-Cu is not FDA-approved. Prescriptions issued at provider discretion only. Individual results vary. Nutree Clinic LLC · Florida · LegitScript certified." />
 
-      <ConsultBand
-        heading="Ready to take the next step?"
-        sub="Your clinician reviews your intake and issues your prescription. If they have any questions, they will reach out directly."
+      <ConsultBand />
       />
     </>
   )

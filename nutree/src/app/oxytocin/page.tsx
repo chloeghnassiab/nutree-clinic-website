@@ -124,9 +124,7 @@ export default function OxytocinPage() {
 
       <PageLegal text="Compounded oxytocin nasal spray is not FDA-approved and has not been evaluated by the FDA for safety, efficacy, or quality. Not indicated for psychiatric conditions. Not appropriate during pregnancy. Prescriptions issued at provider discretion only. Individual results vary. Nutree Clinic LLC · Florida · LegitScript certified." />
 
-      <ConsultBand
-        heading="Ready to take the next step?"
-        sub="Your clinician reviews your intake and issues your prescription. If they have any questions, they will reach out directly."
+      <ConsultBand />
       />
     </>
   )

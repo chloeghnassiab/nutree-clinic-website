@@ -63,9 +63,7 @@ export default function StacksPage() {
         </div>
       </section>
 
-      <ConsultBand
-        heading="Want a personalised protocol?"
-        sub="Your clinician reviews your intake and designs a plan around your specific goals."
+      <ConsultBand />
       />
     </>
   )

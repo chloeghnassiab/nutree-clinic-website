@@ -147,7 +147,7 @@ export default function PricingPage() {
         </div>
       </section>
 
-      <ConsultBand heading="Not sure which plan fits?" sub="A clinician will map it out for you · $50 · credited to first plan" />
+      <ConsultBand />
     </>
   )
 }

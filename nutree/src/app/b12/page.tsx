@@ -154,9 +154,7 @@ export default function B12Page() {
 
       <PageLegal text="Compounded B6/B12 preparations are prepared by state-licensed 503A compounding pharmacies. Prescriptions issued at provider discretion only. Individual results vary. Nutree Clinic LLC · Florida · LegitScript certified." />
 
-      <ConsultBand
-        heading="Ready to take the next step?"
-        sub="Your clinician reviews your intake and issues your prescription. If they have any questions, they will reach out directly."
+      <ConsultBand />
       />
     </>
   )
