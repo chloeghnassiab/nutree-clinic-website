@@ -300,7 +300,6 @@ export default function WeightLossPage() {
       <PageLegal text="Compounded semaglutide and tirzepatide are prepared by state-licensed 503A compounding pharmacies and are not FDA-approved. They have not been evaluated by the FDA for safety, efficacy, or quality. *Clinical outcome data refers to FDA-approved reference medications (Wegovy®, Zepbound®). Compounded preparations are not those products. Wegovy® is a registered trademark of Novo Nordisk A/S. Mounjaro®/Zepbound® are registered trademarks of Eli Lilly and Company. Individual results vary. Prescriptions issued at provider discretion only. Nutree Clinic LLC · Florida · LegitScript certified." />
 
       <ConsultBand />
-      />
     </>
   )
 }

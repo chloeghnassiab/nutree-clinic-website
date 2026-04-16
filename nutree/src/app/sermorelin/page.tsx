@@ -157,7 +157,6 @@ export default function SermorelinPage() {
       <PageLegal text="Compounded Sermorelin is not FDA-approved. Previously FDA-approved, discontinued by manufacturer in 2006 for commercial reasons. Off-label use must be prescribed and supervised by a licensed provider. Individual results vary. Nutree Clinic LLC · Florida · LegitScript certified." />
 
       <ConsultBand />
-      />
     </>
   )
 }
