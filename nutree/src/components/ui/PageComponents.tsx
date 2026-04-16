@@ -1,19 +1,23 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { PROMOTIONS } from '@/lib/promotions.config'
 
 // ─── SHARED ANIMATION VARIANTS ───────────────────────────────────────────────
 const fadeUp = {
-  hidden:  { opacity: 0, y: 22 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.25, 0.1, 0.25, 1] } },
+  hidden:  { opacity: 0, y: 32 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.75, ease: [0.16, 1, 0.3, 1] } },
+}
+const fadeLeft = {
+  hidden:  { opacity: 0, x: -20 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.75, ease: [0.16, 1, 0.3, 1] } },
 }
 const stagger = {
   hidden:  {},
-  visible: { transition: { staggerChildren: 0.09 } },
+  visible: { transition: { staggerChildren: 0.13 } },
 }
-const VP = { once: true, margin: '-60px' } as const
+const VP = { once: true, margin: '-50px' } as const
 import {
   CheckCircle, ArrowRight, Star, Info, Plus, Minus, ClipboardText, TrendDown, Stethoscope, SprayBottle,
   ShieldCheck, CreditCard, Lock, Certificate,
@@ -22,6 +26,7 @@ import {
   TrendUp, Heart, Plant, Smiley, SmileyMeh,
   Scales, MagnifyingGlass, Leaf, Sun, Sparkle,
   Bandaids, Package, ChatCircle,
+  Truck, Flag, X,
 } from '@phosphor-icons/react'
 
 // Map icon string names → Phosphor components
@@ -63,11 +68,11 @@ export function SectionHeader({ eyebrow, title, body, color = 'var(--ink-3)' }: 
   eyebrow?: string; title: string; body?: string; color?: string
 }) {
   return (
-    <div style={{ marginBottom: '1.25rem' }}>
+    <motion.div variants={fadeLeft} initial="hidden" whileInView="visible" viewport={VP} style={{ marginBottom: '1.25rem' }}>
       {eyebrow && <div style={{ fontSize: '1rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color, marginBottom: '0.5rem' }}>{eyebrow}</div>}
       <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.375rem, 3vw, 1.875rem)', color: 'var(--ink)', lineHeight: 1.2, marginBottom: body ? '0.625rem' : 0 }}>{title}</h2>
       {body && <p style={{ fontSize: '1rem', color: 'var(--ink-3)', lineHeight: 1.65, maxWidth: 520 }}>{body}</p>}
-    </div>
+    </motion.div>
   )
 }
 
@@ -154,41 +159,77 @@ export function BenefitsList({ items, color }: { items: string[]; color: string 
 // ─── TRUST STRIP ─────────────────────────────────────────────────────────────
 export function TrustStrip() {
   const items = [
-    { icon: <ShieldCheck size={14} />, label: '🇺🇸 Compounded in the USA' },
-    { icon: <CreditCard size={14} />, label: 'FSA & HSA eligible' },
-    { icon: <Lock size={14} />, label: 'HIPAA compliant' },
-    { icon: <Certificate size={14} />, label: 'LegitScript certified' },
+    { icon: <Truck size={15} weight="regular" />, label: 'Free shipping' },
+    { icon: <CreditCard size={15} weight="regular" />, label: 'FSA / HSA eligible' },
+    { icon: <ShieldCheck size={15} weight="regular" />, label: 'No insurance needed' },
+    { icon: <ChatCircle size={15} weight="regular" />, label: '7/7 clinician messaging' },
+    { icon: <X size={15} weight="regular" />, label: 'Cancel anytime' },
+    { icon: <Certificate size={15} weight="regular" />, label: 'LegitScript certified' },
+    { icon: <Flag size={15} weight="regular" />, label: 'Compounded in the U.S.A.' },
   ]
+  const doubled = [...items, ...items]
   return (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.375rem', padding: '0.625rem 1.25rem 1rem', background: 'var(--white)' }}>
-      {items.map(({ label }, i) => (
-        <div key={i} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem', padding: '0.3rem 0.75rem', borderRadius: 999, background: 'var(--base)', border: '0.5px solid var(--border)', fontSize: '0.875rem', color: 'var(--ink-3)', fontWeight: 500 }}>
-          {label}
-        </div>
-      ))}
+    <div style={{ background: 'var(--base)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', padding: '0.75rem 0', overflow: 'hidden', width: '100vw', position: 'relative', left: '50%', right: '50%', marginLeft: '-50vw', marginRight: '-50vw' }}>
+      <style>{`
+        @keyframes ticker {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .trust-ticker:hover { animation-play-state: paused; }
+      `}</style>
+      <div
+        className="trust-ticker"
+        style={{
+          display: 'flex',
+          width: 'fit-content',
+          animation: 'ticker 45s linear infinite',
+        }}
+      >
+        {doubled.map(({ icon, label }, i) => (
+          <span key={i} style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: '0.875rem', color: 'var(--ink-2)', fontWeight: 500, padding: '0 2rem', whiteSpace: 'nowrap' }}>
+            {icon}
+            {label}
+          </span>
+        ))}
+      </div>
     </div>
   )
 }
 
 // ─── FEATURE BAND ────────────────────────────────────────────────────────────
-export function FeatureBand({ eyebrow, title, body, gradient, cards }: {
-  eyebrow: string; title: string; body: string; gradient: string; cards: { icon: string; title: string; desc: string }[]
+export function FeatureBand({ eyebrow, title, body, gradient, cards, bgImage }: {
+  eyebrow: string; title: string; body: string; gradient: string; cards: { icon: string; title: string; desc: string }[]; bgImage?: string
 }) {
   return (
-    <div style={{ padding: '2rem 1.5rem', background: gradient }}>
-      <div style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--ink-3)', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: '0.625rem' }}>{eyebrow}</div>
-      <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.375rem, 3vw, 1.875rem)', color: 'var(--ink)', lineHeight: 1.2, marginBottom: '0.75rem' }}>{title}</h2>
-      <p style={{ fontSize: '1rem', color: 'var(--ink-2)', lineHeight: 1.7, marginBottom: '1.25rem', maxWidth: 480 }}>{body}</p>
-      <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={VP}
-        style={{ display: 'flex', gap: '0.625rem', flexWrap: 'wrap' }}>
-        {cards.map((c, i) => (
-          <motion.div key={i} variants={fadeUp} style={{ flex: '1 1 140px', background: 'rgba(255,255,255,0.75)', backdropFilter: 'blur(6px)', borderRadius: 12, padding: '1rem', border: '1px solid rgba(255,255,255,0.9)' }}>
-            <div style={{ marginBottom: '0.5rem', display: 'flex' }}><PhosphorIcon name={c.icon} size={24} color="var(--ink)" /></div>
-            <div style={{ fontSize: '0.9375rem', fontWeight: 700, color: 'var(--ink)', marginBottom: '0.3rem' }}>{c.title}</div>
-            <div style={{ fontSize: '0.875rem', color: 'var(--ink-3)', lineHeight: 1.5 }}>{c.desc}</div>
-          </motion.div>
-        ))}
-      </motion.div>
+    <div style={{ padding: '2rem 1.5rem', background: gradient, position: 'relative', overflow: 'hidden' }}>
+      {bgImage && (
+        <img
+          src={bgImage}
+          alt=""
+          aria-hidden="true"
+          style={{
+            position: 'absolute', right: 0, top: 0, bottom: 0,
+            width: '45%', height: '100%',
+            objectFit: 'cover', objectPosition: 'center top',
+            opacity: 1, pointerEvents: 'none', zIndex: 0,
+          }}
+        />
+      )}
+      <div style={{ position: 'relative', zIndex: 2 }}>
+        <div style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--ink-3)', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: '0.625rem' }}>{eyebrow}</div>
+        <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.375rem, 3vw, 1.875rem)', color: 'var(--ink)', lineHeight: 1.2, marginBottom: '0.75rem' }}>{title}</h2>
+        <p style={{ fontSize: '1rem', color: 'var(--ink-2)', lineHeight: 1.7, marginBottom: '1.25rem', maxWidth: 480 }}>{body}</p>
+        <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={VP}
+          style={{ display: 'flex', gap: '0.625rem', flexWrap: 'wrap' }}>
+          {cards.map((c, i) => (
+            <motion.div key={i} variants={fadeUp} whileHover={{ y: -4, boxShadow: '0 8px 24px rgba(0,0,0,0.10)' }} transition={{ duration: 0.25 }} style={{ flex: '1 1 140px', background: 'rgba(255,255,255,0.75)', backdropFilter: 'blur(6px)', borderRadius: 12, padding: '1rem', border: '1px solid rgba(255,255,255,0.9)' }}>
+              <div style={{ marginBottom: '0.5rem', display: 'flex' }}><PhosphorIcon name={c.icon} size={24} color="var(--ink)" /></div>
+              <div style={{ fontSize: '0.9375rem', fontWeight: 700, color: 'var(--ink)', marginBottom: '0.3rem' }}>{c.title}</div>
+              <div style={{ fontSize: '0.875rem', color: 'var(--ink-3)', lineHeight: 1.5 }}>{c.desc}</div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
     </div>
   )
 }
@@ -376,19 +417,75 @@ export function PageLegal({ text }: { text: string }) {
 }
 
 // ─── CONSULT BAND ────────────────────────────────────────────────────────────
-export function ConsultBand({ heading, sub }: { heading: string; sub?: string }) {
+export function ConsultBand() {
+  const PHRASES = [
+    "Ready to take the next step?",
+    "Find the treatment that's right for you.",
+    "Get expert guidance from a licensed clinician.",
+    "Start your health journey today.",
+  ]
+  const [index, setIndex] = useState(0)
+  const [stage, setStage] = useState<'idle' | 'exit' | 'enter'>('idle')
+
+  const getTransform = () => {
+    if (stage === 'exit') return 'translateY(-120%)'
+    if (stage === 'enter') return 'translateY(120%)'
+    return 'translateY(0)'
+  }
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setStage('exit')
+      setTimeout(() => {
+        setIndex(i => (i + 1) % PHRASES.length)
+        setStage('enter')
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            setStage('idle')
+          })
+        })
+      }, 800)
+    }, 3500)
+    return () => clearInterval(interval)
+  }, [])
+
   return (
     <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={VP}
-      className="consult-band" style={{ background: 'var(--ink)', padding: '2rem 1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '1rem' }}>
+      className="consult-band" style={{
+      background: 'var(--ink)',
+      padding: '2.5rem 1.5rem',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      gap: '1.5rem',
+      flexWrap: 'wrap',
+    }}>
       <div>
-        <div style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.125rem, 2.5vw, 1.375rem)', color: '#fff', lineHeight: 1.3, marginBottom: sub ? 4 : 0 }}>
-          {heading}
+        <div style={{ overflow: 'hidden', height: '2.2em', marginBottom: 8 }}>
+          <div style={{
+            fontFamily: 'var(--font-serif)',
+            fontSize: 'clamp(1.125rem, 2.5vw, 1.375rem)',
+            color: '#fff',
+            lineHeight: 1.3,
+            transform: getTransform(),
+            transition: stage === 'enter' ? 'none' : 'transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
+          }}>
+            {PHRASES[index]}
+          </div>
         </div>
-        {sub && <div style={{ fontSize: '0.875rem', color: 'rgba(255,255,255,0.5)' }}>{sub}</div>}
-        <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.35)', marginTop: 6 }}>7/7 clinician messaging included with every plan</div>
+        <div style={{ fontSize: '0.9375rem', color: 'rgba(255,255,255,0.55)', lineHeight: 1.6, marginBottom: 4 }}>
+          Your clinician reviews your intake and issues your prescription directly — no call required.
+        </div>
+        <div style={{ fontSize: '0.875rem', color: 'rgba(255,255,255,0.35)', display: 'flex', alignItems: 'center', gap: 6 }}>
+          <span>·</span>
+          <span>7/7 direct messaging with your clinician, included with every plan.</span>
+        </div>
       </div>
-      <Link href="/consult" style={{ padding: '12px 22px', borderRadius: 999, background: 'var(--con)', color: 'var(--ink)', fontSize: '0.9375rem', fontWeight: 700, textDecoration: 'none', whiteSpace: 'nowrap', flexShrink: 0 }}>
-        Start your intake →
+      <Link href="/consult" style={{
+        padding: '14px 28px', borderRadius: 999, background: 'var(--con)', color: 'var(--ink)',
+        fontSize: '1rem', fontWeight: 700, textDecoration: 'none', whiteSpace: 'nowrap', flexShrink: 0,
+      }}>
+        Book a consult · $50 →
       </Link>
     </motion.div>
   )

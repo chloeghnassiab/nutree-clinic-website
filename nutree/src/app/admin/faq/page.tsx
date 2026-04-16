@@ -3,6 +3,7 @@ import { FAQ_ITEMS } from '@/lib/faq.config'
 
 export const metadata: Metadata = {
   title: 'FAQ Admin — Nutree Clinic',
+  robots: { index: false, follow: false },
 }
 
 export default function AdminFAQPage() {

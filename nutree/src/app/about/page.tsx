@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import Link from 'next/link'
+import { ConsultBand } from '@/components/ui/PageComponents'
 
 export const metadata: Metadata = {
   title: 'About — Nutree Clinic',
@@ -94,14 +94,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section style={{ background: 'var(--ink)', padding: '2.5rem 1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '1.5rem', flexWrap: 'wrap' }}>
-        <div>
-          <div style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.375rem, 3vw, 1.75rem)', color: '#fff', lineHeight: 1.3, marginBottom: 6 }}>Ready to get started?</div>
-          <div style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.45)' }}>30 min · licensed clinician · $50</div>
-        </div>
-        <Link href="/consult" className="btn-consult">Book a consult · $50 →</Link>
-      </section>
+      <ConsultBand />
     </>
   )
 }

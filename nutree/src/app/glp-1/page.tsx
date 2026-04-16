@@ -191,10 +191,7 @@ export default function MicroDosingPage() {
 
       <PageLegal text="Compounded semaglutide and tirzepatide are prepared by state-licensed 503A compounding pharmacies and are not FDA-approved. Off-label use must be prescribed and supervised by a licensed provider. Individual results vary. Nutree Clinic LLC · Florida · LegitScript certified." />
 
-      <ConsultBand
-        heading="Ready to take the next step?"
-        sub="Your clinician reviews your intake and issues your prescription. If they have any questions, they will reach out directly."
-      />
+      <ConsultBand />
     </>
   )
 }

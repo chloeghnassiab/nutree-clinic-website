@@ -27,6 +27,11 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true },
   },
+  icons: {
+    icon: '/images/NutreeClinic_favicon.png',
+    shortcut: '/images/NutreeClinic_favicon.png',
+    apple: '/images/NutreeClinic_favicon.png',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

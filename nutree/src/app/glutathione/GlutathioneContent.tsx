@@ -131,10 +131,7 @@ export function GlutathioneContent() {
 
       <PageLegal text="Compounded glutathione is not FDA-approved and has not been reviewed by the FDA for safety, efficacy, or quality. Not recommended during pregnancy or breastfeeding. Prescriptions issued at provider discretion only. Individual results vary. Nutree Clinic LLC · Florida · LegitScript certified." />
 
-      <ConsultBand
-        heading="Ready to take the next step?"
-        sub="Your clinician reviews your intake and issues your prescription. If they have any questions, they will reach out directly."
-      />
+      <ConsultBand />
     </>
   )
 }

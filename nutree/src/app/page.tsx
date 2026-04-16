@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ConsultBand, FAQSection } from '@/components/ui/PageComponents'
+import { ConsultBand, FAQSection, TrustStrip } from '@/components/ui/PageComponents'
 import { STACKS, STACKS_VISIBLE } from '@/lib/stacks.config'
 import { FAQ_ITEMS } from '@/lib/faq.config'
 
@@ -10,12 +10,12 @@ export const metadata: Metadata = {
 }
 
 const TREATMENTS = [
-  { name: 'GLP-1 Weight Loss',  sub: 'Semaglutide · Tirzepatide · Microdosing', price: 'from $229/mo', href: '/weight-loss', bg: 'linear-gradient(135deg, #8ED4EA 0%, #B8E4F0 100%)', priceColor: '#1A6B85', size: 'large' },
-  { name: 'NAD+ Therapy',       sub: 'Energy · longevity · cellular health',     price: 'from $TBD/mo', href: '/nad',         bg: 'linear-gradient(135deg, #78C8A8 0%, #A8D8C8 100%)', priceColor: '#1E6650', size: 'large' },
-  { name: 'Sermorelin',         sub: 'Growth hormone · strength · recovery',     price: 'from $175/mo', href: '/sermorelin', bg: 'linear-gradient(135deg, #E0A070 0%, #F2C4A0 100%)', priceColor: '#8B4A20', size: 'medium' },
-  { name: 'Glutathione',        sub: 'Detox · antioxidant · cellular health',    price: 'from $TBD/mo', href: '/glutathione', bg: 'linear-gradient(135deg, #78C8A8 0%, #B8E8D0 100%)', priceColor: '#1E6650', size: 'medium' },
-  { name: 'Oxytocin',           sub: 'Stress relief · emotional well-being',     price: 'from $TBD/mo', href: '/oxytocin',    bg: 'linear-gradient(135deg, #B898D8 0%, #D4B8E8 100%)', priceColor: '#5A3080', size: 'medium' },
-  { name: 'B6 / B12',           sub: 'Energy · mood · neurological support',     price: 'from $TBD/mo', href: '/b12',         bg: 'linear-gradient(135deg, #ECC840 0%, #F9E07A 100%)', priceColor: '#7A6200', size: 'medium' },
+  { name: 'GLP-1 Weight Loss',  sub: 'Semaglutide · Tirzepatide · Microdosing', price: 'from $229/mo', href: '/weight-loss', bg: 'linear-gradient(135deg, rgba(142,212,234,0.5) 0%, rgba(255,255,255,0.65) 100%)', priceColor: '#1A6B85', size: 'large',  image: '/images/glp1-weight-loss-patient-nutreeclinic.png',    imageHeight: '101%', imageTransform: 'translateX(8%)',  imageMaxWidth: '52%' },
+  { name: 'NAD+',               sub: 'Energy · longevity · cellular health',     price: 'from $TBD/mo', href: '/nad',         bg: 'linear-gradient(135deg, rgba(120,200,168,0.5) 0%, rgba(255,255,255,0.65) 100%)', priceColor: '#1E6650', size: 'large',  image: '/images/nad-plus-therapy-patient-nutreeclinic.png',     imageHeight: '100%', imageTransform: 'translateX(8%)',  imageMaxWidth: 'none' },
+  { name: 'Sermorelin',         sub: 'Growth hormone · strength · recovery',     price: 'from $175/mo', href: '/sermorelin', bg: 'linear-gradient(135deg, rgba(224,160,112,0.5) 0%, rgba(255,255,255,0.65) 100%)', priceColor: '#8B4A20', size: 'medium', image: '/images/sermorelin-therapy-patient-nutreeclinic.png',   imageHeight: '91%',  imageTransform: 'translateX(-4%)', imageMaxWidth: '52%' },
+  { name: 'Glutathione',        sub: 'Detox · antioxidant · cellular health',    price: 'from $TBD/mo', href: '/glutathione', bg: 'linear-gradient(135deg, rgba(236,200,64,0.5) 0%, rgba(255,255,255,0.65) 100%)',  priceColor: '#7A6200', size: 'medium', image: '/images/glutathione-therapy-patient-nutreeclinic.png',  imageHeight: '101%', imageTransform: 'translateX(8%)',  imageMaxWidth: '52%' },
+  { name: 'Oxytocin',           sub: 'Stress relief · emotional well-being',     price: 'from $TBD/mo', href: '/oxytocin',    bg: 'linear-gradient(135deg, rgba(184,152,216,0.5) 0%, rgba(255,255,255,0.65) 100%)', priceColor: '#5A3080', size: 'medium', image: '/images/oxytocin-therapy-patient-nutreeclinic.png',    imageHeight: '101%', imageTransform: 'translateX(8%)',  imageMaxWidth: '52%' },
+  { name: 'B12-MIC',            sub: 'Energy · mood · neurological support',     price: 'from $TBD/mo', href: '/b12',         bg: 'linear-gradient(135deg, rgba(232,152,184,0.5) 0%, rgba(255,255,255,0.65) 100%)', priceColor: '#7A2048', size: 'medium', image: '/images/b12-mic-therapy-patient-nutreeclinic.png',      imageHeight: '101%', imageTransform: 'translateX(8%)',  imageMaxWidth: '52%' },
 ]
 
 const HOW_STEPS = [
@@ -54,46 +54,46 @@ export default function HomePage() {
             Start your intake
           </Link>
         </div>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-          {['✓ Free shipping', '✓ FSA/HSA eligible', '✓ No insurance needed', '✓ 7/7 clinician messaging', '✓ Cancel anytime'].map(t => (
-            <div key={t} style={{ display: 'inline-flex', alignItems: 'center', gap: 4, padding: '5px 12px', borderRadius: 999, background: 'var(--white)', border: '0.5px solid var(--border)', fontSize: '0.875rem', color: 'var(--ink-3)', fontWeight: 500 }}>
-              {t}
-            </div>
-          ))}
-        </div>
+        <TrustStrip />
       </section>
 
       {/* ── TREATMENT CARDS ─────────────────────────────────────── */}
-      <section style={{ padding: '1.5rem', background: 'var(--base)', borderTop: '1px solid var(--border)' }}>
+      <section style={{ padding: '1.5rem', background: 'var(--base)' }}>
         <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--ink-3)', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: '1rem' }}>
           Treatments
         </div>
-        {/* Top row — two large cards */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem', marginBottom: '0.75rem' }}>
+        {/* Row 1 — GLP-1 (3fr) + NAD+ (2fr) */}
+        <div style={{ display: 'grid', gridTemplateColumns: '3fr 2fr', gap: '0.75rem', marginBottom: '0.75rem' }}>
           {TREATMENTS.slice(0, 2).map(item => (
             <TreatmentCard key={item.href} item={item} />
           ))}
         </div>
-        {/* Middle row — four medium cards */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem', marginBottom: '0.75rem' }}>
-          {TREATMENTS.slice(2, 6).map(item => (
+        {/* Row 2 — Sermorelin (2fr) + Glutathione (3fr) */}
+        <div style={{ display: 'grid', gridTemplateColumns: '2fr 3fr', gap: '0.75rem', marginBottom: '0.75rem' }}>
+          {TREATMENTS.slice(2, 4).map(item => (
+            <TreatmentCard key={item.href} item={item} />
+          ))}
+        </div>
+        {/* Row 3 — Oxytocin (3fr) + B12-MIC (2fr) */}
+        <div style={{ display: 'grid', gridTemplateColumns: '3fr 2fr', gap: '0.75rem', marginBottom: '0.75rem' }}>
+          {TREATMENTS.slice(4, 6).map(item => (
             <TreatmentCard key={item.href} item={item} />
           ))}
         </div>
         {/* Consult card — full width */}
         <Link href="/consult" style={{
           display: 'flex', alignItems: 'center', justifyContent: 'space-between', textDecoration: 'none',
-          background: 'linear-gradient(135deg, #F0B8A8 0%, #FAD8CC 100%)',
+          background: 'linear-gradient(135deg, rgba(240,184,168,0.5) 0%, rgba(255,255,255,0.65) 100%)',
           borderRadius: 16, padding: '1.5rem',
           gap: '1rem',
         }}>
           <div>
-            <div style={{ fontFamily: 'var(--font-serif)', fontSize: '1.25rem', color: 'var(--ink)', marginBottom: 4 }}>Start Your Intake</div>
-            <div style={{ fontSize: '1rem', color: 'var(--con-dark)', marginBottom: 8 }}>Submit your form · clinician reviews and prescribes directly</div>
-            <div style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--con-dark)' }}>$50 → credited to your first plan</div>
+            <div style={{ fontFamily: 'var(--font-serif)', fontSize: '1.5rem', fontWeight: 600, color: 'var(--ink)', lineHeight: 1.2, marginBottom: 6 }}>Personalized guidance from a licensed clinician.</div>
+            <div style={{ fontSize: '0.9375rem', color: 'var(--con-dark)', marginBottom: 8 }}>Not sure where to start? One consultation is all it takes. Your clinician will recommend the right treatment for you.</div>
+            <div style={{ fontSize: '0.9375rem', fontWeight: 700, color: 'var(--con-dark)' }}>$50 · credited to your first plan</div>
           </div>
-          <div style={{ padding: '12px 24px', borderRadius: 999, background: 'var(--ink)', color: '#fff', fontSize: '1rem', fontWeight: 700, flexShrink: 0 }}>
-            Get started →
+          <div style={{ padding: '12px 24px', borderRadius: 999, background: 'var(--ink)', color: '#fff', fontSize: '0.875rem', fontWeight: 700, flexShrink: 0 }}>
+            Book a consult →
           </div>
         </Link>
       </section>
@@ -191,29 +191,45 @@ export default function HomePage() {
         />
       )}
 
-      <ConsultBand heading="Not sure where to start?" sub="Your clinician reviews your intake and issues your prescription. If they have any questions, they will reach out directly." />
+      <ConsultBand />
     </>
   )
 }
 
 function TreatmentCard({ item }: { item: typeof TREATMENTS[0] }) {
   return (
-    <Link href={item.href} style={{
+    <Link href={item.href} className="treatment-card" style={{
       display: 'block', textDecoration: 'none',
       background: item.bg, borderRadius: 16, padding: '1.25rem',
       position: 'relative', overflow: 'hidden',
-      minHeight: item.size === 'large' ? 180 : 150,
-      transition: 'transform 0.2s, box-shadow 0.2s',
+      minHeight: 210,
     }}>
-      <div style={{ position: 'absolute', width: 80, height: 80, borderRadius: '50%', background: 'rgba(255,255,255,0.22)', top: -20, right: -20 }} />
-      <div style={{ fontFamily: 'var(--font-serif)', fontSize: item.size === 'large' ? '1.375rem' : '1.125rem', color: 'var(--ink)', lineHeight: 1.2, marginBottom: 6, position: 'relative' }}>
+      {/* Decorative blob */}
+      <div style={{ position: 'absolute', width: 80, height: 80, borderRadius: '50%', background: 'rgba(255,255,255,0.22)', top: -20, right: -20, zIndex: 0 }} />
+      {/* Product image */}
+      {item.image && (
+        <img
+          src={item.image}
+          alt={item.name}
+          style={{
+            position: 'absolute', bottom: 0, right: 0,
+            height: item.imageHeight, width: 'auto',
+            maxWidth: item.imageMaxWidth,
+            objectFit: 'contain', objectPosition: 'bottom right',
+            transform: item.imageTransform,
+            opacity: 0.92, pointerEvents: 'none', zIndex: 1,
+          }}
+        />
+      )}
+      {/* Text content */}
+      <div style={{ fontFamily: 'var(--font-serif)', fontSize: '1.5rem', fontWeight: 600, color: 'var(--ink)', lineHeight: 1.2, marginBottom: 6, position: 'relative', zIndex: 2 }}>
         {item.name}
       </div>
-      <div style={{ fontSize: '0.9375rem', color: 'var(--ink-2)', marginBottom: '1rem', position: 'relative', lineHeight: 1.4 }}>{item.sub}</div>
-      <div style={{ display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: '0.875rem', fontWeight: 700, color: 'var(--ink)', background: 'rgba(0,0,0,0.1)', padding: '6px 12px', borderRadius: 999, position: 'relative', marginBottom: 8 }}>
+      <div style={{ fontSize: '0.9375rem', color: 'var(--ink-2)', marginBottom: '1rem', position: 'relative', lineHeight: 1.4, zIndex: 2 }}>{item.sub}</div>
+      <div style={{ display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: '0.875rem', fontWeight: 700, color: 'var(--ink)', background: 'rgba(0,0,0,0.1)', padding: '6px 12px', borderRadius: 999, position: 'relative', marginBottom: 8, zIndex: 2 }}>
         LEARN MORE →
       </div>
-      <div style={{ fontSize: '0.9375rem', fontWeight: 700, color: item.priceColor, position: 'relative' }}>{item.price}</div>
+      <div style={{ fontSize: '0.9375rem', fontWeight: 700, color: item.priceColor, position: 'relative', zIndex: 2 }}>{item.price}</div>
     </Link>
   )
 }

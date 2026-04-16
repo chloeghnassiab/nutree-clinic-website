@@ -544,6 +544,9 @@ video {
 .grid {
   display: grid;
 }
+.contents {
+  display: contents;
+}
 .hidden {
   display: none;
 }
@@ -592,7 +595,8 @@ video {
   --nad:         #A8D8C8;  --nad-mid: #78C8A8;  --nad-dark: #1E6650;
   --ser:         #F2C4A0;  --ser-mid: #E0A070;  --ser-dark: #8B4A20;
   --oxy:         #D4B8E8;  --oxy-mid: #B898D8;  --oxy-dark: #5A3080;
-  --b12:         #F9E07A;  --b12-mid: #ECC840;  --b12-dark: #7A6200;
+  --b12:         #F7C5D8;  --b12-mid: #E898B8;  --b12-dark: #7A2048;
+  --glu:         #F9E07A;  --glu-mid: #ECC840;  --glu-dark: #7A6200;
   --con:         #F0B8A8;  --con-dark: #8B3A2A;
 
   --green-badge: #2A7A3A;
@@ -630,6 +634,7 @@ body {
   background: var(--base);
   color: var(--ink);
   margin: 0;
+  overflow-x: hidden;
 }
 
 /* ── TYPE SCALE — used everywhere, do not go below these ─────────── */
@@ -675,10 +680,10 @@ p { color: var(--ink-2); line-height: 1.7; font-size: 1rem; margin: 0; }
   background: var(--ink); color: #fff;
   font-size: 1rem; font-weight: 700; font-family: var(--font-sans);
   border: none; cursor: pointer; text-decoration: none; white-space: nowrap;
-  transition: opacity 0.15s, transform 0.15s;
+  transition: opacity 0.25s, transform 0.25s;
 }
-.btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
-.btn-primary:active { transform: scale(0.98); }
+.btn-primary:hover { opacity: 0.88; transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,0.15); }
+.btn-primary:active { transform: scale(0.97); }
 
 .btn-ghost {
   display: inline-flex; align-items: center; justify-content: center;
@@ -686,9 +691,9 @@ p { color: var(--ink-2); line-height: 1.7; font-size: 1rem; margin: 0; }
   background: transparent; color: var(--ink-2);
   font-size: 1rem; font-weight: 600; font-family: var(--font-sans);
   border: 1px solid var(--border); cursor: pointer; text-decoration: none; white-space: nowrap;
-  transition: border-color 0.15s, background 0.15s;
+  transition: border-color 0.25s, background 0.25s, transform 0.25s;
 }
-.btn-ghost:hover { border-color: var(--ink-3); background: rgba(0,0,0,0.02); }
+.btn-ghost:hover { border-color: var(--ink-3); background: rgba(0,0,0,0.02); transform: translateY(-1px); }
 
 .btn-consult {
   display: inline-flex; align-items: center; justify-content: center;
@@ -696,10 +701,10 @@ p { color: var(--ink-2); line-height: 1.7; font-size: 1rem; margin: 0; }
   background: var(--con); color: var(--ink);
   font-size: 1rem; font-weight: 700; font-family: var(--font-sans);
   border: none; cursor: pointer; text-decoration: none; white-space: nowrap;
-  transition: opacity 0.15s, transform 0.15s;
+  transition: opacity 0.25s, transform 0.25s;
 }
-.btn-consult:hover { opacity: 0.88; transform: translateY(-1px); }
-.btn-consult:active { transform: scale(0.98); }
+.btn-consult:hover { opacity: 0.88; transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,0.10); }
+.btn-consult:active { transform: scale(0.97); }
 
 /* ── TRUST PILL ──────────────────────────────────────────────────── */
 .trust-pill {
@@ -715,14 +720,18 @@ p { color: var(--ink-2); line-height: 1.7; font-size: 1rem; margin: 0; }
   padding: 0.875rem 1rem; border-radius: var(--radius-sm);
   border: 1px solid var(--border); margin-bottom: 0.5rem;
   background: var(--white); position: relative;
-  transition: border-color 0.15s, background 0.15s;
+  transition: border-color 0.25s, background 0.25s, transform 0.25s, box-shadow 0.25s;
 }
-.plan-row:hover { background: rgba(0,0,0,0.015); }
+.plan-row:hover { background: rgba(0,0,0,0.015); transform: translateY(-2px); box-shadow: 0 4px 14px rgba(0,0,0,0.06); }
 
 /* ── ENTRANCE KEYFRAMES ──────────────────────────────────────────── */
 @keyframes heroFadeUp {
-  from { opacity: 0; transform: translateY(18px); }
+  from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes heroFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 /* ── HERO SPLIT ──────────────────────────────────────────────────── */
@@ -731,12 +740,12 @@ p { color: var(--ink-2); line-height: 1.7; font-size: 1rem; margin: 0; }
   flex: 1; display: flex; align-items: center;
   justify-content: center; position: relative; overflow: hidden;
   border-radius: var(--radius-lg);
-  animation: heroFadeUp 0.6s ease-out both;
+  animation: heroFadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 .hero-right {
   flex: 1.15; padding: 1.5rem; background: var(--white); overflow-y: auto;
   border-radius: var(--radius-lg);
-  animation: heroFadeUp 0.6s ease-out 0.15s both;
+  animation: heroFadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.18s both;
 }
 
 /* ── CONSULT BAND ────────────────────────────────────────────────── */
@@ -751,13 +760,13 @@ p { color: var(--ink-2); line-height: 1.7; font-size: 1rem; margin: 0; }
   padding: 1rem 1.25rem; border-radius: var(--radius-md);
   background: var(--white); border: 0.5px solid var(--border);
   cursor: pointer; text-decoration: none;
-  transition: border-color 0.15s, box-shadow 0.15s;
+  transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
 }
-.also-item:hover { border-color: var(--ink-3); box-shadow: var(--shadow-md); }
+.also-item:hover { border-color: var(--ink-3); box-shadow: var(--shadow-md); transform: translateY(-2px); }
 
 /* ── SCIENCE ITEM ────────────────────────────────────────────────── */
-.science-item { transition: box-shadow 0.15s; }
-.science-item:hover { box-shadow: var(--shadow-md); }
+.science-item { transition: box-shadow 0.25s, transform 0.25s; }
+.science-item:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
 
 /* ── CAROUSEL ────────────────────────────────────────────────────── */
 .carousel-track {
@@ -769,9 +778,9 @@ p { color: var(--ink-2); line-height: 1.7; font-size: 1rem; margin: 0; }
 .carousel-card {
   border-radius: var(--radius-md); overflow: hidden; flex-shrink: 0;
   width: 140px; border: 0.5px solid var(--border); background: var(--white);
-  cursor: pointer; transition: border-color 0.15s, box-shadow 0.15s;
+  cursor: pointer; transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
 }
-.carousel-card:hover { box-shadow: var(--shadow-md); }
+.carousel-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
 .carousel-card.active { border-width: 2px; }
 
 /* ── IN STOCK BADGE ──────────────────────────────────────────────── */
@@ -784,11 +793,22 @@ p { color: var(--ink-2); line-height: 1.7; font-size: 1rem; margin: 0; }
 }
 
 /* ── GRADIENT HELPERS ────────────────────────────────────────────── */
-.gradient-glp  { background: linear-gradient(145deg, var(--glp-mid) 0%, var(--glp) 55%, #DDF4FF 100%); }
-.gradient-nad  { background: linear-gradient(145deg, var(--nad-mid) 0%, var(--nad) 55%, #D8F4EC 100%); }
-.gradient-ser  { background: linear-gradient(145deg, var(--ser-mid) 0%, var(--ser) 55%, #FAE8D4 100%); }
-.gradient-oxy  { background: linear-gradient(145deg, var(--oxy-mid) 0%, var(--oxy) 55%, #EAD8FF 100%); }
-.gradient-b12  { background: linear-gradient(145deg, var(--b12-mid) 0%, var(--b12) 55%, #FFF4B0 100%); }
+.gradient-glp  { background: linear-gradient(145deg, rgba(142,212,234,0.5) 0%, rgba(184,228,240,0.5) 50%, rgba(255,255,255,0.5) 100%); }
+.gradient-nad  { background: linear-gradient(145deg, rgba(120,200,168,0.5) 0%, rgba(168,216,200,0.5) 50%, rgba(255,255,255,0.5) 100%); }
+.gradient-ser  { background: linear-gradient(145deg, rgba(224,160,112,0.5) 0%, rgba(242,196,160,0.5) 50%, rgba(255,255,255,0.5) 100%); }
+.gradient-oxy  { background: linear-gradient(145deg, rgba(184,152,216,0.5) 0%, rgba(212,184,232,0.5) 50%, rgba(255,255,255,0.5) 100%); }
+.gradient-b12  { background: linear-gradient(145deg, rgba(232,152,184,0.5) 0%, rgba(247,197,216,0.5) 50%, rgba(255,255,255,0.5) 100%); }
+.gradient-glu  { background: linear-gradient(145deg, rgba(236,200,64,0.5)  0%, rgba(249,224,122,0.5) 50%, rgba(255,255,255,0.5) 100%); }
+
+/* ── FOOTER ──────────────────────────────────────────────────────── */
+.footer-link { transition: color 0.25s, transform 0.25s; display: block; }
+.footer-link:hover  { color: var(--ink) !important; transform: translateX(3px); }
+.footer-social { transition: color 0.25s, transform 0.25s; }
+.footer-social:hover { color: var(--ink) !important; transform: translateY(-2px); }
+
+/* ── TREATMENT CARDS ─────────────────────────────────────────────── */
+.treatment-card { transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important; }
+.treatment-card:hover { transform: translateY(-5px) !important; box-shadow: 0 12px 32px rgba(0,0,0,0.10) !important; }
 
 /* ── MOBILE ──────────────────────────────────────────────────────── */
 @media (max-width: 640px) {

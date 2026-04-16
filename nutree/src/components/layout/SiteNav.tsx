@@ -14,7 +14,7 @@ const NAV_CATEGORIES = [
     ],
     featured: {
       img: '/images/glp1-semaglutide-weight-loss-nutreeclinic-nav.png',
-      bg: 'linear-gradient(145deg,#8ED4EA,#B8E4F0)',
+      bg: 'linear-gradient(135deg, rgba(142,212,234,0.5) 0%, rgba(255,255,255,0.65) 100%)',
       title: 'Personalized GLP-1\nTreatments',
       price: 'From $229/mo',
       href: '/weight-loss',
@@ -31,7 +31,7 @@ const NAV_CATEGORIES = [
     featured: {
       img: '/images/nad-plus-injectable-therapy-nutreeclinic-nav.png',
       img2: '/images/nad-plus-nasal-spray-therapy-nutreeclinic-nav.png',
-      bg: 'linear-gradient(145deg,#78C8A8,#A8D8C8)',
+      bg: 'linear-gradient(135deg, rgba(120,200,168,0.5) 0%, rgba(255,255,255,0.65) 100%)',
       title: 'Longevity\nProtocols',
       price: 'From $TBD/mo',
       href: '/nad',
@@ -45,7 +45,7 @@ const NAV_CATEGORIES = [
     ],
     featured: {
       img: '/images/sermorelin-growth-hormone-therapy-nutreeclinic-nav.png',
-      bg: 'linear-gradient(145deg,#E0A070,#F2C4A0)',
+      bg: 'linear-gradient(135deg, rgba(224,160,112,0.5) 0%, rgba(255,255,255,0.65) 100%)',
       title: 'Sermorelin\nTherapy',
       price: 'From $175/mo',
       href: '/sermorelin',
@@ -55,11 +55,11 @@ const NAV_CATEGORIES = [
     label: 'Well-being',
     treatments: [
       { label: 'Oxytocin Nasal Spray', sub: 'Stress relief · emotional balance', href: '/oxytocin' },
-      { label: 'B6 / B12 Injections', sub: 'Energy · mood · neurological', href: '/b12' },
+      { label: 'B12-MIC Injections', sub: 'Energy · mood · neurological', href: '/b12' },
     ],
     featured: {
       img: '/images/oxytocin-nasal-spray-nutreeclinic-nav.png',
-      bg: 'linear-gradient(145deg,#B898D8,#D4B8E8)',
+      bg: 'linear-gradient(135deg, rgba(184,152,216,0.5) 0%, rgba(255,255,255,0.65) 100%)',
       title: 'Oxytocin\nNasal Spray',
       price: 'From $TBD/mo',
       href: '/oxytocin',
@@ -178,14 +178,14 @@ export function SiteNav() {
 
               {/* Left — category label + treatments */}
               <div style={{ flex: 1 }}>
-                <div style={{ fontSize: '0.9375rem', fontWeight: 700, color: 'var(--ink-3)', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: '1rem' }}>
+                <div style={{ fontSize: '0.9375rem', fontWeight: 700, color: 'var(--ink-3)', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: '1rem', paddingLeft: '0.75rem' }}>
                   {active.label}
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.125rem' }}>
                   {active.treatments.map(t => (
                     <Link key={t.href + t.label} href={t.href} className="tx" onClick={() => setActiveMenu(null)}>
-                      <span style={{ display: 'flex', alignItems: 'baseline', gap: '0.5rem' }}>
-                        <span>{t.label}</span>
+                      <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                        <span style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--ink)' }}>{t.label}</span>
                         <span style={{ fontSize: '1rem', fontWeight: 700, padding: '1px 5px', borderRadius: 3, background: 'rgba(0,0,0,0.06)', color: 'var(--ink-3)', letterSpacing: '0.04em' }}>Rˣ</span>
                       </span>
                       <span style={{ fontSize: '1rem', color: 'var(--ink-3)', fontWeight: 400, display: 'block', marginTop: 1 }}>{t.sub}</span>
