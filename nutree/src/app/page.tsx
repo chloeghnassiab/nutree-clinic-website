@@ -63,19 +63,19 @@ export default function HomePage() {
           Treatments
         </div>
         {/* Row 1 — GLP-1 (3fr) + NAD+ (2fr) */}
-        <div style={{ display: 'grid', gridTemplateColumns: '3fr 2fr', gap: '0.75rem', marginBottom: '0.75rem' }}>
+        <div className="treatment-grid" style={{ display: 'grid', gridTemplateColumns: '3fr 2fr', gap: '0.75rem', marginBottom: '0.75rem' }}>
           {TREATMENTS.slice(0, 2).map(item => (
             <TreatmentCard key={item.href} item={item} />
           ))}
         </div>
         {/* Row 2 — Sermorelin (2fr) + Glutathione (3fr) */}
-        <div style={{ display: 'grid', gridTemplateColumns: '2fr 3fr', gap: '0.75rem', marginBottom: '0.75rem' }}>
+        <div className="treatment-grid" style={{ display: 'grid', gridTemplateColumns: '2fr 3fr', gap: '0.75rem', marginBottom: '0.75rem' }}>
           {TREATMENTS.slice(2, 4).map(item => (
             <TreatmentCard key={item.href} item={item} />
           ))}
         </div>
         {/* Row 3 — Oxytocin (3fr) + B12-MIC (2fr) */}
-        <div style={{ display: 'grid', gridTemplateColumns: '3fr 2fr', gap: '0.75rem', marginBottom: '0.75rem' }}>
+        <div className="treatment-grid" style={{ display: 'grid', gridTemplateColumns: '3fr 2fr', gap: '0.75rem', marginBottom: '0.75rem' }}>
           {TREATMENTS.slice(4, 6).map(item => (
             <TreatmentCard key={item.href} item={item} />
           ))}

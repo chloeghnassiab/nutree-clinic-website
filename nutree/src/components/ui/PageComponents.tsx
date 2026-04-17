@@ -220,7 +220,7 @@ export function FeatureBand({ eyebrow, title, body, gradient, cards, bgImage }: 
         <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.375rem, 3vw, 1.875rem)', color: 'var(--ink)', lineHeight: 1.2, marginBottom: '0.75rem' }}>{title}</h2>
         <p style={{ fontSize: '1rem', color: 'var(--ink-2)', lineHeight: 1.7, marginBottom: '1.25rem', maxWidth: 480 }}>{body}</p>
         <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={VP}
-          style={{ display: 'flex', gap: '0.625rem', flexWrap: 'wrap' }}>
+          className="feature-band-cards" style={{ display: 'flex', gap: '0.625rem', flexWrap: 'wrap' }}>
           {cards.map((c, i) => (
             <motion.div key={i} variants={fadeUp} whileHover={{ y: -4, boxShadow: '0 8px 24px rgba(0,0,0,0.10)' }} transition={{ duration: 0.25 }} style={{ flex: '1 1 140px', background: 'rgba(255,255,255,0.75)', backdropFilter: 'blur(6px)', borderRadius: 12, padding: '1rem', border: '1px solid rgba(255,255,255,0.9)' }}>
               <div style={{ marginBottom: '0.5rem', display: 'flex' }}><PhosphorIcon name={c.icon} size={24} color="var(--ink)" /></div>

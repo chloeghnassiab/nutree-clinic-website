@@ -44,7 +44,7 @@ export function SiteFooter() {
         </div>
       </div>
       {/* 7/7 trust pill */}
-      <div style={{ marginBottom: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}>
+      <div className="footer-trust-row" style={{ marginBottom: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.375rem' }}>
           {['✓ Free shipping', '✓ FSA / HSA eligible', '✓ 7/7 clinician messaging'].map(t => (
             <div key={t} style={{ display: 'inline-flex', alignItems: 'center', gap: 4, padding: '4px 10px', borderRadius: 999, background: 'var(--base)', border: '0.5px solid var(--border)', fontSize: '0.75rem', color: 'var(--ink-3)', fontWeight: 500 }}>

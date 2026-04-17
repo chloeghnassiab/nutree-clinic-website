@@ -910,7 +910,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
       {/* Main layout */}
       <div style={{ background: 'var(--white)' }}>
-        <div style={{ maxWidth: 1080, margin: '0 auto', padding: '2.5rem 1.5rem 4rem', display: 'flex', gap: '5rem', alignItems: 'flex-start' }}>
+        <div className="blog-layout" style={{ maxWidth: 1080, margin: '0 auto', padding: '2.5rem 1.5rem 4rem', display: 'flex', gap: '5rem', alignItems: 'flex-start' }}>
 
           {/* ── LEFT: Article ─────────────────────────────────────── */}
           <div style={{ flex: 1, minWidth: 0 }}>
