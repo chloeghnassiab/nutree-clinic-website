@@ -8,7 +8,7 @@ const NAV_CATEGORIES = [
     label: 'Weight Loss',
     treatments: [
       { label: 'GLP-1 Treatments', sub: 'Semaglutide & Tirzepatide', href: '/weight-loss' },
-      { label: 'GLP-1 Microdosing', sub: 'Gentler start · fewer side effects', href: '/glp-1' },
+      { label: 'GLP-1 Microdosing', sub: 'Gentler start · lower doses', href: '/glp-1microdosing' },
       { label: 'Wegovy®', sub: 'Brand-name semaglutide', href: '/weight-loss' },
       { label: 'Mounjaro®', sub: 'Brand-name tirzepatide', href: '/weight-loss' },
     ],
