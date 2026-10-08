@@ -1,7 +1,0 @@
-{
-  "/glp-1/page": "app/glp-1/page.js",
-  "/consult/page": "app/consult/page.js",
-  "/nad/page": "app/nad/page.js",
-  "/blog/page": "app/blog/page.js",
-  "/blog/[slug]/page": "app/blog/[slug]/page.js"
-}
