@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     'NAD+ therapy', 'sermorelin', 'oxytocin nasal spray', 'B12 injections',
     'weight loss telehealth Florida', 'longevity telehealth',
   ],
-  metadataBase: new URL('https://nutreeclinic.com'),
+  metadataBase: new URL('https://www.nutreeclinic.com'),
   openGraph: {
     siteName: 'Nutree Clinic',
     type: 'website',
