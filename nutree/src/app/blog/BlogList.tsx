@@ -2,121 +2,20 @@
 
 import { useState, useMemo } from 'react'
 import Link from 'next/link'
+import type { PostMeta } from '@/lib/posts'
 
-const POSTS = [
-  {
-    slug: 'peptides-and-mental-health',
-    title: 'What Are the Best Peptides for Mental Health?',
-    excerpt: 'Peptide-based care is changing how clinicians approach mental health — addressing cravings, anxiety, cognitive fatigue, and sleep quality without replacing traditional therapies.',
-    date: '2026-04-10',
-    category: 'Well-being',
-    readTime: '5 min',
-    author: 'Tara Marko, PA-C',
-    coverImage: '/images/blog/peptides-mental-health-nutreeclinic.jpg',
-  },
-  {
-    slug: 'struggling-with-fertility-the-cellular-factor-most-people-overlook',
-    title: 'Struggling with Fertility? The Cellular Factor Most People Overlook',
-    excerpt: 'Emerging research suggests NAD+ may play a role in cellular energy and reproductive health. Here\'s what the science shows — and why mitochondrial health matters.',
-    date: '2026-03-30',
-    category: 'Longevity',
-    readTime: '6 min',
-    author: 'Tara Marko, PA-C',
-    coverImage: '/images/blog/fertility-nad-cellular-health-nutreeclinic.jpg',
-  },
-  {
-    slug: 'what-is-nad',
-    title: 'What Is NAD+? The Science Behind Cellular Energy & Healthy Aging',
-    excerpt: 'If you\'ve been exploring ways to improve energy, recovery, or long-term vitality, you\'ve likely come across NAD+. Here\'s what it is and what the research supports.',
-    date: '2026-03-25',
-    category: 'Longevity',
-    readTime: '5 min',
-    author: 'Tara Marko, PA-C',
-    coverImage: '/images/blog/what-is-nad-plus-cellular-energy-nutreeclinic.jpg',
-  },
-  {
-    slug: 'deep-sleep-cortisol-and-fat-loss',
-    title: 'Deep Sleep, Cortisol, and Fat Loss — Why Your Best "Fat Burner" Might Be Sleep',
-    excerpt: 'Most people think fat loss starts with restriction or stimulants. But one of the most powerful metabolic foundations is often much simpler: deep, restorative sleep.',
-    date: '2026-03-12',
-    category: 'Weight Loss',
-    readTime: '5 min',
-    author: 'Tara Marko, PA-C',
-    coverImage: '/images/blog/deep-sleep-cortisol-fat-loss-nutreeclinic.jpg',
-  },
-  {
-    slug: 'protecting-your-muscle-while-you-lose-weight',
-    title: 'Protecting Your Muscle While You Lose Weight',
-    excerpt: 'GLP-1 medications are powerful tools for weight loss — but without the right approach, you risk losing muscle alongside fat. Here\'s how to protect your lean mass.',
-    date: '2026-02-04',
-    category: 'Weight Loss',
-    readTime: '8 min',
-    author: 'Tara Marko, PA-C',
-    coverImage: '/images/blog/protecting-muscle-weight-loss-glp1-nutreeclinic.jpg',
-  },
-  {
-    slug: 'why-weight-loss-can-feel-impossible',
-    title: 'Why Weight Loss Can Feel Impossible — And Why It\'s Not a Discipline Problem',
-    excerpt: 'A calorie deficit is part of weight loss. But for many people living with obesity, biology can make getting into that deficit — and staying there — extremely difficult.',
-    date: '2026-01-27',
-    category: 'Weight Loss',
-    readTime: '4 min',
-    author: 'Tara Marko, PA-C',
-    coverImage: '/images/blog/why-weight-loss-feels-impossible-nutreeclinic.jpg',
-  },
-  {
-    slug: 'retatrutide-vs-tirzepatide-what-the-research-really-says-about-the-new-triple-agonist-approach',
-    title: 'Retatrutide vs. Tirzepatide: What the Research Really Says',
-    excerpt: 'A clear-eyed look at the clinical trial data comparing the emerging triple agonist retatrutide with the established dual agonist tirzepatide.',
-    date: '2026-01-23',
-    category: 'Weight Loss',
-    readTime: '5 min',
-    author: 'Tara Marko, PA-C',
-    coverImage: '/images/blog/retatrutide-vs-tirzepatide-research-nutreeclinic.jpg',
-  },
-  {
-    slug: 'glp-1-more-than-appetite-suppressants-a-whole-body-medicine',
-    title: 'GLP-1 Medications: More Than Appetite Suppressants — A Whole-Body Medicine',
-    excerpt: 'GLP-1 medications like semaglutide and tirzepatide have gained prominence for weight loss, but their therapeutic scope extends far beyond appetite suppression.',
-    date: '2026-01-11',
-    category: 'Weight Loss',
-    readTime: '5 min',
-    author: 'Tara Marko, PA-C',
-    coverImage: '/images/blog/glp1-whole-body-medicine-semaglutide-nutreeclinic.jpg',
-  },
-  {
-    slug: 'a-new-era-in-obesity-care-the-first-oral-semaglutide-pill-is-here',
-    title: 'A New Era in Obesity Care: The First Oral Semaglutide Pill Is Here',
-    excerpt: 'Obesity medicine is evolving rapidly. In late 2025, the FDA approved the first oral GLP-1 pill for weight management — here\'s what the clinical evidence shows.',
-    date: '2026-01-06',
-    category: 'Weight Loss',
-    readTime: '4 min',
-    author: 'Tara Marko, PA-C',
-    coverImage: '/images/blog/oral-semaglutide-pill-obesity-care-nutreeclinic.jpg',
-  },
-  {
-    slug: 'the-emotional-side-of-glp-1-weight-loss-2',
-    title: 'The Emotional Side of GLP-1 Weight Loss (Part II)',
-    excerpt: 'When appetite quiets, life doesn\'t reorganize itself on its own. The medication may lower the volume — but you still build the system. Rebuilding daily life when food is no longer the anchor.',
-    date: '2025-12-31',
-    category: 'Well-being',
-    readTime: '5 min',
-    author: 'Tara Marko, PA-C',
-    coverImage: '/images/blog/emotional-side-glp1-weight-loss-nutreeclinic.jpg',
-  },
-]
-
-const CATEGORIES = ['All', 'Weight Loss', 'Longevity', 'Well-being']
+const CATEGORIES = ['All', 'Weight Loss', 'Longevity', 'Well-being', 'Energy']
 
 const CATEGORY_COLORS: Record<string, { bg: string; color: string }> = {
   'Weight Loss': { bg: 'var(--glp)', color: 'var(--glp-dark)' },
   'Longevity':   { bg: 'var(--nad)', color: 'var(--nad-dark)' },
   'Well-being':  { bg: 'var(--oxy)', color: 'var(--oxy-dark)' },
+  'Energy':      { bg: 'var(--b12)', color: 'var(--b12-dark)' },
 }
 
 function formatDate(dateStr: string) {
-  return new Date(dateStr).toLocaleDateString('en-US', {
-    month: 'long', day: 'numeric', year: 'numeric',
+  return new Date(`${dateStr}T12:00:00Z`).toLocaleDateString('en-US', {
+    month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC',
   })
 }
 
@@ -134,7 +33,7 @@ function CategoryBadge({ category, small }: { category: string; small?: boolean 
   )
 }
 
-type Post = typeof POSTS[number]
+type Post = PostMeta
 
 // ─── Hero card (latest post) ───────────────────────────────────────────────
 function HeroCard({ post }: { post: Post }) {
@@ -152,7 +51,7 @@ function HeroCard({ post }: { post: Post }) {
         <img
           className="blog-hero-img"
           src={post.coverImage}
-          alt={post.title}
+          alt={post.coverAlt}
           style={{
             width: '45%',
             minWidth: 180,
@@ -206,7 +105,7 @@ function SecondaryCard({ post }: { post: Post }) {
         <img
           className="blog-secondary-img"
           src={post.coverImage}
-          alt={post.title}
+          alt={post.coverAlt}
           style={{
             width: 180,
             minWidth: 180,
@@ -259,7 +158,7 @@ function ListCard({ post, last }: { post: Post; last: boolean }) {
       <img
         className="blog-list-img"
         src={post.coverImage}
-        alt={post.title}
+        alt={post.coverAlt}
         style={{ width: 120, height: 120, borderRadius: 12, objectFit: 'cover', flexShrink: 0 }}
       />
       <div style={{ flex: 1, minWidth: 0 }}>
@@ -296,13 +195,13 @@ function ListCard({ post, last }: { post: Post; last: boolean }) {
 }
 
 // ─── Main exported component ───────────────────────────────────────────────
-export default function BlogList() {
+export default function BlogList({ posts }: { posts: PostMeta[] }) {
   const [query, setQuery] = useState('')
   const [activeCategory, setActiveCategory] = useState('All')
 
   const filtered = useMemo(() => {
     const q = query.toLowerCase().trim()
-    return POSTS.filter(p => {
+    return posts.filter(p => {
       const matchesCategory = activeCategory === 'All' || p.category === activeCategory
       const matchesQuery = !q
         || p.title.toLowerCase().includes(q)
@@ -311,7 +210,7 @@ export default function BlogList() {
         || p.author.toLowerCase().includes(q)
       return matchesCategory && matchesQuery
     })
-  }, [query, activeCategory])
+  }, [posts, query, activeCategory])
 
   const isFiltered = query.trim() !== '' || activeCategory !== 'All'
 
