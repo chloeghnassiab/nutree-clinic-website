@@ -11,7 +11,7 @@ const CONSULT = PRICES.consult.initial.label
 
 const INCLUDED = [
   { Icon: Stethoscope, title: 'Personalised treatment recommendation', desc: 'Your clinician reviews your health history and goals, then recommends the treatment most appropriate for your body — or none, if it\'s not right for you.' },
-  { Icon: ClipboardText, title: 'Full health history review', desc: 'A real clinical conversation. Your provider asks the right questions and listens before making any recommendation.' },
+  { Icon: ClipboardText, title: 'Full health history review', desc: 'Your provider reviews your history, medications, and goals before making any recommendation. A video or phone visit may be required depending on your treatment and Florida rules.' },
   { Icon: CreditCard, title: `${CONSULT} credited to your first plan`, desc: `If you start a Nutree treatment plan after your consultation, the ${CONSULT} is credited toward your first month.` },
   { Icon: ChatCircle, title: '7/7 direct clinician messaging', desc: 'Your assigned clinician is available 7 days a week via direct message throughout your plan — no phone required, no waiting rooms.' },
 ]
@@ -35,7 +35,7 @@ export function ConsultContent() {
           Start your health journey.
         </h1>
         <p style={{ fontSize: '1rem', color: 'var(--ink-2)', lineHeight: 1.7, marginBottom: '1.5rem', maxWidth: 400 }}>
-          Submit your intake form and your clinician reviews everything. Your prescription is issued directly — no call required unless you request one or it is clinically necessary. Your clinician is available 7 days a week via direct message.
+          Submit your intake form and a licensed clinician reviews everything; a video or phone visit may be required depending on your treatment and Florida rules. A prescription is issued only if your clinician determines treatment is appropriate. You can message your care team 7 days a week. Nutree Clinic is not for emergencies — call 911.
         </p>
         <div style={{ display: 'flex', alignItems: 'baseline', gap: '1rem', marginBottom: '1.25rem' }}>
           <span style={{ fontFamily: 'var(--font-serif)', fontSize: '3rem', fontWeight: 700, color: 'var(--con-dark)', lineHeight: 1 }}>{CONSULT}</span>

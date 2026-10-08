@@ -32,7 +32,7 @@ export function ProgramDetails() {
         { label: 'Buy Semaglutide', href: CHECKOUT.semaglutideMicrodosing },
         { label: 'Buy Tirzepatide', href: CHECKOUT.tirzepatideMicrodosing },
       ],
-      desc: 'A lower-dose approach using semaglutide or tirzepatide to support appetite regulation, reduce food noise, and encourage gradual, sustainable metabolic progress.',
+      desc: 'A lower-dose approach using compounded semaglutide or tirzepatide (not FDA-approved) that may support appetite regulation and help quiet food noise, with gradual progress. Prescribed only if appropriate.',
       bullets: [
         `Semaglutide: ${P.microdosingSema.tenWeek.label}`,
         `Tirzepatide: ${P.microDosingTirz.tenWeek.label}`,
@@ -43,11 +43,11 @@ export function ProgramDetails() {
     {
       name: 'NAD+ Therapy', tag: 'Cellular energy & wellness', href: '/nad+', color: 'var(--nad)',
       buy: [{ label: 'Start NAD+', href: CHECKOUT.nad }],
-      desc: 'Clinician-guided NAD+ therapy designed to support cellular energy, mental clarity, and healthy aging through a personalized at-home treatment plan.',
+      desc: 'Clinician-guided, compounded NAD+ therapy, prescribed off-label for patients with energy, mental-clarity, and healthy-aging goals. Human evidence is still limited.',
       bullets: [
         `${P.nadInjectable.monthly.shortLabel} · billed every 4 weeks`,
         'Injectable or needle-free nasal spray options',
-        'Supports cellular energy and mental clarity',
+        'For energy and mental-clarity goals (off-label)',
         'Convenient treatment from home',
         'Consultation, treatment, and shipping included',
       ],
@@ -55,12 +55,12 @@ export function ProgramDetails() {
     {
       name: 'Sermorelin', tag: 'Sleep, recovery & body composition', href: '/sermorelin', color: 'var(--ser)',
       buy: [{ label: 'Start Sermorelin', href: CHECKOUT.sermorelin }],
-      desc: 'A clinician-guided peptide treatment that supports your body’s natural growth hormone signaling, with potential benefits for sleep, recovery, energy, and body composition.',
+      desc: 'A clinician-guided, compounded peptide (off-label) that prompts your body’s own growth hormone signaling. Some patients use it for sleep, recovery, energy, and body-composition goals; evidence is limited.',
       bullets: [
         `Monthly plan: ${P.sermorelin.monthly.monthlyLabel}`,
-        'Supports deeper, more restorative sleep',
-        'Helps support recovery and lean muscle maintenance',
-        'May support healthy body composition over time',
+        'May support sleep quality',
+        'May support recovery alongside training',
+        'Response varies; reviewed by your clinician',
         'Consultation, treatment, and shipping included',
       ],
     },
@@ -95,7 +95,8 @@ export function ProgramDetails() {
           ))}
         </div>
         <p style={{ ...note, marginTop: '1rem' }}>
-          All treatments are subject to medical evaluation and clinical approval. Results vary by patient. Pricing includes the
+          All treatments are subject to medical evaluation and clinical approval. Compounded medications are not FDA-approved, and
+          the FDA does not review them for safety, effectiveness, or quality. Results vary by patient. Pricing includes the
           services described above unless otherwise stated.
         </p>
       </div>
@@ -109,10 +110,10 @@ export function PharmacyPartners() {
     <section style={section('var(--base)')}>
       <div style={{ ...inner, ...card, background: 'linear-gradient(135deg, rgba(82,159,153,0.14), rgba(255,255,255,0.9))' }}>
         <div style={eyebrow}>Quality & safety</div>
-        <h2 style={h2}>We partner with leading FDA-regulated pharmacies</h2>
+        <h2 style={h2}>We work with state-licensed U.S. compounding pharmacies</h2>
         <p style={{ ...body, maxWidth: 680, marginBottom: '0.5rem' }}>
-          Our partnerships with top 503A Licensed Sterile Compounding Pharmacies ensure our services are bringing you the highest
-          and safest standard.
+          Prescriptions are filled by state-licensed 503A sterile compounding pharmacies in the United States, which are subject
+          to state pharmacy board oversight and federal compounding requirements. Compounded medications are not FDA-approved.
         </p>
         <p style={{ ...body, maxWidth: 680 }}>Your medications are sent to your door with free shipping.</p>
       </div>
@@ -124,8 +125,8 @@ export function PharmacyPartners() {
 export function FeelBetter() {
   const pillars = [
     { kicker: 'Real follow-up', title: 'Ongoing care that keeps you moving forward.', desc: 'Your clinician stays connected through regular check-ins — fine-tuning your plan, celebrating milestones, and ensuring your progress stays safe, steady, and sustainable.' },
-    { kicker: 'Real guidance', title: 'Expert support, every step of the way.', desc: 'From nutrition to lifestyle adjustments, your Nutree team helps you understand your body and make choices that strengthen your results — so change feels achievable and lasting.' },
-    { kicker: 'Real progress', title: 'See your success in motion.', desc: 'Track your results, stay accountable, and watch your transformation unfold inside the Nutree app. Every update helps your provider personalize your care for the best possible outcomes.' },
+    { kicker: 'Real guidance', title: 'Expert support, every step of the way.', desc: 'From nutrition to lifestyle adjustments, your Nutree team helps you understand your body and make choices that support your goals.' },
+    { kicker: 'Real progress', title: 'See your success in motion.', desc: 'Track your results, stay accountable, and watch your transformation unfold inside the Nutree app. Every update helps your provider personalize your care.' },
   ]
   return (
     <section style={section('var(--white)')}>

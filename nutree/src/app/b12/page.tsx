@@ -5,14 +5,15 @@ import { FAQ_ITEMS } from '@/lib/faq.config'
 import {
   PromoList, PlanRow, ProductBlockHeader, CTAArea,
   BenefitsList, TrustStrip, FeatureBand,
-  ScienceGrid, Testimonials, AlsoFromNutree, FAQSection,
+  ScienceGrid, AlsoFromNutree, FAQSection,
   PageLegal, ConsultBand, Section, SectionHeader, InStockBadge,
 } from '@/components/ui/PageComponents'
+import { ImportantSafetyInfo } from '@/components/compliance'
 
 export const metadata: Metadata = {
   alternates: { canonical: '/b12' },
-  title: 'B6 / B12 Injections — Energy, Mood & Neurological Support',
-  description: 'Physician-prescribed B6/B12 injections and oral supplements. Direct absorption, fast-acting energy support. Florida telehealth.',
+  title: 'B6 / B12 Injections — Clinician-Guided Vitamin Support',
+  description: 'Clinician-prescribed B6/B12 injections and oral options for B-vitamin support, if appropriate after provider review. Florida telehealth.',
 }
 
 const PAGE = '/b12'
@@ -41,12 +42,12 @@ export default function B12Page() {
             B6 / B12 Injections
           </h1>
           <p style={{ fontSize: "0.875rem", color: 'var(--ink-3)', marginBottom: '0.625rem' }}>
-            Real energy, from the inside — injectable and oral
+            B-vitamin support, prescribed if appropriate — injectable and oral
           </p>
           <PromoList />
 
           <div style={{ marginBottom: '0.625rem' }}>
-            <ProductBlockHeader>Injectable · Highest absorption</ProductBlockHeader>
+            <ProductBlockHeader>Injectable · Injectable option</ProductBlockHeader>
             <PlanRow name="Injectable plan" sub="Plan and price confirmed at your consultation" price={PRICING_AT_CONSULT} color="var(--b12-dark)" />
           </div>
 
@@ -61,7 +62,7 @@ export default function B12Page() {
 
       <BenefitsList color="var(--b12)" items={[
         'Two delivery forms — injectable or oral/sublingual',
-        'Your price remains consistent at every dose level',
+        'Clear plan pricing before you start — no hidden fees',
         'Provider consultation and guidance included',
         'Free expedited shipping on every order',
         '503A licensed pharmacy on every prescription',
@@ -73,11 +74,11 @@ export default function B12Page() {
         gradient="linear-gradient(145deg, var(--b12-mid) 0%, var(--b12) 55%, #FFF4B0 100%)"
         eyebrow="Two delivery forms"
         title="Injectable or oral — your clinician recommends what's right."
-        body="Injectables deliver B vitamins directly into the bloodstream, bypassing digestion entirely. Oral sublingual tablets dissolve under the tongue for partial mucosal absorption. Your provider selects the most appropriate form based on your health profile."
+        body="Injections deliver B vitamins without relying on digestion, which matters when absorption from food or pills is reduced. Oral sublingual tablets dissolve under the tongue for partial mucosal absorption. Your provider selects the most appropriate form based on your health profile."
         cards={[
-          { icon: 'Syringe', title: 'Injectable', desc: '100% direct absorption — bypasses the digestive system entirely' },
+          { icon: 'Syringe', title: 'Injectable', desc: 'Bypasses the digestive system — often used when absorption is reduced' },
           { icon: 'Pill', title: 'Oral / Sublingual', desc: 'Needle-free — dissolves under the tongue for mucosal absorption' },
-          { icon: 'Lightning', title: 'Fast-acting', desc: 'Many patients notice energy changes within days of their first injection' },
+          { icon: 'Lightning', title: 'Monitored', desc: 'Your clinician reviews your response; noticeable changes in energy are more likely if you were low in B12' },
         ]}
       />
 
@@ -86,9 +87,9 @@ export default function B12Page() {
         title="Why B6 and B12 matter."
         iconGradient="linear-gradient(135deg, var(--b12-mid), var(--b12))"
         items={[
-          { icon: 'Lightning', title: 'Energy metabolism at the cellular level', desc: 'B12 is essential for converting food into usable cellular energy — working alongside B6 in the metabolic pathways that produce ATP, your body\'s primary energy currency.' },
-          { icon: 'Brain', title: 'Neurological function and mood', desc: 'B6 and B12 are required for the synthesis of serotonin, dopamine, and GABA — key neurotransmitters for mood, focus, and cognitive function.' },
-          { icon: 'Drop', title: 'Red blood cell formation', desc: 'B12 is critical for producing healthy red blood cells — supporting oxygen delivery throughout the body and directly affecting energy and recovery.' },
+          { icon: 'Lightning', title: 'Energy metabolism at the cellular level', desc: 'B12 and B6 are cofactors in metabolic pathways the body uses to turn food into energy. Supplementing is most likely to help when levels are low.' },
+          { icon: 'Brain', title: 'Neurological function and mood', desc: 'B6 is a cofactor in making neurotransmitters such as serotonin, dopamine, and GABA, and B12 is essential for healthy nerves. Deficiency of either can affect mood and nerve function.' },
+          { icon: 'Drop', title: 'Red blood cell formation', desc: 'B12 is needed to produce healthy red blood cells. Low B12 can cause anemia, which can lead to tiredness and weakness.' },
         ]}
       />
 
@@ -110,10 +111,10 @@ export default function B12Page() {
             </thead>
             <tbody>
               {[
-                ['Absorption',       '100% direct ✓',        'Partial — gut dependent'],
-                ['Speed of effect',  'Days ✓',                'Weeks'],
-                ['Needle required',  'Yes — small, subcutaneous', 'No ✓'],
-                ['Best for',         'Deficiency, rapid replenishment', 'Maintenance, prevention'],
+                ['Absorption',       'Bypasses the gut',      'Depends on gut absorption'],
+                ['Raising low levels', 'Typically faster',    'Typically more gradual'],
+                ['Needle required',  'Yes — small, subcutaneous', 'No'],
+                ['Often used for',   'Deficiency or reduced absorption', 'Maintenance, per your clinician'],
               ].map(([label, a, b], i) => (
                 <tr key={i} style={{ background: i % 2 === 1 ? 'rgba(249,224,122,0.15)' : 'var(--white)' }}>
                   <td style={{ padding: '8px 6px', fontWeight: 700, color: 'var(--ink)', borderBottom: '0.5px solid var(--border)' }}>{label}</td>
@@ -125,13 +126,6 @@ export default function B12Page() {
           </table>
         </div>
       </Section>
-
-      <Testimonials
-        tagColor="var(--b12)" tagDarkColor="var(--b12-dark)"
-        items={[
-          { quote: 'Three days in I noticed I was getting through my afternoon without hitting the wall I\'d come to accept as normal. Such a simple thing — such a significant difference.', author: 'Rachel T., 41 · Nutree Clinic patient', tag: 'B12 Injectable' },
-        ]}
-      />
 
       <AlsoFromNutree
         eyebrow="Complete your protocol"
@@ -151,7 +145,9 @@ export default function B12Page() {
         />
       )}
 
-      <PageLegal text="Compounded B6/B12 preparations are prepared by state-licensed 503A compounding pharmacies. Prescriptions issued at provider discretion only. Individual results vary. Nutree Clinic LLC · Florida · LegitScript certified." />
+      <ImportantSafetyInfo drugs={['b12']} />
+
+      <PageLegal text="Compounded B6/B12 preparations are prepared by state-licensed 503A compounding pharmacies. Compounded combination products are not FDA-approved, and the FDA does not review compounded drugs for safety, effectiveness, or quality. Vitamin B12 injection is FDA-approved for B12 deficiency; use for energy or general wellness without a deficiency is off-label. Prescriptions are issued only if a licensed provider determines treatment is appropriate. Individual results vary. Care is available to patients located in Florida. Nutree Clinic LLC · Florida · LegitScript certified." />
 
       <ConsultBand />
     </>

@@ -1,6 +1,8 @@
 // Sermorelin buying-intent sections restored from the live Umso page:
-// "Best Sermorelin online: what to compare before you choose" and
+// "Sermorelin online: what to compare before you choose" and
 // "Online Sermorelin care, with more personal medical support."
+// Compliance note: competitor names (previously Eden and AgelessRx) were removed —
+// we can't substantiate head-to-head claims, so the section compares criteria only.
 import Image from 'next/image'
 import { CTAButton } from '@/components/treatment/SeoBlocks'
 
@@ -17,22 +19,22 @@ export function SermorelinCompare() {
   const points = [
     { title: 'Compare the care, not just the medication', desc: 'Many online platforms can help eligible patients access Sermorelin. What matters is whether you also receive thoughtful medical review, clear pharmacy-based fulfillment, and follow-up once your medication arrives.' },
     { title: 'Ask how dosing is personalized', desc: 'Sermorelin is not a one-size-fits-all protocol. Your provider should consider your goals, sleep, recovery, symptoms, health history, tolerance, and whether labs may be helpful.' },
-    { title: 'Look for support after treatment starts', desc: 'The questions often come later: How do I time my dose? Should anything change? Do I need bloodwork? How do sleep, nutrition, supplements, or training affect results? A stronger program gives you a way to stay connected.' },
+    { title: 'Look for support after treatment starts', desc: 'The questions often come later: How do I time my dose? Should anything change? Do I need bloodwork? How do sleep, nutrition, supplements, or training affect my response? Look for a program that gives you a way to stay connected.' },
   ]
   return (
     <section id="best-sermorelin-online" style={section('var(--base)')}>
       <div style={inner}>
         <div style={eyebrow}>Comparing Sermorelin online?</div>
-        <h2 style={h2}>Best Sermorelin online: what to compare before you choose</h2>
+        <h2 style={h2}>Sermorelin online: what to compare before you choose</h2>
         <p style={{ ...body, maxWidth: 760, marginBottom: '0.875rem' }}>
-          Patients often compare Nutree Clinic, Eden, AgelessRx, and other online Sermorelin options when looking for recovery,
-          sleep, strength, metabolism, or healthy aging support. But the best program is not always the one that is easiest to
-          start. It is the one that gives you the right medical review, clear dosing guidance, transparent pricing,
-          pharmacy-based fulfillment, and real support after treatment begins.
+          Many online programs offer Sermorelin for patients with recovery, sleep, strength, metabolism, or healthy aging goals.
+          The right program for you is not always the one that is easiest to start. Whichever provider you choose, look for
+          appropriate medical review, clear dosing guidance, transparent pricing, a state-licensed pharmacy, and real support
+          after treatment begins.
         </p>
         <p style={{ ...body, maxWidth: 760, marginBottom: '1.25rem', fontWeight: 600, color: 'var(--ink)' }}>
-          The best Sermorelin online program is not just the one that ships medication — it is the one that combines medical
-          review, personalized dose guidance, transparent pricing, pharmacy-based fulfillment, and follow-up after treatment begins.
+          A good Sermorelin program does more than ship medication — it combines medical review, personalized dose guidance,
+          transparent pricing, pharmacy-based fulfillment, and follow-up after treatment begins.
         </p>
         <ol style={{ listStyle: 'none', padding: 0, margin: '0 0 1.25rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))', gap: '0.75rem' }}>
           {points.map((p, i) => (
@@ -46,9 +48,9 @@ export function SermorelinCompare() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: '1.5rem', alignItems: 'center' }}>
           <div>
             <p style={{ ...body, marginBottom: '1rem' }}>
-              At Nutree Clinic, Sermorelin care is built for patients who want more than access to a prescription: video or phone
-              consultation with a medical provider, individualized dose guidance, labs (recommended, not mandatory), and ongoing
-              medical chat support with your care team.
+              At Nutree Clinic, Sermorelin care is built for patients who want more than access to a prescription: review by a
+              licensed medical provider (a video or phone visit may be required depending on your treatment and Florida rules),
+              individualized dose guidance, labs (recommended, not mandatory), and ongoing medical chat support with your care team.
             </p>
             <div style={{ ...card, marginBottom: '1.25rem' }}>
               <div style={{ ...eyebrow, marginBottom: 4 }}>A more personal model</div>
@@ -71,11 +73,11 @@ export function SermorelinCompare() {
 
 export function SermorelinDifference() {
   const items = [
-    { title: 'Video or phone consultation', desc: 'Start with a real medical consultation in the format that feels most comfortable for you. Your provider reviews your history, goals, and whether Sermorelin therapy is appropriate.' },
+    { title: 'Licensed provider review', desc: 'A licensed provider reviews your history, goals, and whether Sermorelin therapy is appropriate. A video or phone visit may be required depending on your treatment and Florida rules.' },
     { title: 'Dose guidance that adapts', desc: 'Your Sermorelin plan can be adjusted based on your goals, tolerance, response, and clinical profile — so care can evolve instead of staying fixed.' },
     { title: 'Labs recommended for better care', desc: 'Labs are recommended to help your provider understand your baseline, personalize your plan, and guide safer, more informed treatment decisions.' },
     { title: 'Ongoing medical chat support', desc: 'Questions often come after treatment begins. Nutree gives you access to medical support so you can ask, clarify, and stay guided between visits.' },
-    { title: 'Wellness guidance beyond the prescription', desc: 'Sermorelin works best as part of a broader wellness plan. We can help guide sleep, nutrition, supplements, recovery, training, and daily habits that support your long-term goals.' },
+    { title: 'Wellness guidance beyond the prescription', desc: 'Sermorelin is best considered as one part of a broader wellness plan. We can help guide sleep, nutrition, supplements, recovery, training, and daily habits that support your long-term goals.' },
   ]
   return (
     <section id="online-sermorelin-care" style={section('var(--white)')}>
@@ -83,9 +85,8 @@ export function SermorelinDifference() {
         <div style={eyebrow}>The Nutree difference</div>
         <h2 style={h2}>Online Sermorelin care, with more personal medical support.</h2>
         <p style={{ ...body, maxWidth: 760, marginBottom: '1.5rem' }}>
-          Many online Sermorelin programs offer a monthly plan, prescription access if eligible, and home delivery. Nutree Clinic
-          goes further by pairing convenient online care with provider guidance, recommended labs, personalized dose support,
-          and ongoing medical chat.
+          Nutree Clinic pairs convenient online care with provider guidance, recommended labs, personalized dose support, and
+          ongoing medical chat — in addition to a monthly plan and home delivery if Sermorelin is prescribed.
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: '1.5rem', alignItems: 'start' }}>
           <div style={{ ...card, background: 'linear-gradient(145deg, rgba(242,196,160,0.45), rgba(255,255,255,0.8))' }}>

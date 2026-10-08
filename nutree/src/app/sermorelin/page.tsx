@@ -6,14 +6,15 @@ import { FAQ_ITEMS } from '@/lib/faq.config'
 import {
   PromoList, PlanRow, ProductBlockHeader, CTAArea,
   BenefitsList, TrustStrip, FeatureBand, HowItWorks,
-  ScienceGrid, Testimonials, AlsoFromNutree,
+  ScienceGrid, AlsoFromNutree,
   PageLegal, ConsultBand, InStockBadge,
 } from '@/components/ui/PageComponents'
 import { ExplainerSection, BenefitGrid, NumberedSteps, SeoFAQ, faqsForPages } from '@/components/treatment/SeoBlocks'
 import { SermorelinCompare, SermorelinDifference } from '@/components/treatment/SermorelinSections'
+import { ImportantSafetyInfo, CONSULT_NEUTRAL } from '@/components/compliance'
 
 const TITLE = 'Sermorelin Online | Lean Muscle, Sleep & Recovery | Nutree Clinic'
-const DESCRIPTION = 'Clinician-guided sermorelin therapy to support natural growth hormone signaling, muscle strength, recovery, sleep quality, and healthy aging — delivered to your door with ongoing medical support.'
+const DESCRIPTION = 'Clinician-guided compounded sermorelin (off-label) that may support natural growth hormone signaling, sleep, and recovery goals — prescribed only if appropriate, with ongoing medical support.'
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
@@ -56,7 +57,7 @@ export default function SermorelinPage() {
             Sermorelin Therapy
           </h1>
           <p style={{ fontSize: "0.875rem", color: 'var(--ink-3)', marginBottom: '0.625rem' }}>
-            Personalized sermorelin care, guided by real clinicians — support for sleep, recovery, and lean muscle from your own body
+            Personalized sermorelin care, guided by licensed clinicians — may support sleep, recovery, and lean-muscle goals (off-label use)
           </p>
           <PromoList />
 
@@ -76,8 +77,8 @@ export default function SermorelinPage() {
       <CTAArea href={CHECKOUT.sermorelin} />
 
       <BenefitsList color="var(--ser)" items={[
-        'Injectable delivery — supports your body\'s own growth hormone release, no synthetic hormones added',
-        'Natural pulsatile release aligned with your sleep cycle',
+        'Prompts your pituitary to release its own growth hormone, rather than replacing growth hormone directly',
+        'Typically dosed at bedtime, when natural growth hormone release is highest',
         'Provider consultation and dose adjustments included',
         'Free expedited shipping on every order',
         '503A licensed pharmacy on every prescription',
@@ -94,7 +95,7 @@ export default function SermorelinPage() {
         eyebrow="Peptide therapy for recovery, sleep & vitality"
         title="How does Sermorelin work?"
         body={[
-          'Sermorelin is a peptide that helps stimulate your body’s natural growth hormone signaling. At Nutree Clinic, treatment is prescribed and monitored by licensed providers to support better sleep, recovery, metabolism, muscle tone, and healthy aging — with dosing adapted to your goals and response.',
+          'Sermorelin is a peptide that helps stimulate your body’s natural growth hormone signaling. At Nutree Clinic, treatment is prescribed off-label and monitored by licensed providers for patients whose goals include sleep, recovery, muscle tone, and healthy aging — with dosing adapted to your response. Evidence for these uses in adults is limited.',
         ]}
         image="/images/sermorelin-strength-recovery-nutreeclinic.jpg"
         imageAlt="Woman doing a barbell squat outdoors — Sermorelin therapy for strength, recovery, and lean muscle support"
@@ -112,12 +113,12 @@ export default function SermorelinPage() {
       <FeatureBand
         gradient="linear-gradient(145deg, var(--ser-mid) 0%, var(--ser) 55%, #FAE8D4 100%)"
         eyebrow="How it works"
-        title="Growth hormone, restored naturally."
-        body="As growth hormone levels naturally decline with age, energy, muscle tone, and sleep quality often decline with them. Sermorelin works with your body's natural signalling to encourage the release of growth hormone — helping restore what time has gradually reduced. It acts on the gland in your brain that controls growth hormone production, prompting your body to make more of its own — rather than adding synthetic hormones directly."
+        title="Working with your own growth hormone signaling."
+        body="As growth hormone levels naturally decline with age, energy, muscle tone, and sleep quality often decline with them. Sermorelin works with your body's natural signalling to encourage the release of growth hormone. It acts on the gland in your brain that controls growth hormone production, prompting your body to make more of its own — rather than adding synthetic hormones directly."
         cards={[
           { icon: 'Moon', title: 'Nightly injection', desc: 'Small subcutaneous dose, 5 nights/week before sleep' },
-          { icon: 'ArrowsClockwise', title: 'Natural rhythm', desc: 'Growth hormone released in pulses aligned with your sleep cycle' },
-          { icon: 'TrendUp', title: 'Builds over time', desc: 'Full results develop over 3–6 months of consistent use' },
+          { icon: 'ArrowsClockwise', title: 'Natural rhythm', desc: 'Dosed to align with your body\'s nighttime growth hormone pulses' },
+          { icon: 'TrendUp', title: 'Reviewed over time', desc: 'Any effects tend to develop gradually; your clinician reviews your response over several months' },
         ]}
       />
 
@@ -127,7 +128,7 @@ export default function SermorelinPage() {
         title="Discover how Sermorelin can support sleep & recovery"
         intro="Sermorelin therapy is often chosen by patients looking for a clinician-guided approach to recovery, sleep quality, body composition, and healthy aging support."
         items={[
-          { title: 'Sleep quality support', desc: 'Sermorelin supports the body’s natural growth hormone signaling, which plays a role in overnight repair, deeper rest, and recovery while you sleep.' },
+          { title: 'Sleep quality support', desc: 'Growth hormone signaling plays a role in overnight repair and sleep. Some patients use sermorelin with the goal of more restful sleep; responses vary.' },
           { title: 'Recovery and resilience', desc: 'Patients often explore Sermorelin as part of a wellness plan designed to support recovery from physical stress, training, fatigue, and daily demands.' },
           { title: 'Muscle tone and body composition', desc: 'With the right lifestyle foundation, Sermorelin may help support lean muscle maintenance, strength goals, and a healthier body composition over time.' },
           { title: 'Healthy aging support', desc: 'Because growth hormone signaling naturally changes with age, some patients choose Sermorelin as part of a clinician-guided plan focused on long-term vitality.' },
@@ -139,10 +140,10 @@ export default function SermorelinPage() {
       <HowItWorks
         gradient="linear-gradient(135deg, var(--ser-mid), var(--ser))"
         steps={[
-          { title: 'Weeks 1–2 · Deeper sleep', desc: 'Most patients notice more restful, deeper sleep within the first two weeks — the first sign that growth hormone production is responding.' },
-          { title: 'Weeks 3–6 · Energy and recovery', desc: 'Increased energy, faster recovery after exercise, and a general sense of vitality as growth hormone levels continue to build.' },
-          { title: 'Months 2–3 · Body composition', desc: 'Visible changes in muscle tone and body fat distribution alongside consistent exercise and nutrition.' },
-          { title: 'Months 3–6 · Full results', desc: 'The most significant improvements in lean muscle, vitality, and overall well-being after a complete protocol. Your clinician is available 7 days a week via direct message throughout.' },
+          { title: 'Start low, at bedtime', desc: 'If prescribed, you begin with a small nightly injection as directed by your clinician.' },
+          { title: 'Check in early', desc: 'Your clinician checks how you are tolerating treatment and whether any side effects need attention.' },
+          { title: 'Adjust to your response', desc: 'Some patients report changes in sleep, energy, or recovery; others notice little. Your dose may be adjusted based on your response and any labs.' },
+          { title: 'Decide together whether to continue', desc: 'Your clinician reviews your progress over several months. You can message your care team 7 days a week; for emergencies, call 911.' },
         ]}
       />
 
@@ -151,9 +152,9 @@ export default function SermorelinPage() {
         title="What Sermorelin does in the body."
         iconGradient="linear-gradient(135deg, var(--ser-mid), var(--ser))"
         items={[
-          { icon: 'Barbell', title: 'Lean muscle support', desc: 'Higher growth hormone levels support the production of IGF-1, which helps with muscle protein synthesis — supporting lean mass alongside resistance training.' },
-          { icon: 'Fire', title: 'Body composition improvement', desc: 'Growth hormone plays a direct role in fat metabolism. Many patients notice a gradual shift in body composition — particularly around the midsection.' },
-          { icon: 'Lightning', title: 'Sustained energy and vitality', desc: 'Restored growth hormone levels support mitochondrial function and metabolic health — translating to more stable energy throughout the day.' },
+          { icon: 'Barbell', title: 'Lean muscle support', desc: 'Growth hormone stimulates production of IGF-1, which is involved in muscle protein synthesis. Resistance training and protein remain the foundation for lean mass.' },
+          { icon: 'Fire', title: 'Body composition', desc: 'Growth hormone plays a role in fat metabolism. Effects of sermorelin on body composition in adults have been studied only in small trials, and results vary.' },
+          { icon: 'Lightning', title: 'Energy and metabolism', desc: 'Growth hormone and IGF-1 are involved in how the body uses energy. Any effect on day-to-day energy varies from person to person and is not guaranteed.' },
         ]}
       />
 
@@ -164,7 +165,7 @@ export default function SermorelinPage() {
         accent="linear-gradient(135deg, var(--ser-mid), var(--ser))"
         steps={[
           { title: 'Digital Intake', desc: 'Tell us about your health history, lifestyle, and goals through our secure online portal.' },
-          { title: 'Video Consultation', desc: 'Meet with your clinician to discuss your goals and determine whether Sermorelin therapy is right for you.' },
+          { title: 'Provider Review', desc: `${CONSULT_NEUTRAL} Your clinician determines whether Sermorelin therapy is appropriate for you.` },
           { title: 'Doorstep Delivery', desc: 'If appropriate, your personalized medication kit is shipped directly to your door with everything you need to begin.' },
           { title: 'Ongoing Support', desc: 'Your care doesn’t stop after delivery. Your clinician remains available to monitor your progress and adjust your treatment when needed.' },
         ]}
@@ -173,13 +174,6 @@ export default function SermorelinPage() {
       {/* ── BUYING-INTENT SECTIONS (restored from live) ───────────── */}
       <SermorelinCompare />
       <SermorelinDifference />
-
-      <Testimonials
-        tagColor="var(--ser)" tagDarkColor="var(--ser-dark)"
-        items={[
-          { quote: 'Sleep changed first — deeper, more restorative than it had been in years. By month two the difference in my workouts was undeniable. The care team stayed involved the entire time.', author: 'Carlos G., 44 · Nutree Clinic patient', tag: 'Sermorelin · Monthly plan' },
-        ]}
-      />
 
       <AlsoFromNutree
         eyebrow="Complete your protocol"
@@ -193,7 +187,9 @@ export default function SermorelinPage() {
 
       <SeoFAQ items={faqs} accent="var(--ser)" accentDark="var(--ser-dark)" />
 
-      <PageLegal text="Compounded Sermorelin is not FDA-approved. Previously FDA-approved, discontinued by manufacturer in 2006 for commercial reasons. Off-label use must be prescribed and supervised by a licensed provider. Individual results vary. Nutree Clinic LLC · Florida · LegitScript certified." />
+      <ImportantSafetyInfo drugs={['sermorelin']} />
+
+      <PageLegal text="Compounded sermorelin is prepared by state-licensed 503A compounding pharmacies. It is not FDA-approved, and the FDA does not review compounded drugs for safety, effectiveness, or quality. A sermorelin product was previously FDA-approved but is no longer marketed in the U.S. Use for sleep, recovery, body composition, or healthy aging is off-label and must be prescribed and supervised by a licensed provider; evidence for these uses is limited. Prescriptions are issued only if a licensed provider determines treatment is appropriate. Individual results vary. Care is available to patients located in Florida. Nutree Clinic LLC · Florida · LegitScript certified." />
 
       <ConsultBand />
     </>

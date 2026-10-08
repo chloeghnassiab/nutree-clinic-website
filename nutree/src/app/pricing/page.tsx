@@ -7,7 +7,7 @@ import { ConsultBand } from '@/components/ui/PageComponents'
 export const metadata: Metadata = {
   alternates: { canonical: '/pricing' },
   title: 'Pricing',
-  description: `Transparent pricing for all Nutree Clinic treatments. GLP-1 ${GLP1_FROM_LABEL}. No hidden fees. Same price at every dose.`,
+  description: `Transparent pricing for all Nutree Clinic treatments. GLP-1 ${GLP1_FROM_LABEL}. No hidden fees. Clear pricing before you start.`,
 }
 
 const P = PRICES
@@ -94,13 +94,13 @@ export default function PricingPage() {
       <section style={{ padding: '2.5rem 1rem 1.5rem', background: 'var(--base)' }}>
         <div style={{ fontSize: "0.875rem", fontWeight: 700, color: 'var(--ink-3)', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: '0.75rem' }}>Transparent pricing</div>
         <h1 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.75rem, 5vw, 2.75rem)', color: 'var(--ink)', lineHeight: 1.1, marginBottom: '0.625rem' }}>
-          The price you see<br />is the price you pay.
+          Clear pricing.<br />No hidden fees.
         </h1>
         <p style={{ fontSize: "1rem", color: 'var(--ink-2)', lineHeight: 1.7, marginBottom: '1rem', maxWidth: 360 }}>
-          All plans include your medication, provider consultation, and free shipping. No hidden fees. Your price stays the same at every dose level.
+          All plans include your medication, provider consultation, and free shipping. No hidden fees. Your plan price is shown before you start, and your care team will tell you before any change — for example, if your dose or medication changes.
         </p>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.375rem' }}>
-          {['✓ No hidden fees', '✓ Same price at every dose', '✓ FSA / HSA eligible', '✓ Cancel anytime'].map(t => (
+          {['✓ No hidden fees', '✓ Clear pricing before you start', '✓ FSA / HSA eligible', '✓ Cancel anytime'].map(t => (
             <div key={t} className="trust-pill">{t}</div>
           ))}
         </div>
@@ -149,6 +149,11 @@ export default function PricingPage() {
             ))}
           </div>
         </div>
+        <p style={{ fontSize: '0.875rem', color: 'var(--ink-3)', lineHeight: 1.6, marginTop: '0.75rem' }}>
+          Medication is included only if a licensed provider determines treatment is appropriate and prescribes it. Compounded
+          medications are not FDA-approved, and the FDA does not review them for safety, effectiveness, or quality. See the
+          Important Safety Information on each treatment page.
+        </p>
       </section>
 
       <ConsultBand />

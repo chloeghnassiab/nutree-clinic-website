@@ -7,6 +7,8 @@ import { PRICES, PRICING_AT_CONSULT } from '@/lib/prices.config'
 import { ELIGIBILITY_QUIZ } from '@/lib/checkout.config'
 import { SeoFAQ, JsonLd, faqsForPages } from '@/components/treatment/SeoBlocks'
 import { ProgramDetails, PharmacyPartners, FeelBetter, HomePricing, ORGANIZATION_JSON_LD, fromMonthly } from '@/components/home/HomeSections'
+import { CONSULT_NEUTRAL, TestimonialDisclaimer } from '@/components/compliance'
+import { REVIEWS } from '@/components/compliance/reviews'
 
 const TITLE = 'Nutree Clinic | Medical Weight Loss & Wellness Online'
 const DESCRIPTION = 'Weight Loss, Healthy Aging & Muscle Strength. Semaglutide & Tirzepatide prescriptions (if eligible). Personalized care, ongoing follow-up, shipped to you.'
@@ -29,8 +31,8 @@ const TREATMENTS = [
 
 const HOW_STEPS = [
   { n: '1', title: 'Complete a brief health questionnaire', desc: 'Takes 3 minutes. Your clinician reviews your history and goals — so they can make the most appropriate clinical decision for you.', color: '#B8E4F0' },
-  { n: '2', title: 'Your clinician reviews your intake', desc: 'A licensed Nutree clinician reviews your health history and issues your prescription directly — no call required unless they have questions or it is clinically necessary.', color: '#A8D8C8' },
-  { n: '3', title: 'Receive your medication at home', desc: 'Prescribed by your clinician, prepared by a licensed 503A pharmacy, shipped free to your door.', color: '#F2C4A0' },
+  { n: '2', title: 'Your clinician reviews your intake', desc: `${CONSULT_NEUTRAL} A prescription is issued only if your clinician determines treatment is appropriate.`, color: '#A8D8C8' },
+  { n: '3', title: 'Receive your medication at home', desc: 'If prescribed, your medication is prepared by a state-licensed 503A pharmacy and shipped free to your door.', color: '#F2C4A0' },
   { n: '4', title: 'Ongoing care and 7/7 messaging', desc: 'Your provider monitors your progress and adjusts your plan throughout. Your assigned clinician is available 7 days a week via direct message for questions, dose adjustments, and ongoing support.', color: '#D4B8E8' },
 ]
 
@@ -176,28 +178,22 @@ export default function HomePage() {
 
       {/* ── TESTIMONIAL ─────────────────────────────────────────── */}
       <section style={{ padding: '2rem 1.5rem', background: 'var(--white)', borderTop: '1px solid var(--border)' }}>
-        <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--ink-3)', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: '1.25rem' }}>From our patients</div>
-        <div style={{ background: 'var(--base)', borderRadius: 16, padding: '1.5rem', border: '0.5px solid var(--border)' }}>
-          <div style={{ color: '#F9B800', fontSize: '1rem', marginBottom: '0.625rem' }}>★★★★★</div>
-          <p style={{ fontFamily: 'var(--font-serif)', fontSize: '1.125rem', color: 'var(--ink)', fontStyle: 'italic', lineHeight: 1.7, marginBottom: '0.75rem' }}>
-            &ldquo;After 9 weeks on a microdosed GLP-1, I lost 9 pounds. I already feel lighter, confident, in control. With a team that supports me!&rdquo;
-          </p>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-            <div style={{ width: 48, height: 48, borderRadius: '50%', overflow: 'hidden', flexShrink: 0, background: 'var(--glp)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.25rem', fontWeight: 700, color: 'var(--glp-dark)', border: '2px solid var(--border)' }}>
-              <img
-                src="/images/Courtney-nutree-clinic-patient-glp-1.jpeg"
-                alt="Courtney, Nutree Clinic GLP-1 microdosing patient"
-                width={48}
-                height={48}
-                style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%', display: 'block' }}
-              />
-            </div>
-            <div>
-              <div style={{ fontSize: '0.9375rem', fontWeight: 600, color: 'var(--ink-3)' }}>Courtney, 32 · Nutree Clinic patient</div>
-              <div style={{ display: 'inline-block', marginTop: 6, fontSize: '0.875rem', fontWeight: 700, padding: '4px 12px', borderRadius: 999, background: '#B8E4F0', color: '#1A6B85' }}>GLP-1 Microdosing</div>
-            </div>
-          </div>
+        <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--ink-3)', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: '1.25rem' }}>From our patients · Trustpilot reviews</div>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '0.75rem', marginBottom: '1rem' }}>
+          {[REVIEWS.maxL, REVIEWS.elizabethK].map(r => (
+            <figure key={r.author} style={{ margin: 0, background: 'var(--base)', borderRadius: 16, padding: '1.5rem', border: '0.5px solid var(--border)' }}>
+              <div style={{ color: '#F9B800', fontSize: '1rem', marginBottom: '0.625rem' }} role="img" aria-label={`${r.rating} out of 5 stars`}>{'★'.repeat(r.rating)}</div>
+              <blockquote style={{ fontFamily: 'var(--font-serif)', fontSize: '1.125rem', color: 'var(--ink)', fontStyle: 'italic', lineHeight: 1.7, margin: '0 0 0.75rem' }}>
+                &ldquo;{r.quote}&rdquo;
+              </blockquote>
+              <figcaption style={{ fontSize: '0.9375rem', fontWeight: 600, color: 'var(--ink-3)' }}>
+                {r.author}
+                <span style={{ display: 'block', fontSize: '0.8125rem', fontWeight: 400, marginTop: 2 }}>{r.source} · {r.rating}/5 · {r.date}</span>
+              </figcaption>
+            </figure>
+          ))}
         </div>
+        <TestimonialDisclaimer />
       </section>
 
       <HomePricing />

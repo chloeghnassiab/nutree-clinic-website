@@ -74,7 +74,7 @@ Because B12 absorption requires a healthy gut lining and intrinsic factor, injec
 
 The evidence is clear:
 
-1. **Strong Evidence (When Deficient):** If lab work confirms a deficiency, treating it with B12 (often via injection for reliability) **will improve** anemia, energy, and neurological symptoms. This is proven, evidence-based care.
+1. **Strong Evidence (When Deficient):** If lab work confirms a deficiency, treating it with B12 (often via injection for reliability) **typically improves** anemia, energy, and neurological symptoms caused by the deficiency. This is well-established, evidence-based care, although individual responses vary.
 2. **Limited Evidence (When Normal):** For people whose B12 is in the normal range, studies have **not consistently shown extra benefits** for energy, mood, or weight loss. We believe in **Human Precision**; we test, not guess.
 
 ## Protecting Your Engine: B-Vitamins in Medical Weight Loss

@@ -89,10 +89,16 @@ export function SiteFooter() {
 
       <div style={{ borderTop: '0.5px solid var(--border)', paddingTop: '1rem', fontSize: '0.75rem', color: 'var(--ink-3)', lineHeight: 1.75 }}>
         <p style={{ marginBottom: '0.625rem', fontSize: '0.75rem', lineHeight: 1.75, color: 'var(--ink-3)' }}>
-          Nutree Clinic LLC is a Florida-licensed telehealth medical practice. All treatments require a valid prescription issued by a licensed healthcare provider based on a clinical review of your health history. Compounded medications are not FDA-approved and have not been reviewed by the FDA for safety, efficacy, or quality. Prescriptions are issued at the sole discretion of your treating provider. Nutree Clinic LLC is not a pharmacy. Individual results may vary. FSA/HSA eligibility depends on your plan administrator. This website does not constitute medical advice.
+          Nutree Clinic LLC is a Florida-licensed telehealth medical practice and currently provides care only to patients located in Florida. Prescription treatments require an evaluation by a licensed healthcare provider, and a prescription is issued only if your provider determines it is medically appropriate; a prescription is never guaranteed. A licensed provider reviews your intake; a video or phone visit may be required depending on your treatment and Florida rules.
         </p>
         <p style={{ marginBottom: '0.625rem', fontSize: '0.75rem', lineHeight: 1.75, color: 'var(--ink-3)' }}>
-          Wegovy® is a registered trademark of Novo Nordisk A/S. Mounjaro® and Zepbound® are registered trademarks of Eli Lilly and Company. Use of these names does not imply any affiliation with or endorsement by these companies.
+          Compounded medications are not FDA-approved, and the FDA does not review compounded drugs for safety, effectiveness, or quality. Compounded medications are prepared by state-licensed 503A compounding pharmacies for individual patients and are not generic versions of brand-name drugs. Some treatments, including NAD+, sermorelin, oxytocin, and glutathione, are prescribed off-label. See the Important Safety Information on each treatment page. Nutree Clinic LLC is not a pharmacy.
+        </p>
+        <p style={{ marginBottom: '0.625rem', fontSize: '0.75rem', lineHeight: 1.75, color: 'var(--ink-3)' }}>
+          Individual results vary and are not guaranteed. Patient reviews reflect individual experiences and are not typical of all patients. FSA/HSA eligibility depends on your plan administrator. Information on this website is for general education only and is not a substitute for advice, diagnosis, or treatment from a licensed healthcare provider. Nutree Clinic is not for medical emergencies — if you think you are having a medical emergency, call 911 or go to the nearest emergency room; if you are having thoughts of harming yourself, call or text 988.
+        </p>
+        <p style={{ marginBottom: '0.625rem', fontSize: '0.75rem', lineHeight: 1.75, color: 'var(--ink-3)' }}>
+          Ozempic® and Wegovy® are registered trademarks of Novo Nordisk A/S. Mounjaro® and Zepbound® are registered trademarks of Eli Lilly and Company. Nutree Clinic is not affiliated with, sponsored by, or endorsed by Novo Nordisk or Eli Lilly, and use of these names does not imply any such relationship.
         </p>
         <p style={{ marginBottom: '0.75rem', fontSize: '0.75rem', lineHeight: 1.75, color: 'var(--ink-3)' }}>© 2026 Nutree Clinic LLC · All rights reserved.</p>
       </div>

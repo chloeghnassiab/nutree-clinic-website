@@ -11,9 +11,11 @@ import {
   PageLegal, ConsultBand, Section, SectionHeader, InStockBadge,
 } from '@/components/ui/PageComponents'
 import { NumberedSteps, SeoFAQ, CTAButton, faqsForPages } from '@/components/treatment/SeoBlocks'
+import { ImportantSafetyInfo, ResultsDisclaimer, CompoundedDisclosure, CONSULT_NEUTRAL } from '@/components/compliance'
+import { REVIEWS } from '@/components/compliance/reviews'
 
 const TITLE = 'Semaglutide & Tirzepatide for Weight Loss | Nutree Clinic'
-const DESCRIPTION = 'Medical weight loss with semaglutide or tirzepatide when prescribed. Video consultation, personalized dosing, ongoing follow-up, shipped to you.'
+const DESCRIPTION = 'Medical weight loss with semaglutide or tirzepatide when prescribed. Licensed provider review, personalized dosing if prescribed, ongoing follow-up.'
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
@@ -94,13 +96,16 @@ export default function WeightLossPage() {
 
       {/* ── BENEFITS ──────────────────────────────────────────────── */}
       <BenefitsList color="var(--glp)" items={[
-        'Your price stays the same at every dose level — no surprises',
+        'Clear plan pricing before you start — no hidden fees',
         'Free expedited shipping on every order',
         'Provider consultation and dose adjustments included',
         'Personalised dosing adjusted to your response and goals',
         '503A licensed pharmacy on every prescription',
         '7/7 direct messaging with your assigned clinician — no waiting rooms',
       ]} />
+      <div style={{ background: 'var(--white)', padding: '0 1.25rem 1rem' }}>
+        <CompoundedDisclosure variant="glp1" withTrademarks={false} style={{ margin: 0 }} />
+      </div>
       <TrustStrip />
 
       {/* ── FEATURE BAND ──────────────────────────────────────────── */}
@@ -108,7 +113,7 @@ export default function WeightLossPage() {
         gradient="linear-gradient(145deg, var(--glp-mid) 0%, var(--glp) 55%, #DDF4FF 100%)"
         eyebrow="What every plan includes"
         title="Your price. Your dose. Your plan."
-        body="Every Nutree GLP-1 plan is built around you — medication, consultation, and shipping all included. Your price remains consistent throughout your treatment, at every dose level."
+        body="Every Nutree GLP-1 plan is built around you — medication, consultation, and shipping all included. Your plan price is shown before you start, with no hidden fees."
         cards={[
           { icon: 'Pill', title: 'Medication included', desc: 'Compounded by a licensed 503A pharmacy to your prescription' },
           { icon: 'Stethoscope', title: 'Provider care', desc: 'Consultation, follow-ups, and dose adjustments throughout' },
@@ -126,9 +131,9 @@ export default function WeightLossPage() {
         ctaLabel="Check my eligibility"
         steps={[
           { title: 'Tell us about yourself', desc: 'Complete a short intake so we understand your health history, goals, and concerns. It takes about 3 minutes.' },
-          { title: 'Get matched with your clinician', desc: 'A licensed Nutree clinician reviews your health history and determines the most appropriate plan for your profile — no call required unless clinically necessary.' },
-          { title: 'A real medical consultation — from home', desc: 'Your licensed Nutree Clinic provider takes the time to understand your body, your habits, and your goals, and designs a plan built around you. Semaglutide or tirzepatide is prescribed only if you are eligible.' },
-          { title: 'Ongoing care, not just a prescription', desc: 'If prescribed, your medication is prepared by our licensed 503A pharmacy partner and shipped free to your door. Your clinician is available 7 days a week via direct message to monitor progress and adjust your dose.' },
+          { title: 'Get matched with your clinician', desc: `${CONSULT_NEUTRAL} Your clinician decides whether treatment is appropriate for your health profile.` },
+          { title: 'A personalized plan — from home', desc: 'Your licensed Nutree Clinic provider considers your health history, habits, and goals. Semaglutide or tirzepatide is prescribed only if your provider determines it is appropriate.' },
+          { title: 'Ongoing care, not just a prescription', desc: 'If prescribed, your medication is prepared by our licensed 503A pharmacy partner and shipped free to your door. You can message your care team 7 days a week; your clinician monitors progress and adjusts your dose when needed. For emergencies, call 911.' },
         ]}
       />
 
@@ -166,29 +171,14 @@ export default function WeightLossPage() {
             </div>
           ))}
         </div>
-        {/* Rainbow gradient bar chart */}
         <div style={{ background: 'var(--white)', borderRadius: 'var(--radius-lg)', padding: '0.875rem', border: '0.5px solid var(--border)' }}>
-          <div style={{ fontSize: "1rem", fontWeight: 700, color: 'var(--ink)', marginBottom: 2 }}>Average weight loss progression</div>
-          <div style={{ fontSize: "0.875rem", color: 'var(--ink-3)', marginBottom: '0.875rem' }}>GLP-1 therapy combined with diet and exercise · months 1–6</div>
-          <div style={{ display: 'flex', alignItems: 'flex-end', gap: '0.3rem', height: 72 }}>
-            {[
-              { val: '~3%', h: '20%', bg: 'linear-gradient(180deg,var(--b12),#F0D040)' },
-              { val: '~6%', h: '36%', bg: 'linear-gradient(180deg,var(--ser),var(--b12))' },
-              { val: '~9%', h: '52%', bg: 'linear-gradient(180deg,var(--con),var(--ser))' },
-              { val: '~12%',h: '68%', bg: 'linear-gradient(180deg,var(--oxy),var(--con))' },
-              { val: '~15%',h: '84%', bg: 'linear-gradient(180deg,var(--nad),var(--oxy))' },
-              { val: '~18%',h: '100%',bg: 'linear-gradient(180deg,var(--glp-mid),var(--nad))' },
-            ].map((b, i) => (
-              <div key={i} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2, flex: 1 }}>
-                <div style={{ fontSize: "1rem", fontWeight: 700, color: 'var(--ink-2)' }}>{b.val}</div>
-                <div style={{ borderRadius: '4px 4px 0 0', width: '100%', height: b.h, background: b.bg }} />
-                <div style={{ fontSize: '1rem', color: 'var(--ink-3)' }}>Mo {i + 1}</div>
-              </div>
-            ))}
-          </div>
-          <div style={{ fontSize: '1rem', color: 'var(--ink-3)', marginTop: 6, lineHeight: 1.5 }}>
-            *Data from clinical trials of FDA-approved reference medications. Compounded preparations are not those FDA-approved products. Individual results vary.
-          </div>
+          <div style={{ fontSize: "1rem", fontWeight: 700, color: 'var(--ink)', marginBottom: 4 }}>What these numbers mean</div>
+          <p style={{ fontSize: '0.9375rem', color: 'var(--ink-2)', lineHeight: 1.6, margin: '0 0 0.5rem' }}>
+            *STEP-1 (semaglutide 2.4 mg, 68 weeks) and SURMOUNT-1 (tirzepatide up to 15 mg, 72 weeks) studied the FDA-approved
+            brand-name medications together with diet and exercise. Weight loss in these trials was gradual and built over more
+            than a year; many participants lost less than the average and some lost more.
+          </p>
+          <ResultsDisclaimer trialData style={{ margin: 0 }} />
         </div>
       </Section>
 
@@ -219,10 +209,10 @@ export default function WeightLossPage() {
             <tbody>
               {[
                 ['Mechanism',      'GLP-1 receptor agonist',        'GLP-1 + GIP dual agonist'],
-                ['Avg weight loss*','~15% body weight',             '~21% body weight ✓'],
+                ['Avg weight loss in trials*','~15% body weight',   '~21% body weight'],
                 ['Administration', 'Once-weekly injection',         'Once-weekly injection'],
                 ['Starting price', `${P.semaglutide.monthly.monthlyLabel} ✓`, `From ${P.tirzepatide.monthly.monthlyLabel}`],
-                ['Well suited for','First GLP-1 · extensively studied','Stronger metabolic response needed'],
+                ['Often considered for','A first GLP-1 · longest track record','A dual GLP-1/GIP option, per your clinician'],
               ].map(([label, a, b], i) => (
                 <tr key={i} style={{ background: i % 2 === 1 ? 'rgba(184,228,240,0.12)' : 'transparent' }}>
                   <td style={{ padding: '7px 6px', fontWeight: 700, color: 'var(--ink)', borderBottom: '0.5px solid var(--border)' }}>{label}</td>
@@ -254,10 +244,7 @@ export default function WeightLossPage() {
       {/* ── TESTIMONIALS ──────────────────────────────────────────── */}
       <Testimonials
         tagColor="var(--glp)" tagDarkColor="var(--glp-dark)"
-        items={[
-          { quote: 'After 9 weeks on a microdosed GLP-1, I lost 9 pounds. I already feel lighter, confident, in control. With a team that supports me!', author: 'Courtney, 32 · Nutree Clinic patient', tag: 'GLP-1 Microdosing', img: '/images/Courtney-nutree-clinic-patient-glp-1.jpeg', featured: true },
-          { quote: 'The provider was easy to connect with and clearly knew what they were doing, which made me feel at ease right away. Doing it online was super convenient, and the value for the money felt right. I\'d definitely recommend them.', author: 'Mari T. · Nutree Clinic patient', tag: 'Compounded Semaglutide', img: '/images/Mari T.png' },
-        ]}
+        items={[REVIEWS.corinne, REVIEWS.tammy]}
       />
 
       {/* ── CAROUSEL ──────────────────────────────────────────────── */}
@@ -300,7 +287,7 @@ export default function WeightLossPage() {
         title="GLP-1 pairs well with these treatments."
         items={[
           { name: 'NAD+ Therapy',  sub: 'Cellular energy · longevity', href: '/nad+', arrowColor: 'var(--nad-dark)', img: '/images/nad-plus-injectable-therapy-nutreeclinic-nav.png' },
-          { name: 'B6 / B12',      sub: 'Energy support — natural complement to GLP-1', href: '/b12', arrowColor: 'var(--b12-dark)' },
+          { name: 'B6 / B12',      sub: 'Energy support, often paired with GLP-1 care', href: '/b12', arrowColor: 'var(--b12-dark)' },
           { name: 'Sermorelin',    sub: 'Preserving muscle during weight loss', href: '/sermorelin', arrowColor: 'var(--ser-dark)', img: '/images/sermorelin-growth-hormone-therapy-nutreeclinic-nav.png' },
         ]}
       />
@@ -308,7 +295,9 @@ export default function WeightLossPage() {
       {/* ── FAQ ───────────────────────────────────────────────────── */}
       <SeoFAQ items={faqs} accent="var(--glp)" accentDark="var(--glp-dark)" />
 
-      <PageLegal text="Compounded semaglutide and tirzepatide are prepared by state-licensed 503A compounding pharmacies and are not FDA-approved. They have not been evaluated by the FDA for safety, efficacy, or quality. *Clinical outcome data refers to FDA-approved reference medications (Wegovy®, Zepbound®). Compounded preparations are not those products. Wegovy® is a registered trademark of Novo Nordisk A/S. Mounjaro®/Zepbound® are registered trademarks of Eli Lilly and Company. Individual results vary. Prescriptions issued at provider discretion only. Nutree Clinic LLC · Florida · LegitScript certified." />
+      <ImportantSafetyInfo drugs={['glp1']} />
+
+      <PageLegal text="Compounded semaglutide and tirzepatide are prepared by state-licensed 503A compounding pharmacies for individual patients. They are not FDA-approved, the FDA does not review compounded drugs for safety, effectiveness, or quality, and they are not generic versions of any brand-name product. *Clinical outcome data refers to FDA-approved reference medications (Wegovy®, Zepbound®) studied with diet and exercise; compounded preparations were not studied in those trials. Ozempic® and Wegovy® are registered trademarks of Novo Nordisk A/S. Mounjaro® and Zepbound® are registered trademarks of Eli Lilly and Company. Nutree Clinic is not affiliated with or endorsed by either company. Individual results vary. Prescriptions are issued only if a licensed provider determines treatment is appropriate. Care is available to patients located in Florida. Nutree Clinic LLC · Florida · LegitScript certified." />
 
       <ConsultBand />
     </>

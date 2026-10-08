@@ -25,8 +25,8 @@ const NAV_CATEGORIES = [
   {
     label: 'Longevity',
     treatments: [
-      { label: 'NAD+ Injectable', sub: 'Highest bioavailability', href: '/nad+' },
-      { label: 'NAD+ Nasal Spray', sub: 'Needle-free · rapid absorption', href: '/nad+' },
+      { label: 'NAD+ Injectable', sub: 'Injectable option', href: '/nad+' },
+      { label: 'NAD+ Nasal Spray', sub: 'Needle-free option', href: '/nad+' },
       { label: 'NAD+ Patches + GHK-Cu', sub: 'Slow-release + peptide', href: '/nad+' },
       { label: 'Glutathione', sub: 'Detox · antioxidant · cellular health', href: '/glutathione' },
     ],

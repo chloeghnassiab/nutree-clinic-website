@@ -6,13 +6,14 @@ import { FAQ_ITEMS } from '@/lib/faq.config'
 import {
   PromoList, PlanRow, ProductBlockHeader, CTAArea,
   BenefitsList, TrustStrip, FeatureBand, HowItWorks,
-  ScienceGrid, Testimonials, AlsoFromNutree,
+  ScienceGrid, AlsoFromNutree,
   PageLegal, ConsultBand, InStockBadge,
 } from '@/components/ui/PageComponents'
 import { ExplainerSection, BenefitGrid, NumberedSteps, SeoFAQ, faqsForPages } from '@/components/treatment/SeoBlocks'
+import { ImportantSafetyInfo, CONSULT_NEUTRAL } from '@/components/compliance'
 
 const TITLE = 'Oxytocin Therapy Online | Support Mood, Stress & Connection | Nutree Clinic'
-const DESCRIPTION = 'Clinician-guided oxytocin therapy designed to support emotional well-being, stress management, and a greater sense of connection. Delivered to your door with ongoing medical support.'
+const DESCRIPTION = 'Clinician-guided compounded oxytocin nasal spray (off-label) for adults with stress, well-being, and connection goals. Prescribed only if appropriate, with ongoing medical support.'
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
@@ -52,7 +53,7 @@ export default function OxytocinPage() {
             Oxytocin Nasal Spray
           </h1>
           <p style={{ fontSize: "0.875rem", color: 'var(--ink-3)', marginBottom: '0.625rem' }}>
-            Personalized oxytocin therapy, guided by real clinicians — support for calm, emotional balance, and connection
+            Personalized oxytocin therapy, guided by licensed clinicians — off-label use that may support calm, emotional balance, and connection
           </p>
           <PromoList />
 
@@ -66,8 +67,8 @@ export default function OxytocinPage() {
       <CTAArea href={CHECKOUT.oxytocin} />
 
       <BenefitsList color="var(--oxy)" items={[
-        'Stress regulation and emotional balance — daily nasal spray',
-        'Targets the central nervous system directly via nasal mucosa',
+        'Off-label nasal spray for stress and emotional-balance goals, used as prescribed',
+        'Needle-free — absorbed through the nasal lining',
         'Provider consultation and dose guidance included',
         'Free expedited shipping on every order',
         '503A licensed pharmacy on every prescription',
@@ -104,12 +105,12 @@ export default function OxytocinPage() {
       <FeatureBand
         gradient="linear-gradient(145deg, var(--oxy-mid) 0%, var(--oxy) 55%, #EAD8FF 100%)"
         eyebrow="Why nasal spray"
-        title="The most direct route to calm."
-        body="The nasal mucosa provides direct access to the central nervous system, allowing oxytocin to reach its target receptors efficiently. Two sprays daily, as prescribed — easy to build into any morning or evening routine."
+        title="Why a nasal spray?"
+        body="Intranasal delivery is the route most often used in oxytocin research, because it is needle-free and may allow some oxytocin to reach the brain. How much reaches the brain, and how strong the effects are, is still being studied. Use exactly as prescribed — your clinician sets the dose and schedule."
         cards={[
-          { icon: 'Brain', title: 'CNS targeting', desc: 'Direct access to the amygdala and stress-regulating pathways' },
-          { icon: 'Smiley', title: 'Cortisol regulation', desc: 'Supports a calmer baseline stress response throughout the day' },
-          { icon: 'Moon', title: 'Sleep support', desc: 'Lower evening cortisol supports a more natural transition to rest' },
+          { icon: 'Brain', title: 'Studied pathways', desc: 'Research has looked at oxytocin and stress-related brain areas such as the amygdala' },
+          { icon: 'Smiley', title: 'Stress response', desc: 'Some studies suggest effects on the stress response; findings are mixed' },
+          { icon: 'Moon', title: 'Part of a routine', desc: 'May complement healthy habits for unwinding and rest — not a sleep medication' },
         ]}
       />
 
@@ -133,9 +134,9 @@ export default function OxytocinPage() {
       <HowItWorks
         gradient="linear-gradient(135deg, var(--oxy-mid), var(--oxy))"
         steps={[
-          { title: 'Week 1–2 · Reduced reactivity', desc: 'Stressors that previously triggered strong reactions start to feel more manageable.' },
-          { title: 'Week 2–4 · Better sleep and mood', desc: 'Improved sleep quality and a more stable emotional baseline as evening cortisol reduces.' },
-          { title: 'Month 1–3 · Sustained well-being', desc: 'A consistent sense of calm — and social interactions that feel more natural.' },
+          { title: 'Start as prescribed', desc: 'If your clinician prescribes oxytocin, you use the nasal spray exactly as directed — never more often than prescribed.' },
+          { title: 'Check in with your clinician', desc: 'Your clinician asks how you are feeling and whether you have side effects. Some patients notice subtle changes; others notice none.' },
+          { title: 'Review and adjust', desc: 'Your clinician decides with you whether to continue, adjust, or stop. Oxytocin is not a substitute for mental-health care; for a crisis, call or text 988, and for emergencies call 911.' },
         ]}
       />
 
@@ -144,9 +145,9 @@ export default function OxytocinPage() {
         title="What oxytocin does in the brain."
         iconGradient="linear-gradient(135deg, var(--oxy-mid), var(--oxy))"
         items={[
-          { icon: 'Heart', title: 'Amygdala modulation', desc: 'Oxytocin reduces the reactivity of the amygdala — the brain\'s threat-detection centre — supporting a calmer, more regulated emotional response.' },
-          { icon: 'ArrowsClockwise', title: 'Cortisol reduction', desc: 'Oxytocin activates the parasympathetic nervous system, helping to lower cortisol and shift the body toward calm, regulated function.' },
-          { icon: 'Plant', title: 'Reduced systemic inflammation', desc: 'Research suggests oxytocin suppresses inflammatory cytokines — relevant for patients whose stress has manifested as chronic fatigue or systemic inflammation.' },
+          { icon: 'Heart', title: 'Amygdala activity', desc: 'In some research studies, intranasal oxytocin reduced amygdala reactivity — the brain\'s threat-detection centre. Results across studies are mixed.' },
+          { icon: 'ArrowsClockwise', title: 'Stress hormones', desc: 'Oxytocin interacts with the body\'s stress-hormone system. Some studies report lower cortisol responses to stress, while others do not.' },
+          { icon: 'Plant', title: 'Early research areas', desc: 'Laboratory and early human research is exploring oxytocin and inflammation. This is not an established clinical use.' },
         ]}
       />
 
@@ -157,16 +158,9 @@ export default function OxytocinPage() {
         accent="linear-gradient(135deg, var(--oxy-mid), var(--oxy))"
         steps={[
           { title: 'Digital Intake', desc: 'Tell us about your health history, lifestyle, and goals through our secure online portal.' },
-          { title: 'Video Consultation', desc: 'Meet with your clinician to discuss your goals and determine whether Oxytocin therapy is right for you.' },
+          { title: 'Provider Review', desc: `${CONSULT_NEUTRAL} Your clinician determines whether Oxytocin therapy is appropriate for you.` },
           { title: 'Doorstep Delivery', desc: 'If appropriate, your personalized medication kit is shipped directly to your door with everything you need to begin.' },
           { title: 'Ongoing Support', desc: 'Your care doesn’t stop after delivery. Your clinician remains available to monitor your progress and adjust your treatment when needed.' },
-        ]}
-      />
-
-      <Testimonials
-        tagColor="var(--oxy)" tagDarkColor="var(--oxy-dark)"
-        items={[
-          { quote: 'I wasn\'t expecting much — I\'d tried other things before. Within two weeks the edge I\'d been carrying every day started to soften. It\'s not dramatic, but it\'s real and it\'s mine.', author: 'Sarah K., 38 · Nutree Clinic patient', tag: 'Oxytocin Nasal Spray' },
         ]}
       />
 
@@ -182,7 +176,9 @@ export default function OxytocinPage() {
 
       <SeoFAQ items={faqs} accent="var(--oxy)" accentDark="var(--oxy-dark)" />
 
-      <PageLegal text="Compounded oxytocin nasal spray is not FDA-approved and has not been evaluated by the FDA for safety, efficacy, or quality. Not indicated for psychiatric conditions. Not appropriate during pregnancy. Prescriptions issued at provider discretion only. Individual results vary. Nutree Clinic LLC · Florida · LegitScript certified." />
+      <ImportantSafetyInfo drugs={['oxytocin']} />
+
+      <PageLegal text="Compounded oxytocin nasal spray is prepared by state-licensed 503A compounding pharmacies. It is not FDA-approved, and the FDA does not review compounded drugs for safety, effectiveness, or quality. Oxytocin is FDA-approved only as an injection for certain obstetric uses; use for mood, stress, connection, or general wellness is off-label, and evidence is limited. Not a treatment for psychiatric conditions. Not appropriate during pregnancy. Prescriptions are issued only if a licensed provider determines treatment is appropriate. Individual results vary. Care is available to patients located in Florida. Nutree Clinic LLC · Florida · LegitScript certified." />
 
       <ConsultBand />
     </>
