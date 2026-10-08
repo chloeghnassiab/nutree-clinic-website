@@ -5,7 +5,7 @@ export function SiteFooter() {
     <footer style={{
       background: 'var(--white)',
       borderTop: '1px solid var(--border)',
-      padding: '2.5rem 1.25rem 1.5rem',
+      padding: '2.5rem 2rem 1.5rem',
     }}>
       <style>{`
         .footer-link { display: block; font-size: 0.75rem; color: var(--ink-3); text-decoration: none; margin-bottom: 0.375rem; transition: color 0.15s; }

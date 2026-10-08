@@ -117,7 +117,7 @@ export function SiteNav() {
         boxShadow: scrolled ? '0 2px 16px rgba(0,0,0,0.07)' : 'none',
         transition: 'box-shadow 0.2s',
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', padding: '0 1.5rem', height: '64px', maxWidth: '1280px', margin: '0 auto', gap: '0.125rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', padding: '0 2rem', height: '64px', maxWidth: '1280px', margin: '0 auto', gap: '0.125rem' }}>
 
           {/* Logo */}
           <Link href="/" onClick={() => { setActiveMenu(null); setMobileOpen(false) }}
@@ -174,7 +174,7 @@ export function SiteNav() {
               boxShadow: '0 16px 48px rgba(0,0,0,0.1)',
               zIndex: 200,
             }}>
-            <div style={{ maxWidth: 1280, margin: '0 auto', padding: '1.75rem 1.5rem', display: 'flex', gap: '3rem' }}>
+            <div style={{ maxWidth: 1280, margin: '0 auto', padding: '1.75rem 2rem', display: 'flex', gap: '3rem' }}>
 
               {/* Left — category label + treatments */}
               <div style={{ flex: 1 }}>

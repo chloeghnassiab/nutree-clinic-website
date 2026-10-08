@@ -55,7 +55,7 @@ export function Section({ children, bg = 'var(--base)', divider = true, style = 
   children: React.ReactNode; bg?: string; divider?: boolean; style?: React.CSSProperties; className?: string
 }) {
   return (
-    <section style={{ padding: '2rem 1.5rem', background: bg, borderTop: divider ? '1px solid var(--border)' : 'none', ...style }} className={className}>
+    <section style={{ padding: '2rem 2rem', background: bg, borderTop: divider ? '1px solid var(--border)' : 'none', ...style }} className={className}>
       <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={VP}>
         {children}
       </motion.div>
@@ -201,7 +201,7 @@ export function FeatureBand({ eyebrow, title, body, gradient, cards, bgImage }: 
   eyebrow: string; title: string; body: string; gradient: string; cards: { icon: string; title: string; desc: string }[]; bgImage?: string
 }) {
   return (
-    <div style={{ padding: '2rem 1.5rem', background: gradient, position: 'relative', overflow: 'hidden' }}>
+    <div style={{ padding: '2rem 2rem', background: gradient, position: 'relative', overflow: 'hidden' }}>
       {bgImage && (
         <img
           src={bgImage}
@@ -453,7 +453,7 @@ export function ConsultBand() {
     <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={VP}
       className="consult-band" style={{
       background: 'var(--ink)',
-      padding: '2.5rem 1.5rem',
+      padding: '2.5rem 2rem',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between',
