@@ -23,7 +23,7 @@ export function SiteFooter() {
           <div style={{ fontSize: '0.9375rem', fontWeight: 700, color: 'var(--ink)', marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Treatments</div>
           <Link href="/weight-loss" className="footer-link">GLP-1 Weight Loss</Link>
           <Link href="/glp-1microdosing" className="footer-link">GLP-1 Microdosing</Link>
-          <Link href="/nad" className="footer-link">NAD+</Link>
+          <Link href="/nad+" className="footer-link">NAD+</Link>
           <Link href="/sermorelin" className="footer-link">Sermorelin</Link>
           <Link href="/glutathione" className="footer-link">Glutathione</Link>
           <Link href="/oxytocin" className="footer-link">Oxytocin</Link>

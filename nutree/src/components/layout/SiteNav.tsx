@@ -23,9 +23,9 @@ const NAV_CATEGORIES = [
   {
     label: 'Longevity',
     treatments: [
-      { label: 'NAD+ Injectable', sub: 'Highest bioavailability', href: '/nad' },
-      { label: 'NAD+ Nasal Spray', sub: 'Needle-free · rapid absorption', href: '/nad' },
-      { label: 'NAD+ Patches + GHK-Cu', sub: 'Slow-release + peptide', href: '/nad' },
+      { label: 'NAD+ Injectable', sub: 'Highest bioavailability', href: '/nad+' },
+      { label: 'NAD+ Nasal Spray', sub: 'Needle-free · rapid absorption', href: '/nad+' },
+      { label: 'NAD+ Patches + GHK-Cu', sub: 'Slow-release + peptide', href: '/nad+' },
       { label: 'Glutathione', sub: 'Detox · antioxidant · cellular health', href: '/glutathione' },
     ],
     featured: {
@@ -34,14 +34,14 @@ const NAV_CATEGORIES = [
       bg: 'linear-gradient(135deg, rgba(120,200,168,0.5) 0%, rgba(255,255,255,0.65) 100%)',
       title: 'Longevity\nProtocols',
       price: 'From $TBD/mo',
-      href: '/nad',
+      href: '/nad+',
     },
   },
   {
     label: 'Strength',
     treatments: [
       { label: 'Sermorelin', sub: 'Recovery · energy · lean muscle', href: '/sermorelin' },
-      { label: 'NAD+ Therapy', sub: 'ATP production · cellular energy', href: '/nad' },
+      { label: 'NAD+ Therapy', sub: 'ATP production · cellular energy', href: '/nad+' },
     ],
     featured: {
       img: '/images/sermorelin-growth-hormone-therapy-nutreeclinic-nav.png',

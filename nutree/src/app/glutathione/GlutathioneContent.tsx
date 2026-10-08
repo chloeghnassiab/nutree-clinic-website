@@ -115,7 +115,7 @@ export function GlutathioneContent() {
         eyebrow="Complete your protocol"
         title="Glutathione pairs well with these treatments."
         items={[
-          { name: 'NAD+ Therapy', sub: 'Cellular energy — works synergistically with glutathione', href: '/nad', arrowColor: 'var(--nad-dark)', img: '/images/nad-plus-injectable-therapy-nutreeclinic-nav.png' },
+          { name: 'NAD+ Therapy', sub: 'Cellular energy — works synergistically with glutathione', href: '/nad+', arrowColor: 'var(--nad-dark)', img: '/images/nad-plus-injectable-therapy-nutreeclinic-nav.png' },
           { name: 'GLP-1 Weight Loss', sub: 'Glutathione supports your metabolic response', href: '/weight-loss', arrowColor: 'var(--glp-dark)', img: '/images/glp1-semaglutide-weight-loss-nutreeclinic-nav.png' },
           { name: 'Sermorelin', sub: 'Growth hormone · body composition', href: '/sermorelin', arrowColor: 'var(--ser-dark)', img: '/images/sermorelin-growth-hormone-therapy-nutreeclinic-nav.png' },
         ]}

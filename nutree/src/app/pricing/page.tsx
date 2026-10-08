@@ -30,7 +30,7 @@ const PLANS = [
   {
     name: 'NAD+ Therapy',
     color: 'var(--nad)', darkColor: 'var(--nad-dark)',
-    href: '/nad',
+    href: '/nad+',
     options: [
       { label: 'Injectable · Monthly',   price: P.nadInjectable.monthly.monthlyLabel },
       { label: 'Injectable · 6-month',   price: P.nadInjectable.sixMonth.monthlyLabel, badge: P.nadInjectable.sixMonth.savingsLabel },
