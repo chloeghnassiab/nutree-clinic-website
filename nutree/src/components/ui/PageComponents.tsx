@@ -3,6 +3,9 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { PROMOTIONS } from '@/lib/promotions.config'
+import { SafetyInfoLink } from '@/components/compliance/SafetyInfoLink'
+import { TestimonialDisclaimer } from '@/components/compliance/Disclosures'
+import { CONSULT_NEUTRAL } from '@/components/compliance/copy'
 
 // ─── SHARED ANIMATION VARIANTS ───────────────────────────────────────────────
 const fadeUp = {
@@ -137,6 +140,8 @@ export function CTAArea({ href = '/consult' }: { href?: string }) {
         <ShieldCheck size={14} color="var(--ink-3)" />
         FSA/HSA eligible · Free shipping · Cancel anytime
       </div>
+      {/* Every page using CTAArea renders <ImportantSafetyInfo /> lower down. */}
+      <SafetyInfoLink />
     </div>
   )
 }
@@ -282,8 +287,30 @@ export function ScienceGrid({ eyebrow, title, body, items, iconGradient }: {
 }
 
 // ─── TESTIMONIALS ────────────────────────────────────────────────────────────
+// Only real, verifiable reviews may be passed in — see components/compliance/reviews.ts.
+type TestimonialItem = {
+  quote: string; author: string; tag: string; img?: string; featured?: boolean
+  rating?: number; source?: string; date?: string; disclosure?: string
+}
+function Stars({ rating = 5, size }: { rating?: number; size: number }) {
+  return (
+    <div style={{ display: 'flex', gap: '2px' }} role="img" aria-label={`${rating} out of 5 stars`}>
+      {[...Array(5)].map((_, si) => <Star key={si} size={size} weight="fill" color={si < rating ? '#F9B800' : 'var(--border)'} />)}
+    </div>
+  )
+}
+function ReviewMeta({ t }: { t: TestimonialItem }) {
+  const bits = [t.source, t.rating ? `${t.rating}/5` : undefined, t.date].filter(Boolean)
+  if (!bits.length) return null
+  return <div style={{ fontSize: '0.8125rem', color: 'var(--ink-3)', marginTop: 2 }}>{bits.join(' · ')}</div>
+}
+function ReviewDisclosure({ t }: { t: TestimonialItem }) {
+  if (!t.disclosure) return null
+  return <p style={{ fontSize: '0.8125rem', color: 'var(--ink-3)', lineHeight: 1.55, marginTop: '0.5rem' }}>{t.disclosure}</p>
+}
+
 export function Testimonials({ items, tagColor, tagDarkColor }: {
-  items: { quote: string; author: string; tag: string; img?: string; featured?: boolean }[]; tagColor: string; tagDarkColor: string
+  items: TestimonialItem[]; tagColor: string; tagDarkColor: string
 }) {
   return (
     <Section bg="var(--white)">
@@ -297,26 +324,24 @@ export function Testimonials({ items, tagColor, tagDarkColor }: {
                 <img src={t.img} alt={t.author} style={{ width: '100%', height: 'auto', display: 'block' }} />
               </div>
               <div style={{ flex: 1, padding: '1.75rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '0.75rem' }}>
-                <div style={{ display: 'flex', gap: '3px' }}>
-                  {[...Array(5)].map((_, si) => <Star key={si} size={16} weight="fill" color="#F9B800" />)}
-                </div>
+                <Stars rating={t.rating} size={16} />
                 <p style={{ fontFamily: 'var(--font-serif)', fontSize: '1.125rem', color: 'var(--ink)', fontStyle: 'italic', lineHeight: 1.75 }}>
                   &ldquo;{t.quote}&rdquo;
                 </p>
                 <div>
-                  <div style={{ fontSize: '0.9375rem', fontWeight: 600, color: 'var(--ink-3)', marginBottom: '0.5rem' }}>{t.author}</div>
+                  <div style={{ fontSize: '0.9375rem', fontWeight: 600, color: 'var(--ink-3)' }}>{t.author}</div>
+                  <div style={{ marginBottom: '0.5rem' }}><ReviewMeta t={t} /></div>
                   <div style={{ display: 'inline-block', fontSize: '0.875rem', fontWeight: 700, padding: '4px 12px', borderRadius: 999, background: tagColor, color: tagDarkColor }}>
                     {t.tag}
                   </div>
+                  <ReviewDisclosure t={t} />
                 </div>
               </div>
             </div>
           ) : (
             /* ── Standard card (with optional small avatar) ── */
             <div key={i} style={{ background: 'var(--base)', borderRadius: 14, padding: '1.25rem', border: '0.5px solid var(--border)' }}>
-              <div style={{ display: 'flex', gap: '2px', marginBottom: '0.625rem' }}>
-                {[...Array(5)].map((_, si) => <Star key={si} size={14} weight="fill" color="#F9B800" />)}
-              </div>
+              <div style={{ marginBottom: '0.625rem' }}><Stars rating={t.rating} size={14} /></div>
               <p style={{ fontFamily: 'var(--font-serif)', fontSize: '1rem', color: 'var(--ink)', fontStyle: 'italic', lineHeight: 1.7, marginBottom: '0.75rem' }}>
                 &ldquo;{t.quote}&rdquo;
               </p>
@@ -326,17 +351,17 @@ export function Testimonials({ items, tagColor, tagDarkColor }: {
                 )}
                 <div>
                   <div style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--ink-3)' }}>{t.author}</div>
+                  <ReviewMeta t={t} />
                   <div style={{ display: 'inline-block', marginTop: '0.375rem', fontSize: '0.8125rem', fontWeight: 700, padding: '2px 9px', borderRadius: 999, background: tagColor, color: tagDarkColor }}>
                     {t.tag}
                   </div>
                 </div>
               </div>
+              <ReviewDisclosure t={t} />
             </div>
           )
         ))}
-        <div style={{ fontSize: '1rem', color: 'var(--ink-3)', textAlign: 'center' }}>
-          Results reflect individual patient experiences and are not typical or guaranteed outcomes.
-        </div>
+        <TestimonialDisclaimer />
       </div>
     </Section>
   )
@@ -474,7 +499,7 @@ export function ConsultBand() {
           </div>
         </div>
         <div style={{ fontSize: '0.9375rem', color: 'rgba(255,255,255,0.55)', lineHeight: 1.6, marginBottom: 4 }}>
-          Your clinician reviews your intake and issues your prescription directly — no call required.
+          {CONSULT_NEUTRAL} Treatment is prescribed only if appropriate.
         </div>
         <div style={{ fontSize: '0.875rem', color: 'rgba(255,255,255,0.35)', display: 'flex', alignItems: 'center', gap: 6 }}>
           <span>·</span>

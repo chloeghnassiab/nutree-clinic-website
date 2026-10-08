@@ -7,14 +7,15 @@ import { FAQ_ITEMS } from '@/lib/faq.config'
 import {
   PromoList, PlanRow, ProductBlockHeader, CTAArea,
   BenefitsList, TrustStrip, FeatureBand,
-  ScienceGrid, Testimonials, AlsoFromNutree,
+  ScienceGrid, AlsoFromNutree,
   PageLegal, ConsultBand, Section, SectionHeader, InStockBadge,
 } from '@/components/ui/PageComponents'
 import { ExplainerSection, BenefitGrid, NumberedSteps, SeoFAQ, faqsForPages } from '@/components/treatment/SeoBlocks'
+import { ImportantSafetyInfo, CONSULT_NEUTRAL } from '@/components/compliance'
 
 export const NAD_CANONICAL = '/nad+'
 const NAD_TITLE = 'NAD+ Therapy Online | Boost Energy & Longevity | Nutree Clinic'
-const NAD_DESCRIPTION = 'Physician-guided NAD+ therapy to restore cellular energy, enhance focus, and promote healthy aging. Delivered to your door with ongoing medical support.'
+const NAD_DESCRIPTION = 'Clinician-guided compounded NAD+ therapy (off-label) for patients with energy, focus, and healthy-aging goals. Prescribed only if appropriate, with ongoing medical support.'
 
 export const nadMetadata: Metadata = {
   title: { absolute: NAD_TITLE },
@@ -57,7 +58,7 @@ export function NADPage() {
             NAD+ Therapy
           </h1>
           <p style={{ fontSize: "0.875rem", color: 'var(--ink-3)', marginBottom: '0.625rem' }}>
-            Personalized NAD+ care, guided by real clinicians — cellular energy, mental clarity, and healthy aging from within
+            Personalized NAD+ care, guided by licensed clinicians — for patients with energy, mental clarity, and healthy-aging goals (off-label use)
           </p>
           <PromoList />
 
@@ -88,7 +89,7 @@ export function NADPage() {
 
       <BenefitsList color="var(--nad)" items={[
         'Three delivery forms — your clinician selects the most appropriate',
-        'Your price remains consistent at every dose level',
+        'Clear plan pricing before you start — no hidden fees',
         'Provider consultation and dose adjustments included',
         'Free expedited shipping on every order',
         '503A licensed pharmacy on every prescription',
@@ -106,7 +107,7 @@ export function NADPage() {
         eyebrow="Longevity & wellness support"
         title="How do NAD+ injections work?"
         body={[
-          'NAD+ (nicotinamide adenine dinucleotide) is a coenzyme found in every cell of the body. Nutree Clinic uses personalized NAD+ injection protocols to support cellular energy, mental clarity, recovery, and healthy aging, with clinician-guided dosing tailored to your needs.',
+          'NAD+ (nicotinamide adenine dinucleotide) is a coenzyme found in every cell of the body. Nutree Clinic prescribes personalized NAD+ protocols off-label for patients whose goals include energy, mental clarity, recovery, and healthy aging, with clinician-guided dosing. Human research on these uses is still limited.',
           'Prefer to avoid needles? A needle-free NAD+ nasal spray option is also available — your clinician will help you choose the format that fits your goals and medical assessment.',
         ]}
         image="/images/nad-plus-injections-energy-wellness-nutreeclinic.jpg"
@@ -118,19 +119,19 @@ export function NADPage() {
           'Recovery and healthy aging support',
           'Clinician-guided, personalized care',
         ]}
-        note="Every treatment plan is prescribed and monitored by a licensed provider to ensure safety, personalization, and appropriate follow-up."
+        note="Every treatment plan is prescribed only if appropriate and is monitored by a licensed provider, with personalized dosing and follow-up."
         accent="var(--nad)"
       />
 
       <FeatureBand
         gradient="linear-gradient(145deg, var(--nad-mid) 0%, var(--nad) 55%, #D8F4EC 100%)"
         eyebrow="Three delivery forms"
-        title="Three forms. One physician-guided plan."
+        title="Three forms. One clinician-guided plan."
         body="Your provider selects the delivery form best suited to your goals — injectable, nasal spray, or patches with GHK-Cu peptide. All plans include medication, consultation, and free shipping."
         cards={[
-          { icon: 'Syringe', title: 'Injectable', desc: 'Highest bioavailability — direct tissue delivery' },
-          { icon: 'SprayBottle', title: 'Nasal Spray', desc: 'Rapid CNS absorption — no needles' },
-          { icon: 'Bandaids', title: 'Patches + GHK-Cu', desc: 'Slow-release plus cellular repair peptide' },
+          { icon: 'Syringe', title: 'Injectable', desc: 'Delivered under the skin, bypassing digestion' },
+          { icon: 'SprayBottle', title: 'Nasal Spray', desc: 'Absorbed through the nasal lining — no needles' },
+          { icon: 'Bandaids', title: 'Patches + GHK-Cu', desc: 'Slow transdermal delivery plus a copper peptide (not FDA-approved)' },
         ]}
       />
 
@@ -140,7 +141,7 @@ export function NADPage() {
         title="Discover how NAD+ can support energy & vitality"
         intro="NAD+ therapy is often chosen by patients seeking a more personalized approach to energy, mental clarity, recovery, and healthy aging support."
         items={[
-          { title: 'Cellular energy support', desc: 'NAD+ plays a key role in how your cells produce energy, making it a popular option for patients looking to support vitality and reduce fatigue.' },
+          { title: 'Cellular energy support', desc: 'NAD+ plays a key role in how your cells produce energy, which is why some patients with low-energy or fatigue concerns explore it. Evidence that NAD+ therapy reduces fatigue is limited.' },
           { title: 'Mental clarity and focus', desc: 'Many patients explore NAD+ as part of a wellness plan aimed at supporting clearer thinking, sharper focus, and better day-to-day cognitive function.' },
           { title: 'Recovery and resilience', desc: 'NAD+ is often used in protocols designed to support recovery from physical and mental stress while promoting a greater sense of overall resilience.' },
           { title: 'Healthy aging support', desc: 'Because NAD+ levels naturally decline with age, some patients choose this therapy as part of a clinician-guided plan focused on long-term wellness.' },
@@ -151,10 +152,10 @@ export function NADPage() {
 
       {/* NAD+ DECLINE VISUALISATION */}
       <Section bg="var(--base)">
-        <SectionHeader eyebrow="The science" title="NAD+ declines significantly with age." />
+        <SectionHeader eyebrow="The science" title="NAD+ levels tend to decline with age." />
         <div style={{ background: 'var(--white)', borderRadius: 'var(--radius-lg)', padding: '0.875rem', border: '0.5px solid var(--border)', marginBottom: '0.875rem' }}>
           <div style={{ fontSize: "1rem", fontWeight: 700, color: 'var(--ink)', marginBottom: 2 }}>Relative cellular NAD+ levels by decade</div>
-          <div style={{ fontSize: "0.875rem", color: 'var(--ink-3)', marginBottom: '0.75rem' }}>Based on published research (Rajman et al., Cell Metabolism 2018)</div>
+          <div style={{ fontSize: "0.875rem", color: 'var(--ink-3)', marginBottom: '0.75rem' }}>Illustrative trend only. Studies report age-related NAD+ decline in some tissues (reviewed in Rajman et al., Cell Metabolism 2018); exact levels vary by tissue and person.</div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
             {[
               { age: 'Age 20', pct: '100%', w: '100%' },
@@ -180,9 +181,9 @@ export function NADPage() {
         title="What NAD+ does in the body."
         iconGradient="linear-gradient(135deg, var(--nad-mid), var(--nad))"
         items={[
-          { icon: 'Lightning', title: 'Cellular energy production', desc: 'NAD+ drives the mitochondrial processes that produce ATP — your body\'s primary energy currency. Declining levels contribute directly to fatigue.' },
-          { icon: 'Dna', title: 'DNA repair and longevity', desc: 'NAD+ activates sirtuin proteins and PARP enzymes involved in DNA repair — key mechanisms in healthy cellular aging.' },
-          { icon: 'Brain', title: 'Brain clarity and focus', desc: 'The brain has the highest energy demands of any organ. NAD+ supports neuronal function and the enzymatic activity associated with cognitive efficiency.' },
+          { icon: 'Lightning', title: 'Cellular energy production', desc: 'NAD+ is essential to the mitochondrial processes that produce ATP — your body\'s primary energy currency.' },
+          { icon: 'Dna', title: 'DNA repair and longevity', desc: 'NAD+ is used by sirtuin proteins and PARP enzymes involved in DNA repair — mechanisms studied in cellular aging, mostly in laboratory and animal research.' },
+          { icon: 'Brain', title: 'Brain clarity and focus', desc: 'The brain has the highest energy demands of any organ. NAD+ is involved in neuronal energy metabolism; whether NAD+ therapy improves focus or cognition in people has not been established.' },
         ]}
       />
 
@@ -193,17 +194,9 @@ export function NADPage() {
         accent="linear-gradient(135deg, var(--nad-mid), var(--nad))"
         steps={[
           { title: 'Digital Intake', desc: 'Tell us about your health history, lifestyle, and goals through our secure online portal.' },
-          { title: 'Video Consultation', desc: 'Meet with your clinician to discuss your goals and determine whether NAD+ therapy is right for you.' },
+          { title: 'Provider Review', desc: `${CONSULT_NEUTRAL} Your clinician determines whether NAD+ therapy is appropriate for you.` },
           { title: 'Doorstep Delivery', desc: 'If appropriate, your personalized medication kit is shipped directly to your door with everything you need to begin.' },
           { title: 'Ongoing Support', desc: 'Your care doesn’t stop after delivery. Your clinician remains available to monitor your progress and adjust your treatment when needed.' },
-        ]}
-      />
-
-      <Testimonials
-        tagColor="var(--nad)" tagDarkColor="var(--nad-dark)"
-        items={[
-          { quote: 'Within three weeks I noticed something shift — not dramatic, just a steadier energy. The brain fog I\'d been living with simply lifted.', author: 'James L., 47 · Nutree Clinic patient', tag: 'NAD+ Injectable' },
-          { quote: 'I chose the nasal spray because I was hesitant about injections. My clinician explained the differences clearly and let me decide. The support throughout has been exceptional.', author: 'Patricia M., 52 · Nutree Clinic patient', tag: 'NAD+ Nasal Spray' },
         ]}
       />
 
@@ -219,7 +212,9 @@ export function NADPage() {
 
       <SeoFAQ items={faqs} accent="var(--nad)" accentDark="var(--nad-dark)" />
 
-      <PageLegal text="Compounded NAD+ preparations are prepared by state-licensed 503A compounding pharmacies and are not FDA-approved. GHK-Cu is not FDA-approved. Prescriptions issued at provider discretion only. Individual results vary. Nutree Clinic LLC · Florida · LegitScript certified." />
+      <ImportantSafetyInfo drugs={['nad']} />
+
+      <PageLegal text="Compounded NAD+ preparations are prepared by state-licensed 503A compounding pharmacies. They are not FDA-approved, the FDA does not review compounded drugs for safety, effectiveness, or quality, and NAD+ is not approved to diagnose, treat, cure, or prevent any disease. GHK-Cu is not FDA-approved. NAD+ is prescribed off-label, and human evidence for energy, cognitive, and healthy-aging benefits is limited. Prescriptions are issued only if a licensed provider determines treatment is appropriate. Individual results vary. Care is available to patients located in Florida. Nutree Clinic LLC · Florida · LegitScript certified." />
 
       <ConsultBand />
     </>

@@ -11,6 +11,7 @@ import { FLORIDA_CITIES, FLORIDA_REGIONS, FLORIDA_HUB_PATH, cityPath } from '@/l
 import {
   PromoList, PlanRow, ProductBlockHeader, InStockBadge, Section, SectionHeader,
 } from '@/components/ui/PageComponents'
+import { CompoundedDisclosure, CONSULT_NEUTRAL, TRADEMARKS } from '@/components/compliance'
 
 const P = PRICES
 
@@ -80,6 +81,7 @@ export function PlanFinePrint() {
       <p style={{ ...smallNote, maxWidth: 720, margin: '0 auto', textAlign: 'center' }}>
         GLP-1 microdosing uses a low weekly dose to help support appetite regulation and metabolic balance. Each plan includes your clinician consultation, medication and home delivery, paid upfront. No membership. No hidden fees. No commitment. Subject to clinical approval — if you are not approved, your payment will be refunded.
       </p>
+      <CompoundedDisclosure variant="glp1" withTrademarks={false} style={{ margin: '0.5rem auto 0', textAlign: 'center' }} />
     </div>
   )
 }
@@ -89,7 +91,7 @@ export function MicrodosingComparison() {
   const rows: [string, string, string][] = [
     ['Dose',              'Low, carefully guided amounts',                    'Standard, higher-dose protocols'],
     ['Frequency',         'Typically once weekly',                            'Typically once weekly'],
-    ['Experience',        'Gentler, more gradual',                            'More intensive'],
+    ['Experience',        'Lower dose, more gradual changes',                 'Standard dose escalation'],
     ['Active ingredient', 'Semaglutide or tirzepatide',                       'Semaglutide or tirzepatide'],
     ['Side effects',      'May be fewer for some patients — can still occur', 'More common during dose increases'],
     ['Commitment',        'Fixed 5 or 10 weeks, no auto-renewal',             'Monthly or 3-month plan'],
@@ -139,9 +141,9 @@ export function MicrodosingComparison() {
 // ─── BENEFITS ("Join thousands…") ────────────────────────────────────────────
 const BENEFITS = [
   { t: 'Metabolic and hormonal support', d: 'May support blood sugar regulation and insulin sensitivity as part of a clinician-guided metabolic plan.' },
-  { t: 'Gradual, sustainable progress',  d: 'A gentler dosing approach designed for patients who prefer steadier, more sustainable changes over time.' },
+  { t: 'Gradual progress',               d: 'A lower-dose approach for patients who prefer slower, steadier changes over time. Results are typically more gradual than with standard dosing.' },
   { t: 'Appetite and craving support',   d: 'Treatment may help reduce “food noise” and support more balanced eating routines.' },
-  { t: 'Whole-body wellness focus',      d: 'GLP-1 pathways are being studied for broader effects related to metabolic and systemic health.' },
+  { t: 'Clinician-guided dosing',        d: 'Your clinician sets and adjusts your dose based on your history and how you respond, and monitors for side effects.' },
 ]
 
 export function MicrodosingBenefits({ heading }: { heading: string }) {
@@ -186,9 +188,9 @@ export function MicrodosingBenefits({ heading }: { heading: string }) {
 
 // ─── HOW IT WORKS / WHO IT'S FOR ─────────────────────────────────────────────
 const WHO_DETAILED = [
-  { Icon: Star,            t: "You've never tried GLP-1 before",                  d: 'Microdosing is a gentle way to experience GLP-1 therapy for the first time.' },
+  { Icon: Star,            t: "You've never tried GLP-1 before",                  d: 'A lower starting dose can be a measured way to begin GLP-1 therapy, if your clinician agrees it is appropriate.' },
   { Icon: SmileyMeh,       t: 'You had side effects on standard dosing',           d: 'If you stopped GLP-1 treatment because of nausea or digestive discomfort, a lower dose may be easier to tolerate. Your clinician will review what happened before.' },
-  { Icon: Scales,          t: 'You have a smaller amount of weight to lose',       d: 'For patients closer to their goal weight, a lower dose is often clinically appropriate.' },
+  { Icon: Scales,          t: 'You have a smaller amount of weight to lose',       d: 'For some patients closer to their goal weight, a clinician may consider a lower dose more appropriate.' },
   { Icon: MagnifyingGlass, t: 'You want to try before committing to monthly plans', d: 'A 5- or 10-week program lets you experience the medication with no ongoing obligation.' },
 ]
 
@@ -220,7 +222,7 @@ export function HowMicrodosingWorks({ detailed = false }: { detailed?: boolean }
             ))}
           </ul>
           <p style={{ ...smallNote, marginBottom: '1rem' }}>
-            Every treatment plan is prescribed and monitored by a licensed provider to ensure safety, personalization, and appropriate follow-up.
+            Every treatment plan is prescribed only if appropriate and is monitored by a licensed provider, with personalized dosing and follow-up.
           </p>
           <Link href="/consult" style={pillLink}>Get started <ArrowRight size={16} weight="bold" /></Link>
         </div>
@@ -228,7 +230,7 @@ export function HowMicrodosingWorks({ detailed = false }: { detailed?: boolean }
 
       {detailed && (
         <div style={{ marginTop: '1.75rem' }}>
-          <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.375rem', color: 'var(--ink)', margin: '0 0 0.75rem', fontWeight: 400 }}>Most patients choose microdosing when…</h3>
+          <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.375rem', color: 'var(--ink)', margin: '0 0 0.75rem', fontWeight: 400 }}>Patients often consider microdosing when…</h3>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '0.5rem' }}>
             {WHO_DETAILED.map(({ Icon, t, d }) => (
               <div key={t} style={{ display: 'flex', gap: '0.875rem', padding: '1rem', borderRadius: 12, background: 'var(--base)', border: '0.5px solid var(--border)', alignItems: 'flex-start' }}>
@@ -252,7 +254,7 @@ export function HowMicrodosingWorks({ detailed = false }: { detailed?: boolean }
 export function MicrodosingNextSteps() {
   const steps = [
     { t: 'Digital intake',          d: 'Tell us about your health history, lifestyle, and goals through our secure online portal.' },
-    { t: 'Clinician consultation',  d: 'A licensed clinician reviews your intake and connects with you by video or phone to discuss your goals and determine whether a gentle GLP-1 microdosing approach is right for you.' },
+    { t: 'Clinician review',        d: `${CONSULT_NEUTRAL} Your clinician determines whether a lower-dose GLP-1 approach is appropriate for you.` },
     { t: 'Doorstep delivery',       d: 'If appropriate, your personalized medication kit is shipped free and discreetly to your door with everything you need to begin.' },
     { t: 'Ongoing support',         d: 'Your care doesn’t stop after delivery. Your clinician remains available by direct message to monitor your progress and adjust your treatment when needed.' },
   ]
@@ -294,7 +296,7 @@ export function MicrodosingAtAGlance() {
     ['What it is',   'Low-dose semaglutide or tirzepatide, clinician-guided'],
     ['Supports',     'Appetite regulation and metabolic balance'],
     ["Who it's for", 'Adult Florida residents, after clinical review'],
-    ['How',          '100% online telehealth — no in-person visits; video or phone when your clinician needs to speak with you'],
+    ['How',          `100% online telehealth — no in-person visits. ${CONSULT_NEUTRAL}`],
     ['Frequency',    'Typically once weekly'],
     ['Plans',        `Semaglutide ${P.microdosingSema.tenWeek.label} / Tirzepatide ${P.microDosingTirz.tenWeek.label} (5-week plans also available)`],
     ['Pharmacy',     'U.S. licensed 503(A) compounding pharmacies'],
@@ -378,4 +380,6 @@ export function CityDirectory({ exclude, title = 'Find GLP-1 microdosing in your
 
 // ─── LEGAL ───────────────────────────────────────────────────────────────────
 export const MICRODOSING_LEGAL =
-  'Prescriptions are issued only when clinically appropriate and are always at the discretion of your licensed clinician; a medication recommendation is never guaranteed. Compounded medications associated with Nutree Clinic are prepared by state-licensed 503A compounding pharmacies, are not FDA-approved, and have not been evaluated by the FDA for safety, efficacy, or quality. Ozempic® and Mounjaro® are registered trademarks of their respective owners and are not affiliated with Nutree Clinic. Results vary and depend on individual factors. This page is for informational purposes only and does not create a doctor–patient relationship. Nutree Clinic LLC · Florida telehealth · LegitScript certified.'
+  'Prescriptions are issued only when clinically appropriate and are always at the discretion of your licensed clinician; a medication recommendation is never guaranteed. Compounded semaglutide and tirzepatide are prepared by state-licensed 503A compounding pharmacies, are not FDA-approved, are not reviewed by the FDA for safety, effectiveness, or quality, and are not generic versions of any brand-name medication. Microdosing uses lower doses than those studied in the brand-name clinical trials, and the same safety warnings apply at every dose. ' +
+  TRADEMARKS +
+  ' Results vary and depend on individual factors. This page is for informational purposes only and does not create a doctor–patient relationship. Care is available to patients located in Florida. Nutree Clinic LLC · Florida telehealth · LegitScript certified.'

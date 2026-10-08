@@ -14,7 +14,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: 'no-call-required',
     question: 'Do I need to speak with a clinician to get treatment?',
     answer:
-      'No call is required. After submitting your intake, a licensed Nutree clinician reviews your health history and issues your prescription directly — unless a brief discussion is clinically necessary. You can also message your clinician 7 days a week through your patient portal.',
+      'A licensed Nutree clinician reviews your intake and health history. Depending on your treatment and Florida rules, a video or phone visit may be required before anything is prescribed. A prescription is issued only if your clinician determines treatment is appropriate. You can also message your care team 7 days a week through your patient portal.',
     category: 'clinical',
     pages: ['/', '/faq', '/consult', '/weight-loss', '/glp-1', '/nad', '/sermorelin', '/glutathione', '/oxytocin', '/b12'],
     active: true,
@@ -46,7 +46,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: 'how-it-works',
     question: 'How does Nutree Clinic work?',
     answer:
-      'Complete a short health questionnaire, and a licensed Nutree clinician reviews your intake and issues your prescription — no call required unless clinically necessary. If prescribed, your medication is shipped free to your door from a licensed 503A pharmacy. Your clinician is available 7 days a week via direct message throughout your plan.',
+      'Complete a short health questionnaire. A licensed Nutree clinician reviews your intake; a video or phone visit may be required depending on your treatment and Florida rules. If your clinician determines treatment is appropriate and prescribes it, your medication is shipped free to your door from a state-licensed 503A pharmacy. You can message your care team 7 days a week throughout your plan. Nutree Clinic is not for emergencies — call 911.',
     category: 'general',
     pages: ['/', '/faq'],
     active: true,
@@ -68,7 +68,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: 'hsa-fsa',
     question: 'Are Nutree Clinic treatments FSA/HSA eligible?',
     answer:
-      'Yes. All Nutree treatment plans are self-pay and eligible for FSA and HSA reimbursement. Use your card at checkout or request a receipt for reimbursement from your plan administrator.',
+      'Nutree treatment plans are self-pay and are generally eligible for FSA and HSA reimbursement, but eligibility is decided by your plan administrator. Use your card at checkout or request a receipt for reimbursement.',
     category: 'billing',
     pages: ['/', '/faq', '/pricing', '/weight-loss', '/glp-1', '/nad', '/sermorelin', '/glutathione', '/oxytocin', '/b12', '/glp-1microdosing'],
     active: true,
@@ -98,7 +98,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: 'no-hidden-fees',
     question: 'Are there any hidden fees?',
     answer:
-      'No. The price you see includes your medication, provider consultation, and free shipping. Your price remains the same throughout your treatment, at every dose level.',
+      'No. Your plan price includes your medication, provider consultation, and free shipping, and it is shown before you start. If your dose or medication changes in a way that affects your price, your care team will tell you before you are charged.',
     category: 'billing',
     pages: ['/faq', '/pricing'],
     active: true,
@@ -110,7 +110,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: 'glp1-included',
     question: 'What is included in my GLP-1 plan?',
     answer:
-      'All Nutree GLP-1 plans include your medication, provider consultation, dosing supplies, and free shipping. Your price is the same at every dose level — no additional fees as your treatment progresses.',
+      'All Nutree GLP-1 plans include your medication, provider consultation, dosing supplies, and free shipping. No hidden fees — if a dose change affects your plan price, your care team will tell you before you are charged.',
     category: 'glp1',
     pages: ['/weight-loss', '/faq'],
     active: true,
@@ -120,7 +120,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: 'glp1-sema-vs-tirz',
     question: 'What is the difference between Compounded Semaglutide and Compounded Tirzepatide?',
     answer:
-      'Semaglutide is a GLP-1 receptor agonist. Tirzepatide activates both GLP-1 and GIP receptors, producing a broader metabolic effect — clinical trials show greater average weight loss (~21% vs ~15%). Your Nutree clinician will advise which is most appropriate for your health profile.',
+      'Semaglutide is a GLP-1 receptor agonist. Tirzepatide activates both GLP-1 and GIP receptors. In separate clinical trials of the FDA-approved brand-name medications, average weight loss was about 21% with tirzepatide (Zepbound®, SURMOUNT-1) and about 15% with semaglutide (Wegovy®, STEP-1); compounded preparations were not studied in those trials, and individual results vary. Your Nutree clinician will advise which, if either, is appropriate for your health profile.',
     category: 'glp1',
     pages: ['/weight-loss', '/faq', '/glp-1'],
     active: true,
@@ -130,7 +130,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: 'glp1-side-effects',
     question: 'What side effects should I be aware of?',
     answer:
-      'Common side effects include nausea and mild digestive discomfort, especially in the early weeks of treatment. These typically ease as dosing is titrated gradually. Your provider is available to adjust your plan throughout.',
+      'Common side effects include nausea, vomiting, diarrhea, constipation, and stomach discomfort, especially when starting or increasing a dose; they often ease as dosing is increased gradually. Serious but less common risks include pancreatitis, gallbladder problems, low blood sugar, kidney problems from dehydration, serious allergic reactions, and a boxed warning about thyroid C-cell tumors. Read the full Important Safety Information on our GLP-1 treatment pages and contact your provider about any concerning symptoms — call 911 in an emergency.',
     category: 'glp1',
     pages: ['/weight-loss', '/faq', '/glp-1'],
     active: true,
@@ -150,7 +150,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: 'microdose-effectiveness',
     question: 'Is microdosing less effective than standard dosing?',
     answer:
-      'Microdosing produces more gradual results. For patients with less weight to lose or who are sensitive to side effects, it is often the more appropriate clinical choice. Your Nutree provider will advise which approach is right for your health profile.',
+      'Lower doses generally produce more gradual results, and microdosing has not been studied in the large clinical trials of semaglutide or tirzepatide. For some patients with less weight to lose or who are sensitive to side effects, a clinician may consider it more appropriate. Your Nutree provider will advise which approach, if any, is right for you.',
     category: 'glp1',
     pages: ['/glp-1microdosing', '/glp-1microdosing/florida'],
     active: true,
@@ -203,7 +203,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: 'micro-same-as-brand',
     question: 'Is this the same as Ozempic® or Mounjaro®?',
     answer:
-      'It contains the same active ingredient, semaglutide or tirzepatide, but is compounded in lower doses than commercially available for individualized care protocols. Your provider selects the approach that best fits your needs, goals, and medical history. Compounded medications are not FDA-approved.',
+      'No. It uses the same active ingredient as Ozempic® (semaglutide) or Mounjaro® (tirzepatide), but it is a different product: it is prepared by a state-licensed 503A compounding pharmacy for an individual prescription, at doses your provider selects. Compounded medications are not FDA-approved, the FDA does not review them for safety, effectiveness, or quality, and they are not generic versions of brand-name drugs. Ozempic® is a registered trademark of Novo Nordisk A/S; Mounjaro® is a registered trademark of Eli Lilly and Company. Nutree Clinic is not affiliated with either company.',
     category: 'glp1',
     pages: ['/glp-1microdosing', '/glp-1microdosing/florida', '/glp-1microdosing/florida/*'],
     active: true,
@@ -263,7 +263,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: 'micro-camera',
     question: 'Do I have to go on camera for my consultation?',
     answer:
-      'Not at all. While we love connecting with our patients, we want you to feel comfortable. If you\'re camera-shy, we can complete your medical consultation over the phone instead of video.',
+      'Not necessarily. A licensed provider reviews your intake, and a video or phone visit may be required depending on your treatment and Florida rules. If a visit is needed and you would rather not be on camera, ask our team whether a phone visit is an option for you.',
     category: 'clinical',
     pages: ['/glp-1microdosing', '/glp-1microdosing/florida', '/glp-1microdosing/florida/*'],
     active: true,
@@ -273,7 +273,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: 'micro-quality',
     question: 'How do you ensure medication quality?',
     answer:
-      'We work with carefully selected Licensed 503(A) U.S. pharmacies that follow strict quality and safety standards. Every prescription is ordered by your licensed clinician and prepared according to regulated sterile compounding requirements.',
+      'We work with carefully selected state-licensed 503A U.S. compounding pharmacies. Every prescription is ordered by your licensed clinician and prepared according to applicable sterile compounding requirements. Compounded medications are not FDA-approved, and the FDA does not review them for safety, effectiveness, or quality.',
     category: 'clinical',
     pages: ['/glp-1microdosing', '/glp-1microdosing/florida', '/glp-1microdosing/florida/*'],
     active: true,
@@ -283,7 +283,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: 'micro-data-safe',
     question: 'Is my data safe?',
     answer:
-      'Yes. Nutree Clinic is 100% HIPAA-compliant, and your medical journey is kept private and secure.',
+      'Yes. Nutree Clinic follows HIPAA requirements and uses secure systems to keep your health information private.',
     category: 'general',
     pages: ['/glp-1microdosing', '/glp-1microdosing/florida', '/glp-1microdosing/florida/*'],
     active: true,
@@ -305,7 +305,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: 'glp1-compounded-vs-brand',
     question: 'Are compounded semaglutide and tirzepatide the same as Ozempic® and Mounjaro®?',
     answer:
-      'They contain the same active ingredients — semaglutide (the ingredient in Ozempic® and Wegovy®) and tirzepatide (the ingredient in Mounjaro® and Zepbound®) — but they are prepared by state-licensed 503A compounding pharmacies for an individual prescription. Compounded medications are not FDA-approved and have not been evaluated by the FDA for safety, efficacy, or quality.',
+      'No. They use the same active ingredients — semaglutide (the ingredient in Ozempic® and Wegovy®) and tirzepatide (the ingredient in Mounjaro® and Zepbound®) — but they are different products, prepared by state-licensed 503A compounding pharmacies for an individual prescription. Compounded medications are not FDA-approved, the FDA does not review them for safety, effectiveness, or quality, and they are not generic versions of these brands. Nutree Clinic is not affiliated with Novo Nordisk or Eli Lilly.',
     category: 'glp1',
     pages: ['/glp-1'],
     active: true,
@@ -355,9 +355,9 @@ export const FAQ_ITEMS: FAQItem[] = [
   // ── NAD+ ───────────────────────────────────────────────────────────────────
   {
     id: 'nad-delivery-form',
-    question: 'Which NAD+ delivery form is most effective?',
+    question: 'Which NAD+ delivery form is right for me?',
     answer:
-      'Injectables provide the highest bioavailability. Nasal spray offers rapid CNS absorption without needles. Patches with GHK-Cu provide continuous slow-release delivery alongside regenerative peptide benefits. Your clinician recommends the most appropriate form based on your goals and health profile.',
+      'Injections deliver NAD+ without relying on digestion, nasal spray is needle-free, and patches with GHK-Cu deliver slowly through the skin. Evidence comparing these forms head-to-head is limited. Your clinician recommends the most appropriate form based on your goals and health profile.',
     category: 'nad',
     pages: ['/nad', '/faq'],
     active: true,
@@ -367,7 +367,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: 'nad-ghk-cu',
     question: 'What is GHK-Cu?',
     answer:
-      'GHK-Cu (copper tripeptide-1) is a naturally occurring peptide that declines with age, studied for its role in collagen synthesis, tissue repair, and anti-inflammatory activity. Combined with transdermal NAD+, it offers complementary cellular support.',
+      'GHK-Cu (copper tripeptide-1) is a naturally occurring peptide that declines with age, studied mainly in laboratory and skin-care research for its role in collagen synthesis and tissue repair. GHK-Cu is not FDA-approved, and its benefits when combined with NAD+ have not been established in clinical trials.',
     category: 'nad',
     pages: ['/nad'],
     active: true,
@@ -377,7 +377,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: 'nad-results-timeline',
     question: 'How long before I notice results from NAD+?',
     answer:
-      'Most patients notice initial changes in energy and mental clarity within 2–4 weeks. Deeper cellular and longevity benefits build over 8–12 weeks of consistent use.',
+      'There is no reliable timeline. Responses to NAD+ vary widely, and some patients notice no change at all. Human research on NAD+ therapy is still limited, and longevity benefits have not been demonstrated in people. Your clinician will check in on how you are doing and help you decide whether to continue.',
     category: 'nad',
     pages: ['/nad'],
     active: true,
@@ -389,7 +389,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: 'ser-vs-hgh',
     question: 'How does Sermorelin differ from synthetic growth hormone?',
     answer:
-      "Synthetic HGH replaces your growth hormone directly, bypassing your body's natural regulation. Sermorelin instead signals the gland in your brain that controls growth hormone production to release more of your own — keeping your body's natural feedback loops intact. This is why many providers prefer it as a more physiologic approach to growth hormone support.",
+      "Synthetic HGH replaces your growth hormone directly, bypassing your body's natural regulation. Sermorelin instead signals the gland in your brain that controls growth hormone production to release more of your own — keeping your body's natural feedback loops intact. Sermorelin is not interchangeable with growth hormone, and its effects in adults are generally milder and less well studied.",
     category: 'sermorelin',
     pages: ['/sermorelin', '/faq'],
     active: true,
@@ -409,7 +409,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: 'ser-fda',
     question: 'Is Sermorelin FDA-approved?',
     answer:
-      'Sermorelin was previously FDA-approved but the manufacturer discontinued it in 2006 for commercial reasons, not safety concerns. It remains available as a compounded medication from licensed 503A pharmacies. All prescriptions are issued at the sole clinical discretion of your licensed Nutree provider.',
+      'No. A sermorelin product was previously FDA-approved, but it is no longer marketed in the U.S. Sermorelin prescribed today is compounded by state-licensed 503A pharmacies; compounded medications are not FDA-approved, and the FDA does not review them for safety, effectiveness, or quality. Use for sleep, recovery, body composition, or healthy aging is off-label. All prescriptions are issued at the sole clinical discretion of your licensed Nutree provider.',
     category: 'sermorelin',
     pages: ['/sermorelin', '/faq'],
     active: true,
@@ -419,7 +419,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: 'ser-duration',
     question: 'How long should I take Sermorelin?',
     answer:
-      'Most providers recommend 3–6 months for full results. The 10-week starter plan is a structured way to experience the initial effects. Your clinician will guide your plan based on your response and goals.',
+      'There is no fixed duration. Your clinician typically reviews your response over several months and decides with you whether to continue, adjust, or stop. The 10-week starter plan is a structured way to begin with a defined end date.',
     category: 'sermorelin',
     pages: ['/sermorelin'],
     active: true,
@@ -429,7 +429,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: 'ser-results',
     question: 'How long before I see results from Sermorelin?',
     answer:
-      'Most patients notice improved sleep within the first 2 weeks. Energy and recovery improvements typically follow in weeks 3–6. Visible body composition changes develop over months 2–3 of consistent use. Individual results vary.',
+      'There is no guaranteed timeline, and some patients notice little change. Some report changes in sleep first; any changes in energy, recovery, or body composition tend to be gradual and depend on training, nutrition, and sleep habits. Your clinician will review your progress and help you decide whether to continue.',
     category: 'sermorelin',
     pages: ['/sermorelin', '/faq'],
     active: true,
@@ -459,9 +459,9 @@ export const FAQ_ITEMS: FAQItem[] = [
   },
   {
     id: 'glut-glp1-synergy',
-    question: 'How does glutathione complement GLP-1 therapy?',
+    question: 'Can I use glutathione with GLP-1 therapy?',
     answer:
-      'Patients with high oxidative stress sometimes experience a blunted response to GLP-1 medications. Glutathione helps restore the cellular environment that allows metabolic treatments to work more effectively.',
+      'Some patients use glutathione alongside other treatments, but there is no clinical evidence that glutathione improves the results of GLP-1 medications. Your clinician will review all of your medications and advise whether glutathione is appropriate for you.',
     category: 'glutathione',
     pages: ['/glutathione'],
     active: true,
@@ -473,7 +473,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: 'oxy-vs-obstetric',
     question: 'Is this the same oxytocin used in obstetrics?',
     answer:
-      'The same molecule, at a very different dose and delivery method. Obstetric use involves intravenous administration at high doses for uterine effects. Nasal spray therapy uses much smaller doses targeting CNS receptors for mood and stress regulation. The applications are entirely different.',
+      'It is the same molecule, at a very different dose and delivery method. FDA-approved obstetric use is by injection to cause or strengthen uterine contractions. Compounded nasal spray uses much smaller doses through the nose, and its use for stress or well-being is off-label with limited evidence. Because oxytocin can cause uterine contractions, it is not used during pregnancy.',
     category: 'oxytocin',
     pages: ['/oxytocin'],
     active: true,
@@ -483,7 +483,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: 'oxy-anxiety',
     question: 'Is this a treatment for anxiety or depression?',
     answer:
-      "Oxytocin therapy at Nutree is a wellness treatment for stress relief and emotional well-being. It is not a psychiatric treatment and is not a substitute for therapy or psychiatric medication. If you are experiencing a clinical condition, your provider will advise accordingly.",
+      "No. Oxytocin at Nutree is prescribed off-label for stress and emotional well-being goals. It is not a treatment for anxiety, depression, or any psychiatric condition, and it is not a substitute for therapy or psychiatric medication. If you are experiencing a mental-health condition, your provider will advise accordingly. If you are in crisis, call or text 988; in an emergency, call 911.",
     category: 'oxytocin',
     pages: ['/oxytocin'],
     active: true,
@@ -495,7 +495,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: 'b12-difference',
     question: 'What is the difference between B6 and B12?',
     answer:
-      'B12 (cobalamin) is involved in red blood cell formation, energy metabolism, and neurological function. B6 (pyridoxine) plays a key role in neurotransmitter synthesis and immune function. They work synergistically — particularly in mood regulation and metabolic health — which is why they are often prescribed together.',
+      'B12 (cobalamin) is involved in red blood cell formation, energy metabolism, and neurological function. B6 (pyridoxine) plays a key role in neurotransmitter synthesis and immune function. Because both are involved in energy metabolism and nerve function, they are often prescribed together.',
     category: 'b12',
     pages: ['/b12'],
     active: true,
@@ -505,7 +505,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: 'b12-results',
     question: 'How quickly will I notice results from B12?',
     answer:
-      'Injectable B12 often produces noticeable energy improvements within days. Oral supplementation typically takes 2–4 weeks. Full restoration of depleted levels generally takes 4–8 weeks of consistent use.',
+      'It depends on whether you are low in B12. In people with a deficiency, injections raise B12 levels quickly and symptoms may improve over the following weeks; oral forms usually work more gradually. People with normal B12 levels may notice little difference. Your clinician may recommend labs to check your levels.',
     category: 'b12',
     pages: ['/b12'],
     active: true,
@@ -527,7 +527,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: 'live-home-results-timing',
     question: 'How soon will I notice results?',
     answer:
-      'Every body responds differently. Some patients notice early progress within a few weeks, while others see a more gradual change over time. At Nutree Clinic, we focus on steady, sustainable results — not quick fixes — adjusting your plan along the way for optimal success.',
+      'Every body responds differently. Some patients notice early progress within a few weeks, while others see a more gradual change over time. At Nutree Clinic, we focus on steady progress — not quick fixes — and adjust your plan along the way. Individual results vary and are not guaranteed.',
     category: 'glp1',
     pages: ['/'],
     active: true,
@@ -537,7 +537,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: 'live-home-good-candidate',
     question: 'Who is a good candidate for medical weight loss treatment?',
     answer:
-      'These medications may be suitable for adults seeking a medically guided approach to weight management or improved metabolic health. During your video consultation, your Nutree Clinic provider will review your health history to determine the safest and most effective plan for you.',
+      'These medications may be suitable for adults seeking a medically guided approach to weight management or improved metabolic health. During your review, your Nutree Clinic provider will look at your health history to determine whether treatment is appropriate and which plan fits you. A video or phone visit may be required depending on your treatment and Florida rules.',
     category: 'glp1',
     pages: ['/'],
     active: true,
@@ -547,7 +547,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: 'live-home-what-are-glp1-gip',
     question: 'What are GLP-1 and GIP/GLP-1 medications, and how do they support weight loss?',
     answer:
-      'GLP-1/GIP medications — AKA semaglutide and tirzepatide — mimic naturally occurring hormones that help regulate blood sugar, reduce appetite, and increase fullness. They work with your body’s own rhythm to support healthy, sustainable weight loss. At Nutree Clinic, your provider personalizes each plan to ensure it’s safe, effective, and aligned with your goals.',
+      'GLP-1/GIP medications — AKA semaglutide and tirzepatide — mimic naturally occurring hormones that help regulate blood sugar, reduce appetite, and increase fullness. Combined with nutrition and activity changes, they may support weight loss. At Nutree Clinic, your provider personalizes each plan, monitors for side effects, and prescribes only if treatment is appropriate.',
     category: 'glp1',
     pages: ['/'],
     active: true,
@@ -557,7 +557,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: 'live-home-approach-different',
     question: 'What makes Nutree Clinic’s approach different?',
     answer:
-      'Unlike many online programs, every Nutree patient meets face-to-face with a licensed provider. Your medication, dosage, and follow-up are fully personalized — combining medical expertise with continuous, compassionate support.',
+      'Your care is led by licensed providers. A provider reviews every intake — a video or phone visit may be required depending on your treatment and Florida rules — and your medication, dosage, and follow-up are personalized, with ongoing support from your care team.',
     category: 'general',
     pages: ['/'],
     active: true,
@@ -587,7 +587,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: 'live-home-side-effects',
     question: 'What side effects can occur with weight loss medications?',
     answer:
-      'Side effects vary from person to person and are often mild as the body adjusts to treatment. Common side effects are usually limited to nausea and other gastrointestinal symptoms. In some cases, side effects can be more severe and should be discussed with a medical provider immediately. Your Nutree Clinic provider tailors your dosing and follows up to ensure a safe, comfortable, and balanced experience throughout your journey.',
+      'Side effects vary from person to person. The most common are nausea, vomiting, diarrhea, constipation, and other stomach symptoms, especially when starting or increasing a dose. Less common but serious risks include pancreatitis, gallbladder problems, low blood sugar, kidney problems, serious allergic reactions, and a boxed warning about thyroid C-cell tumors. Contact your provider right away about severe or concerning symptoms, and call 911 in an emergency. Your Nutree Clinic provider tailors your dosing and follows up throughout treatment.',
     category: 'glp1',
     pages: ['/'],
     active: true,
@@ -597,7 +597,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: 'live-home-is-medication-safe',
     question: 'Is the medication safe?',
     answer:
-      'Yes, when prescribed and monitored appropriately. GLP-1s have been extensively studied and are FDA-approved for weight management. Some patients may experience mild, temporary side effects such as nausea or changes in digestion. Your Nutree clinician will guide dosing carefully and support you through every stage of treatment.',
+      'GLP-1 medications have been studied extensively, and certain brand-name products (Wegovy® and Zepbound®) are FDA-approved for chronic weight management. Compounded semaglutide and tirzepatide are not FDA-approved, and the FDA does not review them for safety, effectiveness, or quality. All GLP-1 medications carry risks — including a boxed warning about thyroid C-cell tumors — so your clinician screens your health history before prescribing and monitors you during treatment. See our Important Safety Information for details.',
     category: 'glp1',
     pages: ['/'],
     active: true,
@@ -629,7 +629,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: 'live-nad-why-important',
     question: 'Why is NAD+ important?',
     answer:
-      'NAD+ plays an important role in cellular energy production, repair, and brain function. NAD+ levels can decline with age, stress, poor sleep, and other lifestyle factors. For some patients, provider-guided NAD+ support may be part of a broader plan to improve energy, focus, and resilience.',
+      'NAD+ plays an important role in cellular energy production, repair, and brain function. NAD+ levels can decline with age, stress, poor sleep, and other lifestyle factors. For some patients, provider-guided NAD+ therapy may be part of a broader plan aimed at energy, focus, and resilience goals, although human evidence is still limited.',
     category: 'nad',
     pages: ['/nad', '/nad+'],
     active: true,
@@ -639,7 +639,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: 'live-nad-help-support',
     question: 'What can NAD+ injections help support?',
     answer:
-      'NAD+ injections are commonly used in wellness protocols to support energy, mental clarity, focus, recovery, and healthy aging. Every patient is different, so your provider will assess whether this approach makes sense for your goals, symptoms, and medical history.',
+      'NAD+ injections are used off-label in wellness protocols for goals such as energy, mental clarity, focus, recovery, and healthy aging; evidence for these uses is limited. Every patient is different, so your provider will assess whether this approach makes sense for your goals, symptoms, and medical history.',
     category: 'nad',
     pages: ['/nad', '/nad+'],
     active: true,
@@ -691,7 +691,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: 'live-ser-help-support',
     question: 'What can Sermorelin help support?',
     answer:
-      'Sermorelin is often used in wellness protocols to support sleep quality, recovery, energy, lean muscle maintenance, body composition, and healthy aging. Every patient is different, so your provider will review your goals, health history, and eligibility before recommending a plan.',
+      'Sermorelin is used off-label in wellness protocols for goals such as sleep quality, recovery, energy, lean muscle maintenance, body composition, and healthy aging; evidence for these uses in adults is limited. Every patient is different, so your provider will review your goals, health history, and eligibility before recommending a plan.',
     category: 'sermorelin',
     pages: ['/sermorelin'],
     active: true,
@@ -855,7 +855,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: 'live-camera-shy',
     question: 'Do I have to go on camera for my consultation?',
     answer:
-      'Not at all. While we love connecting with our patients, we want you to feel comfortable. If you’re camera-shy, we can complete your medical consultation over the phone instead of video.',
+      'Not necessarily. A licensed provider reviews your intake, and a video or phone visit may be required depending on your treatment and Florida rules. If a visit is needed and you would rather not be on camera, ask our team whether a phone visit is an option for you.',
     category: 'clinical',
     pages: ['/nad', '/nad+', '/sermorelin'],
     active: true,
@@ -865,7 +865,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: 'live-medication-quality',
     question: 'How do you ensure medication quality?',
     answer:
-      'We work with carefully selected Licensed 503(A) U.S. pharmacies that follow strict quality and safety standards. Every prescription is ordered by your licensed clinician and prepared according to regulated sterile compounding requirements.',
+      'We work with carefully selected state-licensed 503A U.S. compounding pharmacies. Every prescription is ordered by your licensed clinician and prepared according to applicable sterile compounding requirements. Compounded medications are not FDA-approved, and the FDA does not review them for safety, effectiveness, or quality.',
     category: 'clinical',
     pages: ['/nad', '/nad+', '/sermorelin'],
     active: true,
@@ -875,7 +875,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: 'live-data-safe',
     question: 'Is my data safe?',
     answer:
-      'Yes. Nutree Clinic is 100% HIPAA-compliant, and your medical journey is kept private and secure.',
+      'Yes. Nutree Clinic follows HIPAA requirements and uses secure systems to keep your health information private.',
     category: 'general',
     pages: ['/nad', '/nad+', '/sermorelin'],
     active: true,

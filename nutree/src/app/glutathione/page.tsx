@@ -3,8 +3,8 @@ import { GlutathioneContent } from './GlutathioneContent'
 
 export const metadata: Metadata = {
   alternates: { canonical: '/glutathione' },
-  title: 'Glutathione Injections — Detox, Antioxidant & Cellular Health',
-  description: 'Physician-prescribed compounded glutathione injections. Support detoxification, reduce oxidative stress, and enhance cellular health. Florida telehealth.',
+  title: 'Glutathione Injections — Clinician-Guided Antioxidant Support',
+  description: 'Compounded glutathione injections, prescribed off-label only if appropriate after review by a licensed provider. Not FDA-approved. Florida telehealth.',
 }
 
 export default function GlutathionePage() {

@@ -1,7 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { FAQSection } from '@/components/ui/PageComponents'
-import { BENEFITS_DISCLAIMER, IMG, MICRODOSING_CHECKLIST, type ImageRef } from './landingContent'
+import { BENEFITS_DISCLAIMER, IMG, MICRODOSING_CHECKLIST, NAD, type ImageRef } from './landingContent'
+import { ImportantSafetyInfo, SafetyInfoLink, type IsiDrug } from '@/components/compliance'
 
 // Building blocks for the ad / partner landing pages (/landing-*, /promotion, /mbjcc-jperks).
 
@@ -42,7 +43,7 @@ export function Checklist({ items }: { items: string[] }) {
 }
 
 /** Product hero: eyebrow, title, price block, CTA, intro, checklist, fine print, image. */
-export function OfferHero({ eyebrow, title, tagline = 'Real clinicians, real conversations via video or phone', price, cta, intro, fineprint, image, background = 'linear-gradient(160deg, var(--glp) 0%, var(--base) 60%)' }: {
+export function OfferHero({ eyebrow, title, tagline = 'Licensed Florida clinicians review every intake — video or phone visit when required', price, cta, intro, fineprint, image, background = 'linear-gradient(160deg, var(--glp) 0%, var(--base) 60%)' }: {
   eyebrow: string; title: React.ReactNode; tagline?: string; price?: React.ReactNode; cta: { href: string; label: string }
   intro: string; fineprint: React.ReactNode; image: ImageRef; background?: string
 }) {
@@ -55,6 +56,7 @@ export function OfferHero({ eyebrow, title, tagline = 'Real clinicians, real con
           <p style={{ fontSize: '1.0625rem', color: 'var(--ink-2)', marginBottom: '1.25rem' }}>{tagline}</p>
           {price && <div style={{ marginBottom: '1.25rem' }}>{price}</div>}
           <div style={{ marginBottom: '1.25rem' }}><CTA href={cta.href}>{cta.label}</CTA></div>
+          <div style={{ margin: '-0.75rem 0 1rem' }}><SafetyInfoLink align="left" /></div>
           <p style={{ fontSize: '0.9375rem', color: 'var(--ink-2)', lineHeight: 1.65, marginBottom: '0.75rem' }}>{intro}</p>
           <Checklist items={MICRODOSING_CHECKLIST} />
           <div style={{ fontSize: '0.8125rem', color: 'var(--ink-3)', lineHeight: 1.6 }}>{fineprint}</div>
@@ -142,13 +144,22 @@ export function StepsSection({ steps, cta, image = IMG.glpIntake }: { steps: { t
   )
 }
 
-export function LandingFAQ({ items }: { items: { q: string; a: string }[] }) {
+/**
+ * FAQ + Important Safety Information. Every ad/partner landing page ends with
+ * this block, so the ISI is attached here (Google/Meta ads policy + LegitScript).
+ * `isi` defaults to NAD+ for the NAD FAQ set and GLP-1 for everything else.
+ */
+export function LandingFAQ({ items, isi }: { items: { q: string; a: string }[]; isi?: IsiDrug[] }) {
+  const drugs: IsiDrug[] = isi ?? [items === NAD.faq ? 'nad' : 'glp1']
   return (
-    <section style={{ background: 'var(--white)' }}>
-      <div style={wrap}>
-        <FAQSection items={items} iconBg="var(--glp)" iconColor="var(--glp-dark)" />
-      </div>
-    </section>
+    <>
+      <section style={{ background: 'var(--white)' }}>
+        <div style={wrap}>
+          <FAQSection items={items} iconBg="var(--glp)" iconColor="var(--glp-dark)" />
+        </div>
+      </section>
+      <ImportantSafetyInfo drugs={drugs} />
+    </>
   )
 }
 
@@ -164,7 +175,7 @@ export function MicrodosingPlans({ discoverHref = '/discover' }: { discoverHref?
       <div style={wrap}>
         <div style={eyebrowStyle}>Clinician-guided metabolic support</div>
         <h2 style={{ ...h2Style, fontSize: 'clamp(1.875rem, 5vw, 2.75rem)', marginBottom: '0.25rem' }}>GLP-1 Microdosing</h2>
-        <p style={{ fontSize: '1.0625rem', color: 'var(--ink-2)', marginBottom: '1.5rem' }}>Real clinicians, real conversations via video or phone</p>
+        <p style={{ fontSize: '1.0625rem', color: 'var(--ink-2)', marginBottom: '1.5rem' }}>Licensed Florida clinicians review every intake — video or phone visit when required</p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1rem', marginBottom: '2rem' }}>
           {plans.map(p => (
             <div key={p.name} style={{ background: 'var(--white)', border: '1px solid var(--border)', borderRadius: 'var(--radius-lg)', padding: '1.25rem', display: 'flex', flexDirection: 'column' }}>
@@ -198,7 +209,7 @@ export function MicrodosingIntro() {
         </p>
         <Checklist items={MICRODOSING_CHECKLIST} />
         <p style={{ fontSize: '0.8125rem', color: 'var(--ink-3)', lineHeight: 1.6 }}>
-          Includes a personalized video consultation, medication, and home delivery. 10-week plan, paid upfront.
+          Includes licensed provider review (a video or phone visit may be required depending on your treatment and Florida rules), medication if prescribed, and home delivery. 10-week plan, paid upfront.
           No membership. No hidden fees. No commitment. Subject to clinical approval. If not approved, your payment will be refunded.
           View full disclaimer in footer.*
         </p>

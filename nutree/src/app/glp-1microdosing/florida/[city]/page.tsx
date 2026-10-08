@@ -12,6 +12,7 @@ import {
 } from '@/components/microdosing/MicrodosingSections'
 import { FaqList } from '@/components/microdosing/FaqList'
 import { JsonLd, faqPageSchema, medicalBusinessSchema, breadcrumbSchema, FLORIDA_STATE } from '@/components/microdosing/schema'
+import { ImportantSafetyInfo } from '@/components/compliance'
 
 export const dynamicParams = false
 
@@ -94,7 +95,7 @@ export default async function CityMicrodosingPage({ params }: Props) {
       <MicrodosingHero
         eyebrow={`Clinician-guided metabolic support · ${place}`}
         h1={`GLP-1 Microdosing in ${place}`}
-        subtitle={`Clinician-guided GLP-1 microdosing for ${city.h1Name} and Florida residents — 100% online telehealth, real conversations via video or phone.`}
+        subtitle={`Clinician-guided GLP-1 microdosing for ${city.h1Name} and Florida residents — 100% online telehealth. A licensed provider reviews your intake; a video or phone visit may be required depending on your treatment and Florida rules.`}
       />
 
       <CTAArea />
@@ -111,7 +112,7 @@ export default async function CityMicrodosingPage({ params }: Props) {
 
       <MicrodosingComparison />
 
-      <MicrodosingBenefits heading={`Join thousands in ${city.h1Name} using GLP-1 to support metabolism & balance`} />
+      <MicrodosingBenefits heading={`Why some ${city.h1Name} patients choose a lower-dose GLP-1 approach`} />
 
       <HowMicrodosingWorks />
 
@@ -184,6 +185,8 @@ export default async function CityMicrodosingPage({ params }: Props) {
       </Section>
 
       <FaqList items={faqs} />
+
+      <ImportantSafetyInfo drugs={['glp1']} />
 
       <PageLegal text={MICRODOSING_LEGAL} />
 

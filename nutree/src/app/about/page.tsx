@@ -1,6 +1,30 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { ConsultBand } from '@/components/ui/PageComponents'
+import { JsonLd } from '@/components/treatment/SeoBlocks'
+
+// Bio facts are limited to what public sources confirm: NPPES NPI registry
+// (NPI 1144426248, credential D.O., MPH), Doximity / WebMD / doctor.com
+// directory listings (DO, Touro University California COM, 2007; preventive
+// medicine residency, Stony Brook; board certification in Public Health &
+// General Preventive Medicine) and PubMed (PMID 21453034). Do not add claims
+// that are not verifiable.
+const MEDICAL_DIRECTOR_JSON_LD = {
+  '@context': 'https://schema.org',
+  '@type': 'Physician',
+  name: 'Teri Bilhartz, DO, MPH',
+  honorificPrefix: 'Dr.',
+  honorificSuffix: 'DO, MPH',
+  jobTitle: 'Medical Director',
+  medicalSpecialty: 'PublicHealth',
+  image: 'https://www.nutreeclinic.com/images/dr-teri-bilhartz.jpg',
+  alumniOf: [
+    { '@type': 'CollegeOrUniversity', name: 'Touro University California College of Osteopathic Medicine' },
+    { '@type': 'CollegeOrUniversity', name: 'Columbia University' },
+  ],
+  memberOf: { '@type': 'MedicalOrganization', name: 'Nutree Clinic', url: 'https://www.nutreeclinic.com/' },
+  sameAs: ['https://www.linkedin.com/in/teri-bilhartz-do-mph-a5250611/'],
+}
 
 const TITLE = 'About Nutree Clinic | Our Mission & Medical Team'
 const DESCRIPTION = 'Meet the licensed medical professionals behind Nutree Clinic. Florida-based care focused on safe, personalized medical weight loss and healthy aging.'
@@ -15,6 +39,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
+      <JsonLd data={MEDICAL_DIRECTOR_JSON_LD} />
       {/* FOUNDER STORY */}
       <section style={{ padding: '3rem 1.5rem 2rem', background: 'var(--base)' }}>
         <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--teal)', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: '1rem' }}>Our story</div>
@@ -28,7 +53,7 @@ export default function AboutPage() {
           Nutree was built to close that gap — combining the clinical rigor of a licensed medical practice with the accessibility of telehealth, delivered by providers who take the time to understand each patient individually.
         </p>
         <p style={{ fontSize: '1.0625rem', color: 'var(--ink-2)', lineHeight: 1.75, maxWidth: 600 }}>
-          We are based in Florida and serve patients across the state. Every plan starts with a real clinical conversation — not an intake form.
+          We are based in Florida and serve patients located in Florida. Every plan starts with review by a licensed provider; a video or phone visit may be required depending on your treatment and Florida rules.
         </p>
       </section>
 
@@ -62,16 +87,27 @@ export default function AboutPage() {
           <div style={{ width: 88, height: 88, borderRadius: 14, overflow: 'hidden', flexShrink: 0 }}>
             <Image
               src="/images/dr-teri-bilhartz.jpg"
-              alt="Dr. Teri Bilhartz, MPH — Medical Director, Nutree Clinic"
+              alt="Dr. Teri Bilhartz, DO, MPH — Medical Director, Nutree Clinic"
               width={88} height={88}
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />
           </div>
           <div>
-            <div style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--ink)', fontFamily: 'var(--font-serif)', marginBottom: 6 }}>Dr. Teri Bilhartz, MPH</div>
+            <div style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--ink)', fontFamily: 'var(--font-serif)', marginBottom: 6 }}>Dr. Teri Bilhartz, DO, MPH</div>
             <div style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--teal)', marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Medical Director</div>
             <p style={{ fontSize: '1rem', color: 'var(--ink-3)', lineHeight: 1.7, maxWidth: 520 }}>
-              Dr. Bilhartz is a board-certified physician in Preventive Medicine and Public Health, with a Master of Public Health from Columbia University. With over 17 years of clinical experience, she has cared for patients across primary care, psychiatric care, and women&apos;s health, bringing a deeply holistic perspective to modern medicine. Her approach reflects a strong commitment to prevention, long-term well-being, and care that adapts to each patient&apos;s life — not the other way around.
+              Dr. Bilhartz is a Doctor of Osteopathic Medicine (DO) and is board-certified in Public Health and General Preventive
+              Medicine. She earned her DO from Touro University California College of Osteopathic Medicine in 2007 and her Master
+              of Public Health from Columbia University, and completed residency training in preventive medicine at Stony Brook.
+              Since 2007 she has cared for patients in primary care, women&apos;s health, and preventive and lifestyle medicine, and
+              she co-authored a 2011 <em>Journal of Women&apos;s Health</em> paper on pregnancy as an early indicator of
+              cardiovascular risk.
+            </p>
+            <p style={{ fontSize: '1rem', color: 'var(--ink-3)', lineHeight: 1.7, maxWidth: 520, marginTop: '0.75rem' }}>
+              As Medical Director, Dr. Bilhartz provides physician oversight of Nutree Clinic&apos;s clinical protocols — GLP-1
+              weight loss (including microdosing), NAD+, sermorelin, oxytocin, B12, and glutathione — including the eligibility
+              and screening criteria, safety monitoring, and prescribing standards our clinicians follow when deciding whether a
+              treatment is appropriate for each patient.
             </p>
             <a href="https://www.linkedin.com/in/teri-bilhartz-do-mph-a5250611/" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', marginTop: 8, fontSize: '0.875rem', fontWeight: 600, color: 'var(--teal-dark)' }}>
               Dr. Bilhartz on LinkedIn →
@@ -89,7 +125,7 @@ export default function AboutPage() {
             { title: 'Clinical honesty above all', body: 'Your clinician\'s role is to determine what is medically appropriate for you — not to recommend a specific plan. If a treatment is not right for you, we will tell you.' },
             { title: 'Access is a clinical issue', body: 'Evidence-based metabolic treatments should not be limited to patients who can afford concierge medicine. Nutree exists to close that gap.' },
             { title: 'The relationship matters', body: 'Telehealth at its best is not faster medicine — it is more accessible medicine. Our providers take the time that traditional practice often cannot.' },
-            { title: 'Transparency in everything', body: 'No hidden fees, no dose-dependent price increases, no pressure to commit. The price you see is the price you pay.' },
+            { title: 'Transparency in everything', body: 'No hidden fees and no pressure to commit. Your plan price is shown before you start, and we tell you before any change.' },
           ].map((v, i) => (
             <div key={i} style={{ background: 'var(--white)', borderRadius: 12, padding: '1.25rem', border: '0.5px solid var(--border)' }}>
               <div style={{ fontSize: '1.0625rem', fontWeight: 700, color: 'var(--ink)', marginBottom: 6 }}>{v.title}</div>

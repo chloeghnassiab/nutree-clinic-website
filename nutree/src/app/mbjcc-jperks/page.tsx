@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { CTA, Img, HowSection, BenefitsSection, StepsSection, LandingFAQ, MicrodosingPlans } from '@/components/utility/LandingSections'
 import { IMG, MICRODOSING } from '@/components/utility/landingContent'
+import { TestimonialDisclaimer } from '@/components/compliance'
 
 export const metadata: Metadata = {
   title: { absolute: 'Miami Beach JCC x Nutree Clinic' },
@@ -100,6 +101,7 @@ export default function MbjccJperksPage() {
             <p style={{ fontSize: '0.8125rem', color: 'var(--ink-3)', lineHeight: 1.6 }}>
               Courtney is a real Nutree Clinic patient who received complimentary treatment in exchange for sharing her honest experience.
             </p>
+            <TestimonialDisclaimer style={{ textAlign: 'left', fontSize: '0.8125rem' }} />
           </figure>
         </div>
       </section>

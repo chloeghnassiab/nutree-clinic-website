@@ -8,6 +8,7 @@ import {
 } from '@/components/microdosing/MicrodosingSections'
 import { FaqList } from '@/components/microdosing/FaqList'
 import { JsonLd, faqPageSchema, medicalBusinessSchema, breadcrumbSchema, FLORIDA_STATE } from '@/components/microdosing/schema'
+import { ImportantSafetyInfo } from '@/components/compliance'
 
 const PAGE = FLORIDA_HUB_PATH
 const TITLE = 'GLP-1 Microdosing Florida | Semaglutide & Tirzepatide'
@@ -50,7 +51,7 @@ export default function FloridaMicrodosingPage() {
       <MicrodosingHero
         eyebrow="Clinician-guided metabolic support · Florida"
         h1="GLP-1 Microdosing in Florida"
-        subtitle="Clinician-guided GLP-1 microdosing for Florida residents — real conversations via video or phone."
+        subtitle="Clinician-guided GLP-1 microdosing for Florida residents. A licensed provider reviews your intake; a video or phone visit may be required depending on your treatment and Florida rules."
       />
 
       <CTAArea />
@@ -67,7 +68,7 @@ export default function FloridaMicrodosingPage() {
 
       <MicrodosingComparison />
 
-      <MicrodosingBenefits heading="Join thousands of Floridians using GLP-1 to support metabolism & balance" />
+      <MicrodosingBenefits heading="Why some Floridians choose a lower-dose GLP-1 approach" />
 
       <HowMicrodosingWorks />
 
@@ -78,6 +79,8 @@ export default function FloridaMicrodosingPage() {
       <CityDirectory />
 
       <FaqList items={faqs} />
+
+      <ImportantSafetyInfo drugs={['glp1']} />
 
       <PageLegal text={MICRODOSING_LEGAL} />
 

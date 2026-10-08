@@ -16,26 +16,26 @@ export const STACKS: Stack[] = [
   {
     id: 'weight-loss',
     name: 'Weight Loss Stack',
-    tagline: 'Metabolic reset from the inside out',
+    tagline: 'Clinician-guided metabolic support',
     color: 'var(--glp)',
     darkColor: 'var(--glp-dark)',
     products: ['GLP-1 Treatments', 'B6 / B12', 'Glutathione'],
     hrefs: ['/weight-loss', '/b12', '/glutathione'],
     price: '$TBD/mo',
     description:
-      'GLP-1 therapy combined with B12 energy support and glutathione cellular detox — for patients who want to address metabolic health at every level.',
+      'GLP-1 therapy combined with B-vitamin support and glutathione, if your clinician determines each is appropriate. Compounded medications are not FDA-approved.',
   },
   {
     id: 'longevity',
     name: 'Longevity Stack',
-    tagline: 'Cellular renewal from every angle',
+    tagline: 'Clinician-guided healthy-aging goals',
     color: 'var(--nad)',
     darkColor: 'var(--nad-dark)',
     products: ['NAD+ Therapy', 'Sermorelin', 'Glutathione'],
     hrefs: ['/nad', '/sermorelin', '/glutathione'],
     price: '$TBD/mo',
     description:
-      'NAD+ restores cellular energy, Sermorelin supports growth hormone and lean tissue, and Glutathione eliminates oxidative stress.',
+      'NAD+, sermorelin, and glutathione, prescribed off-label for patients with energy, recovery, and healthy-aging goals. Evidence for these uses is limited, and each is prescribed only if appropriate.',
   },
   {
     id: 'performance',
@@ -47,6 +47,6 @@ export const STACKS: Stack[] = [
     hrefs: ['/sermorelin', '/nad', '/b12'],
     price: '$TBD/mo',
     description:
-      'Sermorelin supports growth hormone and recovery, NAD+ fuels ATP production and stamina, and B12 sustains daily energy.',
+      'Sermorelin, NAD+, and B6/B12 for patients with strength, recovery, and energy goals. Responses vary, evidence is limited for some uses, and each is prescribed only if appropriate.',
   },
 ]

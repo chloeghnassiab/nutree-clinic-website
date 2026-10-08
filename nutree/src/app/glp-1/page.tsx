@@ -9,11 +9,12 @@ import {
 import { FaqList } from '@/components/microdosing/FaqList'
 import { BmiCalculator } from '@/components/microdosing/BmiCalculator'
 import { JsonLd, faqPageSchema, SITE_URL } from '@/components/microdosing/schema'
+import { ImportantSafetyInfo, SafetyInfoLink, CompoundedDisclosure, ISI_ANCHOR } from '@/components/compliance'
 
 const PAGE = '/glp-1'
 const TITLE = 'GLP-1 Weight Loss Explained | Semaglutide & Tirzepatide'
 const DESCRIPTION =
-  'How compounded semaglutide & tirzepatide—same active ingredients as Ozempic® & Mounjaro®—support medical weight loss, guided by licensed clinicians.'
+  'How semaglutide & tirzepatide support medical weight loss, what compounded (not FDA-approved) options mean, and key safety information.'
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
@@ -75,16 +76,17 @@ export default function Glp1ExplainerPage() {
             Semaglutide and Tirzepatide for Weight-Loss
           </h1>
           <p style={{ fontSize: '1.0625rem', fontWeight: 600, color: 'var(--ink)', marginBottom: '0.625rem' }}>
-            Reset your metabolism and achieve lasting results
+            Clinician-guided support for appetite and weight management
           </p>
           <p style={{ ...p, fontSize: '0.9375rem' }}>
-            GLP-1 and GIP/GLP-1 medications work by mimicking a natural hormone that helps regulate appetite, fullness, and blood sugar. By supporting how your body manages hunger and metabolism, these treatments can make it easier to lose weight safely and sustainably — with a licensed clinician guiding every step.
+            GLP-1 and GIP/GLP-1 medications work by mimicking a natural hormone that helps regulate appetite, fullness, and blood sugar. By supporting how your body manages hunger and metabolism, these medications may make it easier to lose weight when combined with nutrition and activity changes — prescribed only if a licensed clinician determines they are appropriate for you.
           </p>
           <div style={{ display: 'flex', gap: '0.625rem', flexWrap: 'wrap', marginTop: '0.25rem' }}>
             <Link href="/consult" style={{ ...pill, background: 'var(--ink)', color: '#fff' }}>Check eligibility <ArrowRight size={16} weight="bold" /></Link>
             <Link href="/weight-loss" style={{ ...pill, background: 'var(--white)', color: 'var(--ink)', border: '1px solid var(--border)' }}>See weight-loss plans</Link>
           </div>
           <div style={{ fontSize: '0.875rem', color: 'var(--ink-3)', marginTop: '0.75rem' }}>FSA/HSA eligible · Florida residents · 100% online</div>
+          <div style={{ marginTop: '0.375rem' }}><SafetyInfoLink align="left" /></div>
         </div>
       </div>
 
@@ -98,7 +100,7 @@ export default function Glp1ExplainerPage() {
           GLP-1 (glucagon-like peptide-1) is a hormone your gut naturally releases after you eat. It tells your brain you are full, slows how quickly food leaves your stomach, and helps your pancreas release insulin when blood sugar rises. The natural hormone only lasts a few minutes in the body.
         </p>
         <p style={p}>
-          GLP-1 medications — also called GLP-1 receptor agonists — are designed to act like this hormone for much longer, which is why they are taken as a once-weekly injection. Over time, steadier appetite signals and fewer cravings (often described as less &ldquo;food noise&rdquo;) can make it easier to eat less and lose weight. Semaglutide and tirzepatide are the two most widely used GLP-1 medications for weight management.
+          GLP-1 medications — also called GLP-1 receptor agonists — are designed to act like this hormone for much longer, which is why they are taken as a once-weekly injection. Over time, steadier appetite signals and fewer cravings (often described as less &ldquo;food noise&rdquo;) may make it easier to eat less and lose weight. Semaglutide and tirzepatide are the two most widely used GLP-1 medications for weight management.
         </p>
       </Section>
 
@@ -181,7 +183,7 @@ export default function Glp1ExplainerPage() {
             {[
               { Icon: Stethoscope, t: 'Clinician-led care', d: 'Your treatment is prescribed and supervised by licensed medical providers who focus on weight and metabolic health.' },
               { Icon: Flag, t: 'Compounded in the U.S.', d: 'Prescriptions are prepared by state-licensed 503A compounding pharmacies in the United States and shipped directly to you, safely and discreetly.' },
-              { Icon: ChartLineDown, t: 'Expected benefits', d: 'Many patients report better appetite control, steadier energy, improved blood sugar balance, and gradual, sustainable weight loss. Your progress is reviewed regularly and your plan adjusted as needed. Results vary.' },
+              { Icon: ChartLineDown, t: 'Possible benefits', d: 'Some patients report better appetite control, steadier energy, improved blood sugar balance, and gradual, sustainable weight loss. Your progress is reviewed regularly and your plan adjusted as needed. Results vary.' },
             ].map(({ Icon, t, d }) => (
               <div key={t} style={{ display: 'flex', gap: '0.875rem', marginBottom: '1rem' }}>
                 <div style={{ width: 40, height: 40, borderRadius: 10, background: 'linear-gradient(135deg, var(--glp-mid), var(--glp))', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
@@ -210,10 +212,11 @@ export default function Glp1ExplainerPage() {
       <Section bg="var(--base)">
         <SectionHeader eyebrow="Know what you're taking" title="Compounded vs. brand-name GLP-1s" />
         <p style={p}>
-          Compounded semaglutide and compounded tirzepatide contain the same active ingredients as Ozempic®/Wegovy® and Mounjaro®/Zepbound®. They are prepared by a state-licensed 503A compounding pharmacy for an individual patient, based on a prescription from a licensed clinician — which allows dosing to be tailored, including lower microdosing protocols.
+          Compounded semaglutide and compounded tirzepatide use the same active ingredients as Ozempic®/Wegovy® and Mounjaro®/Zepbound®, but they are different products. They are prepared by a state-licensed 503A compounding pharmacy for an individual patient, based on a prescription from a licensed clinician — which allows dosing to be tailored, including lower microdosing protocols.
         </p>
+        <CompoundedDisclosure variant="glp1" style={{ ...p, color: 'var(--ink-2)' }} />
         <p style={p}>
-          Compounded medications are not FDA-approved and have not been evaluated by the FDA for safety, efficacy, or quality. The clinical-trial results quoted on this page come from the brand-name products. Your clinician can discuss both compounded and brand-name options with you.
+          Your clinician can discuss both compounded and brand-name options with you.
         </p>
       </Section>
 
@@ -234,13 +237,13 @@ export default function Glp1ExplainerPage() {
           <div style={{ ...card, borderColor: 'var(--con)' }}>
             <h3 style={{ ...h3, display: 'flex', alignItems: 'center', gap: 8 }}><Warning size={20} color="var(--con-dark)" /> Less common but serious</h3>
             <p style={{ fontSize: '0.9375rem', color: 'var(--ink-2)', lineHeight: 1.65, margin: 0 }}>
-              Pancreatitis, gallbladder problems, low blood sugar (especially with insulin or sulfonylureas), dehydration-related kidney problems, and allergic reactions. Brand-name labeling carries a boxed warning about thyroid C-cell tumors seen in rodents. Contact your clinician — or emergency services — if you have severe abdominal pain or other serious symptoms.
+              Pancreatitis, gallbladder problems, low blood sugar (especially with insulin or sulfonylureas), dehydration-related kidney problems, and allergic reactions. Semaglutide and tirzepatide labeling carries a boxed warning about thyroid C-cell tumors seen in rodents. Get medical help right away for severe abdominal pain or other serious symptoms, and call 911 in an emergency. <a href={`#${ISI_ANCHOR}`} style={{ color: 'var(--con-dark)', fontWeight: 700 }}>Read the Important Safety Information</a>.
             </p>
           </div>
           <div style={card}>
             <h3 style={h3}>A lower-dose option</h3>
             <p style={{ fontSize: '0.9375rem', color: 'var(--ink-2)', lineHeight: 1.65, margin: 0 }}>
-              Some patients prefer a gentler start. <Link href="/glp-1microdosing" style={{ color: 'var(--glp-dark)', fontWeight: 700 }}>GLP-1 microdosing</Link> uses a low weekly dose, which may mean fewer side effects for some patients — though side effects can still occur and your clinician will monitor how you respond.
+              Some patients prefer a gentler start. <Link href="/glp-1microdosing" style={{ color: 'var(--glp-dark)', fontWeight: 700 }}>GLP-1 microdosing</Link> uses a lower weekly dose. Some patients find it easier to tolerate, but side effects and the same safety warnings still apply, and your clinician will monitor how you respond.
             </p>
           </div>
         </div>
@@ -310,7 +313,9 @@ export default function Glp1ExplainerPage() {
 
       <FaqList items={faqs} />
 
-      <PageLegal text="The content on this page is for informational purposes only and does not create a doctor–patient relationship. Clinical services are provided by Nutree Clinic’s network of U.S.-licensed clinicians, who determine eligibility for GLP-1 and other treatments based on your medical history and clinical evaluation, and retain full discretion to prescribe or decline compounded or branded medications. Compounded medications are prepared by state-licensed 503A compounding pharmacies, are not FDA-approved, and have not been evaluated by the FDA for safety, efficacy, or quality. Zepbound® and Wegovy® are FDA-approved for chronic weight management; Ozempic® and Mounjaro® are FDA-approved for type 2 diabetes and may be prescribed off-label for weight management when clinically appropriate. All trademarks are the property of their respective owners. Results vary. Nutree Clinic LLC · Florida · LegitScript certified." />
+      <ImportantSafetyInfo drugs={['glp1']} />
+
+      <PageLegal text="The content on this page is for informational purposes only and does not create a doctor–patient relationship. Clinical services are provided by Nutree Clinic’s network of U.S.-licensed clinicians, who determine eligibility for GLP-1 and other treatments based on your medical history and clinical evaluation, and retain full discretion to prescribe or decline compounded or branded medications. Compounded medications are prepared by state-licensed 503A compounding pharmacies, are not FDA-approved, and have not been evaluated by the FDA for safety, efficacy, or quality. Zepbound® and Wegovy® are FDA-approved for chronic weight management; Ozempic® and Mounjaro® are FDA-approved for type 2 diabetes and may be prescribed off-label for weight management when clinically appropriate. Ozempic® and Wegovy® are registered trademarks of Novo Nordisk A/S; Mounjaro® and Zepbound® are registered trademarks of Eli Lilly and Company. Nutree Clinic is not affiliated with or endorsed by either company, and compounded medications are not generic versions of these products. Results vary. Nutree Clinic LLC · Florida · LegitScript certified." />
 
       <ConsultBand />
     </>

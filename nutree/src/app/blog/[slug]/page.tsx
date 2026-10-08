@@ -149,7 +149,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
             {/* Legal */}
             <div style={{ marginTop: '2.5rem', paddingTop: '1.25rem', borderTop: '0.5px solid var(--border)', fontSize: '0.75rem', color: 'var(--ink-3)', lineHeight: 1.65 }}>
-              This article is for informational purposes only and does not constitute medical advice. Always consult with a licensed healthcare provider before starting any treatment.
+              <strong>Medical disclaimer:</strong> This article is for general educational purposes only and is not medical advice,
+              diagnosis, or treatment, and reading it does not create a provider–patient relationship. Research findings discussed
+              here may come from studies of FDA-approved brand-name medications, small trials, or laboratory research and may not
+              apply to you or to compounded medications. Compounded medications are not FDA-approved, and the FDA does not review
+              them for safety, effectiveness, or quality. Some treatments mentioned are prescribed off-label. Prescription treatment
+              is available only if a licensed provider determines it is appropriate, and individual results vary. Always talk with a
+              licensed healthcare provider before starting, stopping, or changing any treatment. In an emergency, call 911.
             </div>
           </article>
 

@@ -4,9 +4,10 @@ import { FAQ_ITEMS } from '@/lib/faq.config'
 import {
   PromoList, PlanRow, ProductBlockHeader, CTAArea,
   BenefitsList, TrustStrip, FeatureBand,
-  ScienceGrid, Testimonials, AlsoFromNutree, FAQSection,
+  ScienceGrid, AlsoFromNutree, FAQSection,
   PageLegal, ConsultBand, InStockBadge,
 } from '@/components/ui/PageComponents'
+import { ImportantSafetyInfo } from '@/components/compliance'
 
 const P = PRICES
 
@@ -36,7 +37,7 @@ export function GlutathioneContent() {
             Glutathione
           </h1>
           <p style={{ fontSize: '0.875rem', color: 'var(--ink-3)', marginBottom: '0.625rem' }}>
-            Your body&apos;s master antioxidant — restored and replenished
+            Your body&apos;s own antioxidant — compounded injections, prescribed off-label if appropriate
           </p>
           <PromoList />
 
@@ -70,9 +71,9 @@ export function GlutathioneContent() {
       <CTAArea />
 
       <BenefitsList color="var(--nad)" items={[
-        'Injectable delivery — direct cellular absorption, far more effective than oral supplements',
-        'Supports liver detoxification and toxin elimination',
-        'May improve response to GLP-1 therapy in patients with high toxic load',
+        'Injectable delivery — avoids breakdown in the digestive system',
+        'Glutathione is one of the antioxidants your body makes naturally',
+        'Off-label use; human evidence for wellness benefits is limited',
         'Provider consultation and dose adjustments included',
         'Free expedited shipping on every order',
         '503A licensed pharmacy on every prescription',
@@ -83,12 +84,12 @@ export function GlutathioneContent() {
       <FeatureBand
         gradient="linear-gradient(145deg, var(--nad-mid) 0%, var(--nad) 55%, #D8F4EC 100%)"
         eyebrow="Why glutathione matters"
-        title="The master antioxidant your body already makes — and gradually loses."
-        body="Glutathione is produced naturally in every cell, but levels decline with age, stress, poor diet, and toxic exposure. When depleted, oxidative stress accumulates — affecting energy, immunity, skin, and your body's ability to detox. Injectable glutathione bypasses the digestive system entirely, delivering the antioxidant directly where it is needed."
+        title="An antioxidant your body already makes."
+        body="Glutathione is produced naturally in cells and helps manage oxidative stress. Levels may be lower with age and some health conditions. Oral glutathione is largely broken down during digestion, so some clinicians prescribe it by injection. Whether glutathione injections improve energy, immunity, or skin in healthy people has not been established."
         cards={[
-          { icon: 'Drop', title: 'Injectable delivery', desc: 'Bypasses digestion for direct cellular absorption — far more effective than oral supplements' },
-          { icon: 'ShieldCheck', title: 'Detox support', desc: 'Supports liver function, helps eliminate toxins, heavy metals, and metabolic waste' },
-          { icon: 'Lightning', title: 'Cellular energy', desc: 'Essential to mitochondrial function — supporting the ATP production that drives energy and recovery' },
+          { icon: 'Drop', title: 'Injectable delivery', desc: 'Avoids the digestive breakdown that limits oral glutathione' },
+          { icon: 'ShieldCheck', title: 'Liver chemistry', desc: 'The liver uses glutathione in its normal processing of many substances' },
+          { icon: 'Lightning', title: 'Cellular protection', desc: 'Helps protect cells, including mitochondria, from oxidative stress' },
         ]}
       />
 
@@ -97,17 +98,10 @@ export function GlutathioneContent() {
         title="What glutathione does in the body."
         iconGradient="linear-gradient(135deg, var(--nad-mid), var(--nad))"
         items={[
-          { icon: 'Leaf', title: 'Master antioxidant', desc: 'Neutralizes free radicals and reactive oxygen species — reducing oxidative damage to DNA, proteins, and cell membranes.' },
-          { icon: 'Drop', title: 'Liver detoxification', desc: 'The liver uses glutathione to bind and eliminate toxins, heavy metals, and metabolic waste. Depleted glutathione directly impairs detox capacity.' },
-          { icon: 'Heart', title: 'Immune modulation', desc: 'Regulates immune cell activity and helps control inflammation — supporting both immune strength and balance.' },
-          { icon: 'Brain', title: 'GLP-1 synergy', desc: 'Patients with high oxidative stress sometimes experience a blunted response to GLP-1 medications. Glutathione helps restore the cellular environment that makes metabolic treatments more effective.' },
-        ]}
-      />
-
-      <Testimonials
-        tagColor="var(--nad)" tagDarkColor="var(--nad-dark)"
-        items={[
-          { quote: 'Within two weeks I noticed my energy was steadier and the inflammation I\'d been managing for years started to ease. The team was available whenever I had questions.', author: 'Diana R., 44 · Nutree Clinic patient', tag: 'Glutathione Injectable' },
+          { icon: 'Leaf', title: 'Antioxidant role', desc: 'Inside cells, glutathione helps neutralize reactive oxygen species that can damage DNA, proteins, and cell membranes.' },
+          { icon: 'Drop', title: 'Liver function', desc: 'The liver uses glutathione to process certain drugs and chemicals. Glutathione injections are not a treatment for poisoning or heavy-metal exposure.' },
+          { icon: 'Heart', title: 'Immune cells', desc: 'Glutathione is involved in normal immune-cell function. Clinical benefit from supplementing in healthy people is not established.' },
+          { icon: 'Brain', title: 'Alongside other treatments', desc: 'Some patients use glutathione alongside other wellness treatments. There is no clinical evidence that it improves the results of GLP-1 medications.' },
         ]}
       />
 
@@ -129,7 +123,9 @@ export function GlutathioneContent() {
         />
       )}
 
-      <PageLegal text="Compounded glutathione is not FDA-approved and has not been reviewed by the FDA for safety, efficacy, or quality. Not recommended during pregnancy or breastfeeding. Prescriptions issued at provider discretion only. Individual results vary. Nutree Clinic LLC · Florida · LegitScript certified." />
+      <ImportantSafetyInfo drugs={['glutathione']} />
+
+      <PageLegal text="Compounded glutathione is prepared by state-licensed 503A compounding pharmacies. It is not FDA-approved, the FDA does not review compounded drugs for safety, effectiveness, or quality, and it is prescribed off-label. Human evidence for antioxidant, detox, or wellness benefits is limited. Not recommended during pregnancy or breastfeeding. Prescriptions are issued only if a licensed provider determines treatment is appropriate. Individual results vary. Care is available to patients located in Florida. Nutree Clinic LLC · Florida · LegitScript certified." />
 
       <ConsultBand />
     </>
