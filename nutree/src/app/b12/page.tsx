@@ -9,6 +9,7 @@ import {
 } from '@/components/ui/PageComponents'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/b12' },
   title: 'B6 / B12 Injections — Energy, Mood & Neurological Support',
   description: 'Physician-prescribed B6/B12 injections and oral supplements. Direct absorption, fast-acting energy support. Florida telehealth.',
 }

@@ -4,7 +4,8 @@ import { STACKS } from '@/lib/stacks.config'
 import { ConsultBand } from '@/components/ui/PageComponents'
 
 export const metadata: Metadata = {
-  title: 'Treatment Stacks — Protocols Designed for Real Goals | Nutree Clinic',
+  alternates: { canonical: '/stacks' },
+  title: 'Treatment Stacks — Protocols Designed for Real Goals',
   description: 'Curated multi-treatment protocols from Nutree Clinic. Weight loss, longevity, and performance stacks designed to address your health goals at every level.',
 }
 

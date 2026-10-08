@@ -3,7 +3,8 @@ import { FAQ_ITEMS } from '@/lib/faq.config'
 import { FAQSection, ConsultBand } from '@/components/ui/PageComponents'
 
 export const metadata: Metadata = {
-  title: 'FAQ — Nutree Clinic',
+  alternates: { canonical: '/faq' },
+  title: 'Frequently Asked Questions',
   description: 'Answers to common questions about Nutree Clinic\'s treatments, pricing, prescriptions, and telehealth process.',
 }
 

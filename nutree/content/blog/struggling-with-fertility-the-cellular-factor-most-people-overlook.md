@@ -35,8 +35,8 @@ That is one reason **NAD+** **has become such an important topic in longevity me
 
 If you want to learn more about Nutree’s personalized NAD+ options, start here.
 
--> [Explore a personalized NAD+ plan](/nad)
--> [See if NAD+ is right for you](/nad)
+-> [Explore a personalized NAD+ plan](/nad+)
+-> [See if NAD+ is right for you](/nad+)
 :::
 
 ## Fertility Depends on More Than Hormones
@@ -99,8 +99,8 @@ These options are selected thoughtfully and individually. They are not one-size-
 
 Explore injectable, nasal, and patch-based NAD+ support — or start with a discovery step.
 
--> [Explore a personalized NAD+ plan](/nad)
--> [See if NAD+ is right for you](/nad)
+-> [Explore a personalized NAD+ plan](/nad+)
+-> [See if NAD+ is right for you](/nad+)
 :::
 
 ## A More Hopeful — and More Honest — Way to Talk About Fertility
@@ -124,8 +124,8 @@ That question may not replace conventional fertility care. But it can add an imp
 
 Let’s talk about what support makes sense for your body.
 
--> [Explore a personalized NAD+ plan](/nad)
--> [See if NAD+ is right for you](/nad)
+-> [Explore a personalized NAD+ plan](/nad+)
+-> [See if NAD+ is right for you](/nad+)
 :::
 
 ## Frequently asked questions

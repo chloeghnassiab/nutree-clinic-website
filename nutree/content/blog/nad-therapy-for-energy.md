@@ -26,7 +26,7 @@ That 3 p.m. wall feels different when it stops being occasional and starts becom
 
 You may be looking for steadier physical and mental stamina, better recovery, and a more supported sense of vitality — without relying on more caffeine, more pressure, or another temporary fix.
 
-That is a very real reason people become interested in [NAD+ therapy](/nad). NAD+ plays an important role in cellular energy production, mitochondrial function, and processes connected to repair and healthy aging. But low energy is rarely caused by one factor alone, so NAD should be approached thoughtfully.
+That is a very real reason people become interested in [NAD+ therapy](/nad+). NAD+ plays an important role in cellular energy production, mitochondrial function, and processes connected to repair and healthy aging. But low energy is rarely caused by one factor alone, so NAD should be approached thoughtfully.
 
 :::callout
 **Nutree perspective:** NAD+ is not a stimulant and it is not a guaranteed fatigue cure. It may be one useful part of a broader, clinician-guided plan for energy, recovery, metabolic health, and healthy aging.
@@ -37,8 +37,8 @@ That is a very real reason people become interested in [NAD+ therapy](/nad). NAD
 
 Explore Nutree’s personalized NAD+ options — or start with clinician guidance to see what makes sense for your body.
 
--> [Buy NAD+](/nad)
--> [See if NAD+ is right for you](/nad)
+-> [Buy NAD+](/nad+)
+-> [See if NAD+ is right for you](/nad+)
 :::
 
 ## What NAD therapy for energy is meant to do
@@ -86,8 +86,8 @@ It is also worth saying that better energy does not always mean feeling wired. I
 
 Nutree Clinic offers NAD+ options with clinician-guided care, clear expectations, and a focus on your full health picture.
 
--> [Explore NAD+ options](/nad)
--> [Learn how Nutree approaches NAD+](/nad)
+-> [Explore NAD+ options](/nad+)
+-> [Learn how Nutree approaches NAD+](/nad+)
 :::
 
 ## Who may be interested in NAD therapy for energy?
@@ -148,8 +148,8 @@ NAD+ support may be helpful, but it should make sense within your full care plan
 
 Start with Nutree’s NAD+ page to view options and understand whether NAD+ support may fit your goals.
 
--> [Buy NAD+](/nad)
--> [See if NAD+ is right for you](/nad)
+-> [Buy NAD+](/nad+)
+-> [See if NAD+ is right for you](/nad+)
 :::
 
 ## How to think about the decision
@@ -191,7 +191,7 @@ Not usually. Fatigue can be related to sleep, hormones, thyroid function, iron l
 
 ??? How can I start NAD+ with Nutree Clinic?
 
-You can start here: [https://www.nutreeclinic.com/nad+](/nad). Nutree offers NAD+ options with clinician-guided care so patients can explore whether this type of support fits their goals.
+You can start here: [https://www.nutreeclinic.com/nad+](/nad+). Nutree offers NAD+ options with clinician-guided care so patients can explore whether this type of support fits their goals.
 :::
 
 :::cta
@@ -199,8 +199,8 @@ You can start here: [https://www.nutreeclinic.com/nad+](/nad). Nutree offers NAD
 
 Start with Nutree’s NAD+ page to view options and learn how clinician-guided care can support your energy, recovery, and wellness goals.
 
--> [Buy NAD+](/nad)
--> [See if NAD+ is right for you](/nad)
+-> [Buy NAD+](/nad+)
+-> [See if NAD+ is right for you](/nad+)
 :::
 
 ## References

@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Telehealth Consent — Nutree Clinic',
+  title: { absolute: 'Nutree Clinic Telehealth Consent' },
+  alternates: { canonical: '/telehealth-consent' },
   description: 'Telehealth consent policy for Nutree Clinic LLC, covering benefits, risks, privacy, and patient acknowledgment.',
 }
 

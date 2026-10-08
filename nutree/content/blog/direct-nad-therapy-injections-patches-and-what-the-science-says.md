@@ -39,7 +39,7 @@ At Nutree Clinic, the goal is not to oversell NAD+ as a miracle treatment. The g
 
 Nutree Clinic offers clinician-guided NAD+ support with options that may include injections or prescription transdermal delivery, depending on your goals, eligibility, and clinician review.
 
--> [Start NAD+ therapy](/nad)
+-> [Start NAD+ therapy](/nad+)
 -> [Book a free discovery call](/discover)
 :::
 
@@ -146,7 +146,7 @@ NAD+ support should be individualized. The safest approach includes medical scre
 
 Nutree Clinic offers personalized NAD+ care with clinician guidance, treatment options designed for real life, and follow-up that adapts to your goals.
 
--> [Start NAD+ therapy](/nad)
+-> [Start NAD+ therapy](/nad+)
 -> [Book a free discovery call](/discover)
 :::
 

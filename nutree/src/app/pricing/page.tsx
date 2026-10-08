@@ -4,7 +4,8 @@ import { PRICES } from '@/lib/prices.config'
 import { ConsultBand } from '@/components/ui/PageComponents'
 
 export const metadata: Metadata = {
-  title: 'Pricing — Nutree Clinic',
+  alternates: { canonical: '/pricing' },
+  title: 'Pricing',
   description: 'Transparent pricing for all Nutree Clinic treatments. GLP-1 from $249/mo. No hidden fees. Same price at every dose.',
 }
 

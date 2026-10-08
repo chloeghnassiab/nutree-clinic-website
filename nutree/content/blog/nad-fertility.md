@@ -35,13 +35,13 @@ It is a reasonable question, especially for adults thinking about age-related ch
 
 Nutree Clinic offers personalized NAD+ options for patients interested in energy, recovery, healthy aging, and cellular wellness.
 
--> [Buy NAD+ / View options](/nad)
--> [See if NAD+ is right for you](/nad)
+-> [Buy NAD+ / View options](/nad+)
+-> [See if NAD+ is right for you](/nad+)
 :::
 
 ## What NAD+ fertility support may actually mean
 
-[NAD+](/nad), short for nicotinamide adenine dinucleotide, is a coenzyme involved in cellular energy production, DNA repair, mitochondrial function, and cellular repair pathways. These processes matter throughout the body — including in reproductive cells.
+[NAD+](/nad+), short for nicotinamide adenine dinucleotide, is a coenzyme involved in cellular energy production, DNA repair, mitochondrial function, and cellular repair pathways. These processes matter throughout the body — including in reproductive cells.
 
 In fertility conversations, NAD+ is often discussed because **mitochondrial health plays an important role in how eggs mature, function, and support early embryo development**. Egg cells are highly energy-dependent, and mitochondria help provide the energy required for normal cellular function.
 
@@ -96,8 +96,8 @@ At Nutree Clinic, that kind of personalized, clinician-guided thinking is centra
 
 View Nutree’s NAD+ options and start with a plan designed around your goals, your body, and clinician guidance.
 
--> [Buy NAD+ from Nutree](/nad)
--> [Learn about NAD+ options](/nad)
+-> [Buy NAD+ from Nutree](/nad+)
+-> [Learn about NAD+ options](/nad+)
 :::
 
 ## A practical way to think about NAD+
@@ -139,7 +139,7 @@ Patients interested in energy, recovery, healthy aging, cellular wellness, and m
 
 ??? Can I buy NAD+ through Nutree?
 
-You can view Nutree’s NAD+ options here: [https://www.nutreeclinic.com/nad+](/nad). Depending on the option selected, clinician review may be required to confirm that the plan is appropriate for you.
+You can view Nutree’s NAD+ options here: [https://www.nutreeclinic.com/nad+](/nad+). Depending on the option selected, clinician review may be required to confirm that the plan is appropriate for you.
 :::
 
 :::cta
@@ -147,8 +147,8 @@ You can view Nutree’s NAD+ options here: [https://www.nutreeclinic.com/nad+](/
 
 Explore Nutree’s NAD+ options and take the next step with care that is grounded, personal, and clinician-guided.
 
--> [Buy NAD+ / View options](/nad)
--> [See if NAD+ is right for you](/nad)
+-> [Buy NAD+ / View options](/nad+)
+-> [See if NAD+ is right for you](/nad+)
 :::
 
 ## References
