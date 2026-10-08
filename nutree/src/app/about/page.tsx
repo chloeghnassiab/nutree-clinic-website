@@ -2,9 +2,14 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import { ConsultBand } from '@/components/ui/PageComponents'
 
+const TITLE = 'About Nutree Clinic | Our Mission & Medical Team'
+const DESCRIPTION = 'Meet the licensed medical professionals behind Nutree Clinic. Florida-based care focused on safe, personalized medical weight loss and healthy aging.'
+
 export const metadata: Metadata = {
-  title: 'About — Nutree Clinic',
-  description: 'Nutree Clinic is a licensed Florida telehealth practice founded by Atara Marko, MMS, PA-C. Science-based treatments, human-centered care.',
+  title: { absolute: TITLE },
+  description: DESCRIPTION,
+  alternates: { canonical: '/about' },
+  openGraph: { title: TITLE, description: DESCRIPTION, url: '/about' },
 }
 
 export default function AboutPage() {
@@ -29,18 +34,25 @@ export default function AboutPage() {
 
       {/* TEAM */}
       <section style={{ padding: '2.5rem 1.5rem', background: 'var(--white)', borderTop: '1px solid var(--border)' }}>
-        <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--ink-3)', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: '1.5rem' }}>Our team</div>
+        <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--ink-3)', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: '0.5rem' }}>Real clinicians leading your care</div>
+        <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.75rem, 4vw, 2.25rem)', color: 'var(--ink)', marginBottom: '0.5rem' }}>Our Team</h2>
+        <p style={{ fontSize: '1rem', color: 'var(--ink-3)', lineHeight: 1.7, marginBottom: '1.5rem' }}>Medical experts guiding weight loss, longevity, and long-term well-being.</p>
 
         {/* Atara */}
         <div style={{ display: 'flex', gap: '1.5rem', marginBottom: '2rem', alignItems: 'flex-start' }}>
-          <div style={{ width: 88, height: 88, borderRadius: 14, background: 'linear-gradient(135deg, var(--teal), var(--teal-dark))', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontSize: '1.75rem', fontWeight: 700, color: '#fff', fontFamily: 'var(--font-serif)' }}>
-            AM
+          <div style={{ width: 88, height: 88, borderRadius: 14, overflow: 'hidden', flexShrink: 0 }}>
+            <Image
+              src="/images/atara-marko-pa-c-founder-nutreeclinic.jpg"
+              alt="Atara Marko, MMS, PA-C — Founder of Nutree Clinic"
+              width={88} height={88}
+              style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }}
+            />
           </div>
           <div>
             <div style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--ink)', fontFamily: 'var(--font-serif)', marginBottom: 6 }}>Atara Marko, MMS, PA-C</div>
             <div style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--teal)', marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Founder · Managing Member</div>
             <p style={{ fontSize: '1rem', color: 'var(--ink-3)', lineHeight: 1.7, maxWidth: 520 }}>
-              Licensed Physician Assistant with a Master of Medical Science. Atara founded Nutree Clinic to bring evidence-based metabolic and longevity medicine within reach of patients who deserve better than the standard of care currently available to them.
+              Atara is a certified physician assistant with a Master of Medical Science who built her expertise through years of diverse clinical experience. Her commitment to evidence-based medicine and holistic care designs the standards of Nutree Clinic, ensuring every patient receives clear, trustworthy, and medically grounded support.
             </p>
           </div>
         </div>
@@ -50,17 +62,20 @@ export default function AboutPage() {
           <div style={{ width: 88, height: 88, borderRadius: 14, overflow: 'hidden', flexShrink: 0 }}>
             <Image
               src="/images/dr-teri-bilhartz.jpg"
-              alt="Dr. Teri Bilhartz, MD, MPH — Medical Director, Nutree Clinic"
+              alt="Dr. Teri Bilhartz, MPH — Medical Director, Nutree Clinic"
               width={88} height={88}
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />
           </div>
           <div>
-            <div style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--ink)', fontFamily: 'var(--font-serif)', marginBottom: 6 }}>Dr. Teri Bilhartz, MD, MPH</div>
+            <div style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--ink)', fontFamily: 'var(--font-serif)', marginBottom: 6 }}>Dr. Teri Bilhartz, MPH</div>
             <div style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--teal)', marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Medical Director</div>
             <p style={{ fontSize: '1rem', color: 'var(--ink-3)', lineHeight: 1.7, maxWidth: 520 }}>
-              Board-certified physician with a Master of Public Health. Dr. Bilhartz oversees clinical protocols and provider standards at Nutree Clinic, bringing decades of medical expertise to the practice&apos;s approach to evidence-based metabolic health.
+              Dr. Bilhartz is a board-certified physician in Preventive Medicine and Public Health, with a Master of Public Health from Columbia University. With over 17 years of clinical experience, she has cared for patients across primary care, psychiatric care, and women&apos;s health, bringing a deeply holistic perspective to modern medicine. Her approach reflects a strong commitment to prevention, long-term well-being, and care that adapts to each patient&apos;s life — not the other way around.
             </p>
+            <a href="https://www.linkedin.com/in/teri-bilhartz-do-mph-a5250611/" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', marginTop: 8, fontSize: '0.875rem', fontWeight: 600, color: 'var(--teal-dark)' }}>
+              Dr. Bilhartz on LinkedIn →
+            </a>
           </div>
         </div>
       </section>

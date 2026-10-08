@@ -5,18 +5,24 @@ import { PRICES } from '@/lib/prices.config'
 import { FAQ_ITEMS } from '@/lib/faq.config'
 import {
   PromoList, PlanRow, ProductBlockHeader, CTAArea,
-  BenefitsList, TrustStrip, FeatureBand, HowItWorks,
-  ScienceGrid, Testimonials, AlsoFromNutree, FAQSection,
+  BenefitsList, TrustStrip, FeatureBand,
+  ScienceGrid, Testimonials, AlsoFromNutree,
   PageLegal, ConsultBand, Section, SectionHeader, InStockBadge,
 } from '@/components/ui/PageComponents'
+import { NumberedSteps, SeoFAQ, CTAButton, faqsForPages } from '@/components/treatment/SeoBlocks'
+
+const TITLE = 'Semaglutide & Tirzepatide for Weight Loss | Nutree Clinic'
+const DESCRIPTION = 'Medical weight loss with semaglutide or tirzepatide when prescribed. Video consultation, personalized dosing, ongoing follow-up, shipped to you.'
 
 export const metadata: Metadata = {
-  title: 'GLP-1 Weight Loss — Compounded Semaglutide & Tirzepatide',
-  description:
-    'Physician-guided compounded semaglutide and tirzepatide. Same price at every dose. Free shipping. FSA/HSA eligible. Florida telehealth.',
+  title: { absolute: TITLE },
+  description: DESCRIPTION,
+  alternates: { canonical: '/weight-loss' },
   openGraph: {
-    title: 'GLP-1 Weight Loss | Nutree Clinic',
-    description: 'Personalized GLP-1 treatments — compounded semaglutide and tirzepatide, physician-guided, delivered to your door.',
+    title: TITLE,
+    description: DESCRIPTION,
+    url: '/weight-loss',
+    images: [{ url: '/images/glp1-semaglutide-weight-loss-nutreeclinic.png', alt: 'Compounded semaglutide and tirzepatide for medical weight loss' }],
   },
 }
 
@@ -24,10 +30,7 @@ const P = PRICES
 const PAGE = '/weight-loss'
 
 export default function WeightLossPage() {
-  const faqs = FAQ_ITEMS
-    .filter(f => f.active && f.pages.includes(PAGE))
-    .sort((a, b) => a.order - b.order)
-    .map(f => ({ q: f.question, a: f.answer }))
+  const faqs = faqsForPages(FAQ_ITEMS, [PAGE])
 
   return (
     <>
@@ -48,10 +51,10 @@ export default function WeightLossPage() {
         {/* RIGHT — pricing */}
         <div className="hero-right">
           <h1 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.75rem', color: 'var(--ink)', lineHeight: 1.15, marginBottom: 8, letterSpacing: '-0.01em' }}>
-            Personalized GLP-1 Treatments
+            Medical Weight-Loss Programs
           </h1>
           <p style={{ fontSize: "0.875rem", color: 'var(--ink-3)', marginBottom: '0.625rem' }}>
-            A personalized weight loss plan built around you
+            Medical care for lasting, healthy weight loss. Personalized semaglutide or tirzepatide treatment (if eligible), guided by your clinician.
           </p>
 
           <PromoList />
@@ -120,15 +123,35 @@ export default function WeightLossPage() {
       />
 
       {/* ── HOW IT WORKS ──────────────────────────────────────────── */}
-      <HowItWorks
-        gradient="linear-gradient(135deg, var(--glp-mid), var(--glp))"
+      <NumberedSteps
+        id="how-it-works"
+        eyebrow="Personalized, clinician-guided weight loss — made simple"
+        title="How It Works"
+        accent="linear-gradient(135deg, var(--glp-mid), var(--glp))"
+        ctaHref="/consult"
+        ctaLabel="Check my eligibility"
         steps={[
-          { title: 'Complete a brief health questionnaire', desc: 'Takes 3 minutes. We ask about your health history, current medications, and goals — so your clinician arrives prepared.' },
-          { title: 'Your clinician reviews your intake', desc: 'A licensed Nutree clinician reviews your health history and determines the most appropriate plan for your profile — no call required unless clinically necessary.' },
-          { title: 'Receive your medication at home', desc: 'If prescribed, your medication is prepared by our licensed 503A pharmacy partner and shipped free, directly to your door.' },
-          { title: 'Ongoing care — 7/7 direct messaging', desc: 'Your clinician is available 7 days a week via direct message throughout your plan — monitoring your progress, adjusting your dose as needed, no waiting rooms.' },
+          { title: 'Tell us about yourself', desc: 'Complete a short intake so we understand your health history, goals, and concerns. It takes about 3 minutes.' },
+          { title: 'Get matched with your clinician', desc: 'A licensed Nutree clinician reviews your health history and determines the most appropriate plan for your profile — no call required unless clinically necessary.' },
+          { title: 'A real medical consultation — from home', desc: 'Your licensed Nutree Clinic provider takes the time to understand your body, your habits, and your goals, and designs a plan built around you. Semaglutide or tirzepatide is prescribed only if you are eligible.' },
+          { title: 'Ongoing care, not just a prescription', desc: 'If prescribed, your medication is prepared by our licensed 503A pharmacy partner and shipped free to your door. Your clinician is available 7 days a week via direct message to monitor progress and adjust your dose.' },
         ]}
       />
+
+      {/* ── BMI CALCULATOR CTA (live page embeds a calculator; new site links to /bmi) ── */}
+      <section id="bmi" style={{ padding: '2.5rem 1.5rem', background: 'var(--base)', borderTop: '1px solid var(--border)' }}>
+        <div style={{ maxWidth: 1080, margin: '0 auto', background: 'linear-gradient(135deg, rgba(142,212,234,0.45), rgba(255,255,255,0.8))', borderRadius: 'var(--radius-lg)', padding: '1.75rem', border: '0.5px solid var(--border)' }}>
+          <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.5rem, 3.5vw, 2.125rem)', color: 'var(--ink)', lineHeight: 1.2, marginBottom: '0.75rem' }}>Calculate your BMI</h2>
+          <p style={{ fontSize: '1rem', color: 'var(--ink-2)', lineHeight: 1.7, marginBottom: '0.5rem', maxWidth: 640 }}>
+            Your BMI can help you and your clinician better understand your body composition and health goals.
+          </p>
+          <p style={{ fontSize: '1rem', color: 'var(--ink-2)', lineHeight: 1.7, marginBottom: '1.25rem', maxWidth: 640 }}>
+            Enter your height and weight to estimate your BMI and see where it lands on the chart: underweight (under 18.5),
+            healthy weight (18.5–24.9), overweight (25–29.9), or obesity (30 and above).
+          </p>
+          <CTAButton href="/bmi">Open the BMI calculator →</CTAButton>
+        </div>
+      </section>
 
       {/* ── CLINICAL RESULTS ──────────────────────────────────────── */}
       <Section bg="var(--base)">
@@ -282,20 +305,14 @@ export default function WeightLossPage() {
         eyebrow="Complete your protocol"
         title="GLP-1 pairs well with these treatments."
         items={[
-          { name: 'NAD+ Therapy',  sub: 'Cellular energy · longevity', href: '/nad', arrowColor: 'var(--nad-dark)', img: '/images/nad-plus-injectable-therapy-nutreeclinic-nav.png' },
+          { name: 'NAD+ Therapy',  sub: 'Cellular energy · longevity', href: '/nad+', arrowColor: 'var(--nad-dark)', img: '/images/nad-plus-injectable-therapy-nutreeclinic-nav.png' },
           { name: 'B6 / B12',      sub: 'Energy support — natural complement to GLP-1', href: '/b12', arrowColor: 'var(--b12-dark)' },
           { name: 'Sermorelin',    sub: 'Preserving muscle during weight loss', href: '/sermorelin', arrowColor: 'var(--ser-dark)', img: '/images/sermorelin-growth-hormone-therapy-nutreeclinic-nav.png' },
         ]}
       />
 
       {/* ── FAQ ───────────────────────────────────────────────────── */}
-      {faqs.length > 0 && (
-        <FAQSection
-          iconBg="var(--glp)"
-          iconColor="var(--glp-dark)"
-          items={faqs}
-        />
-      )}
+      <SeoFAQ items={faqs} accent="var(--glp)" accentDark="var(--glp-dark)" />
 
       <PageLegal text="Compounded semaglutide and tirzepatide are prepared by state-licensed 503A compounding pharmacies and are not FDA-approved. They have not been evaluated by the FDA for safety, efficacy, or quality. *Clinical outcome data refers to FDA-approved reference medications (Wegovy®, Zepbound®). Compounded preparations are not those products. Wegovy® is a registered trademark of Novo Nordisk A/S. Mounjaro®/Zepbound® are registered trademarks of Eli Lilly and Company. Individual results vary. Prescriptions issued at provider discretion only. Nutree Clinic LLC · Florida · LegitScript certified." />
 
