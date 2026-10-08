@@ -47,7 +47,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SiteNav />
         <main>{children}</main>
         <SiteFooter />
-        <ChatWidget />
+        {process.env.NEXT_PUBLIC_ENABLE_CHAT !== 'false' && <ChatWidget />}
       </body>
     </html>
   )

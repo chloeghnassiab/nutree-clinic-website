@@ -49,7 +49,7 @@ export default function AboutPage() {
         <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
           <div style={{ width: 88, height: 88, borderRadius: 14, overflow: 'hidden', flexShrink: 0 }}>
             <Image
-              src="https://umsousercontent.com/lib_lJwKNLihmSPYJEfY/9jhhz4lnjic2qnkw.jpg"
+              src="/images/dr-teri-bilhartz.jpg"
               alt="Dr. Teri Bilhartz, MD, MPH — Medical Director, Nutree Clinic"
               width={88} height={88}
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
