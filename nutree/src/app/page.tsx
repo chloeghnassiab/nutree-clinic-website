@@ -1,18 +1,26 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ConsultBand, FAQSection, TrustStrip } from '@/components/ui/PageComponents'
+import { ConsultBand, TrustStrip } from '@/components/ui/PageComponents'
 import { STACKS, STACKS_VISIBLE } from '@/lib/stacks.config'
 import { FAQ_ITEMS } from '@/lib/faq.config'
+import { PRICES } from '@/lib/prices.config'
+import { SeoFAQ, JsonLd, faqsForPages } from '@/components/treatment/SeoBlocks'
+import { ProgramDetails, PharmacyPartners, FeelBetter, HomePricing, ORGANIZATION_JSON_LD, fromMonthly } from '@/components/home/HomeSections'
+
+const TITLE = 'Nutree Clinic | Medical Weight Loss & Wellness Online'
+const DESCRIPTION = 'Weight Loss, Healthy Aging & Muscle Strength. Semaglutide & Tirzepatide prescriptions (if eligible). Personalized care, ongoing follow-up, shipped to you.'
 
 export const metadata: Metadata = {
-  title: 'Science-based telehealth. Human-centered care.',
-  description: 'Physician-guided GLP-1 weight loss, NAD+, Sermorelin, Oxytocin, and B12 therapy. Licensed Florida telehealth, delivered to your door.',
+  title: { absolute: TITLE },
+  description: DESCRIPTION,
+  alternates: { canonical: '/' },
+  openGraph: { title: TITLE, description: DESCRIPTION, url: '/' },
 }
 
 const TREATMENTS = [
-  { name: 'GLP-1 Weight Loss',  sub: 'Semaglutide · Tirzepatide · Microdosing', price: 'from $229/mo', href: '/weight-loss', bg: 'linear-gradient(135deg, rgba(142,212,234,0.5) 0%, rgba(255,255,255,0.65) 100%)', priceColor: '#1A6B85', size: 'large',  image: '/images/glp1-weight-loss-patient-nutreeclinic.png',    imageHeight: '101%', imageTransform: 'translateX(8%)',  imageMaxWidth: '52%' },
-  { name: 'NAD+',               sub: 'Energy · longevity · cellular health',     price: 'from $TBD/mo', href: '/nad',         bg: 'linear-gradient(135deg, rgba(120,200,168,0.5) 0%, rgba(255,255,255,0.65) 100%)', priceColor: '#1E6650', size: 'large',  image: '/images/nad-plus-therapy-patient-nutreeclinic.png',     imageHeight: '100%', imageTransform: 'translateX(8%)',  imageMaxWidth: 'none' },
-  { name: 'Sermorelin',         sub: 'Growth hormone · strength · recovery',     price: 'from $175/mo', href: '/sermorelin', bg: 'linear-gradient(135deg, rgba(224,160,112,0.5) 0%, rgba(255,255,255,0.65) 100%)', priceColor: '#8B4A20', size: 'medium', image: '/images/sermorelin-therapy-patient-nutreeclinic.png',   imageHeight: '91%',  imageTransform: 'translateX(-4%)', imageMaxWidth: '52%' },
+  { name: 'GLP-1 Weight Loss',  sub: 'Semaglutide · Tirzepatide · Microdosing', price: fromMonthly(Math.min(PRICES.semaglutide.sixMonth.monthlyCents, PRICES.tirzepatide.sixMonth.monthlyCents)), href: '/weight-loss', bg: 'linear-gradient(135deg, rgba(142,212,234,0.5) 0%, rgba(255,255,255,0.65) 100%)', priceColor: '#1A6B85', size: 'large',  image: '/images/glp1-weight-loss-patient-nutreeclinic.png',    imageHeight: '101%', imageTransform: 'translateX(8%)',  imageMaxWidth: '52%' },
+  { name: 'NAD+',               sub: 'Energy · longevity · cellular health',     price: 'from $TBD/mo', href: '/nad+',        bg: 'linear-gradient(135deg, rgba(120,200,168,0.5) 0%, rgba(255,255,255,0.65) 100%)', priceColor: '#1E6650', size: 'large',  image: '/images/nad-plus-therapy-patient-nutreeclinic.png',     imageHeight: '100%', imageTransform: 'translateX(8%)',  imageMaxWidth: 'none' },
+  { name: 'Sermorelin',         sub: 'Growth hormone · strength · recovery',     price: fromMonthly(PRICES.sermorelin.sixMonth.monthlyCents), href: '/sermorelin', bg: 'linear-gradient(135deg, rgba(224,160,112,0.5) 0%, rgba(255,255,255,0.65) 100%)', priceColor: '#8B4A20', size: 'medium', image: '/images/sermorelin-therapy-patient-nutreeclinic.png',   imageHeight: '91%',  imageTransform: 'translateX(-4%)', imageMaxWidth: '52%' },
   { name: 'Glutathione',        sub: 'Detox · antioxidant · cellular health',    price: 'from $TBD/mo', href: '/glutathione', bg: 'linear-gradient(135deg, rgba(236,200,64,0.5) 0%, rgba(255,255,255,0.65) 100%)',  priceColor: '#7A6200', size: 'medium', image: '/images/glutathione-therapy-patient-nutreeclinic.png',  imageHeight: '101%', imageTransform: 'translateX(8%)',  imageMaxWidth: '52%' },
   { name: 'Oxytocin',           sub: 'Stress relief · emotional well-being',     price: 'from $TBD/mo', href: '/oxytocin',    bg: 'linear-gradient(135deg, rgba(184,152,216,0.5) 0%, rgba(255,255,255,0.65) 100%)', priceColor: '#5A3080', size: 'medium', image: '/images/oxytocin-therapy-patient-nutreeclinic.png',    imageHeight: '101%', imageTransform: 'translateX(8%)',  imageMaxWidth: '52%' },
   { name: 'B12-MIC',            sub: 'Energy · mood · neurological support',     price: 'from $TBD/mo', href: '/b12',         bg: 'linear-gradient(135deg, rgba(232,152,184,0.5) 0%, rgba(255,255,255,0.65) 100%)', priceColor: '#7A2048', size: 'medium', image: '/images/b12-mic-therapy-patient-nutreeclinic.png',      imageHeight: '101%', imageTransform: 'translateX(8%)',  imageMaxWidth: '52%' },
@@ -26,25 +34,26 @@ const HOW_STEPS = [
 ]
 
 export default function HomePage() {
-  const homeFAQs = FAQ_ITEMS
-    .filter(f => f.active && f.pages.includes('/'))
-    .sort((a, b) => a.order - b.order)
-    .map(f => ({ q: f.question, a: f.answer }))
+  const homeFAQs = faqsForPages(FAQ_ITEMS, ['/'])
 
   return (
     <>
       {/* ── HERO ─────────────────────────────────────────────────── */}
+      <JsonLd data={ORGANIZATION_JSON_LD} />
       <section style={{ padding: '3rem 1.5rem 2rem', background: 'var(--base)' }}>
         <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--ink-3)', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: '1rem' }}>
           Florida · Licensed telehealth · LegitScript certified
         </div>
-        <h1 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(2.25rem, 6vw, 3.5rem)', color: 'var(--ink)', lineHeight: 1.05, letterSpacing: '-0.03em', marginBottom: '1rem' }}>
-          Science-based<br />treatments.<br />
-          <span style={{ color: 'var(--teal)' }}>Human-centered</span><br />
-          care.
+        <h1 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(2.25rem, 6vw, 3.5rem)', color: 'var(--ink)', lineHeight: 1.05, letterSpacing: '-0.03em', marginBottom: '0.75rem', maxWidth: 640 }}>
+          Medical weight loss &amp; wellness, <span style={{ color: 'var(--teal)' }}>online in Florida</span>
         </h1>
-        <p style={{ fontSize: '1.125rem', color: 'var(--ink-2)', lineHeight: 1.7, marginBottom: '1.5rem', maxWidth: 420 }}>
-          Physician-guided GLP-1, NAD+, Sermorelin, Glutathione, Oxytocin, B12. Delivered to your door.
+        <p style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.375rem, 3.5vw, 1.875rem)', color: 'var(--ink-2)', lineHeight: 1.2, marginBottom: '1rem' }}>
+          Science-based treatments. Human-centered care.
+        </p>
+        <p style={{ fontSize: '1.125rem', color: 'var(--ink-2)', lineHeight: 1.7, marginBottom: '1.5rem', maxWidth: 520 }}>
+          Weight loss, peptides, body strength, and healthy aging — made for you. Personalized wellness programs guided by
+          clinicians, built around your body, your goals, and the way real life actually works. Semaglutide &amp; tirzepatide
+          prescriptions if eligible, plus NAD+, Sermorelin, Glutathione, Oxytocin, and B12 — delivered to your door.
         </p>
         <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
           <Link href="/weight-loss" style={{ padding: '14px 28px', borderRadius: 999, background: 'var(--ink)', color: '#fff', fontSize: '1rem', fontWeight: 700, textDecoration: 'none' }}>
@@ -98,6 +107,9 @@ export default function HomePage() {
         </Link>
       </section>
 
+      <ProgramDetails />
+      <PharmacyPartners />
+
       {/* ── STACKS (conditional) ────────────────────────────────── */}
       {STACKS_VISIBLE && (
         <section style={{ padding: '2rem 1.5rem', background: 'var(--white)', borderTop: '1px solid var(--border)' }}>
@@ -130,9 +142,12 @@ export default function HomePage() {
       {/* ── HOW IT WORKS ────────────────────────────────────────── */}
       <section style={{ padding: '2.5rem 1.5rem', background: 'var(--white)', borderTop: '1px solid var(--border)' }}>
         <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--ink-3)', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: '0.75rem' }}>How it works</div>
-        <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.75rem, 4vw, 2.25rem)', color: 'var(--ink)', marginBottom: '1.5rem', lineHeight: 1.2 }}>
-          From first question<br />to first delivery.
+        <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.75rem, 4vw, 2.25rem)', color: 'var(--ink)', marginBottom: '0.5rem', lineHeight: 1.2 }}>
+          Start your journey
         </h2>
+        <p style={{ fontSize: '1.0625rem', color: 'var(--ink-2)', marginBottom: '1.5rem' }}>
+          Made for you. Guided by science. From first question to first delivery.
+        </p>
         {HOW_STEPS.map((step, i) => (
           <div key={i} style={{ display: 'flex', gap: '1.25rem', padding: '1.25rem 0', borderBottom: i < HOW_STEPS.length - 1 ? '0.5px solid var(--border)' : 'none' }}>
             <div style={{ width: 36, height: 36, borderRadius: '50%', background: step.color, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem', fontWeight: 700, color: 'var(--ink)' }}>
@@ -145,6 +160,8 @@ export default function HomePage() {
           </div>
         ))}
       </section>
+
+      <FeelBetter />
 
       {/* ── CLINICAL INDEPENDENCE ───────────────────────────────── */}
       <section style={{ padding: '2rem 1.5rem', background: 'var(--base)', borderTop: '1px solid var(--border)' }}>
@@ -168,7 +185,7 @@ export default function HomePage() {
             <div style={{ width: 48, height: 48, borderRadius: '50%', overflow: 'hidden', flexShrink: 0, background: 'var(--glp)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.25rem', fontWeight: 700, color: 'var(--glp-dark)', border: '2px solid var(--border)' }}>
               <img
                 src="/images/Courtney-nutree-clinic-patient-glp-1.jpeg"
-                alt="Courtney"
+                alt="Courtney, Nutree Clinic GLP-1 microdosing patient"
                 width={48}
                 height={48}
                 style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%', display: 'block' }}
@@ -182,14 +199,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── FAQ ─────────────────────────────────────────────────── */}
-      {homeFAQs.length > 0 && (
-        <FAQSection
-          items={homeFAQs}
-          iconBg="var(--teal)"
-          iconColor="#fff"
-        />
-      )}
+      <HomePricing />
+
+      {/* ── FAQ (#FAQ-homepage — anchor used by live site & Google) ── */}
+      <SeoFAQ id="FAQ-homepage" items={homeFAQs} accent="var(--teal)" accentDark="#fff" />
 
       <ConsultBand />
     </>
@@ -210,7 +223,7 @@ function TreatmentCard({ item }: { item: typeof TREATMENTS[0] }) {
       {item.image && (
         <img
           src={item.image}
-          alt={item.name}
+          alt={`${item.name} treatment from Nutree Clinic`}
           style={{
             position: 'absolute', bottom: 0, right: 0,
             height: item.imageHeight, width: 'auto',

@@ -1,8 +1,7 @@
 import type { Metadata } from 'next'
 import { NADPage, nadMetadata } from '@/components/treatment/NADPage'
 
-// /nad renders the same page as /nad+ (the live URL). Canonical points to /nad+
-// so ranking signals consolidate there.
+// Canonical NAD+ URL — matches the live Umso URL https://www.nutreeclinic.com/nad+
 export const metadata: Metadata = nadMetadata
 
 export default function Page() {
