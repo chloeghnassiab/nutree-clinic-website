@@ -2,7 +2,8 @@
 // Rendered by both /nad+ (canonical — the live Umso URL) and /nad.
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { PRICES } from '@/lib/prices.config'
+import { PRICES, PRICING_AT_CONSULT } from '@/lib/prices.config'
+import { CHECKOUT } from '@/lib/checkout.config'
 import { FAQ_ITEMS } from '@/lib/faq.config'
 import {
   PromoList, PlanRow, ProductBlockHeader, CTAArea,
@@ -64,27 +65,24 @@ export function NADPage() {
           {/* Injectable */}
           <div style={{ marginBottom: '0.625rem' }}>
             <ProductBlockHeader>Injectable · Highest bioavailability</ProductBlockHeader>
-            <PlanRow name="6-month plan" sub={`${P.nadInjectable.sixMonth.totalLabel} · medication · consultation · shipping`} price={P.nadInjectable.sixMonth.monthlyLabel} afterPrice={P.nadInjectable.sixMonth.savingsLabel} best color="var(--nad-dark)" />
-            <PlanRow name="Monthly plan" sub="Cancel anytime" price={P.nadInjectable.monthly.monthlyLabel} afterPrice={P.nadInjectable.monthly.perWeekLabel} color="var(--nad-dark)" />
+            <PlanRow name="Monthly plan" sub="Billed every 4 weeks · medication · consultation · shipping · cancel anytime" price={P.nadInjectable.monthly.monthlyLabel} afterPrice={P.nadInjectable.monthly.perWeekLabel} best color="var(--nad-dark)" href={CHECKOUT.nad} ctaLabel="Start injectable NAD+" />
           </div>
 
           {/* Nasal Spray */}
           <div style={{ marginBottom: '0.625rem' }}>
             <ProductBlockHeader>Nasal Spray · Needle-free</ProductBlockHeader>
-            <PlanRow name="6-month plan" sub={`${P.nadNasalSpray.sixMonth.totalLabel} · medication · consultation · shipping`} price={P.nadNasalSpray.sixMonth.monthlyLabel} afterPrice={P.nadNasalSpray.sixMonth.savingsLabel} best color="var(--nad-dark)" />
-            <PlanRow name="Monthly plan" price={P.nadNasalSpray.monthly.monthlyLabel} afterPrice={P.nadNasalSpray.monthly.perWeekLabel} color="var(--nad-dark)" />
+            <PlanRow name="Monthly plan" sub="Billed every 4 weeks · medication · consultation · shipping" price={P.nadNasalSpray.monthly.monthlyLabel} afterPrice={P.nadNasalSpray.monthly.perWeekLabel} color="var(--nad-dark)" href={CHECKOUT.nad} ctaLabel="Start NAD+ nasal spray" />
           </div>
 
           {/* Patches */}
           <div>
             <ProductBlockHeader>Patches + GHK-Cu</ProductBlockHeader>
-            <PlanRow name="6-month plan" sub={P.nadPatches.sixMonth.totalLabel} price={P.nadPatches.sixMonth.monthlyLabel} afterPrice={P.nadPatches.sixMonth.savingsLabel} best color="var(--nad-dark)" />
-            <PlanRow name="Monthly plan" price={P.nadPatches.monthly.monthlyLabel} afterPrice={P.nadPatches.monthly.perWeekLabel} color="var(--nad-dark)" />
+            <PlanRow name="Patch plan" sub="Plan and price confirmed at your consultation" price={PRICING_AT_CONSULT} color="var(--nad-dark)" href={CHECKOUT.consult} ctaLabel="Book a consult" />
           </div>
         </div>
       </div>
 
-      <CTAArea />
+      <CTAArea href={CHECKOUT.nad} />
 
       <BenefitsList color="var(--nad)" items={[
         'Three delivery forms — your clinician selects the most appropriate',

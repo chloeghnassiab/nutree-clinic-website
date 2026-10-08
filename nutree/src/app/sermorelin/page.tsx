@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { PRICES } from '@/lib/prices.config'
+import { CHECKOUT } from '@/lib/checkout.config'
 import { FAQ_ITEMS } from '@/lib/faq.config'
 import {
   PromoList, PlanRow, ProductBlockHeader, CTAArea,
@@ -60,43 +61,19 @@ export default function SermorelinPage() {
           <PromoList />
 
           <div style={{ marginBottom: '0.625rem' }}>
-            <ProductBlockHeader>10-week starter plan</ProductBlockHeader>
-            <div className="plan-row" style={{ borderColor: 'var(--ser-dark)', borderWidth: 1.5 }}>
-              <div style={{ flex: 1 }}>
-                <div style={{ fontSize: "0.875rem", fontWeight: 600, color: 'var(--ink)' }}>10-week programme</div>
-                <span style={{ fontSize: "0.875rem", color: 'var(--ink-3)', display: 'block', marginTop: 1 }}>Medication · consultation · shipping · no auto-renewal</span>
-              </div>
-              <div style={{ textAlign: 'right' }}>
-                <div style={{ fontSize: "1rem", fontWeight: 700, color: 'var(--ser-dark)' }}>{P.sermorelin.tenWeek.label}</div>
-                <div style={{ fontSize: "1rem", color: 'var(--ink-3)' }}>{P.sermorelin.tenWeek.subLabel}</div>
-              </div>
-            </div>
-          </div>
-
-          <div style={{ marginBottom: '0.625rem' }}>
             <ProductBlockHeader>Monthly plan</ProductBlockHeader>
             <PlanRow
-              name="Monthly subscription"
+              name="Monthly plan"
+              sub="Billed every 4 weeks · medication · consultation · shipping"
               price={P.sermorelin.monthly.monthlyLabel}
               color="var(--ser-dark)"
-            />
-          </div>
-
-          <div>
-            <ProductBlockHeader>3-month plan · Best value</ProductBlockHeader>
-            <PlanRow
-              name={`3-month · ${P.sermorelin.threeMonth.totalLabel}`}
-              sub={`${P.sermorelin.threeMonth.monthlyLabel} · medication · consultation · shipping`}
-              price={P.sermorelin.threeMonth.monthlyLabel}
-              afterPrice={P.sermorelin.threeMonth.savingsLabel || undefined}
-              best
-              color="var(--ser-dark)"
+              href={CHECKOUT.sermorelin} ctaLabel="Start Sermorelin"
             />
           </div>
         </div>
       </div>
 
-      <CTAArea />
+      <CTAArea href={CHECKOUT.sermorelin} />
 
       <BenefitsList color="var(--ser)" items={[
         'Injectable delivery — supports your body\'s own growth hormone release, no synthetic hormones added',

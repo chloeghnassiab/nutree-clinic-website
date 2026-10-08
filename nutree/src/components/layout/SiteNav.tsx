@@ -1,6 +1,8 @@
 'use client'
 import Link from 'next/link'
 import { useState, useEffect, useRef } from 'react'
+import { PRICES } from '@/lib/prices.config'
+import { PATIENT_PORTAL, CHECKOUT } from '@/lib/checkout.config'
 
 // ─── NAV STRUCTURE — Eden-style per-category dropdowns ───────────────────────
 const NAV_CATEGORIES = [
@@ -9,14 +11,14 @@ const NAV_CATEGORIES = [
     treatments: [
       { label: 'GLP-1 Treatments', sub: 'Semaglutide & Tirzepatide', href: '/weight-loss' },
       { label: 'GLP-1 Microdosing', sub: 'Gentler start · lower doses', href: '/glp-1microdosing' },
-      { label: 'Wegovy®', sub: 'Brand-name semaglutide', href: '/weight-loss' },
-      { label: 'Mounjaro®', sub: 'Brand-name tirzepatide', href: '/weight-loss' },
+      { label: 'Wegovy®', sub: 'Brand-name semaglutide', href: CHECKOUT.consult },
+      { label: 'Mounjaro®', sub: 'Brand-name tirzepatide', href: CHECKOUT.consult },
     ],
     featured: {
       img: '/images/glp1-semaglutide-weight-loss-nutreeclinic-nav.png',
       bg: 'linear-gradient(135deg, rgba(142,212,234,0.5) 0%, rgba(255,255,255,0.65) 100%)',
       title: 'Personalized GLP-1\nTreatments',
-      price: 'From $229/mo',
+      price: `From ${PRICES.semaglutide.monthly.shortLabel}`,
       href: '/weight-loss',
     },
   },
@@ -33,7 +35,7 @@ const NAV_CATEGORIES = [
       img2: '/images/nad-plus-nasal-spray-therapy-nutreeclinic-nav.png',
       bg: 'linear-gradient(135deg, rgba(120,200,168,0.5) 0%, rgba(255,255,255,0.65) 100%)',
       title: 'Longevity\nProtocols',
-      price: 'From $TBD/mo',
+      price: `From ${PRICES.nadInjectable.monthly.shortLabel}`,
       href: '/nad+',
     },
   },
@@ -47,7 +49,7 @@ const NAV_CATEGORIES = [
       img: '/images/sermorelin-growth-hormone-therapy-nutreeclinic-nav.png',
       bg: 'linear-gradient(135deg, rgba(224,160,112,0.5) 0%, rgba(255,255,255,0.65) 100%)',
       title: 'Sermorelin\nTherapy',
-      price: 'From $175/mo',
+      price: PRICES.sermorelin.monthly.shortLabel,
       href: '/sermorelin',
     },
   },
@@ -61,7 +63,7 @@ const NAV_CATEGORIES = [
       img: '/images/oxytocin-nasal-spray-nutreeclinic-nav.png',
       bg: 'linear-gradient(135deg, rgba(184,152,216,0.5) 0%, rgba(255,255,255,0.65) 100%)',
       title: 'Oxytocin\nNasal Spray',
-      price: 'From $TBD/mo',
+      price: PRICES.oxytocin.monthly.shortLabel,
       href: '/oxytocin',
     },
   },
@@ -141,6 +143,7 @@ export function SiteNav() {
             <Link href="/pricing" className="nl-plain">Pricing</Link>
             <Link href="/blog" className="nl-plain">Blog</Link>
             <Link href="/about" className="nl-plain">About</Link>
+            <a href={PATIENT_PORTAL} className="nl-plain">Login</a>
           </div>
 
           {/* Right CTA */}
@@ -278,10 +281,11 @@ export function SiteNav() {
             <Link href="/about" className="mob-cat" style={{ textDecoration: 'none', justifyContent: 'flex-start' }} onClick={() => setMobileOpen(false)}>About</Link>
             <Link href="/faq" className="mob-cat" style={{ textDecoration: 'none', justifyContent: 'flex-start' }} onClick={() => setMobileOpen(false)}>FAQ</Link>
             <Link href="/stacks" className="mob-cat" style={{ textDecoration: 'none', justifyContent: 'flex-start' }} onClick={() => setMobileOpen(false)}>Treatment Stacks</Link>
+            <a href={PATIENT_PORTAL} className="mob-cat" style={{ textDecoration: 'none', justifyContent: 'flex-start' }}>Login</a>
             <div style={{ marginTop: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.625rem' }}>
               <Link href="/consult" onClick={() => setMobileOpen(false)}
                 style={{ display: 'block', textAlign: 'center', padding: '16px', borderRadius: '999px', background: 'var(--con)', color: 'var(--ink)', fontWeight: 700, fontSize: '1rem', textDecoration: 'none' }}>
-                Book a consultation · $50
+                Book a consultation · {PRICES.consult.initial.label}
               </Link>
               <Link href="/weight-loss" onClick={() => setMobileOpen(false)}
                 style={{ display: 'block', textAlign: 'center', padding: '16px', borderRadius: '999px', background: 'var(--ink)', color: '#fff', fontWeight: 700, fontSize: '1rem', textDecoration: 'none' }}>

@@ -1,9 +1,12 @@
 import type { Metadata } from 'next'
 import { ConsultContent } from '../consult/ConsultContent'
+import { PRICES } from '@/lib/prices.config'
+
+const CONSULT = PRICES.consult.initial.label
 
 export const metadata: Metadata = {
-  title: { absolute: 'Contact Nutree Clinic | Book Your $50 Consultation' },
-  description: 'Contact Nutree Clinic and book a $50 consultation with a licensed Florida clinician. Your $50 consult fee is credited toward your first treatment plan.',
+  title: { absolute: `Contact Nutree Clinic | Book Your ${CONSULT} Consultation` },
+  description: `Contact Nutree Clinic and book a ${CONSULT} consultation with a licensed Florida clinician. Your ${CONSULT} consult fee is credited toward your first treatment plan.`,
   alternates: { canonical: '/contact' },
 }
 

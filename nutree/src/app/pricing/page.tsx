@@ -1,31 +1,38 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { PRICES } from '@/lib/prices.config'
+import { PRICES, PRICING_AT_CONSULT, GLP1_FROM_LABEL } from '@/lib/prices.config'
+import { CHECKOUT } from '@/lib/checkout.config'
 import { ConsultBand } from '@/components/ui/PageComponents'
 
 export const metadata: Metadata = {
   alternates: { canonical: '/pricing' },
   title: 'Pricing',
-  description: 'Transparent pricing for all Nutree Clinic treatments. GLP-1 from $249/mo. No hidden fees. Same price at every dose.',
+  description: `Transparent pricing for all Nutree Clinic treatments. GLP-1 ${GLP1_FROM_LABEL}. No hidden fees. Same price at every dose.`,
 }
 
 const P = PRICES
 
-const PLANS = [
+type PlanOption = { label: string; price: string; badge?: string; href?: string; cta?: string }
+
+const PLANS: { name: string; color: string; darkColor: string; href: string; options: PlanOption[] }[] = [
   {
     name: 'GLP-1 Weight Loss',
     color: 'var(--glp)', darkColor: 'var(--glp-dark)',
     href: '/weight-loss',
     options: [
-      { label: 'Compounded Semaglutide · Monthly',    price: P.semaglutide.monthly.monthlyLabel },
-      { label: 'Compounded Semaglutide · 3-month',    price: P.semaglutide.threeMonth.monthlyLabel, badge: P.semaglutide.threeMonth.savingsLabel },
-      { label: 'Compounded Tirzepatide · Monthly',    price: P.tirzepatide.monthly.monthlyLabel },
-      { label: 'Compounded Tirzepatide · 3-month',    price: P.tirzepatide.threeMonth.monthlyLabel, badge: P.tirzepatide.threeMonth.savingsLabel },
-      { label: 'GLP-1 Microdosing Sema · 5-week',    price: P.microdosingSema.fiveWeek.label },
-      { label: 'GLP-1 Microdosing Sema · 10-week',   price: P.microdosingSema.tenWeek.label },
-      { label: 'GLP-1 Microdosing Tirz · 5-week',    price: P.microDosingTirz.fiveWeek.label },
-      { label: 'Wegovy®',                              price: P.wegovy.monthly.label },
-      { label: 'Mounjaro®',                            price: P.mounjaro.monthly.label },
+      { label: 'Compounded Semaglutide · Monthly',    price: P.semaglutide.monthly.monthlyLabel, href: CHECKOUT.semaglutideWeightLoss },
+      { label: 'Compounded Tirzepatide · Monthly',    price: `From ${P.tirzepatide.monthly.monthlyLabel}`, href: CHECKOUT.tirzepatideWeightLoss },
+      { label: 'Wegovy®',                              price: PRICING_AT_CONSULT, href: CHECKOUT.consult, cta: 'Book a consult' },
+      { label: 'Mounjaro®',                            price: PRICING_AT_CONSULT, href: CHECKOUT.consult, cta: 'Book a consult' },
+    ],
+  },
+  {
+    name: 'GLP-1 Microdosing',
+    color: 'var(--glp)', darkColor: 'var(--glp-dark)',
+    href: '/glp-1microdosing',
+    options: [
+      { label: 'Microdosing Semaglutide · 10-week',   price: P.microdosingSema.tenWeek.label, href: CHECKOUT.semaglutideMicrodosing },
+      { label: 'Microdosing Tirzepatide · 10-week',   price: P.microDosingTirz.tenWeek.label, href: CHECKOUT.tirzepatideMicrodosing },
     ],
   },
   {
@@ -33,12 +40,9 @@ const PLANS = [
     color: 'var(--nad)', darkColor: 'var(--nad-dark)',
     href: '/nad+',
     options: [
-      { label: 'Injectable · Monthly',   price: P.nadInjectable.monthly.monthlyLabel },
-      { label: 'Injectable · 6-month',   price: P.nadInjectable.sixMonth.monthlyLabel, badge: P.nadInjectable.sixMonth.savingsLabel },
-      { label: 'Nasal Spray · Monthly',  price: P.nadNasalSpray.monthly.monthlyLabel },
-      { label: 'Nasal Spray · 6-month',  price: P.nadNasalSpray.sixMonth.monthlyLabel, badge: P.nadNasalSpray.sixMonth.savingsLabel },
-      { label: 'Patches + GHK-Cu · Monthly', price: P.nadPatches.monthly.monthlyLabel },
-      { label: 'Patches + GHK-Cu · 6-month', price: P.nadPatches.sixMonth.monthlyLabel, badge: P.nadPatches.sixMonth.savingsLabel },
+      { label: 'Injectable · Monthly',   price: P.nadInjectable.monthly.monthlyLabel, href: CHECKOUT.nad },
+      { label: 'Nasal Spray · Monthly',  price: P.nadNasalSpray.monthly.monthlyLabel, href: CHECKOUT.nad },
+      { label: 'Patches + GHK-Cu',       price: PRICING_AT_CONSULT, href: CHECKOUT.consult, cta: 'Book a consult' },
     ],
   },
   {
@@ -46,9 +50,7 @@ const PLANS = [
     color: 'var(--ser)', darkColor: 'var(--ser-dark)',
     href: '/sermorelin',
     options: [
-      { label: '10-week starter plan',  price: P.sermorelin.tenWeek.label },
-      { label: 'Monthly subscription',  price: P.sermorelin.monthly.monthlyLabel },
-      { label: '3-month plan',          price: P.sermorelin.threeMonth.monthlyLabel, badge: P.sermorelin.threeMonth.savingsLabel || 'Best value' },
+      { label: 'Monthly plan',  price: P.sermorelin.monthly.monthlyLabel, href: CHECKOUT.sermorelin },
     ],
   },
   {
@@ -56,9 +58,7 @@ const PLANS = [
     color: 'var(--nad)', darkColor: 'var(--nad-dark)',
     href: '/glutathione',
     options: [
-      { label: 'Monthly',    price: P.glutathione.monthly.monthlyLabel },
-      { label: '3-month',    price: P.glutathione.threeMonth.monthlyLabel, badge: P.glutathione.threeMonth.savingsLabel || undefined },
-      { label: '6-month',    price: P.glutathione.sixMonth.monthlyLabel,   badge: P.glutathione.sixMonth.savingsLabel || undefined },
+      { label: 'Glutathione plan', price: PRICING_AT_CONSULT, href: CHECKOUT.consult, cta: 'Book a consult' },
     ],
   },
   {
@@ -66,9 +66,7 @@ const PLANS = [
     color: 'var(--oxy)', darkColor: 'var(--oxy-dark)',
     href: '/oxytocin',
     options: [
-      { label: 'Monthly',   price: P.oxytocin.monthly.monthlyLabel },
-      { label: '3-month',   price: P.oxytocin.threeMonth.monthlyLabel, badge: P.oxytocin.threeMonth.savingsLabel },
-      { label: '6-month',   price: P.oxytocin.sixMonth.monthlyLabel, badge: P.oxytocin.sixMonth.savingsLabel },
+      { label: 'Monthly plan',   price: P.oxytocin.monthly.monthlyLabel, href: CHECKOUT.oxytocin },
     ],
   },
   {
@@ -76,10 +74,8 @@ const PLANS = [
     color: 'var(--b12)', darkColor: 'var(--b12-dark)',
     href: '/b12',
     options: [
-      { label: 'Injectable · Monthly',   price: P.b12Injectable.monthly.monthlyLabel },
-      { label: 'Injectable · 6-month',   price: P.b12Injectable.sixMonth.monthlyLabel, badge: P.b12Injectable.sixMonth.savingsLabel },
-      { label: 'Oral / Sublingual · Monthly', price: P.b12Oral.monthly.monthlyLabel },
-      { label: 'Oral / Sublingual · 6-month', price: P.b12Oral.sixMonth.monthlyLabel, badge: P.b12Oral.sixMonth.savingsLabel },
+      { label: 'Injectable',         price: PRICING_AT_CONSULT, href: CHECKOUT.consult, cta: 'Book a consult' },
+      { label: 'Oral / Sublingual',  price: PRICING_AT_CONSULT, href: CHECKOUT.consult, cta: 'Book a consult' },
     ],
   },
   {
@@ -87,7 +83,7 @@ const PLANS = [
     color: 'var(--con)', darkColor: 'var(--con-dark)',
     href: '/consult',
     options: [
-      { label: '30-min consultation', price: P.consult.initial.label, badge: 'Credited to first plan' },
+      { label: '30-min consultation', price: P.consult.initial.label, badge: 'Credited to first plan', href: CHECKOUT.consult, cta: 'Book' },
     ],
   },
 ]
@@ -128,7 +124,14 @@ export default function PricingPage() {
                     <span style={{ display: 'inline-block', marginTop: 2, fontSize: '1rem', fontWeight: 700, padding: '1px 6px', borderRadius: 'var(--radius-pill)', background: plan.color, color: plan.darkColor }}>{opt.badge}</span>
                   )}
                 </div>
-                <div style={{ fontSize: "0.9375rem", fontWeight: 700, color: plan.darkColor, flexShrink: 0, marginLeft: '0.5rem' }}>{opt.price}</div>
+                <div style={{ textAlign: 'right', flexShrink: 0, marginLeft: '0.5rem' }}>
+                  <div style={{ fontSize: "0.9375rem", fontWeight: 700, color: plan.darkColor }}>{opt.price}</div>
+                  {opt.href && (
+                    <Link href={opt.href} style={{ display: 'inline-block', marginTop: 4, padding: '4px 12px', borderRadius: 999, background: 'var(--ink)', color: '#fff', fontSize: '0.8125rem', fontWeight: 700, textDecoration: 'none' }}>
+                      {opt.cta ?? 'Get started'} →
+                    </Link>
+                  )}
+                </div>
               </div>
             ))}
           </div>

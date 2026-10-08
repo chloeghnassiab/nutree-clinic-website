@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
-import { PRICES } from '@/lib/prices.config'
+import { PRICING_AT_CONSULT } from '@/lib/prices.config'
+import { CHECKOUT } from '@/lib/checkout.config'
 import { FAQ_ITEMS } from '@/lib/faq.config'
 import {
   PromoList, PlanRow, ProductBlockHeader, CTAArea,
@@ -14,7 +15,6 @@ export const metadata: Metadata = {
   description: 'Physician-prescribed B6/B12 injections and oral supplements. Direct absorption, fast-acting energy support. Florida telehealth.',
 }
 
-const P = PRICES
 const PAGE = '/b12'
 
 export default function B12Page() {
@@ -47,19 +47,17 @@ export default function B12Page() {
 
           <div style={{ marginBottom: '0.625rem' }}>
             <ProductBlockHeader>Injectable · Highest absorption</ProductBlockHeader>
-            <PlanRow name="6-month plan" sub={`${P.b12Injectable.sixMonth.totalLabel} · medication · consultation · shipping`} price={P.b12Injectable.sixMonth.monthlyLabel} afterPrice={P.b12Injectable.sixMonth.savingsLabel} best color="var(--b12-dark)" />
-            <PlanRow name="Monthly plan" sub="Cancel anytime" price={P.b12Injectable.monthly.monthlyLabel} afterPrice={P.b12Injectable.monthly.perWeekLabel} color="var(--b12-dark)" />
+            <PlanRow name="Injectable plan" sub="Plan and price confirmed at your consultation" price={PRICING_AT_CONSULT} color="var(--b12-dark)" />
           </div>
 
           <div>
             <ProductBlockHeader>Oral / Sublingual · Needle-free</ProductBlockHeader>
-            <PlanRow name="6-month plan" sub={P.b12Oral.sixMonth.totalLabel} price={P.b12Oral.sixMonth.monthlyLabel} afterPrice={P.b12Oral.sixMonth.savingsLabel} best color="var(--b12-dark)" />
-            <PlanRow name="Monthly plan" price={P.b12Oral.monthly.monthlyLabel} afterPrice={P.b12Oral.monthly.perWeekLabel} color="var(--b12-dark)" />
+            <PlanRow name="Oral / sublingual plan" sub="Plan and price confirmed at your consultation" price={PRICING_AT_CONSULT} color="var(--b12-dark)" />
           </div>
         </div>
       </div>
 
-      <CTAArea />
+      <CTAArea href={CHECKOUT.consult} />
 
       <BenefitsList color="var(--b12)" items={[
         'Two delivery forms — injectable or oral/sublingual',

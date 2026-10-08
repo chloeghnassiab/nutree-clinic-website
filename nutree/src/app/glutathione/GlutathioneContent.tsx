@@ -1,5 +1,6 @@
 'use client'
-import { PRICES } from '@/lib/prices.config'
+import { PRICING_AT_CONSULT } from '@/lib/prices.config'
+import { CHECKOUT } from '@/lib/checkout.config'
 import { FAQ_ITEMS } from '@/lib/faq.config'
 import {
   PromoList, PlanRow, ProductBlockHeader, CTAArea,
@@ -7,8 +8,6 @@ import {
   ScienceGrid, Testimonials, AlsoFromNutree, FAQSection,
   PageLegal, ConsultBand, InStockBadge,
 } from '@/components/ui/PageComponents'
-
-const P = PRICES
 
 const PAGE = '/glutathione'
 
@@ -43,31 +42,16 @@ export function GlutathioneContent() {
           <div>
             <ProductBlockHeader>Injectable · Physician-prescribed</ProductBlockHeader>
             <PlanRow
-              name="6-month plan"
-              sub={`${P.glutathione.sixMonth.totalLabel} · medication · consultation · shipping`}
-              price={P.glutathione.sixMonth.monthlyLabel}
-              afterPrice={P.glutathione.sixMonth.savingsLabel || undefined}
-              best
-              color="var(--nad-dark)"
-            />
-            <PlanRow
-              name="3-month plan"
-              price={P.glutathione.threeMonth.monthlyLabel}
-              afterPrice={P.glutathione.threeMonth.savingsLabel || undefined}
-              color="var(--nad-dark)"
-            />
-            <PlanRow
-              name="Monthly plan"
-              sub="Cancel anytime"
-              price={P.glutathione.monthly.monthlyLabel}
-              afterPrice={P.glutathione.monthly.perWeekLabel}
+              name="Glutathione plan"
+              sub="Your clinician confirms your plan and price at your consultation"
+              price={PRICING_AT_CONSULT}
               color="var(--nad-dark)"
             />
           </div>
         </div>
       </div>
 
-      <CTAArea />
+      <CTAArea href={CHECKOUT.consult} />
 
       <BenefitsList color="var(--nad)" items={[
         'Injectable delivery — direct cellular absorption, far more effective than oral supplements',

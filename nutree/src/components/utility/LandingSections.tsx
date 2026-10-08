@@ -1,6 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { FAQSection } from '@/components/ui/PageComponents'
+import { PRICES } from '@/lib/prices.config'
+import { CHECKOUT } from '@/lib/checkout.config'
 import { BENEFITS_DISCLAIMER, IMG, MICRODOSING_CHECKLIST, type ImageRef } from './landingContent'
 
 // Building blocks for the ad / partner landing pages (/landing-*, /promotion, /mbjcc-jperks).
@@ -155,8 +157,8 @@ export function LandingFAQ({ items }: { items: { q: string; a: string }[] }) {
 /** Semaglutide / Tirzepatide microdosing plan cards (live /bmi and /mbjcc-jperks). */
 export function MicrodosingPlans({ discoverHref = '/discover' }: { discoverHref?: string }) {
   const plans = [
-    { name: 'Semaglutide Plan', desc: 'Supports appetite regulation and metabolic balance', weekly: '$21.9/week', total: '$219 total', tags: ['10-week plan', 'Single Agonist'], href: '/get_semaglutide_microdosing', cta: 'Buy Semaglutide now' },
-    { name: 'Tirzepatide Plan', desc: 'GLP-1/GIP care for appetite regulation and metabolic balance', weekly: '$29.9/week', total: '$299 total', tags: ['10-week plan', 'Dual Agonist'], href: '/get_tirzepatide_microdosing', cta: 'Buy Tirzepatide now' },
+    { name: 'Semaglutide Plan', desc: 'Supports appetite regulation and metabolic balance', weekly: PRICES.microdosingSema.tenWeek.perWeekLabel, total: PRICES.microdosingSema.tenWeek.totalLabel, tags: ['10-week plan', 'Single Agonist'], href: CHECKOUT.semaglutideMicrodosing, cta: 'Buy Semaglutide now' },
+    { name: 'Tirzepatide Plan', desc: 'GLP-1/GIP care for appetite regulation and metabolic balance', weekly: PRICES.microDosingTirz.tenWeek.perWeekLabel, total: PRICES.microDosingTirz.tenWeek.totalLabel, tags: ['10-week plan', 'Dual Agonist'], href: CHECKOUT.tirzepatideMicrodosing, cta: 'Buy Tirzepatide now' },
     { name: 'Not sure which option is right for you?', desc: 'Talk with our team and learn more before you begin', weekly: 'Free', total: 'Discovery call', tags: ['No commitment', 'Ask questions first'], href: discoverHref, cta: 'Book Free Discovery Call' },
   ]
   return (

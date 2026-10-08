@@ -1,6 +1,7 @@
 // ─── OXYTOCIN PAGE ────────────────────────────────────────────────────────────
 import type { Metadata } from 'next'
 import { PRICES } from '@/lib/prices.config'
+import { CHECKOUT } from '@/lib/checkout.config'
 import { FAQ_ITEMS } from '@/lib/faq.config'
 import {
   PromoList, PlanRow, ProductBlockHeader, CTAArea,
@@ -57,14 +58,12 @@ export default function OxytocinPage() {
 
           <div>
             <ProductBlockHeader>Nasal Spray · Physician-prescribed</ProductBlockHeader>
-            <PlanRow name="6-month plan" sub={`${P.oxytocin.sixMonth.totalLabel} · medication · consultation · shipping`} price={P.oxytocin.sixMonth.monthlyLabel} afterPrice={P.oxytocin.sixMonth.savingsLabel} best color="var(--oxy-dark)" />
-            <PlanRow name="3-month plan" price={P.oxytocin.threeMonth.monthlyLabel} afterPrice={P.oxytocin.threeMonth.savingsLabel} color="var(--oxy-dark)" />
-            <PlanRow name="Monthly plan" sub="Cancel anytime" price={P.oxytocin.monthly.monthlyLabel} afterPrice={P.oxytocin.monthly.perWeekLabel} color="var(--oxy-dark)" />
+            <PlanRow name="Monthly plan" sub="Billed every 4 weeks · medication · consultation · shipping · cancel anytime" price={P.oxytocin.monthly.monthlyLabel} afterPrice={P.oxytocin.monthly.perWeekLabel} color="var(--oxy-dark)" href={CHECKOUT.oxytocin} ctaLabel="Start oxytocin" />
           </div>
         </div>
       </div>
 
-      <CTAArea />
+      <CTAArea href={CHECKOUT.oxytocin} />
 
       <BenefitsList color="var(--oxy)" items={[
         'Stress regulation and emotional balance — daily nasal spray',

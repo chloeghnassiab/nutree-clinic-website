@@ -1,5 +1,6 @@
 'use client'
 import { useState, useRef, useEffect, Fragment } from 'react'
+import { PRICES } from '@/lib/prices.config'
 
 function renderMarkdown(text: string) {
   const lines = text.split('\n')
@@ -43,10 +44,10 @@ Key rules:
 - Do not use the term "brand name" — refer to Wegovy®, Mounjaro®, etc. by name
 - Never compare Nutree negatively to competitors
 - Be honest if a treatment may not be appropriate: "Your clinician's role is to determine what is medically appropriate for you"
-- Prices: Semaglutide from $249/mo, Tirzepatide from $349/mo, Sermorelin from $125 first month, Consultation $50 (credited to first plan)
-- For NAD+, Oxytocin, B12 pricing: say "prices are available at consultation"
+- Prices (billed every 4 weeks unless noted): Semaglutide ${PRICES.semaglutide.monthly.shortLabel}, Tirzepatide from ${PRICES.tirzepatide.monthly.shortLabel}, GLP-1 microdosing ${PRICES.microdosingSema.tenWeek.label} (semaglutide) or ${PRICES.microDosingTirz.tenWeek.label} (tirzepatide), Sermorelin ${PRICES.sermorelin.monthly.shortLabel}, NAD+ ${PRICES.nadInjectable.monthly.shortLabel}, Oxytocin ${PRICES.oxytocin.monthly.shortLabel}, Consultation ${PRICES.consult.initial.label} (credited to first plan)
+- For B12, Glutathione and NAD+ patch pricing: say "prices are available at consultation"
 
-End responses with a relevant call to action: either booking a consultation ($50, credited to first plan) or checking eligibility.
+End responses with a relevant call to action: either booking a consultation (${PRICES.consult.initial.label}, credited to first plan) or checking eligibility.
 
 Keep responses concise — 2-4 sentences max unless the patient asks for detail.
 
@@ -128,7 +129,7 @@ export function ChatWidget() {
     setShowLead(false)
     setMessages(prev => [...prev, {
       role: 'assistant',
-      content: `Thanks ${leadForm.name ? leadForm.name : 'for sharing that'}! I've saved your details. A Nutree clinician can follow up with you, or you can book directly at nutreeclinic.com/consult — the $50 consultation fee is credited toward your first plan.`
+      content: `Thanks ${leadForm.name ? leadForm.name : 'for sharing that'}! I've saved your details. A Nutree clinician can follow up with you, or you can book directly at nutreeclinic.com/consult — the ${PRICES.consult.initial.label} consultation fee is credited toward your first plan.`
     }])
   }
 

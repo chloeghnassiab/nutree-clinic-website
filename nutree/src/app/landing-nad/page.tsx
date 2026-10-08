@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { OfferHero, HowSection, BenefitsSection, StepsSection, LandingFAQ } from '@/components/utility/LandingSections'
 import { IMG, NAD } from '@/components/utility/landingContent'
+import { PRICES } from '@/lib/prices.config'
 
 export const metadata: Metadata = {
   title: { absolute: 'NAD+ Therapy | Nutree Clinic' },
@@ -21,13 +22,13 @@ export default function LandingNadPage() {
         price={
           <div>
             <div style={{ fontSize: '0.875rem', fontWeight: 700, color: 'var(--nad-dark)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Monthly Plan</div>
-            <div style={{ fontFamily: 'var(--font-serif)', fontSize: '1.75rem', fontWeight: 700, color: 'var(--nad-dark)' }}>$139 first month</div>
-            <div style={{ fontSize: '0.9375rem', color: 'var(--ink-2)' }}>$199/mo after</div>
+            <div style={{ fontFamily: 'var(--font-serif)', fontSize: '1.75rem', fontWeight: 700, color: 'var(--nad-dark)' }}>{PRICES.nadInjectable.monthly.shortLabel}</div>
+            <div style={{ fontSize: '0.9375rem', color: 'var(--ink-2)' }}>Billed every 4 weeks</div>
           </div>
         }
         cta={{ href: CTA, label: 'Start NAD+ now' }}
         intro="NAD+ injectable therapy is designed to help support cellular energy, mental clarity, and healthy aging with a personalized, clinician-guided approach."
-        fineprint={<>Includes a personalized video consultation, treatment, and home delivery.<br />Introductory pricing applies to the first month only. No membership. No hidden fees. No commitment.<br />Offer valid through April 30, 2026.</>}
+        fineprint={<>Includes a personalized video consultation, treatment, and home delivery.<br />No membership. No hidden fees. No commitment.</>}
         image={IMG.nadVial}
         background="linear-gradient(160deg, var(--nad) 0%, var(--base) 60%)"
       />

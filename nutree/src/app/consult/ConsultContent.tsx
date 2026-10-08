@@ -5,11 +5,14 @@ import {
   Question, Pill, Leaf, Scales,
 } from '@phosphor-icons/react'
 import { ConsultBand } from '@/components/ui/PageComponents'
+import { PRICES } from '@/lib/prices.config'
+
+const CONSULT = PRICES.consult.initial.label
 
 const INCLUDED = [
   { Icon: Stethoscope, title: 'Personalised treatment recommendation', desc: 'Your clinician reviews your health history and goals, then recommends the treatment most appropriate for your body — or none, if it\'s not right for you.' },
   { Icon: ClipboardText, title: 'Full health history review', desc: 'A real clinical conversation. Your provider asks the right questions and listens before making any recommendation.' },
-  { Icon: CreditCard, title: '$50 credited to your first plan', desc: 'If you start a Nutree treatment plan after your consultation, the $50 is credited toward your first month.' },
+  { Icon: CreditCard, title: `${CONSULT} credited to your first plan`, desc: `If you start a Nutree treatment plan after your consultation, the ${CONSULT} is credited toward your first month.` },
   { Icon: ChatCircle, title: '7/7 direct clinician messaging', desc: 'Your assigned clinician is available 7 days a week via direct message throughout your plan — no phone required, no waiting rooms.' },
 ]
 
@@ -35,11 +38,11 @@ export function ConsultContent() {
           Submit your intake form and your clinician reviews everything. Your prescription is issued directly — no call required unless you request one or it is clinically necessary. Your clinician is available 7 days a week via direct message.
         </p>
         <div style={{ display: 'flex', alignItems: 'baseline', gap: '1rem', marginBottom: '1.25rem' }}>
-          <span style={{ fontFamily: 'var(--font-serif)', fontSize: '3rem', fontWeight: 700, color: 'var(--con-dark)', lineHeight: 1 }}>$50</span>
+          <span style={{ fontFamily: 'var(--font-serif)', fontSize: '3rem', fontWeight: 700, color: 'var(--con-dark)', lineHeight: 1 }}>{CONSULT}</span>
           <div style={{ fontSize: '1rem', color: 'var(--ink-2)', lineHeight: 1.4 }}>Consultation fee<br />credited to your first plan</div>
         </div>
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(82,159,153,0.12)', border: '1px solid rgba(82,159,153,0.25)', borderRadius: 999, padding: '8px 18px', fontSize: '0.9375rem', fontWeight: 600, color: 'var(--teal)', marginBottom: '1.5rem' }}>
-          ⭐ $50 credited toward your first treatment plan
+          ⭐ {CONSULT} credited toward your first treatment plan
         </div>
         <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
           <Link href="https://calendly.com/nutreeclinic" target="_blank"

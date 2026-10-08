@@ -2,6 +2,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { PRICES } from '@/lib/prices.config'
+import { CHECKOUT } from '@/lib/checkout.config'
 import { CTAButton, CheckList } from '@/components/treatment/SeoBlocks'
 
 const section = (bg: string): React.CSSProperties => ({ padding: '2.5rem 1.5rem', background: bg, borderTop: '1px solid var(--border)' })
@@ -16,7 +17,6 @@ const grid = (min: number): React.CSSProperties => ({ display: 'grid', gridTempl
 const card: React.CSSProperties = { background: 'var(--white)', border: '0.5px solid var(--border)', borderRadius: 'var(--radius-lg)', padding: '1.25rem' }
 
 const P = PRICES
-const isTBD = (label: string) => label.includes('TBD')
 
 /** "from $X/mo" using the lowest per-4-week price of a plan family in prices.config. */
 export function fromMonthly(cents: number) {
@@ -27,7 +27,11 @@ export function fromMonthly(cents: number) {
 export function ProgramDetails() {
   const programs = [
     {
-      name: 'GLP-1 Microdosing', tag: 'Metabolic & appetite support', href: '/weight-loss', color: 'var(--glp)',
+      name: 'GLP-1 Microdosing', tag: 'Metabolic & appetite support', href: '/glp-1microdosing', color: 'var(--glp)',
+      buy: [
+        { label: 'Buy Semaglutide', href: CHECKOUT.semaglutideMicrodosing },
+        { label: 'Buy Tirzepatide', href: CHECKOUT.tirzepatideMicrodosing },
+      ],
       desc: 'A lower-dose approach using semaglutide or tirzepatide to support appetite regulation, reduce food noise, and encourage gradual, sustainable metabolic progress.',
       bullets: [
         `Semaglutide: ${P.microdosingSema.tenWeek.label}`,
@@ -38,9 +42,10 @@ export function ProgramDetails() {
     },
     {
       name: 'NAD+ Therapy', tag: 'Cellular energy & wellness', href: '/nad+', color: 'var(--nad)',
+      buy: [{ label: 'Start NAD+', href: CHECKOUT.nad }],
       desc: 'Clinician-guided NAD+ therapy designed to support cellular energy, mental clarity, and healthy aging through a personalized at-home treatment plan.',
       bullets: [
-        ...(isTBD(P.nadInjectable.monthly.monthlyLabel) ? [] : [`From ${P.nadInjectable.sixMonth.monthlyLabel}`]),
+        `${P.nadInjectable.monthly.shortLabel} · billed every 4 weeks`,
         'Injectable or needle-free nasal spray options',
         'Supports cellular energy and mental clarity',
         'Convenient treatment from home',
@@ -49,6 +54,7 @@ export function ProgramDetails() {
     },
     {
       name: 'Sermorelin', tag: 'Sleep, recovery & body composition', href: '/sermorelin', color: 'var(--ser)',
+      buy: [{ label: 'Start Sermorelin', href: CHECKOUT.sermorelin }],
       desc: 'A clinician-guided peptide treatment that supports your body’s natural growth hormone signaling, with potential benefits for sleep, recovery, energy, and body composition.',
       bullets: [
         `Monthly plan: ${P.sermorelin.monthly.monthlyLabel}`,
@@ -75,7 +81,14 @@ export function ProgramDetails() {
               <h3 style={{ ...h3, fontFamily: 'var(--font-serif)', fontSize: '1.375rem', fontWeight: 600 }}>{p.name}</h3>
               <p style={{ ...muted, marginBottom: '0.875rem' }}>{p.desc}</p>
               <CheckList items={p.bullets} color={p.color} />
-              <Link href={p.href} style={{ display: 'inline-block', marginTop: '1rem', fontSize: '0.9375rem', fontWeight: 700, color: 'var(--ink)' }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginTop: '1rem' }}>
+                {p.buy.map(b => (
+                  <Link key={b.href} href={b.href} style={{ display: 'inline-block', padding: '8px 16px', borderRadius: 999, background: 'var(--ink)', color: '#fff', fontSize: '0.875rem', fontWeight: 700, textDecoration: 'none' }}>
+                    {b.label} →
+                  </Link>
+                ))}
+              </div>
+              <Link href={p.href} style={{ display: 'inline-block', marginTop: '0.75rem', fontSize: '0.9375rem', fontWeight: 700, color: 'var(--ink)' }}>
                 Discover {p.name} →
               </Link>
             </div>
@@ -157,12 +170,12 @@ export function HomePricing() {
       features: ['Meet a licensed clinician', 'Personalized treatment recommendation', 'No commitment'], href: '/consult', cta: 'Book your consultation',
     },
     {
-      name: 'Semaglutide plan', sub: 'Compounded injectable semaglutide — GLP-1', price: P.semaglutide.monthly.monthlyLabel.replace(' (4 weeks)', ''), unit: `per month, billed every 4 weeks · ${P.semaglutide.sixMonth.monthlyLabel.replace(' (4 weeks)', '')} on a 6-month plan`,
-      features: glpFeatures, href: '/weight-loss', cta: 'Get started',
+      name: 'Semaglutide plan', sub: 'Compounded injectable semaglutide — GLP-1', price: P.semaglutide.monthly.priceLabel, unit: 'per month, billed every 4 weeks',
+      features: glpFeatures, href: CHECKOUT.semaglutideWeightLoss, cta: 'Get started',
     },
     {
-      name: 'Tirzepatide plan', sub: 'Compounded injectable tirzepatide — GLP-1/GIP', price: P.tirzepatide.monthly.monthlyLabel.replace(' (4 weeks)', ''), unit: `per month, billed every 4 weeks · ${P.tirzepatide.sixMonth.monthlyLabel.replace(' (4 weeks)', '')} on a 6-month plan`,
-      features: glpFeatures, href: '/weight-loss', cta: 'Get started',
+      name: 'Tirzepatide plan', sub: 'Compounded injectable tirzepatide — GLP-1/GIP', price: P.tirzepatide.monthly.priceLabel, unit: 'per month, billed every 4 weeks · starting price',
+      features: glpFeatures, href: CHECKOUT.tirzepatideWeightLoss, cta: 'Get started',
     },
   ]
   return (

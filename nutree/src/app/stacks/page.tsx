@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { STACKS } from '@/lib/stacks.config'
+import { CHECKOUT } from '@/lib/checkout.config'
 import { ConsultBand } from '@/components/ui/PageComponents'
 
 export const metadata: Metadata = {
@@ -53,9 +54,10 @@ export default function StacksPage() {
                 </p>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                   <div style={{ fontSize: '1rem', fontWeight: 700, color: stack.darkColor }}>{stack.price}</div>
-                  <Link href={stack.hrefs[0]}
+                  {/* Stacks have no Healthie checkout package — they start with the consult. */}
+                  <Link href={CHECKOUT.consult}
                     style={{ padding: '10px 20px', borderRadius: 999, background: 'var(--ink)', color: '#fff', fontSize: '0.875rem', fontWeight: 700, textDecoration: 'none' }}>
-                    Start with {stack.products[0]} →
+                    Book a consult →
                   </Link>
                 </div>
               </div>

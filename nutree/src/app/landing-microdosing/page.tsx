@@ -1,6 +1,10 @@
 import type { Metadata } from 'next'
 import { OfferHero, HowSection, BenefitsSection, StepsSection, LandingFAQ } from '@/components/utility/LandingSections'
 import { IMG, MICRODOSING } from '@/components/utility/landingContent'
+import { PRICES } from '@/lib/prices.config'
+
+const SEMA = PRICES.microdosingSema.tenWeek
+const TIRZ = PRICES.microDosingTirz.tenWeek
 
 export const metadata: Metadata = {
   title: { absolute: 'Clinician-Guided GLP-1 Microdosing' },
@@ -18,10 +22,10 @@ export default function LandingMicrodosingPage() {
       <OfferHero
         eyebrow="Clinician-guided metabolic support"
         title="GLP-1 Microdosing"
-        price={<div style={{ fontFamily: 'var(--font-serif)', fontSize: '1.75rem', fontWeight: 700, color: 'var(--glp-dark)' }}>Starting at $35/week</div>}
+        price={<div style={{ fontFamily: 'var(--font-serif)', fontSize: '1.75rem', fontWeight: 700, color: 'var(--glp-dark)' }}>Starting at {SEMA.perWeekLabel}</div>}
         cta={{ href: CTA, label: 'Start Microdosing now' }}
         intro="GLP-1 microdosing uses a low weekly dose to help support appetite regulation and metabolic balance."
-        fineprint={<>Includes a personalized video consultation, medication, and home delivery.<br />$35/week (semaglutide) or $45/week (tirzepatide) — 10-week plan, paid upfront.<br />No membership. No hidden fees. No commitment.</>}
+        fineprint={<>Includes a personalized video consultation, medication, and home delivery.<br />{SEMA.priceLabel} (semaglutide) or {TIRZ.priceLabel} (tirzepatide) — 10-week plan, paid upfront.<br />No membership. No hidden fees. No commitment.</>}
         image={IMG.glpVial}
       />
       <HowSection {...MICRODOSING.how} cta={CTA} />

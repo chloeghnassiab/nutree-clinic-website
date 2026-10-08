@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { PRICES } from '@/lib/prices.config'
+import { PRICES, PRICING_AT_CONSULT } from '@/lib/prices.config'
+import { CHECKOUT, ELIGIBILITY_QUIZ } from '@/lib/checkout.config'
 import { FAQ_ITEMS } from '@/lib/faq.config'
 import {
   PromoList, PlanRow, ProductBlockHeader, CTAArea,
@@ -63,16 +64,11 @@ export default function WeightLossPage() {
           <div style={{ marginBottom: '0.75rem' }}>
             <ProductBlockHeader>Compounded Semaglutide</ProductBlockHeader>
             <PlanRow
-              name="3-month plan" sub={`${P.semaglutide.threeMonth.totalLabel} · medication · consultation · shipping`}
-              price={P.semaglutide.threeMonth.monthlyLabel}
-              afterPrice={P.semaglutide.threeMonth.savingsLabel}
-              best color="var(--glp-dark)"
-            />
-            <PlanRow
-              name="Monthly plan" sub="Cancel anytime"
+              name="Monthly plan" sub="Billed every 4 weeks · medication · consultation · shipping · cancel anytime"
               price={P.semaglutide.monthly.monthlyLabel}
               afterPrice={P.semaglutide.monthly.perWeekLabel}
               color="var(--glp-dark)"
+              href={CHECKOUT.semaglutideWeightLoss} ctaLabel="Get semaglutide"
             />
           </div>
 
@@ -80,23 +76,21 @@ export default function WeightLossPage() {
           <div style={{ marginBottom: '0.75rem' }}>
             <ProductBlockHeader>Compounded Tirzepatide</ProductBlockHeader>
             <PlanRow
-              name="3-month plan" sub={`${P.tirzepatide.threeMonth.totalLabel} · medication · consultation · shipping`}
-              price={P.tirzepatide.threeMonth.monthlyLabel}
-              afterPrice={P.tirzepatide.threeMonth.savingsLabel}
-              best color="var(--glp-dark)"
-            />
-            <PlanRow
-              name="Monthly plan" sub="Cancel anytime"
-              price={P.tirzepatide.monthly.monthlyLabel}
+              name="Monthly plan" sub="Billed every 4 weeks · medication · consultation · shipping · cancel anytime"
+              price={`From ${P.tirzepatide.monthly.monthlyLabel}`}
               afterPrice={P.tirzepatide.monthly.perWeekLabel}
               color="var(--glp-dark)"
+              href={CHECKOUT.tirzepatideWeightLoss} ctaLabel="Get tirzepatide"
             />
           </div>
         </div>
       </div>
 
       {/* ── CTA ───────────────────────────────────────────────────── */}
-      <CTAArea />
+      <CTAArea href={CHECKOUT.semaglutideWeightLoss} label="Get started with semaglutide" secondaryHref={CHECKOUT.tirzepatideWeightLoss} secondaryLabel="Get started with tirzepatide" />
+      <div style={{ background: 'var(--white)', textAlign: 'center', padding: '0 1.25rem 1rem' }}>
+        <a href={ELIGIBILITY_QUIZ} style={{ fontSize: '0.9375rem', fontWeight: 700, color: 'var(--teal-dark)' }}>Check eligibility →</a>
+      </div>
 
       {/* ── BENEFITS ──────────────────────────────────────────────── */}
       <BenefitsList color="var(--glp)" items={[
@@ -128,7 +122,7 @@ export default function WeightLossPage() {
         eyebrow="Personalized, clinician-guided weight loss — made simple"
         title="How It Works"
         accent="linear-gradient(135deg, var(--glp-mid), var(--glp))"
-        ctaHref="/consult"
+        ctaHref={ELIGIBILITY_QUIZ}
         ctaLabel="Check my eligibility"
         steps={[
           { title: 'Tell us about yourself', desc: 'Complete a short intake so we understand your health history, goals, and concerns. It takes about 3 minutes.' },
@@ -227,7 +221,7 @@ export default function WeightLossPage() {
                 ['Mechanism',      'GLP-1 receptor agonist',        'GLP-1 + GIP dual agonist'],
                 ['Avg weight loss*','~15% body weight',             '~21% body weight ✓'],
                 ['Administration', 'Once-weekly injection',         'Once-weekly injection'],
-                ['Starting price', `${P.semaglutide.threeMonth.monthlyLabel} ✓`, P.tirzepatide.threeMonth.monthlyLabel],
+                ['Starting price', `${P.semaglutide.monthly.monthlyLabel} ✓`, `From ${P.tirzepatide.monthly.monthlyLabel}`],
                 ['Well suited for','First GLP-1 · extensively studied','Stronger metabolic response needed'],
               ].map(([label, a, b], i) => (
                 <tr key={i} style={{ background: i % 2 === 1 ? 'rgba(184,228,240,0.12)' : 'transparent' }}>
@@ -274,11 +268,11 @@ export default function WeightLossPage() {
         </div>
         <div className="carousel-track">
           {[
-            { name: 'Compounded Semaglutide', price: P.semaglutide.threeMonth.monthlyLabel, bg: 'linear-gradient(150deg,var(--glp-mid),var(--glp))', color: 'var(--glp-dark)', href: '/weight-loss', active: true },
-            { name: 'Compounded Tirzepatide', price: P.tirzepatide.threeMonth.monthlyLabel, bg: 'linear-gradient(150deg,var(--ser-mid),var(--ser))', color: 'var(--ser-dark)', href: '/weight-loss' },
-            { name: 'GLP-1 Microdosing',       price: P.microdosingSema.perWeek.label, bg: 'linear-gradient(150deg,var(--nad-mid),var(--nad))', color: 'var(--nad-dark)', href: '/glp-1' },
-            { name: 'Wegovy®',                  price: P.wegovy.monthly.label,          bg: 'linear-gradient(150deg,#D0E4F4,#B8CCE8)', color: '#3A5A8A', href: '/weight-loss' },
-            { name: 'Mounjaro®',                price: P.mounjaro.monthly.label,         bg: 'linear-gradient(150deg,#E4E4E0,#D0D0C8)', color: 'var(--ink-3)', href: '/weight-loss' },
+            { name: 'Compounded Semaglutide', price: P.semaglutide.monthly.monthlyLabel, bg: 'linear-gradient(150deg,var(--glp-mid),var(--glp))', color: 'var(--glp-dark)', href: CHECKOUT.semaglutideWeightLoss, active: true },
+            { name: 'Compounded Tirzepatide', price: `From ${P.tirzepatide.monthly.monthlyLabel}`, bg: 'linear-gradient(150deg,var(--ser-mid),var(--ser))', color: 'var(--ser-dark)', href: CHECKOUT.tirzepatideWeightLoss },
+            { name: 'GLP-1 Microdosing',       price: `From ${P.microdosingSema.tenWeek.label}`, bg: 'linear-gradient(150deg,var(--nad-mid),var(--nad))', color: 'var(--nad-dark)', href: '/glp-1microdosing' },
+            { name: 'Wegovy®',                  price: PRICING_AT_CONSULT,          bg: 'linear-gradient(150deg,#D0E4F4,#B8CCE8)', color: '#3A5A8A', href: CHECKOUT.consult },
+            { name: 'Mounjaro®',                price: PRICING_AT_CONSULT,         bg: 'linear-gradient(150deg,#E4E4E0,#D0D0C8)', color: 'var(--ink-3)', href: CHECKOUT.consult },
           ].map((c, i) => (
             <Link key={i} href={c.href}
               className={`carousel-card${c.active ? ' active' : ''}`}

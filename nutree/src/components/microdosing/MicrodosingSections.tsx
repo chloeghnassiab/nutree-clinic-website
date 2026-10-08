@@ -7,6 +7,7 @@ import {
   CheckCircle, ArrowRight, Star, SmileyMeh, Scales, MagnifyingGlass, MapPin,
 } from '@phosphor-icons/react/dist/ssr'
 import { PRICES } from '@/lib/prices.config'
+import { CHECKOUT } from '@/lib/checkout.config'
 import { FLORIDA_CITIES, FLORIDA_REGIONS, FLORIDA_HUB_PATH, cityPath } from '@/lib/florida-cities.config'
 import {
   PromoList, PlanRow, ProductBlockHeader, InStockBadge, Section, SectionHeader,
@@ -51,17 +52,15 @@ export function MicrodosingHero({ eyebrow, h1, subtitle }: { eyebrow: string; h1
         <div style={{ marginBottom: '0.75rem' }}>
           <ProductBlockHeader>Microdose Semaglutide · single agonist</ProductBlockHeader>
           <div style={{ ...smallNote, marginBottom: 6 }}>Supports appetite regulation and metabolic balance</div>
-          <PlanRow name="5-week program" sub="All-inclusive · no auto-renewal" price={P.microdosingSema.fiveWeek.label} color="var(--glp-dark)" />
-          <PlanRow name="10-week program" sub="All-inclusive · no auto-renewal" price={P.microdosingSema.tenWeek.label} best color="var(--glp-dark)" />
-          <div style={{ ...smallNote, marginTop: 3, paddingLeft: 4 }}>{P.microdosingSema.perWeek.label} · billed upfront</div>
+          <PlanRow name="10-week program" sub="All-inclusive · no auto-renewal" price={P.microdosingSema.tenWeek.label} afterPrice={P.microdosingSema.tenWeek.perWeekLabel} color="var(--glp-dark)" href={CHECKOUT.semaglutideMicrodosing} ctaLabel="Buy Semaglutide now" />
+          <div style={{ ...smallNote, marginTop: 3, paddingLeft: 4 }}>{P.microdosingSema.tenWeek.perWeekLabel} · billed upfront</div>
         </div>
 
         <div style={{ marginBottom: '0.75rem' }}>
           <ProductBlockHeader>Microdose Tirzepatide · dual agonist</ProductBlockHeader>
           <div style={{ ...smallNote, marginBottom: 6 }}>GLP-1/GIP care for appetite regulation and metabolic balance</div>
-          <PlanRow name="5-week program" sub="All-inclusive · no auto-renewal" price={P.microDosingTirz.fiveWeek.label} color="var(--glp-dark)" />
-          <PlanRow name="10-week program" sub="All-inclusive · no auto-renewal" price={P.microDosingTirz.tenWeek.label} best color="var(--glp-dark)" />
-          <div style={{ ...smallNote, marginTop: 3, paddingLeft: 4 }}>{P.microDosingTirz.perWeek.label} · billed upfront</div>
+          <PlanRow name="10-week program" sub="All-inclusive · no auto-renewal" price={P.microDosingTirz.tenWeek.label} afterPrice={P.microDosingTirz.tenWeek.perWeekLabel} color="var(--glp-dark)" href={CHECKOUT.tirzepatideMicrodosing} ctaLabel="Buy Tirzepatide now" />
+          <div style={{ ...smallNote, marginTop: 3, paddingLeft: 4 }}>{P.microDosingTirz.tenWeek.perWeekLabel} · billed upfront</div>
         </div>
 
         <Link href="/consult" style={{ display: 'block', padding: '0.75rem 0.875rem', borderRadius: 8, border: '1px dashed var(--glp-dark)', background: 'rgba(184,228,240,0.18)', textDecoration: 'none' }}>
@@ -92,7 +91,7 @@ export function MicrodosingComparison() {
     ['Experience',        'Gentler, more gradual',                            'More intensive'],
     ['Active ingredient', 'Semaglutide or tirzepatide',                       'Semaglutide or tirzepatide'],
     ['Side effects',      'May be fewer for some patients — can still occur', 'More common during dose increases'],
-    ['Commitment',        'Fixed 5 or 10 weeks, no auto-renewal',             'Monthly or 3-month plan'],
+    ['Commitment',        'Fixed 10-week plan, no auto-renewal',              'Monthly plan, billed every 4 weeks'],
     ['Best suited for',   'Those who prefer a steadier, lower-dose start',    'Those who want a standard full-dose program'],
   ]
   return (
@@ -296,7 +295,7 @@ export function MicrodosingAtAGlance() {
     ["Who it's for", 'Adult Florida residents, after clinical review'],
     ['How',          '100% online telehealth — no in-person visits; video or phone when your clinician needs to speak with you'],
     ['Frequency',    'Typically once weekly'],
-    ['Plans',        `Semaglutide ${P.microdosingSema.tenWeek.label} / Tirzepatide ${P.microDosingTirz.tenWeek.label} (5-week plans also available)`],
+    ['Plans',        `Semaglutide ${P.microdosingSema.tenWeek.priceLabel} / Tirzepatide ${P.microDosingTirz.tenWeek.priceLabel} (10-week)`],
     ['Pharmacy',     'U.S. licensed 503(A) compounding pharmacies'],
     ['Delivery',     'Free; often as early as the day after your consult'],
   ]

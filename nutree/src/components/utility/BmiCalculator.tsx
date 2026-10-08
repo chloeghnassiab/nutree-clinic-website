@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import Link from 'next/link'
+import { PRICES } from '@/lib/prices.config'
 
 type Units = 'imperial' | 'metric'
 
@@ -156,7 +157,7 @@ export function BmiCalculator() {
         </div>
         <div style={{ display: 'flex', gap: '0.625rem', flexWrap: 'wrap' }}>
           <Link href="/consult" style={{ padding: '12px 22px', borderRadius: 999, background: 'var(--ink)', color: '#fff', fontWeight: 700, textDecoration: 'none', fontSize: '0.9375rem' }}>
-            Book a $50 consultation →
+            Book a {PRICES.consult.initial.label} consultation →
           </Link>
           <Link href="/glp-1microdosing" style={{ padding: '12px 22px', borderRadius: 999, border: '1px solid var(--border)', color: 'var(--ink)', fontWeight: 600, textDecoration: 'none', fontSize: '0.9375rem' }}>
             Explore GLP-1 microdosing

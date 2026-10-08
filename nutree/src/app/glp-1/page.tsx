@@ -3,6 +3,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight, Stethoscope, Flag, ChartLineDown, Warning, CheckCircle, XCircle } from '@phosphor-icons/react/dist/ssr'
 import { FAQ_ITEMS } from '@/lib/faq.config'
+import { PRICES } from '@/lib/prices.config'
+import { CHECKOUT, ELIGIBILITY_QUIZ } from '@/lib/checkout.config'
 import {
   TrustStrip, ScienceGrid, AlsoFromNutree, PageLegal, ConsultBand, Section, SectionHeader,
 } from '@/components/ui/PageComponents'
@@ -81,7 +83,9 @@ export default function Glp1ExplainerPage() {
             GLP-1 and GIP/GLP-1 medications work by mimicking a natural hormone that helps regulate appetite, fullness, and blood sugar. By supporting how your body manages hunger and metabolism, these treatments can make it easier to lose weight safely and sustainably — with a licensed clinician guiding every step.
           </p>
           <div style={{ display: 'flex', gap: '0.625rem', flexWrap: 'wrap', marginTop: '0.25rem' }}>
-            <Link href="/consult" style={{ ...pill, background: 'var(--ink)', color: '#fff' }}>Check eligibility <ArrowRight size={16} weight="bold" /></Link>
+            <Link href={CHECKOUT.semaglutideWeightLoss} style={{ ...pill, background: 'var(--ink)', color: '#fff' }}>Get semaglutide · {PRICES.semaglutide.monthly.shortLabel} <ArrowRight size={16} weight="bold" /></Link>
+            <Link href={CHECKOUT.tirzepatideWeightLoss} style={{ ...pill, background: 'var(--ink)', color: '#fff' }}>Get tirzepatide · from {PRICES.tirzepatide.monthly.shortLabel} <ArrowRight size={16} weight="bold" /></Link>
+            <Link href={ELIGIBILITY_QUIZ} style={{ ...pill, background: 'var(--white)', color: 'var(--ink)', border: '1px solid var(--border)' }}>Check eligibility</Link>
             <Link href="/weight-loss" style={{ ...pill, background: 'var(--white)', color: 'var(--ink)', border: '1px solid var(--border)' }}>See weight-loss plans</Link>
           </div>
           <div style={{ fontSize: '0.875rem', color: 'var(--ink-3)', marginTop: '0.75rem' }}>FSA/HSA eligible · Florida residents · 100% online</div>
@@ -302,7 +306,7 @@ export default function Glp1ExplainerPage() {
         title="Ready to explore GLP-1 treatment?"
         items={[
           { name: 'GLP-1 weight-loss plans', sub: 'Compounded semaglutide & tirzepatide — standard dosing', href: '/weight-loss', arrowColor: 'var(--glp-dark)', img: '/images/glp1-semaglutide-weight-loss-nutreeclinic-nav.png' },
-          { name: 'GLP-1 microdosing', sub: 'A lower-dose, gentler start · 5 or 10 weeks', href: '/glp-1microdosing', arrowColor: 'var(--glp-dark)', img: '/images/microdosing/glp-1-microdosing-vial-nutree-clinic.png' },
+          { name: 'GLP-1 microdosing', sub: 'A lower-dose, gentler start · 10-week plan', href: '/glp-1microdosing', arrowColor: 'var(--glp-dark)', img: '/images/microdosing/glp-1-microdosing-vial-nutree-clinic.png' },
           { name: 'BMI calculator', sub: 'See where you stand before you start', href: '/bmi', arrowColor: 'var(--glp-dark)' },
           { name: 'GLP-1 microdosing in Florida', sub: 'Find care in your city — 100% online', href: '/glp-1microdosing/florida', arrowColor: 'var(--glp-dark)' },
         ]}

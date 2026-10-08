@@ -10,5 +10,5 @@ export const metadata: Metadata = {
 }
 
 export default function SweepstakesRulesSeptember2026Page() {
-  return <LegalDoc eyebrow="Official Rules" title="Nutree Clinic Wellness Sweepstakes" subtitle="September 2026" html={SWEEPSTAKES_SEPTEMBER_2026_HTML} />
+  return <LegalDoc eyebrow="Official Rules" title="Nutree Clinic Wellness Sweepstakes" subtitle="September 2026" html={'<p><strong>This sweepstakes has ended.</strong></p>\n' + SWEEPSTAKES_SEPTEMBER_2026_HTML} />
 }

@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { PROMOTIONS } from '@/lib/promotions.config'
+import { PRICES } from '@/lib/prices.config'
 
 // ─── SHARED ANIMATION VARIANTS ───────────────────────────────────────────────
 const fadeUp = {
@@ -98,8 +99,10 @@ export function PromoList() {
 }
 
 // ─── PLAN ROW ────────────────────────────────────────────────────────────────
-export function PlanRow({ name, sub, price, afterPrice, best, color }: {
+export function PlanRow({ name, sub, price, afterPrice, best, color, href, ctaLabel = 'Get started' }: {
   name: string; sub?: string; price: string; afterPrice?: string; best?: boolean; color: string
+  /** Optional per-plan checkout link (e.g. /get_semaglutide_weight_loss). */
+  href?: string; ctaLabel?: string
 }) {
   return (
     <div className="plan-row" style={{ display: 'flex', alignItems: 'center', padding: '0.75rem 0.875rem', borderRadius: 8, border: best ? `1.5px solid ${color}` : '1px solid var(--border)', marginTop: best ? 8 : 0, marginBottom: '0.375rem', background: 'var(--white)', position: 'relative' }}>
@@ -111,6 +114,11 @@ export function PlanRow({ name, sub, price, afterPrice, best, color }: {
       <div style={{ textAlign: 'right' }}>
         <div style={{ fontSize: '1rem', fontWeight: 700, color }}>{price}</div>
         {afterPrice && <div style={{ fontSize: '0.875rem', color: 'var(--ink-3)' }}>{afterPrice}</div>}
+        {href && (
+          <Link href={href} style={{ display: 'inline-flex', alignItems: 'center', gap: 4, marginTop: 6, padding: '6px 14px', borderRadius: 999, background: 'var(--ink)', color: '#fff', fontSize: '0.8125rem', fontWeight: 700, textDecoration: 'none', whiteSpace: 'nowrap' }}>
+            {ctaLabel} <ArrowRight size={12} weight="bold" />
+          </Link>
+        )}
       </div>
     </div>
   )
@@ -127,12 +135,21 @@ export function ProductBlockHeader({ children }: { children: React.ReactNode }) 
 }
 
 // ─── CTA AREA ────────────────────────────────────────────────────────────────
-export function CTAArea({ href = '/consult' }: { href?: string }) {
+export function CTAArea({ href = '/consult', label = 'Get started', secondaryHref, secondaryLabel }: {
+  href?: string; label?: string
+  /** Optional secondary link, e.g. the Jotform eligibility quiz or a second product's checkout. */
+  secondaryHref?: string; secondaryLabel?: string
+}) {
   return (
     <div style={{ background: 'var(--white)', padding: '1rem 1.25rem 1.25rem' }}>
       <Link href={href} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', width: '100%', padding: '0.875rem', borderRadius: 999, background: 'var(--ink)', color: '#fff', fontSize: '1rem', fontWeight: 700, textDecoration: 'none', marginBottom: '0.625rem' }}>
-        Get started <ArrowRight size={16} weight="bold" />
+        {label} <ArrowRight size={16} weight="bold" />
       </Link>
+      {secondaryHref && (
+        <Link href={secondaryHref} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', width: '100%', padding: '0.75rem', borderRadius: 999, background: 'transparent', color: 'var(--ink)', border: '1px solid var(--border)', fontSize: '0.9375rem', fontWeight: 700, textDecoration: 'none', marginBottom: '0.625rem' }}>
+          {secondaryLabel ?? 'Learn more'} <ArrowRight size={14} weight="bold" />
+        </Link>
+      )}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.375rem', fontSize: '0.875rem', color: 'var(--ink-3)', marginBottom: '0.375rem' }}>
         <ShieldCheck size={14} color="var(--ink-3)" />
         FSA/HSA eligible · Free shipping · Cancel anytime
@@ -485,7 +502,7 @@ export function ConsultBand() {
         padding: '14px 28px', borderRadius: 999, background: 'var(--con)', color: 'var(--ink)',
         fontSize: '1rem', fontWeight: 700, textDecoration: 'none', whiteSpace: 'nowrap', flexShrink: 0,
       }}>
-        Book a consult · $50 →
+        Book a consult · {PRICES.consult.initial.label} →
       </Link>
     </motion.div>
   )

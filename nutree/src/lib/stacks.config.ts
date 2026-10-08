@@ -1,3 +1,5 @@
+import { PRICING_AT_CONSULT } from './prices.config'
+
 export const STACKS_VISIBLE = false
 
 export type Stack = {
@@ -21,7 +23,7 @@ export const STACKS: Stack[] = [
     darkColor: 'var(--glp-dark)',
     products: ['GLP-1 Treatments', 'B6 / B12', 'Glutathione'],
     hrefs: ['/weight-loss', '/b12', '/glutathione'],
-    price: '$TBD/mo',
+    price: PRICING_AT_CONSULT,
     description:
       'GLP-1 therapy combined with B12 energy support and glutathione cellular detox — for patients who want to address metabolic health at every level.',
   },
@@ -33,7 +35,7 @@ export const STACKS: Stack[] = [
     darkColor: 'var(--nad-dark)',
     products: ['NAD+ Therapy', 'Sermorelin', 'Glutathione'],
     hrefs: ['/nad', '/sermorelin', '/glutathione'],
-    price: '$TBD/mo',
+    price: PRICING_AT_CONSULT,
     description:
       'NAD+ restores cellular energy, Sermorelin supports growth hormone and lean tissue, and Glutathione eliminates oxidative stress.',
   },
@@ -45,7 +47,7 @@ export const STACKS: Stack[] = [
     darkColor: 'var(--ser-dark)',
     products: ['Sermorelin', 'NAD+', 'B6 / B12'],
     hrefs: ['/sermorelin', '/nad', '/b12'],
-    price: '$TBD/mo',
+    price: PRICING_AT_CONSULT,
     description:
       'Sermorelin supports growth hormone and recovery, NAD+ fuels ATP production and stamina, and B12 sustains daily energy.',
   },

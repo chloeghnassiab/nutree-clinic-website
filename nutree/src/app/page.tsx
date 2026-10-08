@@ -3,7 +3,8 @@ import Link from 'next/link'
 import { ConsultBand, TrustStrip } from '@/components/ui/PageComponents'
 import { STACKS, STACKS_VISIBLE } from '@/lib/stacks.config'
 import { FAQ_ITEMS } from '@/lib/faq.config'
-import { PRICES } from '@/lib/prices.config'
+import { PRICES, PRICING_AT_CONSULT } from '@/lib/prices.config'
+import { ELIGIBILITY_QUIZ } from '@/lib/checkout.config'
 import { SeoFAQ, JsonLd, faqsForPages } from '@/components/treatment/SeoBlocks'
 import { ProgramDetails, PharmacyPartners, FeelBetter, HomePricing, ORGANIZATION_JSON_LD, fromMonthly } from '@/components/home/HomeSections'
 
@@ -18,12 +19,12 @@ export const metadata: Metadata = {
 }
 
 const TREATMENTS = [
-  { name: 'GLP-1 Weight Loss',  sub: 'Semaglutide · Tirzepatide · Microdosing', price: fromMonthly(Math.min(PRICES.semaglutide.sixMonth.monthlyCents, PRICES.tirzepatide.sixMonth.monthlyCents)), href: '/weight-loss', bg: 'linear-gradient(135deg, rgba(142,212,234,0.5) 0%, rgba(255,255,255,0.65) 100%)', priceColor: '#1A6B85', size: 'large',  image: '/images/glp1-weight-loss-patient-nutreeclinic.png',    imageHeight: '101%', imageTransform: 'translateX(8%)',  imageMaxWidth: '52%' },
-  { name: 'NAD+',               sub: 'Energy · longevity · cellular health',     price: 'from $TBD/mo', href: '/nad+',        bg: 'linear-gradient(135deg, rgba(120,200,168,0.5) 0%, rgba(255,255,255,0.65) 100%)', priceColor: '#1E6650', size: 'large',  image: '/images/nad-plus-therapy-patient-nutreeclinic.png',     imageHeight: '100%', imageTransform: 'translateX(8%)',  imageMaxWidth: 'none' },
-  { name: 'Sermorelin',         sub: 'Growth hormone · strength · recovery',     price: fromMonthly(PRICES.sermorelin.sixMonth.monthlyCents), href: '/sermorelin', bg: 'linear-gradient(135deg, rgba(224,160,112,0.5) 0%, rgba(255,255,255,0.65) 100%)', priceColor: '#8B4A20', size: 'medium', image: '/images/sermorelin-therapy-patient-nutreeclinic.png',   imageHeight: '91%',  imageTransform: 'translateX(-4%)', imageMaxWidth: '52%' },
-  { name: 'Glutathione',        sub: 'Detox · antioxidant · cellular health',    price: 'from $TBD/mo', href: '/glutathione', bg: 'linear-gradient(135deg, rgba(236,200,64,0.5) 0%, rgba(255,255,255,0.65) 100%)',  priceColor: '#7A6200', size: 'medium', image: '/images/glutathione-therapy-patient-nutreeclinic.png',  imageHeight: '101%', imageTransform: 'translateX(8%)',  imageMaxWidth: '52%' },
-  { name: 'Oxytocin',           sub: 'Stress relief · emotional well-being',     price: 'from $TBD/mo', href: '/oxytocin',    bg: 'linear-gradient(135deg, rgba(184,152,216,0.5) 0%, rgba(255,255,255,0.65) 100%)', priceColor: '#5A3080', size: 'medium', image: '/images/oxytocin-therapy-patient-nutreeclinic.png',    imageHeight: '101%', imageTransform: 'translateX(8%)',  imageMaxWidth: '52%' },
-  { name: 'B12-MIC',            sub: 'Energy · mood · neurological support',     price: 'from $TBD/mo', href: '/b12',         bg: 'linear-gradient(135deg, rgba(232,152,184,0.5) 0%, rgba(255,255,255,0.65) 100%)', priceColor: '#7A2048', size: 'medium', image: '/images/b12-mic-therapy-patient-nutreeclinic.png',      imageHeight: '101%', imageTransform: 'translateX(8%)',  imageMaxWidth: '52%' },
+  { name: 'GLP-1 Weight Loss',  sub: 'Semaglutide · Tirzepatide · Microdosing', price: fromMonthly(Math.min(PRICES.semaglutide.monthly.monthlyCents, PRICES.tirzepatide.monthly.monthlyCents)), href: '/weight-loss', bg: 'linear-gradient(135deg, rgba(142,212,234,0.5) 0%, rgba(255,255,255,0.65) 100%)', priceColor: '#1A6B85', size: 'large',  image: '/images/glp1-weight-loss-patient-nutreeclinic.png',    imageHeight: '101%', imageTransform: 'translateX(8%)',  imageMaxWidth: '52%' },
+  { name: 'NAD+',               sub: 'Energy · longevity · cellular health',     price: fromMonthly(PRICES.nadInjectable.monthly.monthlyCents), href: '/nad+',        bg: 'linear-gradient(135deg, rgba(120,200,168,0.5) 0%, rgba(255,255,255,0.65) 100%)', priceColor: '#1E6650', size: 'large',  image: '/images/nad-plus-therapy-patient-nutreeclinic.png',     imageHeight: '100%', imageTransform: 'translateX(8%)',  imageMaxWidth: 'none' },
+  { name: 'Sermorelin',         sub: 'Growth hormone · strength · recovery',     price: fromMonthly(PRICES.sermorelin.monthly.monthlyCents), href: '/sermorelin', bg: 'linear-gradient(135deg, rgba(224,160,112,0.5) 0%, rgba(255,255,255,0.65) 100%)', priceColor: '#8B4A20', size: 'medium', image: '/images/sermorelin-therapy-patient-nutreeclinic.png',   imageHeight: '91%',  imageTransform: 'translateX(-4%)', imageMaxWidth: '52%' },
+  { name: 'Glutathione',        sub: 'Detox · antioxidant · cellular health',    price: PRICING_AT_CONSULT, href: '/glutathione', bg: 'linear-gradient(135deg, rgba(236,200,64,0.5) 0%, rgba(255,255,255,0.65) 100%)',  priceColor: '#7A6200', size: 'medium', image: '/images/glutathione-therapy-patient-nutreeclinic.png',  imageHeight: '101%', imageTransform: 'translateX(8%)',  imageMaxWidth: '52%' },
+  { name: 'Oxytocin',           sub: 'Stress relief · emotional well-being',     price: fromMonthly(PRICES.oxytocin.monthly.monthlyCents), href: '/oxytocin',    bg: 'linear-gradient(135deg, rgba(184,152,216,0.5) 0%, rgba(255,255,255,0.65) 100%)', priceColor: '#5A3080', size: 'medium', image: '/images/oxytocin-therapy-patient-nutreeclinic.png',    imageHeight: '101%', imageTransform: 'translateX(8%)',  imageMaxWidth: '52%' },
+  { name: 'B12-MIC',            sub: 'Energy · mood · neurological support',     price: PRICING_AT_CONSULT, href: '/b12',         bg: 'linear-gradient(135deg, rgba(232,152,184,0.5) 0%, rgba(255,255,255,0.65) 100%)', priceColor: '#7A2048', size: 'medium', image: '/images/b12-mic-therapy-patient-nutreeclinic.png',      imageHeight: '101%', imageTransform: 'translateX(8%)',  imageMaxWidth: '52%' },
 ]
 
 const HOW_STEPS = [
@@ -56,7 +57,7 @@ export default function HomePage() {
           prescriptions if eligible, plus NAD+, Sermorelin, Glutathione, Oxytocin, and B12 — delivered to your door.
         </p>
         <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
-          <Link href="/weight-loss" style={{ padding: '14px 28px', borderRadius: 999, background: 'var(--ink)', color: '#fff', fontSize: '1rem', fontWeight: 700, textDecoration: 'none' }}>
+          <Link href={ELIGIBILITY_QUIZ} style={{ padding: '14px 28px', borderRadius: 999, background: 'var(--ink)', color: '#fff', fontSize: '1rem', fontWeight: 700, textDecoration: 'none' }}>
             Check my eligibility →
           </Link>
           <Link href="/consult" style={{ padding: '14px 24px', borderRadius: 999, background: 'transparent', color: 'var(--ink)', fontSize: '1rem', fontWeight: 600, textDecoration: 'none', border: '1px solid var(--border)' }}>
@@ -99,7 +100,7 @@ export default function HomePage() {
           <div>
             <div style={{ fontFamily: 'var(--font-serif)', fontSize: '1.5rem', fontWeight: 600, color: 'var(--ink)', lineHeight: 1.2, marginBottom: 6 }}>Personalized guidance from a licensed clinician.</div>
             <div style={{ fontSize: '0.9375rem', color: 'var(--con-dark)', marginBottom: 8 }}>Not sure where to start? One consultation is all it takes. Your clinician will recommend the right treatment for you.</div>
-            <div style={{ fontSize: '0.9375rem', fontWeight: 700, color: 'var(--con-dark)' }}>$50 · credited to your first plan</div>
+            <div style={{ fontSize: '0.9375rem', fontWeight: 700, color: 'var(--con-dark)' }}>{PRICES.consult.initial.label} · credited to your first plan</div>
           </div>
           <div style={{ padding: '12px 24px', borderRadius: 999, background: 'var(--ink)', color: '#fff', fontSize: '0.875rem', fontWeight: 700, flexShrink: 0 }}>
             Book a consult →
