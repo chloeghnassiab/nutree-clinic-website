@@ -3,6 +3,7 @@ import '@/styles/globals.css'
 import { SiteNav } from '@/components/layout/SiteNav'
 import { SiteFooter } from '@/components/layout/SiteFooter'
 import { ChatWidget } from '@/components/ui/ChatWidget'
+import { Analytics, AnalyticsNoScript } from '@/components/layout/Analytics'
 
 export const metadata: Metadata = {
   title: {
@@ -44,10 +45,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
+        <AnalyticsNoScript />
         <SiteNav />
         <main>{children}</main>
         <SiteFooter />
         {process.env.NEXT_PUBLIC_ENABLE_CHAT !== 'false' && <ChatWidget />}
+        <Analytics />
       </body>
     </html>
   )
