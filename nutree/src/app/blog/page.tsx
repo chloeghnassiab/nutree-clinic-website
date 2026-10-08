@@ -1,11 +1,21 @@
 import type { Metadata } from 'next'
 import BlogList from './BlogList'
+import { getAllPostMeta } from '@/lib/posts'
 
 export const metadata: Metadata = {
-  title: 'Blog — Nutree Clinic',
-  description: 'Evidence-based articles on GLP-1 therapy, NAD+, peptides, longevity, and metabolic health from the Nutree Clinic team.',
+  title: { absolute: 'Health & Wellness Blog | Medical Weight Loss | Nutree Clinic' },
+  description:
+    'Explore expert insights on medical weight loss, semaglutide, tirzepatide & healthy aging. Evidence-based advice guided by our licensed clinicians.',
+  alternates: { canonical: '/blog' },
+  openGraph: {
+    title: 'Health & Wellness Blog | Medical Weight Loss | Nutree Clinic',
+    description:
+      'Explore expert insights on medical weight loss, semaglutide, tirzepatide & healthy aging. Evidence-based advice guided by our licensed clinicians.',
+    url: '/blog',
+    type: 'website',
+  },
 }
 
 export default function BlogPage() {
-  return <BlogList />
+  return <BlogList posts={getAllPostMeta()} />
 }
