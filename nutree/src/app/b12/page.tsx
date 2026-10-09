@@ -65,7 +65,7 @@ export default function B12Page() {
         'Clear plan pricing before you start — no hidden fees',
         'Provider consultation and guidance included',
         'Free expedited shipping on every order',
-        '503A licensed pharmacy on every prescription',
+        'Filled by a state-licensed 503A pharmacy',
         '7/7 direct messaging with your assigned clinician — no waiting rooms',
       ]} />
       <TrustStrip />

@@ -298,7 +298,7 @@ export function MicrodosingAtAGlance() {
     ['How',          `100% online telehealth — no in-person visits. ${CONSULT_NEUTRAL}`],
     ['Frequency',    'Typically once weekly'],
     ['Plans',        `Semaglutide ${P.microdosingSema.tenWeek.priceLabel} / Tirzepatide ${P.microDosingTirz.tenWeek.priceLabel} (10-week)`],
-    ['Pharmacy',     'U.S. licensed 503(A) compounding pharmacies'],
+    ['Pharmacy',     'State-licensed U.S. 503A compounding pharmacies'],
     ['Delivery',     'Free; often as early as the day after your consult'],
   ]
   return (

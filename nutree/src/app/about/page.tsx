@@ -139,7 +139,7 @@ export default function AboutPage() {
       <section style={{ padding: '2rem 1.5rem', background: 'var(--white)', borderTop: '1px solid var(--border)' }}>
         <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--ink-3)', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: '1rem' }}>Credentials & compliance</div>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-          {['🏥 Licensed Florida telehealth practice', '✅ LegitScript certified', '🔒 HIPAA compliant', '🇺🇸 503A licensed pharmacy partners', '💳 FSA / HSA eligible'].map(c => (
+          {['🏥 Licensed Florida telehealth practice', '✅ LegitScript certified', '🔒 HIPAA compliant', '🇺🇸 State-licensed 503A pharmacy partners', '💳 FSA / HSA eligible'].map(c => (
             <div key={c} className="trust-pill">{c}</div>
           ))}
         </div>

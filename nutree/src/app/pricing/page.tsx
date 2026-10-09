@@ -142,7 +142,7 @@ export default function PricingPage() {
         <div style={{ background: 'var(--base)', borderRadius: 'var(--radius-lg)', padding: '1rem', border: '0.5px solid var(--border)' }}>
           <div style={{ fontSize: "0.875rem", fontWeight: 700, color: 'var(--ink-3)', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: '0.375rem' }}>All prices include</div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
-            {['Your prescribed medication', 'Provider consultation', 'Dose adjustments as needed', 'Free expedited shipping', '503A licensed pharmacy', '7/7 clinician messaging'].map(item => (
+            {['Your prescribed medication', 'Provider consultation', 'Dose adjustments as needed', 'Free expedited shipping', 'State-licensed 503A pharmacy', '7/7 clinician messaging'].map(item => (
               <div key={item} style={{ fontSize: "0.875rem", color: 'var(--ink-2)', display: 'flex', alignItems: 'center', gap: '0.375rem' }}>
                 <span style={{ color: 'var(--green-badge)', fontWeight: 700 }}>✓</span> {item}
               </div>

@@ -90,7 +90,7 @@ export function NADPage() {
         'Clear plan pricing before you start — no hidden fees',
         'Provider consultation and dose adjustments included',
         'Free expedited shipping on every order',
-        '503A licensed pharmacy on every prescription',
+        'Filled by a state-licensed 503A pharmacy',
         '7/7 direct messaging with your assigned clinician — no waiting rooms',
       ]} />
       <p style={{ padding: '0 1.25rem 1rem', background: 'var(--white)', fontSize: '0.875rem', color: 'var(--ink-3)', lineHeight: 1.6 }}>

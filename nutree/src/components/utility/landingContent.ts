@@ -20,7 +20,7 @@ export const BENEFITS_DISCLAIMER =
   'This information is educational only and is not a promise of results. Eligibility, response, side effects, and outcomes vary. Your clinician will determine whether treatment is appropriate for you based on your medical history and goals.'
 
 export const MICRODOSING_CHECKLIST = [
-  'Licensed 503A pharmacy medications',
+  'Filled by state-licensed 503A pharmacies',
   'No membership, no hidden fees',
   'Consultation and shipping included',
   'No commitment, cancel anytime',

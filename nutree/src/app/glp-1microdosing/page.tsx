@@ -60,7 +60,7 @@ export default function GlpMicrodosingPage() {
       <BenefitsList color="var(--glp)" items={[
         'Lower starting doses — some patients find side effects easier to manage',
         'An option for GLP-1 first-timers or those who had trouble tolerating standard dosing',
-        'Licensed 503A pharmacy medications',
+        'Filled by state-licensed 503A pharmacies',
         'Consultation and shipping included · no membership, no hidden fees',
         'Fixed program — no auto-renewal, no ongoing commitment',
         '7/7 direct messaging with your assigned clinician — no waiting rooms',

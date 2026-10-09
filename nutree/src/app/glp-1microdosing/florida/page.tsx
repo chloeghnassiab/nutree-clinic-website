@@ -58,7 +58,7 @@ export default function FloridaMicrodosingPage() {
       <PlanFinePrint />
 
       <BenefitsList color="var(--glp)" items={[
-        'Licensed 503A pharmacy medications',
+        'Filled by state-licensed 503A pharmacies',
         'No membership, no hidden fees',
         'Consultation and shipping included — free delivery statewide',
         'No commitment — fixed program, no auto-renewal',

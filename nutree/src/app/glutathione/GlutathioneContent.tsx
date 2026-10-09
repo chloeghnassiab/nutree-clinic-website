@@ -60,7 +60,7 @@ export function GlutathioneContent() {
         'Off-label use; human evidence for wellness benefits is limited',
         'Provider consultation and dose adjustments included',
         'Free expedited shipping on every order',
-        '503A licensed pharmacy on every prescription',
+        'Filled by a state-licensed 503A pharmacy',
         '7/7 direct messaging with your assigned clinician — no waiting rooms',
       ]} />
       <TrustStrip />

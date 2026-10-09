@@ -102,7 +102,7 @@ export default async function CityMicrodosingPage({ params }: Props) {
       <PlanFinePrint />
 
       <BenefitsList color="var(--glp)" items={[
-        'Licensed 503A pharmacy medications',
+        'Filled by state-licensed 503A pharmacies',
         'No membership, no hidden fees',
         `Consultation and shipping included — free delivery to ${city.h1Name}`,
         'No commitment — fixed program, no auto-renewal',

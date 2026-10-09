@@ -441,7 +441,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: 'glut-fda',
     question: 'Is glutathione FDA-approved?',
     answer:
-      'Compounded glutathione is not FDA-approved. It is prepared by licensed 503A compounding pharmacies and prescribed off-label. All prescriptions are issued at the sole clinical discretion of your licensed Nutree provider.',
+      'Compounded glutathione is not FDA-approved. It is prepared by state-licensed 503A compounding pharmacies and prescribed off-label. All prescriptions are issued at the sole clinical discretion of your licensed Nutree provider.',
     category: 'glutathione',
     pages: ['/glutathione', '/faq'],
     active: true,

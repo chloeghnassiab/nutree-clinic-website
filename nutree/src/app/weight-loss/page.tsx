@@ -100,7 +100,7 @@ export default function WeightLossPage() {
         'Free expedited shipping on every order',
         'Provider consultation and dose adjustments included',
         'Personalised dosing adjusted to your response and goals',
-        '503A licensed pharmacy on every prescription',
+        'Filled by a state-licensed 503A pharmacy',
         '7/7 direct messaging with your assigned clinician — no waiting rooms',
       ]} />
       <div style={{ background: 'var(--white)', padding: '0 1.25rem 1rem' }}>
@@ -115,7 +115,7 @@ export default function WeightLossPage() {
         title="Your price. Your dose. Your plan."
         body="Every Nutree GLP-1 plan is built around you — medication, consultation, and shipping all included. Your plan price is shown before you start, with no hidden fees."
         cards={[
-          { icon: 'Pill', title: 'Medication included', desc: 'Compounded by a licensed 503A pharmacy to your prescription' },
+          { icon: 'Pill', title: 'Medication included', desc: 'Compounded by a state-licensed 503A pharmacy to your prescription' },
           { icon: 'Stethoscope', title: 'Provider care', desc: 'Consultation, follow-ups, and dose adjustments throughout' },
           { icon: 'Package', title: 'Free shipping', desc: 'Expedited, discreet delivery on every order' },
         ]}
@@ -133,7 +133,7 @@ export default function WeightLossPage() {
           { title: 'Tell us about yourself', desc: 'Complete a short intake so we understand your health history, goals, and concerns. It takes about 3 minutes.' },
           { title: 'Get matched with your clinician', desc: `${CONSULT_NEUTRAL} Your clinician decides whether treatment is appropriate for your health profile.` },
           { title: 'A personalized plan — from home', desc: 'Your licensed Nutree Clinic provider considers your health history, habits, and goals. Semaglutide or tirzepatide is prescribed only if your provider determines it is appropriate.' },
-          { title: 'Ongoing care, not just a prescription', desc: 'If prescribed, your medication is prepared by our licensed 503A pharmacy partner and shipped free to your door. You can message your care team 7 days a week; your clinician monitors progress and adjusts your dose when needed. For emergencies, call 911.' },
+          { title: 'Ongoing care, not just a prescription', desc: 'If prescribed, your medication is prepared by a state-licensed 503A pharmacy partner and shipped free to your door. You can message your care team 7 days a week; your clinician monitors progress and adjusts your dose when needed. For emergencies, call 911.' },
         ]}
       />
 

@@ -104,7 +104,7 @@ export function ProgramDetails() {
   )
 }
 
-// ─── FDA-REGULATED PHARMACY PARTNERS ─────────────────────────────────────────
+// ─── STATE-LICENSED PHARMACY PARTNERS ─────────────────────────────────────────
 export function PharmacyPartners() {
   return (
     <section style={section('var(--base)')}>
